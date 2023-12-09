@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;KIT_A2G_TC375_LITE/SCR/CCU_Capture_Mode_0.c&apos; to &apos;CCU_Capture_Mode_0_Config.c&apos;" description="Rename resource &apos;CCU_Capture_Mode_0.c&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="SCR/CCU_Capture_Mode_0.c" name="CCU_Capture_Mode_0_Config.c" stamp="1702153683718" updateReferences="true"/>
+</session>
