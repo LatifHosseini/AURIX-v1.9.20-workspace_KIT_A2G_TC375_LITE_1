@@ -200,16 +200,19 @@ __sfr __at (0xc0) SCR_T2CCU_COSHDW ;              /* RMAP=0, PAGE= 2 - T2CCU Com
 __sfr __at (0xc1) SCR_T2CCU_CC0L ;                /* RMAP=0, PAGE= 2 - T2CCU Capture/Compare Register 0 Low */
 __sfr __at (0xc2) SCR_T2CCU_CC1L ;                /* RMAP=0, PAGE= 2 - T2CCU Capture/Compare Register 1 Low */
 __sfr __at (0xc3) SCR_T2CCU_CC2L;                /* RMAP=0, PAGE= 2 - T2CCU Capture/Compare Register 2 Low */
-__sfr __at (0xc4) SCR_T2CCU_CC0H ;                /* RMAP=0, PAGE= 2 - T2CCU Capture/Compare Register 0 High */
-__sfr __at (0xc5) SCR_T2CCU_CC1H ;                /* RMAP=0, PAGE= 2 - T2CCU Capture/Compare Register 1 High */
-__sfr __at (0xc6) SCR_T2CCU_CC2H ;                /* RMAP=0, PAGE= 2 - T2CCU Capture/Compare Register 2 High */
-__sfr __at (0xc0) SCR_T2CCU_COCON ;               /* RMAP=0, PAGE= 3 - T2CCU Compare Control Register */
 __sfr __at (0xc1) SCR_T2CCU_CC3L ;                /* RMAP=0, PAGE= 3 - T2CCU Capture/Compare Register 3 Low */
 __sfr __at (0xc2) SCR_T2CCU_CC4L;                 /* RMAP=0, PAGE= 3 - T2CCU Capture/Compare Register 4 Low */
 __sfr __at (0xc3) SCR_T2CCU_CC5L ;                /* RMAP=0, PAGE= 3 - T2CCU Capture/Compare Register 5 Low */
+
+__sfr __at (0xc4) SCR_T2CCU_CC0H ;                /* RMAP=0, PAGE= 2 - T2CCU Capture/Compare Register 0 High */
+__sfr __at (0xc5) SCR_T2CCU_CC1H ;                /* RMAP=0, PAGE= 2 - T2CCU Capture/Compare Register 1 High */
+__sfr __at (0xc6) SCR_T2CCU_CC2H ;                /* RMAP=0, PAGE= 2 - T2CCU Capture/Compare Register 2 High */
 __sfr __at (0xc4) SCR_T2CCU_CC3H ;                /* RMAP=0, PAGE= 3 - T2CCU Capture/Compare Register 3 High */
 __sfr __at (0xc5) SCR_T2CCU_CC4H  ;               /* RMAP=0, PAGE= 3 - T2CCU Capture/Compare Register 4 High */
 __sfr __at (0xc6) SCR_T2CCU_CC5H ;                /* RMAP=0, PAGE= 3 - T2CCU Capture/Compare Register 5 High */
+//__sfr __at (0xc1) SCR_T2CCU_CC3L ;                /* RMAP=0, PAGE= 3 - T2CCU Capture/Compare Register 3 Low */
+__sfr __at (0xc0) SCR_T2CCU_COCON ;               /* RMAP=0, PAGE= 3 - T2CCU Compare Control Register */
+
 __sfr __at (0xc2) SCR_T2CCU_CCTDTCL ;             /* RMAP=0, PAGE= 4 - T2CCU Capture/Compare Timer Dead-Time Control Register Low */
 __sfr __at (0xc3) SCR_T2CCU_CCTDTCH ;            /* RMAP=0, PAGE= 4 - T2CCU Capture/Compare Timer Dead-Time Control Register High */
 

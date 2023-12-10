@@ -46,8 +46,7 @@
 
  __xdata __at(0x1F00) unsigned int  data ;
 
- volatile unsigned char  FellingEdge ;
- volatile unsigned char  RissingEdge;
+ volatile unsigned char Duty_Cycle_Calculator = 0;
  volatile unsigned char edge_counter = 0;
 
 void delay(void);
@@ -60,6 +59,7 @@ void main()
     volatile unsigned int cnt = 0;
     volatile unsigned char ADC_Stat = 0;
     volatile unsigned char Check_Pin_Stat = 0;
+    uint16 result = 0;
 
 
   //  M.Data_2 = 14;
@@ -90,7 +90,10 @@ void main()
 
     while(1)
     {
-
+        SCR_T2CCU_PAGE = 2;
+        result  = (uint8)(SCR_T2CCU_CC0H << 8u);
+        result  |= (uint8)SCR_T2CCU_CC0L;
+        data = result;
 //        SCR_IO_PAGE = SCR_IO_PAGE0;
 //            SCR_P00_OUT ^= (1 << 3) ;
 //            delay();
@@ -166,14 +169,14 @@ void EXINT5IS_interrupt(void) __interrupt (9){
 
     edge_counter++;
     SCR_T2CCU_PAGE = 1;
-    SCR_T2CCU_CCTBSEL|= (1 << 6) ;  //bit pos 6 SW overflow triger
+    SCR_T2CCU_CCTBSEL|= (1 << 6) ;  //bit position 6 , SW overflow trigger
 
     SCR_IO_PAGE = SCR_IO_PAGE0;
     SCR_P00_OUT ^= (1 << 3) ;
 //SCU_PAGE=0
     SCR_SCU_PAGE = 0;
     SCR_IR_CON0 &= ~(1 << 3) ; // Clear bit 3
-   // SCR_IR_CON0 &= ~(1 << CLEAR_BIT_5_IN_IR_CON0) ;// cleare bit 5 in IR_CON0 register
+   // SCR_IR_CON0 &= ~(1 << CLEAR_BIT_5_IN_IR_CON0) ;// clear bit 5 in IR_CON0 register
 }
 
 

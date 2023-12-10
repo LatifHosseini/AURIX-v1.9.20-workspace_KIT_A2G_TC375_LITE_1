@@ -153,16 +153,16 @@ _SCR_T2CCU_COSHDW	=	0x00c0
 _SCR_T2CCU_CC0L	=	0x00c1
 _SCR_T2CCU_CC1L	=	0x00c2
 _SCR_T2CCU_CC2L	=	0x00c3
-_SCR_T2CCU_CC0H	=	0x00c4
-_SCR_T2CCU_CC1H	=	0x00c5
-_SCR_T2CCU_CC2H	=	0x00c6
-_SCR_T2CCU_COCON	=	0x00c0
 _SCR_T2CCU_CC3L	=	0x00c1
 _SCR_T2CCU_CC4L	=	0x00c2
 _SCR_T2CCU_CC5L	=	0x00c3
+_SCR_T2CCU_CC0H	=	0x00c4
+_SCR_T2CCU_CC1H	=	0x00c5
+_SCR_T2CCU_CC2H	=	0x00c6
 _SCR_T2CCU_CC3H	=	0x00c4
 _SCR_T2CCU_CC4H	=	0x00c5
 _SCR_T2CCU_CC5H	=	0x00c6
+_SCR_T2CCU_COCON	=	0x00c0
 _SCR_T2CCU_CCTDTCL	=	0x00c2
 _SCR_T2CCU_CCTDTCH	=	0x00c3
 _SCR_NMISR	=	0x00f2
@@ -241,10 +241,10 @@ _SCR_CCU_Capture_Mode_0:
 	mov	_SCR_T2CCU_PAGE,#0x01
 ;	../SCR/CCU_Capture_Mode_0_Config.c:58: SCR_T2CCU_CCTBSEL |= (1 << 0) ; // //CCT as Time Bse Timer Bit pos 0 for capture chanel 0
 	orl	_SCR_T2CCU_CCTBSEL,#0x01
-;	../SCR/CCU_Capture_Mode_0_Config.c:60: SCR_T2CCU_CCEN = (SCR_T2CCU_CCEN & (unsigned char)(~(0x03 << 0))) | (0x02);
+;	../SCR/CCU_Capture_Mode_0_Config.c:60: SCR_T2CCU_CCEN = (SCR_T2CCU_CCEN & (unsigned char)(~(0x03 << 0))) | (0x01);
 	mov	a,#0xFC
 	anl	a,_SCR_T2CCU_CCEN
-	orl	a,#0x02
+	orl	a,#0x01
 	mov	_SCR_T2CCU_CCEN,a
 .00101:
 ;	../SCR/CCU_Capture_Mode_0_Config.c:63: }

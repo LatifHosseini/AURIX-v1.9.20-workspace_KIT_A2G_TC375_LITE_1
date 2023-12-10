@@ -906,3 +906,432 @@ Caused by: java.net.MalformedURLException: no protocol:
 
 !ENTRY com.infineon.aurix.buildsystem 1 0 2023-12-09 23:07:12.974
 !MESSAGE Include paths were discovered in 78 milliseconds.
+!SESSION 2023-12-09 23:25:13.418 -----------------------------------------------
+eclipse.buildId=1.9.20
+java.version=17.0.4.1
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -perspective com.infineon.aurix.buildmanager.perspective.c
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -perspective com.infineon.aurix.buildmanager.perspective.c
+
+!ENTRY com.infineon.aurix.buildsystem 4 0 2023-12-09 23:25:43.541
+!MESSAGE ConnectException
+!STACK 0
+java.net.ConnectException
+	at java.net.http/jdk.internal.net.http.HttpClientImpl.send(HttpClientImpl.java:573)
+	at java.net.http/jdk.internal.net.http.HttpClientFacade.send(HttpClientFacade.java:123)
+	at com.infineon.aurix.buildsystem.IFXNetworkUtils$1.run(IFXNetworkUtils.java:44)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: java.net.ConnectException
+	at java.net.http/jdk.internal.net.http.common.Utils.toConnectException(Utils.java:1047)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.connectAsync(PlainHttpConnection.java:198)
+	at java.net.http/jdk.internal.net.http.AsyncSSLConnection.connectAsync(AsyncSSLConnection.java:56)
+	at java.net.http/jdk.internal.net.http.Http1Exchange.sendHeadersAsync(Http1Exchange.java:239)
+	at java.net.http/jdk.internal.net.http.Exchange.lambda$responseAsyncImpl0$9(Exchange.java:472)
+	at java.net.http/jdk.internal.net.http.Exchange.checkFor407(Exchange.java:404)
+	at java.net.http/jdk.internal.net.http.Exchange.lambda$responseAsyncImpl0$10(Exchange.java:476)
+	at java.base/java.util.concurrent.CompletableFuture.uniHandle(CompletableFuture.java:934)
+	at java.base/java.util.concurrent.CompletableFuture.uniHandleStage(CompletableFuture.java:950)
+	at java.base/java.util.concurrent.CompletableFuture.handle(CompletableFuture.java:2340)
+	at java.net.http/jdk.internal.net.http.Exchange.responseAsyncImpl0(Exchange.java:476)
+	at java.net.http/jdk.internal.net.http.Exchange.responseAsyncImpl(Exchange.java:380)
+	at java.net.http/jdk.internal.net.http.Exchange.responseAsync(Exchange.java:372)
+	at java.net.http/jdk.internal.net.http.MultiExchange.responseAsyncImpl(MultiExchange.java:408)
+	at java.net.http/jdk.internal.net.http.MultiExchange.lambda$responseAsyncImpl$7(MultiExchange.java:449)
+	at java.base/java.util.concurrent.CompletableFuture.uniHandle(CompletableFuture.java:934)
+	at java.base/java.util.concurrent.CompletableFuture.uniHandleStage(CompletableFuture.java:950)
+	at java.base/java.util.concurrent.CompletableFuture.handle(CompletableFuture.java:2340)
+	at java.net.http/jdk.internal.net.http.MultiExchange.responseAsyncImpl(MultiExchange.java:439)
+	at java.net.http/jdk.internal.net.http.MultiExchange.lambda$responseAsync0$2(MultiExchange.java:341)
+	at java.base/java.util.concurrent.CompletableFuture$UniCompose.tryFire(CompletableFuture.java:1150)
+	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1773)
+	at java.net.http/jdk.internal.net.http.HttpClientImpl$DelegatingExecutor.execute(HttpClientImpl.java:157)
+	at java.base/java.util.concurrent.CompletableFuture.completeAsync(CompletableFuture.java:2673)
+	at java.net.http/jdk.internal.net.http.MultiExchange.responseAsync(MultiExchange.java:294)
+	at java.net.http/jdk.internal.net.http.HttpClientImpl.sendAsync(HttpClientImpl.java:654)
+	at java.net.http/jdk.internal.net.http.HttpClientImpl.send(HttpClientImpl.java:552)
+	... 3 more
+Caused by: java.nio.channels.UnresolvedAddressException
+	at java.base/sun.nio.ch.Net.checkAddress(Net.java:149)
+	at java.base/sun.nio.ch.Net.checkAddress(Net.java:157)
+	at java.base/sun.nio.ch.SocketChannelImpl.checkRemote(SocketChannelImpl.java:816)
+	at java.base/sun.nio.ch.SocketChannelImpl.connect(SocketChannelImpl.java:839)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.lambda$connectAsync$0(PlainHttpConnection.java:183)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:569)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.connectAsync(PlainHttpConnection.java:185)
+	... 29 more
+
+!ENTRY org.eclipse.cdt.core 1 0 2023-12-09 23:32:54.916
+!MESSAGE Indexed 'KIT_A2G_TC375_LITE' (12 sources, 8 headers) in 0,69 sec: 434 declarations; 431 references; 0 unresolved inclusions; 209 syntax errors; 208 unresolved names (19 %)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-12-09 23:32:55.958
+!MESSAGE Boosting configuration SCR Debug (SDCC) of project KIT_A2G_TC375_LITE boosted in 367 milliseconds. (full boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-12-09 23:32:56.060
+!MESSAGE Include paths were discovered in 97 milliseconds.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-12-09 23:39:28.903
+!MESSAGE Boosting configuration SCR Debug (SDCC) of project KIT_A2G_TC375_LITE boosted in 160 milliseconds. (full boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-12-09 23:39:28.980
+!MESSAGE Include paths were discovered in 75 milliseconds.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-12-09 23:39:36.338
+!MESSAGE Project index is not complete, and cannot be used for boosting.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-12-09 23:39:36.339
+!MESSAGE Boosting configuration SCR Debug (SDCC) of project KIT_A2G_TC375_LITE boosted in 1 milliseconds. (full boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-12-09 23:39:36.340
+!MESSAGE Project index is not complete, and cannot be used for boosting.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-12-09 23:39:36.341
+!MESSAGE Boosting configuration TriCore Debug (TASKING) of project KIT_A2G_TC375_LITE boosted in 1 milliseconds. (full boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-12-09 23:39:36.624
+!MESSAGE Include paths were discovered in 280 milliseconds.
+
+!ENTRY org.eclipse.cdt.core 1 0 2023-12-09 23:40:17.650
+!MESSAGE Indexed 'KIT_A2G_TC375_LITE' (88 sources, 488 headers) in 43,1 sec: 133 239 declarations; 123 159 references; 12 unresolved inclusions; 861 syntax errors; 5 294 unresolved names (2 %)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-12-09 23:40:24.584
+!MESSAGE Boosting configuration SCR Debug (SDCC) of project KIT_A2G_TC375_LITE boosted in 344 milliseconds. (incremental boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-12-09 23:40:26.736
+!MESSAGE Boosting configuration TriCore Debug (TASKING) of project KIT_A2G_TC375_LITE boosted in 2149 milliseconds. (incremental boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-12-09 23:40:26.881
+!MESSAGE Include paths were discovered in 142 milliseconds.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-12-09 23:40:43.992
+!MESSAGE Boosting configuration SCR Debug (SDCC) of project KIT_A2G_TC375_LITE boosted in 226 milliseconds. (incremental boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-12-09 23:40:45.938
+!MESSAGE Boosting configuration TriCore Debug (TASKING) of project KIT_A2G_TC375_LITE boosted in 1944 milliseconds. (incremental boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-12-09 23:40:46.087
+!MESSAGE Include paths were discovered in 147 milliseconds.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-12-09 23:40:52.589
+!MESSAGE Project index is not complete, and cannot be used for boosting.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-12-09 23:40:52.590
+!MESSAGE Boosting configuration SCR Debug (SDCC) of project KIT_A2G_TC375_LITE boosted in 0 milliseconds. (incremental boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-12-09 23:40:52.590
+!MESSAGE Project index is not complete, and cannot be used for boosting.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-12-09 23:40:52.591
+!MESSAGE Boosting configuration TriCore Debug (TASKING) of project KIT_A2G_TC375_LITE boosted in 0 milliseconds. (incremental boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-12-09 23:40:52.685
+!MESSAGE Include paths were discovered in 93 milliseconds.
+!SESSION 2023-12-09 23:50:50.514 -----------------------------------------------
+eclipse.buildId=1.9.20
+java.version=17.0.4.1
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -perspective com.infineon.aurix.buildmanager.perspective.c
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -perspective com.infineon.aurix.buildmanager.perspective.c
+
+!ENTRY com.infineon.aurix.buildsystem 4 0 2023-12-09 23:51:19.753
+!MESSAGE ConnectException
+!STACK 0
+java.net.ConnectException
+	at java.net.http/jdk.internal.net.http.HttpClientImpl.send(HttpClientImpl.java:573)
+	at java.net.http/jdk.internal.net.http.HttpClientFacade.send(HttpClientFacade.java:123)
+	at com.infineon.aurix.buildsystem.IFXNetworkUtils$1.run(IFXNetworkUtils.java:44)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: java.net.ConnectException
+	at java.net.http/jdk.internal.net.http.common.Utils.toConnectException(Utils.java:1047)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.connectAsync(PlainHttpConnection.java:198)
+	at java.net.http/jdk.internal.net.http.AsyncSSLConnection.connectAsync(AsyncSSLConnection.java:56)
+	at java.net.http/jdk.internal.net.http.Http1Exchange.sendHeadersAsync(Http1Exchange.java:239)
+	at java.net.http/jdk.internal.net.http.Exchange.lambda$responseAsyncImpl0$9(Exchange.java:472)
+	at java.net.http/jdk.internal.net.http.Exchange.checkFor407(Exchange.java:404)
+	at java.net.http/jdk.internal.net.http.Exchange.lambda$responseAsyncImpl0$10(Exchange.java:476)
+	at java.base/java.util.concurrent.CompletableFuture.uniHandle(CompletableFuture.java:934)
+	at java.base/java.util.concurrent.CompletableFuture.uniHandleStage(CompletableFuture.java:950)
+	at java.base/java.util.concurrent.CompletableFuture.handle(CompletableFuture.java:2340)
+	at java.net.http/jdk.internal.net.http.Exchange.responseAsyncImpl0(Exchange.java:476)
+	at java.net.http/jdk.internal.net.http.Exchange.responseAsyncImpl(Exchange.java:380)
+	at java.net.http/jdk.internal.net.http.Exchange.responseAsync(Exchange.java:372)
+	at java.net.http/jdk.internal.net.http.MultiExchange.responseAsyncImpl(MultiExchange.java:408)
+	at java.net.http/jdk.internal.net.http.MultiExchange.lambda$responseAsyncImpl$7(MultiExchange.java:449)
+	at java.base/java.util.concurrent.CompletableFuture.uniHandle(CompletableFuture.java:934)
+	at java.base/java.util.concurrent.CompletableFuture.uniHandleStage(CompletableFuture.java:950)
+	at java.base/java.util.concurrent.CompletableFuture.handle(CompletableFuture.java:2340)
+	at java.net.http/jdk.internal.net.http.MultiExchange.responseAsyncImpl(MultiExchange.java:439)
+	at java.net.http/jdk.internal.net.http.MultiExchange.lambda$responseAsync0$2(MultiExchange.java:341)
+	at java.base/java.util.concurrent.CompletableFuture$UniCompose.tryFire(CompletableFuture.java:1150)
+	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1773)
+	at java.net.http/jdk.internal.net.http.HttpClientImpl$DelegatingExecutor.execute(HttpClientImpl.java:157)
+	at java.base/java.util.concurrent.CompletableFuture.completeAsync(CompletableFuture.java:2673)
+	at java.net.http/jdk.internal.net.http.MultiExchange.responseAsync(MultiExchange.java:294)
+	at java.net.http/jdk.internal.net.http.HttpClientImpl.sendAsync(HttpClientImpl.java:654)
+	at java.net.http/jdk.internal.net.http.HttpClientImpl.send(HttpClientImpl.java:552)
+	... 3 more
+Caused by: java.nio.channels.UnresolvedAddressException
+	at java.base/sun.nio.ch.Net.checkAddress(Net.java:149)
+	at java.base/sun.nio.ch.Net.checkAddress(Net.java:157)
+	at java.base/sun.nio.ch.SocketChannelImpl.checkRemote(SocketChannelImpl.java:816)
+	at java.base/sun.nio.ch.SocketChannelImpl.connect(SocketChannelImpl.java:839)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.lambda$connectAsync$0(PlainHttpConnection.java:183)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:569)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.connectAsync(PlainHttpConnection.java:185)
+	... 29 more
+
+!ENTRY org.eclipse.cdt.core 1 0 2023-12-09 23:51:32.586
+!MESSAGE Indexed 'KIT_A2G_TC375_LITE' (12 sources, 8 headers) in 0,939 sec: 434 declarations; 439 references; 0 unresolved inclusions; 209 syntax errors; 208 unresolved names (19 %)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-12-09 23:51:33.745
+!MESSAGE Boosting configuration SCR Debug (SDCC) of project KIT_A2G_TC375_LITE boosted in 296 milliseconds. (full boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-12-09 23:51:33.824
+!MESSAGE Include paths were discovered in 75 milliseconds.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-12-09 23:51:42.752
+!MESSAGE Project index is not complete, and cannot be used for boosting.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-12-09 23:51:42.753
+!MESSAGE Boosting configuration SCR Debug (SDCC) of project KIT_A2G_TC375_LITE boosted in 1 milliseconds. (full boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-12-09 23:51:42.756
+!MESSAGE Project index is not complete, and cannot be used for boosting.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-12-09 23:51:42.757
+!MESSAGE Boosting configuration TriCore Debug (TASKING) of project KIT_A2G_TC375_LITE boosted in 1 milliseconds. (full boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-12-09 23:51:42.957
+!MESSAGE Include paths were discovered in 198 milliseconds.
+
+!ENTRY org.eclipse.cdt.core 1 0 2023-12-09 23:52:22.283
+!MESSAGE Indexed 'KIT_A2G_TC375_LITE' (87 sources, 484 headers) in 42,3 sec: 132 948 declarations; 122 902 references; 12 unresolved inclusions; 860 syntax errors; 5 086 unresolved names (1,9 %)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-12-09 23:52:37.688
+!MESSAGE Boosting configuration SCR Debug (SDCC) of project KIT_A2G_TC375_LITE boosted in 309 milliseconds. (incremental boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-12-09 23:52:39.816
+!MESSAGE Boosting configuration TriCore Debug (TASKING) of project KIT_A2G_TC375_LITE boosted in 2124 milliseconds. (incremental boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-12-09 23:52:39.983
+!MESSAGE Include paths were discovered in 165 milliseconds.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-12-09 23:52:45.846
+!MESSAGE Project index is not complete, and cannot be used for boosting.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-12-09 23:52:45.846
+!MESSAGE Boosting configuration SCR Debug (SDCC) of project KIT_A2G_TC375_LITE boosted in 1 milliseconds. (incremental boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-12-09 23:52:45.847
+!MESSAGE Project index is not complete, and cannot be used for boosting.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-12-09 23:52:45.848
+!MESSAGE Boosting configuration TriCore Debug (TASKING) of project KIT_A2G_TC375_LITE boosted in 0 milliseconds. (incremental boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-12-09 23:52:45.989
+!MESSAGE Include paths were discovered in 138 milliseconds.
+
+!ENTRY com.tasking.debug.cdt.core 4 150 2023-12-09 23:52:55.800
+!MESSAGE Error creating session 
+!SUBENTRY 1 com.tasking.debug.cdt.core 4 150 2023-12-09 23:52:55.800
+!MESSAGE The debug instrument IO could not be initialized.
+!SUBENTRY 1 com.tasking.debug.cdt.core 4 150 2023-12-09 23:52:55.800
+!MESSAGE The GDI debug instrument provided the following error message.
+!SUBENTRY 1 com.tasking.debug.cdt.core 4 150 2023-12-09 23:52:55.800
+!MESSAGE Could not open Access HW
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-12-09 23:53:13.104
+!MESSAGE Boosting configuration SCR Debug (SDCC) of project KIT_A2G_TC375_LITE boosted in 254 milliseconds. (incremental boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-12-09 23:53:15.056
+!MESSAGE Boosting configuration TriCore Debug (TASKING) of project KIT_A2G_TC375_LITE boosted in 1950 milliseconds. (incremental boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-12-09 23:53:15.165
+!MESSAGE Include paths were discovered in 107 milliseconds.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-12-09 23:53:20.651
+!MESSAGE Boosting configuration SCR Debug (SDCC) of project KIT_A2G_TC375_LITE boosted in 221 milliseconds. (incremental boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-12-09 23:53:22.588
+!MESSAGE Boosting configuration TriCore Debug (TASKING) of project KIT_A2G_TC375_LITE boosted in 1935 milliseconds. (incremental boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-12-09 23:53:22.690
+!MESSAGE Include paths were discovered in 101 milliseconds.
+
+!ENTRY org.eclipse.ui.console 4 120 2023-12-09 23:53:27.440
+!MESSAGE Error logged from Console plug-in: 
+!STACK 0
+java.io.IOException: Output Stream is closed
+	at org.eclipse.ui.console.IOConsoleOutputStream.encodedWrite(IOConsoleOutputStream.java:265)
+	at org.eclipse.ui.console.IOConsoleOutputStream.write(IOConsoleOutputStream.java:260)
+	at org.eclipse.ui.console.MessageConsoleStream.print(MessageConsoleStream.java:74)
+	at org.eclipse.ui.console.MessageConsoleStream.println(MessageConsoleStream.java:99)
+	at com.tasking.debug.cdt.core.DWNSession.logDebugConsoleMessage(DWNSession.java:2532)
+	at com.tasking.debug.cdt.core.DWNSession.logDebugConsoleMessage(DWNSession.java:2543)
+	at com.tasking.debug.cdt.core.DWNSession.logDebugConsoleMessage(DWNSession.java:2550)
+	at com.tasking.debug.cdt.core.DWNSession.reloadApplication(DWNSession.java:3478)
+	at com.tasking.debug.cdt.core.DWNSession.reloadSuggestion(DWNSession.java:3384)
+	at com.tasking.debug.cdt.core.DWNSession.reloadSuggestionProcess(DWNSession.java:3409)
+	at com.tasking.debug.cdt.core.DarwinPlugin$DarwinPluginAuxThread.run(DarwinPlugin.java:424)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-12-09 23:55:27.720
+!MESSAGE Project index is not complete, and cannot be used for boosting.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-12-09 23:55:27.721
+!MESSAGE Boosting configuration SCR Debug (SDCC) of project KIT_A2G_TC375_LITE boosted in 1 milliseconds. (full boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-12-09 23:55:27.723
+!MESSAGE Project index is not complete, and cannot be used for boosting.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-12-09 23:55:27.724
+!MESSAGE Boosting configuration TriCore Debug (TASKING) of project KIT_A2G_TC375_LITE boosted in 1 milliseconds. (full boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-12-09 23:55:27.898
+!MESSAGE Include paths were discovered in 172 milliseconds.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-12-09 23:56:11.442
+!MESSAGE Boosting configuration SCR Debug (SDCC) of project KIT_A2G_TC375_LITE boosted in 284 milliseconds. (incremental boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-12-09 23:56:13.324
+!MESSAGE Boosting configuration TriCore Debug (TASKING) of project KIT_A2G_TC375_LITE boosted in 1879 milliseconds. (incremental boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-12-09 23:56:13.427
+!MESSAGE Include paths were discovered in 100 milliseconds.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-12-09 23:56:19.599
+!MESSAGE Project index is not complete, and cannot be used for boosting.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-12-09 23:56:19.599
+!MESSAGE Boosting configuration SCR Debug (SDCC) of project KIT_A2G_TC375_LITE boosted in 0 milliseconds. (incremental boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-12-09 23:56:19.600
+!MESSAGE Project index is not complete, and cannot be used for boosting.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-12-09 23:56:19.600
+!MESSAGE Boosting configuration TriCore Debug (TASKING) of project KIT_A2G_TC375_LITE boosted in 0 milliseconds. (incremental boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-12-09 23:56:19.691
+!MESSAGE Include paths were discovered in 89 milliseconds.
+
+!ENTRY org.eclipse.cdt.core 1 0 2023-12-10 00:00:54.190
+!MESSAGE Indexed 'KIT_A2G_TC375_LITE' (12 sources, 8 headers) in 0,136 sec: 434 declarations; 440 references; 0 unresolved inclusions; 209 syntax errors; 208 unresolved names (19 %)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-12-10 00:00:54.941
+!MESSAGE Boosting configuration SCR Debug (SDCC) of project KIT_A2G_TC375_LITE boosted in 185 milliseconds. (full boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-12-10 00:00:54.981
+!MESSAGE Include paths were discovered in 38 milliseconds.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-12-10 00:01:03.638
+!MESSAGE Project index is not complete, and cannot be used for boosting.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-12-10 00:01:03.640
+!MESSAGE Boosting configuration SCR Debug (SDCC) of project KIT_A2G_TC375_LITE boosted in 1 milliseconds. (full boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-12-10 00:01:03.641
+!MESSAGE Project index is not complete, and cannot be used for boosting.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-12-10 00:01:03.642
+!MESSAGE Boosting configuration TriCore Debug (TASKING) of project KIT_A2G_TC375_LITE boosted in 1 milliseconds. (full boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-12-10 00:01:04.155
+!MESSAGE Include paths were discovered in 510 milliseconds.
+
+!ENTRY org.eclipse.cdt.core 1 0 2023-12-10 00:01:44.727
+!MESSAGE Indexed 'KIT_A2G_TC375_LITE' (87 sources, 493 headers) in 42,5 sec: 133 105 declarations; 120 906 references; 12 unresolved inclusions; 2 409 syntax errors; 5 985 unresolved names (2,3 %)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-12-10 00:01:54.310
+!MESSAGE Boosting configuration SCR Debug (SDCC) of project KIT_A2G_TC375_LITE boosted in 573 milliseconds. (incremental boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-12-10 00:01:56.523
+!MESSAGE Boosting configuration TriCore Debug (TASKING) of project KIT_A2G_TC375_LITE boosted in 2210 milliseconds. (incremental boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-12-10 00:01:56.671
+!MESSAGE Include paths were discovered in 145 milliseconds.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-12-10 00:02:24.441
+!MESSAGE Boosting configuration SCR Debug (SDCC) of project KIT_A2G_TC375_LITE boosted in 274 milliseconds. (incremental boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-12-10 00:02:26.165
+!MESSAGE Boosting configuration TriCore Debug (TASKING) of project KIT_A2G_TC375_LITE boosted in 1723 milliseconds. (incremental boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-12-10 00:02:26.345
+!MESSAGE Include paths were discovered in 178 milliseconds.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-12-10 00:02:33.711
+!MESSAGE Project index is not complete, and cannot be used for boosting.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-12-10 00:02:33.712
+!MESSAGE Boosting configuration SCR Debug (SDCC) of project KIT_A2G_TC375_LITE boosted in 1 milliseconds. (incremental boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-12-10 00:02:33.713
+!MESSAGE Project index is not complete, and cannot be used for boosting.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-12-10 00:02:33.715
+!MESSAGE Boosting configuration TriCore Debug (TASKING) of project KIT_A2G_TC375_LITE boosted in 1 milliseconds. (incremental boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-12-10 00:02:33.887
+!MESSAGE Include paths were discovered in 170 milliseconds.
+
+!ENTRY org.eclipse.cdt.core 1 0 2023-12-10 00:32:04.700
+!MESSAGE Indexed 'KIT_A2G_TC375_LITE' (12 sources, 8 headers) in 0,072 sec: 434 declarations; 440 references; 0 unresolved inclusions; 209 syntax errors; 208 unresolved names (19 %)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-12-10 00:32:05.304
+!MESSAGE Boosting configuration SCR Debug (SDCC) of project KIT_A2G_TC375_LITE boosted in 119 milliseconds. (full boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-12-10 00:32:05.348
+!MESSAGE Include paths were discovered in 42 milliseconds.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-12-10 00:32:11.501
+!MESSAGE Project index is not complete, and cannot be used for boosting.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-12-10 00:32:11.502
+!MESSAGE Boosting configuration SCR Debug (SDCC) of project KIT_A2G_TC375_LITE boosted in 0 milliseconds. (full boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-12-10 00:32:11.502
+!MESSAGE Project index is not complete, and cannot be used for boosting.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-12-10 00:32:11.503
+!MESSAGE Boosting configuration TriCore Debug (TASKING) of project KIT_A2G_TC375_LITE boosted in 0 milliseconds. (full boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-12-10 00:32:11.617
+!MESSAGE Include paths were discovered in 110 milliseconds.
+
+!ENTRY org.eclipse.cdt.core 1 0 2023-12-10 00:32:39.562
+!MESSAGE Indexed 'KIT_A2G_TC375_LITE' (87 sources, 493 headers) in 29 sec: 133 071 declarations; 120 864 references; 12 unresolved inclusions; 2 399 syntax errors; 5 971 unresolved names (2,3 %)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-12-10 00:32:48.795
+!MESSAGE Boosting configuration SCR Debug (SDCC) of project KIT_A2G_TC375_LITE boosted in 319 milliseconds. (incremental boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-12-10 00:32:50.175
+!MESSAGE Boosting configuration TriCore Debug (TASKING) of project KIT_A2G_TC375_LITE boosted in 1378 milliseconds. (incremental boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-12-10 00:32:50.286
+!MESSAGE Include paths were discovered in 108 milliseconds.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-12-10 00:33:16.924
+!MESSAGE Boosting configuration SCR Debug (SDCC) of project KIT_A2G_TC375_LITE boosted in 236 milliseconds. (incremental boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-12-10 00:33:18.234
+!MESSAGE Boosting configuration TriCore Debug (TASKING) of project KIT_A2G_TC375_LITE boosted in 1308 milliseconds. (incremental boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-12-10 00:33:18.320
+!MESSAGE Include paths were discovered in 84 milliseconds.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-12-10 00:33:23.688
+!MESSAGE Project index is not complete, and cannot be used for boosting.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-12-10 00:33:23.689
+!MESSAGE Boosting configuration SCR Debug (SDCC) of project KIT_A2G_TC375_LITE boosted in 0 milliseconds. (incremental boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-12-10 00:33:23.689
+!MESSAGE Project index is not complete, and cannot be used for boosting.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-12-10 00:33:23.690
+!MESSAGE Boosting configuration TriCore Debug (TASKING) of project KIT_A2G_TC375_LITE boosted in 0 milliseconds. (incremental boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-12-10 00:33:23.783
+!MESSAGE Include paths were discovered in 92 milliseconds.

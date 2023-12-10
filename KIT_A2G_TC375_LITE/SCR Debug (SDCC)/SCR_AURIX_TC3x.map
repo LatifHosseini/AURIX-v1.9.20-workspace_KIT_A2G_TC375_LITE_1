@@ -155,7 +155,7 @@ Discarded input sections
 Memory Configuration
 
 Name             Origin             Length             Used               Free               Attributes
-text             0x00000000         0x00001c00         0x00000276         0x0000198a         xr
+text             0x00000000         0x00001c00         0x00000285         0x0000197b         xr
 bit              0x00000000         0x00000080         0x00000000         0x00000080         rw !x
 data             0x00000000         0x00000100         0x00000008         0x000000f8         rw !x
 pdata            0x00000000         0x00000100         0x00000000         0x00000100         rw !x
@@ -322,7 +322,7 @@ Linker script and memory map
                 0x00000101        0x2 SHORT 0x100 ADDR (.gsinit)
 
 .text           memory region -> text
-                0x00000103      0x172
+                0x00000103      0x181
  *(.init)
  *(.text.gsinit0)
  .text.gsinit0  0x00000103        0x6 C:\Infineon\AURIX-Studio-1.9.20\tools\Compilers\sdcc_421/share/sdcc/lib/large\libmcs51.a(crtstart.rel)
@@ -374,27 +374,27 @@ Linker script and memory map
                 0x000001f5        0x7 ./SCR/Select_Interrupt_Priority.o
                 0x000001f5                _SCR_Select_Interrupt_Priority
  .text.code.main
-                0x000001fc       0x47 ./SCR/main.o
+                0x000001fc       0x56 ./SCR/main.o
                 0x000001fc                _main
  .text.code.EXINT2IS_interrupt
-                0x00000243        0xd ./SCR/main.o
-                0x00000243                _EXINT2IS_interrupt
+                0x00000252        0xd ./SCR/main.o
+                0x00000252                _EXINT2IS_interrupt
  .text.code.EXINT5IS_interrupt
-                0x00000250       0x25 ./SCR/main.o
-                0x00000250                _EXINT5IS_interrupt
+                0x0000025f       0x25 ./SCR/main.o
+                0x0000025f                _EXINT5IS_interrupt
  *(.fini)
-                0x00000275                _etext = .
+                0x00000284                _etext = .
 
 .roxdata        memory region -> text
-                0x00000275        0x1
-                0x00000275                __roxdata_start = .
+                0x00000284        0x1
+                0x00000284                __roxdata_start = .
  *(.roxdata.*)
- .roxdata.init  0x00000275        0x1 ./SCR/main.o
-                0x00000276                __roxdata_end = .
+ .roxdata.init  0x00000284        0x1 ./SCR/main.o
+                0x00000285                __roxdata_end = .
                 0x00000008                regsize = DEFINED (__RB3__)?0x20:DEFINED (__RB2__)?0x18:DEFINED (__RB1__)?0x10:0x8
 
 .reg            memory region -> data
-                0x00000000        0x8 load address 0x00000275
+                0x00000000        0x8 load address 0x00000284
                 0x00000000                PROVIDE (__reg_start, .)
  *(.regbank)
                 0x00000008                . = regsize
@@ -483,7 +483,7 @@ Linker script and memory map
                 0x00000008                l_XSEG = (__xdatac_end - __xdatac_start)
                 0x00001d08                s_XISEG = __xdatai_start
                 0x00000001                l_XISEG = (__xdatai_end - __xdatai_start)
-                0x00000275                s_XINIT = __roxdata_start
+                0x00000284                s_XINIT = __roxdata_start
                 0x00000001                l_XINIT = (__roxdata_end - __roxdata_start)
                 0x00000001                _. = ASSERT ((__stack_start < 0xf0), Stack Iram above limit 0xF0)
                 0x00000001                _. = ASSERT ((__ddata_end < 0x80), Direct Iram Data above Limit 0x80)

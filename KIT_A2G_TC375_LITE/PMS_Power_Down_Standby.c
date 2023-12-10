@@ -43,7 +43,7 @@
 #define LED_2           &MODULE_P00,6                   /* LED: Port, Pin definition     */
 #define PWM_SCR         &MODULE_P00,0                   /* LED: Port, Pin definition     */
 #define Push_Button     &MODULE_P00,7                   /* Input: Port, Pin definition   */
-#define WAIT_TIME       500                             /* Wait time constant in milliseconds   */
+#define WAIT_TIME       900                             /* Wait time constant in milliseconds   */
 
 #define LED_D110                            &MODULE_P13,3   /* LED that signals the start of the application        */
 #define LED_D107                            &MODULE_P13,0   /* LED that signals the entering in Standby mode        */

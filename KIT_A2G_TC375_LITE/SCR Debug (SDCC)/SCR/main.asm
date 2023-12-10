@@ -166,16 +166,16 @@ _SCR_T2CCU_COSHDW	=	0x00c0
 _SCR_T2CCU_CC0L	=	0x00c1
 _SCR_T2CCU_CC1L	=	0x00c2
 _SCR_T2CCU_CC2L	=	0x00c3
-_SCR_T2CCU_CC0H	=	0x00c4
-_SCR_T2CCU_CC1H	=	0x00c5
-_SCR_T2CCU_CC2H	=	0x00c6
-_SCR_T2CCU_COCON	=	0x00c0
 _SCR_T2CCU_CC3L	=	0x00c1
 _SCR_T2CCU_CC4L	=	0x00c2
 _SCR_T2CCU_CC5L	=	0x00c3
+_SCR_T2CCU_CC0H	=	0x00c4
+_SCR_T2CCU_CC1H	=	0x00c5
+_SCR_T2CCU_CC2H	=	0x00c6
 _SCR_T2CCU_CC3H	=	0x00c4
 _SCR_T2CCU_CC4H	=	0x00c5
 _SCR_T2CCU_CC5H	=	0x00c6
+_SCR_T2CCU_COCON	=	0x00c0
 _SCR_T2CCU_CCTDTCL	=	0x00c2
 _SCR_T2CCU_CCTDTCH	=	0x00c3
 _SCR_NMISR	=	0x00f2
@@ -278,6 +278,7 @@ _edge_counter:
 ;cnt                       Allocated with name '_main_cnt_65536_29'
 ;ADC_Stat                  Allocated with name '_main_ADC_Stat_65536_29'
 ;Check_Pin_Stat            Allocated with name '_main_Check_Pin_Stat_65536_29'
+;result                    Allocated with name '_main_result_65536_29'
 ;------------------------------------------------------------
 ;	../SCR/main.c:57: void main()
 ;	-----------------------------------------
@@ -304,45 +305,57 @@ _main:
 ;	../SCR/main.c:62: volatile unsigned char Check_Pin_Stat = 0;
 	mov	dptr,#_main_Check_Pin_Stat_65536_29
 	movx	@dptr,a
-;	../SCR/main.c:67: data = (100*5)/(100);
+;	../SCR/main.c:68: data = (100*5)/(100);
 	mov	dptr,#_data
 	mov	a,#0x05
 	movx	@dptr,a
 	clr	a
 	inc	dptr
 	movx	@dptr,a
-;	../SCR/main.c:70: SCR_SCU_PAGE = 1;       //Switch to page 1
+;	../SCR/main.c:71: SCR_SCU_PAGE = 1;       //Switch to page 1
 	mov	_SCR_SCU_PAGE,#0x01
-;	../SCR/main.c:71: SCR_SCU_PMCON1 = 0x59;  //OCDS, T2CCU0, RTC and WCAN enabled
+;	../SCR/main.c:72: SCR_SCU_PMCON1 = 0x59;  //OCDS, T2CCU0, RTC and WCAN enabled
 	mov	_SCR_SCU_PMCON1,#0x59
-;	../SCR/main.c:73: SCR_SCU_PAGE = 0;       //Switch to page 0
+;	../SCR/main.c:74: SCR_SCU_PAGE = 0;       //Switch to page 0
 ;	1-genFromRTrack replaced	mov	_SCR_SCU_PAGE,#0x00
 	mov	_SCR_SCU_PAGE,a
-;	../SCR/main.c:74: SCR_SCRINTEXCHG = 0xA0;
+;	../SCR/main.c:75: SCR_SCRINTEXCHG = 0xA0;
 	mov	_SCR_SCRINTEXCHG,#0xA0
-;	../SCR/main.c:75: SCR_SCU_PAGE = 1;       //Switch to page 0
+;	../SCR/main.c:76: SCR_SCU_PAGE = 1;       //Switch to page 0
 	mov	_SCR_SCU_PAGE,#0x01
-;	../SCR/main.c:77: SCR_IEN0 |= (1 << 7) ; // enable global interrupt Set bit 7
+;	../SCR/main.c:78: SCR_IEN0 |= (1 << 7) ; // enable global interrupt Set bit 7
 	orl	_SCR_IEN0,#0x80
-;	../SCR/main.c:79: gpio_init();
+;	../SCR/main.c:80: gpio_init();
 	lcall	_gpio_init
-;	../SCR/main.c:80: SCR_IR_Select_External_Interrupt_Line();
+;	../SCR/main.c:81: SCR_IR_Select_External_Interrupt_Line();
 	lcall	_SCR_IR_Select_External_Interrupt_Line
-;	../SCR/main.c:81: SCR_IR_Select_Edge_Mode();
+;	../SCR/main.c:82: SCR_IR_Select_Edge_Mode();
 	lcall	_SCR_IR_Select_Edge_Mode
-;	../SCR/main.c:82: SCR_IR_Enable_Interrupt_Node();
+;	../SCR/main.c:83: SCR_IR_Enable_Interrupt_Node();
 	lcall	_SCR_IR_Enable_Interrupt_Node
-;	../SCR/main.c:83: SCR_Select_Interrupt_Priority();
+;	../SCR/main.c:84: SCR_Select_Interrupt_Priority();
 	lcall	_SCR_Select_Interrupt_Priority
-;	../SCR/main.c:87: SCR_CCT_Timer_Basic_Operation();
+;	../SCR/main.c:88: SCR_CCT_Timer_Basic_Operation();
 	lcall	_SCR_CCT_Timer_Basic_Operation
-;	../SCR/main.c:89: SCR_CCU_Capture_Mode_0();
+;	../SCR/main.c:90: SCR_CCU_Capture_Mode_0();
 	lcall	_SCR_CCU_Capture_Mode_0
-;	../SCR/main.c:91: while(1)
+;	../SCR/main.c:92: while(1)
 .00102:
+;	../SCR/main.c:94: SCR_T2CCU_PAGE = 2;
+	mov	_SCR_T2CCU_PAGE,#0x02
+;	../SCR/main.c:96: result  |= (uint8)SCR_T2CCU_CC0L;
+	mov	r6,_SCR_T2CCU_CC0L
+	mov	r7,#0x00
+;	../SCR/main.c:97: data = result;
+	mov	dptr,#_data
+	mov	a,r6
+	movx	@dptr,a
+	mov	a,r7
+	inc	dptr
+	movx	@dptr,a
 	sjmp	.00102
 .00104:
-;	../SCR/main.c:130: }
+;	../SCR/main.c:134: }
 	ret
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'delay'
@@ -350,7 +363,7 @@ _main:
 ;i                         Allocated with name '_delay_i_65536_32'
 ;j                         Allocated with name '_delay_j_65536_32'
 ;------------------------------------------------------------
-;	../SCR/main.c:135: void delay(void){
+;	../SCR/main.c:139: void delay(void){
 ;	-----------------------------------------
 ;	 function delay
 ;	-----------------------------------------
@@ -358,10 +371,10 @@ _main:
 	.type   delay, @function
 _delay:
 	.using 0
-;	../SCR/main.c:139: for( i = 0; i < 1000; i++){
+;	../SCR/main.c:143: for( i = 0; i < 1000; i++){
 	mov	r6,#0x00
 	mov	r7,#0x00
-;	../SCR/main.c:140: for(j = 0; j < 1000; j++){
+;	../SCR/main.c:144: for(j = 0; j < 1000; j++){
 .00119:
 	mov	r4,#0xE8
 	mov	r5,#0x03
@@ -374,7 +387,7 @@ _delay:
 	orl	a,r5
 	jnz	.00114
 .00134:
-;	../SCR/main.c:139: for( i = 0; i < 1000; i++){
+;	../SCR/main.c:143: for( i = 0; i < 1000; i++){
 	inc	r6
 	cjne	r6,#0x00,.00135
 	inc	r7
@@ -388,12 +401,12 @@ _delay:
 	jc	.00119
 .00136:
 .00117:
-;	../SCR/main.c:145: }
+;	../SCR/main.c:149: }
 	ret
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'EXINT2IS_interrupt'
 ;------------------------------------------------------------
-;	../SCR/main.c:152: void EXINT2IS_interrupt(void) __interrupt (5){
+;	../SCR/main.c:156: void EXINT2IS_interrupt(void) __interrupt (5){
 ;	-----------------------------------------
 ;	 function EXINT2IS_interrupt
 ;	-----------------------------------------
@@ -401,16 +414,16 @@ _delay:
 	.type   EXINT2IS_interrupt, @function
 _EXINT2IS_interrupt:
 	.using 0
-;	../SCR/main.c:155: SCR_IO_PAGE = SCR_IO_PAGE0;
+;	../SCR/main.c:159: SCR_IO_PAGE = SCR_IO_PAGE0;
 	mov	_SCR_IO_PAGE,#0x00
-;	../SCR/main.c:156: SCR_P00_OUT ^= (1 << 1) ;
+;	../SCR/main.c:160: SCR_P00_OUT ^= (1 << 1) ;
 	xrl	_SCR_P00_OUT,#0x02
-;	../SCR/main.c:157: SCR_T2CCU_PAGE = 1;
+;	../SCR/main.c:161: SCR_T2CCU_PAGE = 1;
 	mov	_SCR_T2CCU_PAGE,#0x01
-;	../SCR/main.c:158: SCR_T2CCU_CCTCON &= ~(1 << 3) ;//bit pos 3 overflow flag
+;	../SCR/main.c:162: SCR_T2CCU_CCTCON &= ~(1 << 3) ;//bit pos 3 overflow flag
 	anl	_SCR_T2CCU_CCTCON,#0xF7
 .00137:
-;	../SCR/main.c:160: }
+;	../SCR/main.c:164: }
 	reti
 ;	eliminated unneeded mov psw,# (no regs used in bank)
 ;	eliminated unneeded push/pop not_psw
@@ -421,7 +434,7 @@ _EXINT2IS_interrupt:
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'EXINT5IS_interrupt'
 ;------------------------------------------------------------
-;	../SCR/main.c:165: void EXINT5IS_interrupt(void) __interrupt (9){
+;	../SCR/main.c:169: void EXINT5IS_interrupt(void) __interrupt (9){
 ;	-----------------------------------------
 ;	 function EXINT5IS_interrupt
 ;	-----------------------------------------
@@ -432,25 +445,25 @@ _EXINT5IS_interrupt:
 	push	acc
 	push	dpl
 	push	dph
-;	../SCR/main.c:167: edge_counter++;
+;	../SCR/main.c:171: edge_counter++;
 	mov	dptr,#_edge_counter
 	movx	a,@dptr
 	inc	a
 	movx	@dptr,a
-;	../SCR/main.c:168: SCR_T2CCU_PAGE = 1;
+;	../SCR/main.c:172: SCR_T2CCU_PAGE = 1;
 	mov	_SCR_T2CCU_PAGE,#0x01
-;	../SCR/main.c:169: SCR_T2CCU_CCTBSEL|= (1 << 6) ;  //bit pos 6 SW overflow triger
+;	../SCR/main.c:173: SCR_T2CCU_CCTBSEL|= (1 << 6) ;  //bit pos 6 SW overflow triger
 	orl	_SCR_T2CCU_CCTBSEL,#0x40
-;	../SCR/main.c:171: SCR_IO_PAGE = SCR_IO_PAGE0;
+;	../SCR/main.c:175: SCR_IO_PAGE = SCR_IO_PAGE0;
 	mov	_SCR_IO_PAGE,#0x00
-;	../SCR/main.c:172: SCR_P00_OUT ^= (1 << 3) ;
+;	../SCR/main.c:176: SCR_P00_OUT ^= (1 << 3) ;
 	xrl	_SCR_P00_OUT,#0x08
-;	../SCR/main.c:174: SCR_SCU_PAGE = 0;
+;	../SCR/main.c:178: SCR_SCU_PAGE = 0;
 	mov	_SCR_SCU_PAGE,#0x00
-;	../SCR/main.c:175: SCR_IR_CON0 &= ~(1 << 3) ; // Clear bit 3
+;	../SCR/main.c:179: SCR_IR_CON0 &= ~(1 << 3) ; // Clear bit 3
 	anl	_SCR_IR_CON0,#0xF7
 .00139:
-;	../SCR/main.c:177: }
+;	../SCR/main.c:181: }
 	pop	dph
 	pop	dpl
 	pop	acc

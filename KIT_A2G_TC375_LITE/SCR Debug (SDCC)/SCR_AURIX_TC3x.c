@@ -3,8 +3,8 @@
 
 /* The IHX representation */
 
-uint8_t scr_xram[630] = { 
-/* csection: .reset output_size=1 section_size=43 full_size=630 array_size=630 vma=0 lma=0*/
+uint8_t scr_xram[645] = { 
+/* csection: .reset output_size=1 section_size=43 full_size=645 array_size=645 vma=0 lma=0*/
 /* _resetvec [0]: */
     0x02,
     0x01,
@@ -51,10 +51,10 @@ uint8_t scr_xram[630] = {
     0x00,
     0x00,
     0x00,
-/* csection: .isr05 output_size=1 section_size=32 full_size=630 array_size=630 vma=2b lma=2b*/
+/* csection: .isr05 output_size=1 section_size=32 full_size=645 array_size=645 vma=2b lma=2b*/
     0x02,
     0x02,
-    0x43,
+    0x52,
     0x00,
     0x00,
     0x00,
@@ -84,10 +84,10 @@ uint8_t scr_xram[630] = {
     0x00,
     0x00,
     0x00,
-/* csection: .isr09 output_size=1 section_size=181 full_size=630 array_size=630 vma=4b lma=4b*/
+/* csection: .isr09 output_size=1 section_size=181 full_size=645 array_size=645 vma=4b lma=4b*/
     0x02,
     0x02,
-    0x50,
+    0x5F,
     0x00,
     0x00,
     0x00,
@@ -266,12 +266,12 @@ uint8_t scr_xram[630] = {
     0x00,
     0x00,
     0x00,
-/* csection: .gsinit output_size=1 section_size=3 full_size=630 array_size=630 vma=100 lma=100*/
+/* csection: .gsinit output_size=1 section_size=3 full_size=645 array_size=645 vma=100 lma=100*/
 /* __init_table [256]: */
     0x22,
     0x01,
     0x00,
-/* csection: .text output_size=1 section_size=370 full_size=630 array_size=630 vma=103 lma=103*/
+/* csection: .text output_size=1 section_size=385 full_size=645 array_size=645 vma=103 lma=103*/
 /* __sdcc_gsinit_startup [259]: */
     0x75,
     0xD4,
@@ -312,7 +312,7 @@ uint8_t scr_xram[630] = {
     0x01,
     0x90,
     0x02,
-    0x75,
+    0x84,
     0x78,
     0x08,
     0x75,
@@ -452,7 +452,7 @@ uint8_t scr_xram[630] = {
     0x55,
     0xC0,
     0x44,
-    0x02,
+    0x01,
     0xF5,
     0xC0,
 /* .00101 [417]: */
@@ -627,11 +627,26 @@ uint8_t scr_xram[630] = {
     0x01,
     0x93,
 /* .00102 [576]: */
+    0x75,
+    0xC7,
+    0x02,
+    0xAE,
+    0xC1,
+    0x7F,
+    0x00,
+    0x90,
+    0x1F,
+    0x00,
+    0xEE,
+    0xF0,
+    0xEF,
+    0xA3,
+    0xF0,
     0x80,
-    0xFE,
-/* .00104 [578]: */
+    0xEF,
+/* .00104 [593]: */
     0x22,
-/* _EXINT2IS_interrupt [579]: */
+/* _EXINT2IS_interrupt [594]: */
     0x75,
     0x8F,
     0x00,
@@ -644,9 +659,9 @@ uint8_t scr_xram[630] = {
     0x53,
     0xC6,
     0xF7,
-/* .00137 [591]: */
+/* .00137 [606]: */
     0x32,
-/* _EXINT5IS_interrupt [592]: */
+/* _EXINT5IS_interrupt [607]: */
     0xC0,
     0xE0,
     0xC0,
@@ -677,7 +692,7 @@ uint8_t scr_xram[630] = {
     0x53,
     0xF2,
     0xF7,
-/* .00139 [622]: */
+/* .00139 [637]: */
     0xD0,
     0xD6,
     0xD0,
@@ -685,10 +700,10 @@ uint8_t scr_xram[630] = {
     0xD0,
     0xE0,
     0x32,
-/* csection: .roxdata output_size=1 section_size=1 full_size=630 array_size=630 vma=275 lma=275*/
-/* s_XINIT [629]: */
-/* __roxdata_start [629]: */
-/* _etext [629]: */
-/* __xinit__edge_counter [629]: */
+/* csection: .roxdata output_size=1 section_size=1 full_size=645 array_size=645 vma=284 lma=284*/
+/* s_XINIT [644]: */
+/* __roxdata_start [644]: */
+/* _etext [644]: */
+/* __xinit__edge_counter [644]: */
     0x00
 };
