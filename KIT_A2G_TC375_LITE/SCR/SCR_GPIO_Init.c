@@ -71,6 +71,7 @@ void gpio_init(void){
        SCR_P00_IOCR1 = PUSH_PULL_GENERAL_PURPOSE_OUTPUT;
        SCR_P00_IOCR3 = PUSH_PULL_GENERAL_PURPOSE_OUTPUT;
        SCR_P00_IOCR4 = PUSH_PULL_GENERAL_PURPOSE_OUTPUT;
+       SCR_P00_IOCR5 = PUSH_PULL_GENERAL_PURPOSE_OUTPUT;
 
 //------------------     INPUT PINS ------------------------------------------------------
        SCR_IO_PAGE = SCR_IO_PAGE1;  // Switch to Page 1

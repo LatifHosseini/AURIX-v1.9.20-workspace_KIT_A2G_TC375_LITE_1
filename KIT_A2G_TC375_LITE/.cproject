@@ -100,12 +100,12 @@
 				<configuration artifactName="${ProjName}" buildArtefactType="com.infineon.aurix.buildsystem.managed.buildArtefactType.elf" buildProperties="org.eclipse.cdt.build.core.buildArtefactType=com.infineon.aurix.buildsystem.managed.buildArtefactType.elf,org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.debug" description="" id="com.infineon.aurix.buildsystem.managed.configuration.binary.1149139026" name="TriCore Release (TASKING)" parent="com.infineon.aurix.buildsystem.managed.configuration.binary">
 					<folderInfo id="com.infineon.aurix.buildsystem.managed.configuration.binary.1149139026." name="/" resourcePath="">
 						<toolChain id="com.infineon.aurix.buildsystem.managed.toolChain.tasking.exe.binary.21794188" name="TASKING" superClass="com.infineon.aurix.buildsystem.managed.toolChain.tasking.exe.binary">
-							<option id="com.tasking.ctc.cpu.2077642441" superClass="com.tasking.ctc.cpu" value="tc37x" valueType="string"/>
-							<option id="com.tasking.ctc.package.1400725987" superClass="com.tasking.ctc.package" value="lqfp176" valueType="string"/>
+							<option id="com.tasking.ctc.cpu.2077642441" name="Processor" superClass="com.tasking.ctc.cpu" value="tc37x" valueType="string"/>
+							<option id="com.tasking.ctc.package.1400725987" name="Device package" superClass="com.tasking.ctc.package" value="lqfp176" valueType="string"/>
 							<targetPlatform archList="all" binaryParser="com.tasking.managedbuilder.TASKING_ELF" id="com.infineon.aurix.buildsystem.managed.tasking.targetPlatform.1668411041" isAbstract="false" osList="all" superClass="com.infineon.aurix.buildsystem.managed.tasking.targetPlatform"/>
-							<builder buildPath="${workspace_loc:/KIT_A2G_TC375_LITE}/TriCore Release (TASKING)" id="com.infineon.aurix.buildsystem.managed.tasking.builder.2098628558" name="Gnu Make Builder.TriCore Release (TASKING)" superClass="com.infineon.aurix.buildsystem.managed.tasking.builder"/>
+							<builder buildPath="${workspace_loc:/KIT_A2G_TC375_LITE}/TriCore Release (TASKING)" id="com.infineon.aurix.buildsystem.managed.tasking.builder.2098628558" keepEnvironmentInBuildfile="false" name="Gnu Make Builder" superClass="com.infineon.aurix.buildsystem.managed.tasking.builder"/>
 							<tool id="com.infineon.aurix.buildsystem.managed.tool.c.compiler.tasking.debug.382209907" name="TASKING C/C++ Compiler" superClass="com.infineon.aurix.buildsystem.managed.tool.c.compiler.tasking.debug">
-								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="com.infineon.aurix.buildsystem.managed.c.compiler.tasking.include.588035508" superClass="com.infineon.aurix.buildsystem.managed.c.compiler.tasking.include" valueType="includePath">
+								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="com.infineon.aurix.buildsystem.managed.c.compiler.tasking.include.588035508" name="Include paths (-I)" superClass="com.infineon.aurix.buildsystem.managed.c.compiler.tasking.include" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/Configurations}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/Libraries}&quot;"/>
@@ -247,8 +247,9 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/Libraries/iLLD/TC37A/Tricore/_Lib/DataHandling}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/Libraries/iLLD/TC37A/Tricore/_Lib/InternalMux}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/Libraries/iLLD/TC37A/Tricore/_PinMap}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/SCR Debug (SDCC)}&quot;"/>
 								</option>
-								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="com.infineon.aurix.buildsystem.managed.c.compiler.tasking.preprocessor.definedSymbols.1233532240" superClass="com.infineon.aurix.buildsystem.managed.c.compiler.tasking.preprocessor.definedSymbols" valueType="definedSymbols">
+								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="com.infineon.aurix.buildsystem.managed.c.compiler.tasking.preprocessor.definedSymbols.1233532240" name="Defined symbols (-D)" superClass="com.infineon.aurix.buildsystem.managed.c.compiler.tasking.preprocessor.definedSymbols" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="__CPU__=tc37x"/>
 								</option>
 								<inputType id="com.infineon.aurix.buildsystem.managed.tool.c.compiler.tasking.input.cpp.1927906893" name="C++" superClass="com.infineon.aurix.buildsystem.managed.tool.c.compiler.tasking.input.cpp"/>

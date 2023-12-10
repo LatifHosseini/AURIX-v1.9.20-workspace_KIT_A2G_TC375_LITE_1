@@ -253,10 +253,12 @@ _gpio_init:
 	mov	_SCR_P00_IOCR3,#0x80
 ;	../SCR/SCR_GPIO_Init.c:73: SCR_P00_IOCR4 = PUSH_PULL_GENERAL_PURPOSE_OUTPUT;
 	mov	_SCR_P00_IOCR4,#0x80
-;	../SCR/SCR_GPIO_Init.c:76: SCR_IO_PAGE = SCR_IO_PAGE1;  // Switch to Page 1
+;	../SCR/SCR_GPIO_Init.c:74: SCR_P00_IOCR5 = PUSH_PULL_GENERAL_PURPOSE_OUTPUT;
+	mov	_SCR_P00_IOCR5,#0x80
+;	../SCR/SCR_GPIO_Init.c:77: SCR_IO_PAGE = SCR_IO_PAGE1;  // Switch to Page 1
 	mov	_SCR_IO_PAGE,#0x01
-;	../SCR/SCR_GPIO_Init.c:77: SCR_P00_IOCR6 = GENERAL_PURPOSE_INPUT;    // Configure P00.2 as Input
+;	../SCR/SCR_GPIO_Init.c:78: SCR_P00_IOCR6 = GENERAL_PURPOSE_INPUT;    // Configure P00.2 as Input
 	mov	_SCR_P00_IOCR6,#0x00
 .00101:
-;	../SCR/SCR_GPIO_Init.c:80: }
+;	../SCR/SCR_GPIO_Init.c:81: }
 	ret

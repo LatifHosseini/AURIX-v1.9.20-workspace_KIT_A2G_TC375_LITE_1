@@ -28,8 +28,9 @@
 #include "scr_header_files.h"
 #include "SCR_Macros.h"
 #include "SCR_TypesReg.h"
-
-
+/*********************************************************************************************************************/
+/*------------------------------------------------------Macros-------------------------------------------------------*/
+/*********************************************************************************************************************/
 #define     SCR_IO_PAGE0    0
 #define     SCR_IO_PAGE1    1
 #define     SCR_IO_PAGE2    2
@@ -45,21 +46,30 @@
 
 
  __xdata __at(0x1F00) unsigned int  data ;
-
+ /*********************************************************************************************************************/
+ /*-------------------------------------------------Global variables--------------------------------------------------*/
+ /*********************************************************************************************************************/
  volatile unsigned char Duty_Cycle_Calculator = 0;
  volatile unsigned char edge_counter = 0;
-
+ volatile unsigned char Check_Pin_Stat = 0;
+ volatile unsigned int Capture_Value_1 = 0;
+ volatile unsigned int Capture_Value_2 = 0;
+ volatile unsigned int Capture_Value_sum = 0;
+ /*********************************************************************************************************************/
+ /*------------------------------------------------Function Prototypes------------------------------------------------*/
+ /*********************************************************************************************************************/
 void delay(void);
-/**************************************************************************************************
- *
-************************************************************************************************** */
+void Duty_Cycle_Calculator_Function(void);
+/*********************************************************************************************************************/
+/*---------------------------------------------Function Implementations----------------------------------------------*/
+/*********************************************************************************************************************/
 void main()
 {
     volatile unsigned int retunr_value = 0;
     volatile unsigned int cnt = 0;
     volatile unsigned char ADC_Stat = 0;
-    volatile unsigned char Check_Pin_Stat = 0;
-    uint16 result = 0;
+
+
 
 
   //  M.Data_2 = 14;
@@ -90,13 +100,19 @@ void main()
 
     while(1)
     {
-        SCR_T2CCU_PAGE = 2;
-        result  = (uint8)(SCR_T2CCU_CC0H << 8u);
-        result  |= (uint8)SCR_T2CCU_CC0L;
-        data = result;
+        if(Duty_Cycle_Calculator == 1)// call Duty_Cycle_Calculator_Function
+        {
+            Duty_Cycle_Calculator_Function();
+        }
+//        SCR_T2CCU_PAGE = 2;
+//        Capture_Value_1  = (uint8)(SCR_T2CCU_CC0H << 8u);
+//        Capture_Value_1  |= (uint8)SCR_T2CCU_CC0L;
+//        data = result;
 //        SCR_IO_PAGE = SCR_IO_PAGE0;
 //            SCR_P00_OUT ^= (1 << 3) ;
 //            delay();
+
+
 //        SCR_IO_PAGE = SCR_IO_PAGE0;
 //        Check_Pin_Stat = SCR_P00_IN;
 //        Check_Pin_Stat = Check_Pin_Stat & 0x40; //  01000000
@@ -167,17 +183,83 @@ void EXINT2IS_interrupt(void) __interrupt (5){
 /* ISR Node 9*/
 void EXINT5IS_interrupt(void) __interrupt (9){
 
-    edge_counter++;
-    SCR_T2CCU_PAGE = 1;
-    SCR_T2CCU_CCTBSEL|= (1 << 6) ;  //bit position 6 , SW overflow trigger
+    SCR_IO_PAGE = 0;// for debug purpose
 
-    SCR_IO_PAGE = SCR_IO_PAGE0;
-    SCR_P00_OUT ^= (1 << 3) ;
+    if(Duty_Cycle_Calculator == 0)
+    {
+        edge_counter++;
+        Check_Pin_Stat = SCR_P00_IN;
+        Check_Pin_Stat = Check_Pin_Stat & 0x40; //  01000000
+
+/***************************************************************************************************/
+        if(Check_Pin_Stat == 0 )//first rising edge
+           {
+            if(edge_counter == 1)
+            {
+                SCR_T2CCU_PAGE = 1;
+                SCR_T2CCU_CCTBSEL|= (1 << 6) ;//trigger a overflow to reset the CCT timer, bit position 6
+                SCR_P00_OUT |= (1 << 3) ;// for debug purpose
+            }
+
+           }
+/*************************************************************************************************/
+        if(Check_Pin_Stat == 64 )// falling edge
+            {
+                if(edge_counter == 2)
+                {
+                    SCR_P00_OUT |= (1 << 4) ;// for debug purpose
+                    SCR_T2CCU_PAGE = 2;
+                    //read Capture register
+                    Capture_Value_1  = (uint8)(SCR_T2CCU_CC0H << 8u);
+                    Capture_Value_1  |= (uint8)SCR_T2CCU_CC0L;
+
+                }
+
+            }
+/*************************************************************************************************/
+        if(Check_Pin_Stat == 0 )//second rising edge
+            {
+                if(edge_counter == 3)
+                {
+                    SCR_P00_OUT |= (1 << 5) ;// for debug purpose
+                    SCR_T2CCU_PAGE = 2;
+                    Capture_Value_2  = (uint8)(SCR_T2CCU_CC0H << 8u);
+                    Capture_Value_2 |= (uint8)SCR_T2CCU_CC0L;
+
+                }
+
+            }
+/******************************************************************************************************/
+        if(Check_Pin_Stat == 64 )//second rising edge
+                    {
+                        if(edge_counter == 4)
+                        {
+
+                            Duty_Cycle_Calculator = 1;
+                            edge_counter = 0;
+                        }
+
+                    }
+
+    }
+
+
+/*************************************    clear pending bit  ***********************************/
+
 //SCU_PAGE=0
     SCR_SCU_PAGE = 0;
     SCR_IR_CON0 &= ~(1 << 3) ; // Clear bit 3
    // SCR_IR_CON0 &= ~(1 << CLEAR_BIT_5_IN_IR_CON0) ;// clear bit 5 in IR_CON0 register
 }
 
-
+void Duty_Cycle_Calculator_Function(void)
+{
+    Capture_Value_sum = Capture_Value_2 + Capture_Value_1;
+    data =  Capture_Value_sum;
+    Duty_Cycle_Calculator = 0;
+    SCR_IO_PAGE = 0;// for debug purpose
+    SCR_P00_OUT &= ~(1 << 3) ; // Clear bit 3
+    SCR_P00_OUT &= ~(1 << 4) ; // Clear bit 4
+    SCR_P00_OUT &= ~(1 << 5) ; // Clear bit 5
+}
 

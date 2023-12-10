@@ -72,7 +72,7 @@ all: main-build
 main-build: KIT_A2G_TC375_LITE.elf secondary-outputs
 
 dependents:
-	-cd C:/Users/La/AURIX-v1.9.20-workspace/KIT_A2G_TC375_LITE/SCR\ Debug\ (SDCC) && $(MAKE) all
+	-cd C:/Users/La/AURIX-v1.9.20-workspace/KIT_A2G_TC375_LITE/SCR\ Debug\ (SDCC) && $(MAKE) clean all
 
 # Tool invocations
 KIT_A2G_TC375_LITE.elf: $(OBJS) C:/Users/La/AURIX-v1.9.20-workspace/KIT_A2G_TC375_LITE/SCR\ Debug\ (SDCC)/SCR_AURIX_TC3x makefile $(OPTIONAL_TOOL_DEPS)

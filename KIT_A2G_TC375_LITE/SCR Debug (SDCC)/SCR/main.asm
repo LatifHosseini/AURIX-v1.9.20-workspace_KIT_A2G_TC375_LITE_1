@@ -20,10 +20,14 @@
 	.globl	_SCR_IR_Select_Edge_Mode
 	.globl	_SCR_IR_Select_External_Interrupt_Line
 	.globl	_gpio_init
+	.globl	_Capture_Value_sum
+	.globl	_Capture_Value_2
+	.globl	_Capture_Value_1
+	.globl	_Check_Pin_Stat
 	.globl	_edge_counter
-	.globl	_RissingEdge
-	.globl	_FellingEdge
+	.globl	_Duty_Cycle_Calculator
 	.globl	_delay
+	.globl	_Duty_Cycle_Calculator_Function
 ;--------------------------------------------------------
 ; special function registers
 ;--------------------------------------------------------
@@ -241,24 +245,28 @@ _SCR_ADCOMP_CON	=	0x00fb
 ;--------------------------------------------------------
 	.section .xdata.i51,"aw" ;xdata_name ;area
 _data	=	0x1f00
-_FellingEdge:
-	.ds.b	1
-_RissingEdge:
-	.ds.b	1
-_main_retunr_value_65536_29:
+_main_retunr_value_65536_30:
 	.ds.b	2
-_main_cnt_65536_29:
+_main_cnt_65536_30:
 	.ds.b	2
-_main_ADC_Stat_65536_29:
-	.ds.b	1
-_main_Check_Pin_Stat_65536_29:
+_main_ADC_Stat_65536_30:
 	.ds.b	1
 ;--------------------------------------------------------
 ; initialized external ram data
 ;--------------------------------------------------------
 	.section .xdata.init,"aw" ;xidata_name ;area
+_Duty_Cycle_Calculator:
+	.ds.b	1
 _edge_counter:
 	.ds.b	1
+_Check_Pin_Stat:
+	.ds.b	1
+_Capture_Value_1:
+	.ds.b	2
+_Capture_Value_2:
+	.ds.b	2
+_Capture_Value_sum:
+	.ds.b	2
 ;--------------------------------------------------------
 ; interrupt vector
 ;--------------------------------------------------------
@@ -274,13 +282,11 @@ _edge_counter:
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'main'
 ;------------------------------------------------------------
-;retunr_value              Allocated with name '_main_retunr_value_65536_29'
-;cnt                       Allocated with name '_main_cnt_65536_29'
-;ADC_Stat                  Allocated with name '_main_ADC_Stat_65536_29'
-;Check_Pin_Stat            Allocated with name '_main_Check_Pin_Stat_65536_29'
-;result                    Allocated with name '_main_result_65536_29'
+;retunr_value              Allocated with name '_main_retunr_value_65536_30'
+;cnt                       Allocated with name '_main_cnt_65536_30'
+;ADC_Stat                  Allocated with name '_main_ADC_Stat_65536_30'
 ;------------------------------------------------------------
-;	../SCR/main.c:57: void main()
+;	../SCR/main.c:66: void main()
 ;	-----------------------------------------
 ;	 function main
 ;	-----------------------------------------
@@ -288,82 +294,78 @@ _edge_counter:
 	.type   main, @function
 _main:
 	.using 0
-;	../SCR/main.c:59: volatile unsigned int retunr_value = 0;
-	mov	dptr,#_main_retunr_value_65536_29
+;	../SCR/main.c:68: volatile unsigned int retunr_value = 0;
+	mov	dptr,#_main_retunr_value_65536_30
 	clr	a
 	movx	@dptr,a
 	inc	dptr
 	movx	@dptr,a
-;	../SCR/main.c:60: volatile unsigned int cnt = 0;
-	mov	dptr,#_main_cnt_65536_29
+;	../SCR/main.c:69: volatile unsigned int cnt = 0;
+	mov	dptr,#_main_cnt_65536_30
 	movx	@dptr,a
 	inc	dptr
 	movx	@dptr,a
-;	../SCR/main.c:61: volatile unsigned char ADC_Stat = 0;
-	mov	dptr,#_main_ADC_Stat_65536_29
+;	../SCR/main.c:70: volatile unsigned char ADC_Stat = 0;
+	mov	dptr,#_main_ADC_Stat_65536_30
 	movx	@dptr,a
-;	../SCR/main.c:62: volatile unsigned char Check_Pin_Stat = 0;
-	mov	dptr,#_main_Check_Pin_Stat_65536_29
-	movx	@dptr,a
-;	../SCR/main.c:68: data = (100*5)/(100);
+;	../SCR/main.c:77: data = (100*5)/(100);
 	mov	dptr,#_data
 	mov	a,#0x05
 	movx	@dptr,a
 	clr	a
 	inc	dptr
 	movx	@dptr,a
-;	../SCR/main.c:71: SCR_SCU_PAGE = 1;       //Switch to page 1
+;	../SCR/main.c:80: SCR_SCU_PAGE = 1;       //Switch to page 1
 	mov	_SCR_SCU_PAGE,#0x01
-;	../SCR/main.c:72: SCR_SCU_PMCON1 = 0x59;  //OCDS, T2CCU0, RTC and WCAN enabled
+;	../SCR/main.c:81: SCR_SCU_PMCON1 = 0x59;  //OCDS, T2CCU0, RTC and WCAN enabled
 	mov	_SCR_SCU_PMCON1,#0x59
-;	../SCR/main.c:74: SCR_SCU_PAGE = 0;       //Switch to page 0
+;	../SCR/main.c:83: SCR_SCU_PAGE = 0;       //Switch to page 0
 ;	1-genFromRTrack replaced	mov	_SCR_SCU_PAGE,#0x00
 	mov	_SCR_SCU_PAGE,a
-;	../SCR/main.c:75: SCR_SCRINTEXCHG = 0xA0;
+;	../SCR/main.c:84: SCR_SCRINTEXCHG = 0xA0;
 	mov	_SCR_SCRINTEXCHG,#0xA0
-;	../SCR/main.c:76: SCR_SCU_PAGE = 1;       //Switch to page 0
+;	../SCR/main.c:85: SCR_SCU_PAGE = 1;       //Switch to page 0
 	mov	_SCR_SCU_PAGE,#0x01
-;	../SCR/main.c:78: SCR_IEN0 |= (1 << 7) ; // enable global interrupt Set bit 7
+;	../SCR/main.c:87: SCR_IEN0 |= (1 << 7) ; // enable global interrupt Set bit 7
 	orl	_SCR_IEN0,#0x80
-;	../SCR/main.c:80: gpio_init();
+;	../SCR/main.c:89: gpio_init();
 	lcall	_gpio_init
-;	../SCR/main.c:81: SCR_IR_Select_External_Interrupt_Line();
+;	../SCR/main.c:90: SCR_IR_Select_External_Interrupt_Line();
 	lcall	_SCR_IR_Select_External_Interrupt_Line
-;	../SCR/main.c:82: SCR_IR_Select_Edge_Mode();
+;	../SCR/main.c:91: SCR_IR_Select_Edge_Mode();
 	lcall	_SCR_IR_Select_Edge_Mode
-;	../SCR/main.c:83: SCR_IR_Enable_Interrupt_Node();
+;	../SCR/main.c:92: SCR_IR_Enable_Interrupt_Node();
 	lcall	_SCR_IR_Enable_Interrupt_Node
-;	../SCR/main.c:84: SCR_Select_Interrupt_Priority();
+;	../SCR/main.c:93: SCR_Select_Interrupt_Priority();
 	lcall	_SCR_Select_Interrupt_Priority
-;	../SCR/main.c:88: SCR_CCT_Timer_Basic_Operation();
+;	../SCR/main.c:97: SCR_CCT_Timer_Basic_Operation();
 	lcall	_SCR_CCT_Timer_Basic_Operation
-;	../SCR/main.c:90: SCR_CCU_Capture_Mode_0();
+;	../SCR/main.c:99: SCR_CCU_Capture_Mode_0();
 	lcall	_SCR_CCU_Capture_Mode_0
-;	../SCR/main.c:92: while(1)
-.00102:
-;	../SCR/main.c:94: SCR_T2CCU_PAGE = 2;
-	mov	_SCR_T2CCU_PAGE,#0x02
-;	../SCR/main.c:96: result  |= (uint8)SCR_T2CCU_CC0L;
-	mov	r6,_SCR_T2CCU_CC0L
-	mov	r7,#0x00
-;	../SCR/main.c:97: data = result;
-	mov	dptr,#_data
-	mov	a,r6
-	movx	@dptr,a
-	mov	a,r7
-	inc	dptr
-	movx	@dptr,a
-	sjmp	.00102
+;	../SCR/main.c:101: while(1)
 .00104:
-;	../SCR/main.c:134: }
+;	../SCR/main.c:103: if(Duty_Cycle_Calculator == 1)// call Duty_Cycle_Calculator_Function
+	mov	dptr,#_Duty_Cycle_Calculator
+	movx	a,@dptr
+	mov	r7,a
+	cjne	r7,#0x01,.00116
+	sjmp	.00117
+.00116:
+	sjmp	.00104
+.00117:
+;	../SCR/main.c:105: Duty_Cycle_Calculator_Function();
+	lcall	_Duty_Cycle_Calculator_Function
+	sjmp	.00104
+.00106:
+;	../SCR/main.c:149: }
 	ret
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'delay'
 ;------------------------------------------------------------
-;i                         Allocated with name '_delay_i_65536_32'
-;j                         Allocated with name '_delay_j_65536_32'
+;i                         Allocated with name '_delay_i_65536_34'
+;j                         Allocated with name '_delay_j_65536_34'
 ;------------------------------------------------------------
-;	../SCR/main.c:139: void delay(void){
+;	../SCR/main.c:154: void delay(void){
 ;	-----------------------------------------
 ;	 function delay
 ;	-----------------------------------------
@@ -371,42 +373,42 @@ _main:
 	.type   delay, @function
 _delay:
 	.using 0
-;	../SCR/main.c:143: for( i = 0; i < 1000; i++){
+;	../SCR/main.c:158: for( i = 0; i < 1000; i++){
 	mov	r6,#0x00
 	mov	r7,#0x00
-;	../SCR/main.c:144: for(j = 0; j < 1000; j++){
-.00119:
+;	../SCR/main.c:159: for(j = 0; j < 1000; j++){
+.00127:
 	mov	r4,#0xE8
 	mov	r5,#0x03
-.00114:
+.00122:
 	dec	r4
-	cjne	r4,#0xFF,.00133
+	cjne	r4,#0xFF,.00141
 	dec	r5
-.00133:
+.00141:
 	mov	a,r4
 	orl	a,r5
-	jnz	.00114
-.00134:
-;	../SCR/main.c:143: for( i = 0; i < 1000; i++){
+	jnz	.00122
+.00142:
+;	../SCR/main.c:158: for( i = 0; i < 1000; i++){
 	inc	r6
-	cjne	r6,#0x00,.00135
+	cjne	r6,#0x00,.00143
 	inc	r7
-.00135:
+.00143:
 	clr	c
 	mov	a,r6
 	subb	a,#0xE8
 	mov	a,r7
 	xrl	a,#0x80
 	subb	a,#0x83
-	jc	.00119
-.00136:
-.00117:
-;	../SCR/main.c:149: }
+	jc	.00127
+.00144:
+.00125:
+;	../SCR/main.c:164: }
 	ret
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'EXINT2IS_interrupt'
 ;------------------------------------------------------------
-;	../SCR/main.c:156: void EXINT2IS_interrupt(void) __interrupt (5){
+;	../SCR/main.c:171: void EXINT2IS_interrupt(void) __interrupt (5){
 ;	-----------------------------------------
 ;	 function EXINT2IS_interrupt
 ;	-----------------------------------------
@@ -414,16 +416,16 @@ _delay:
 	.type   EXINT2IS_interrupt, @function
 _EXINT2IS_interrupt:
 	.using 0
-;	../SCR/main.c:159: SCR_IO_PAGE = SCR_IO_PAGE0;
+;	../SCR/main.c:174: SCR_IO_PAGE = SCR_IO_PAGE0;
 	mov	_SCR_IO_PAGE,#0x00
-;	../SCR/main.c:160: SCR_P00_OUT ^= (1 << 1) ;
+;	../SCR/main.c:175: SCR_P00_OUT ^= (1 << 1) ;
 	xrl	_SCR_P00_OUT,#0x02
-;	../SCR/main.c:161: SCR_T2CCU_PAGE = 1;
+;	../SCR/main.c:176: SCR_T2CCU_PAGE = 1;
 	mov	_SCR_T2CCU_PAGE,#0x01
-;	../SCR/main.c:162: SCR_T2CCU_CCTCON &= ~(1 << 3) ;//bit pos 3 overflow flag
+;	../SCR/main.c:177: SCR_T2CCU_CCTCON &= ~(1 << 3) ;//bit pos 3 overflow flag
 	anl	_SCR_T2CCU_CCTCON,#0xF7
-.00137:
-;	../SCR/main.c:164: }
+.00145:
+;	../SCR/main.c:179: }
 	reti
 ;	eliminated unneeded mov psw,# (no regs used in bank)
 ;	eliminated unneeded push/pop not_psw
@@ -434,7 +436,7 @@ _EXINT2IS_interrupt:
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'EXINT5IS_interrupt'
 ;------------------------------------------------------------
-;	../SCR/main.c:169: void EXINT5IS_interrupt(void) __interrupt (9){
+;	../SCR/main.c:184: void EXINT5IS_interrupt(void) __interrupt (9){
 ;	-----------------------------------------
 ;	 function EXINT5IS_interrupt
 ;	-----------------------------------------
@@ -445,35 +447,259 @@ _EXINT5IS_interrupt:
 	push	acc
 	push	dpl
 	push	dph
-;	../SCR/main.c:171: edge_counter++;
+	push	ar7
+	push	ar6
+	push	ar5
+	push	ar4
+	push	psw
+	mov	psw,#0x00
+;	../SCR/main.c:186: SCR_IO_PAGE = 0;// for debug purpose
+	mov	_SCR_IO_PAGE,#0x00
+;	../SCR/main.c:188: if(Duty_Cycle_Calculator == 0)
+	mov	dptr,#_Duty_Cycle_Calculator
+	movx	a,@dptr
+	jz	.00203
+	ljmp	.00164
+.00203:
+;	../SCR/main.c:190: edge_counter++;
 	mov	dptr,#_edge_counter
 	movx	a,@dptr
 	inc	a
 	movx	@dptr,a
-;	../SCR/main.c:172: SCR_T2CCU_PAGE = 1;
+;	../SCR/main.c:191: Check_Pin_Stat = SCR_P00_IN;
+	mov	dptr,#_Check_Pin_Stat
+	mov	a,_SCR_P00_IN
+	movx	@dptr,a
+;	../SCR/main.c:192: Check_Pin_Stat = Check_Pin_Stat & 0x40; //  01000000
+	movx	a,@dptr
+	anl	acc,#0x40
+	movx	@dptr,a
+;	../SCR/main.c:195: if(Check_Pin_Stat == 0 )//first rising edge
+	mov	dptr,#_Check_Pin_Stat
+	movx	a,@dptr
+	jnz	.00150
+.00204:
+;	../SCR/main.c:197: if(edge_counter == 1)
+	mov	dptr,#_edge_counter
+	movx	a,@dptr
+	mov	r7,a
+	cjne	r7,#0x01,.00205
+	sjmp	.00206
+.00205:
+	sjmp	.00150
+.00206:
+;	../SCR/main.c:199: SCR_T2CCU_PAGE = 1;
 	mov	_SCR_T2CCU_PAGE,#0x01
-;	../SCR/main.c:173: SCR_T2CCU_CCTBSEL|= (1 << 6) ;  //bit pos 6 SW overflow triger
+;	../SCR/main.c:200: SCR_T2CCU_CCTBSEL|= (1 << 6) ;//trigger a overflow to reset the CCT timer, bit position 6
 	orl	_SCR_T2CCU_CCTBSEL,#0x40
-;	../SCR/main.c:175: SCR_IO_PAGE = SCR_IO_PAGE0;
-	mov	_SCR_IO_PAGE,#0x00
-;	../SCR/main.c:176: SCR_P00_OUT ^= (1 << 3) ;
-	xrl	_SCR_P00_OUT,#0x08
-;	../SCR/main.c:178: SCR_SCU_PAGE = 0;
+;	../SCR/main.c:201: SCR_P00_OUT |= (1 << 3) ;// for debug purpose
+	orl	_SCR_P00_OUT,#0x08
+.00150:
+;	../SCR/main.c:206: if(Check_Pin_Stat == 64 )// falling edge
+	mov	dptr,#_Check_Pin_Stat
+	movx	a,@dptr
+	mov	r7,a
+	cjne	r7,#0x40,.00207
+	sjmp	.00208
+.00207:
+	sjmp	.00154
+.00208:
+;	../SCR/main.c:208: if(edge_counter == 2)
+	mov	dptr,#_edge_counter
+	movx	a,@dptr
+	mov	r7,a
+	cjne	r7,#0x02,.00209
+	sjmp	.00210
+.00209:
+	sjmp	.00154
+.00210:
+;	../SCR/main.c:210: SCR_P00_OUT |= (1 << 4) ;// for debug purpose
+	orl	_SCR_P00_OUT,#0x10
+;	../SCR/main.c:211: SCR_T2CCU_PAGE = 2;
+	mov	_SCR_T2CCU_PAGE,#0x02
+;	../SCR/main.c:213: Capture_Value_1  = (uint8)(SCR_T2CCU_CC0H << 8u);
+	mov	dptr,#_Capture_Value_1
+	clr	a
+	movx	@dptr,a
+	inc	dptr
+	movx	@dptr,a
+;	../SCR/main.c:214: Capture_Value_1  |= (uint8)SCR_T2CCU_CC0L;
+	mov	dptr,#_Capture_Value_1
+	movx	a,@dptr
+	mov	r6,a
+	inc	dptr
+	movx	a,@dptr
+	mov	r7,a
+	mov	r4,_SCR_T2CCU_CC0L
+	mov	r5,#0x00
+	mov	dptr,#_Capture_Value_1
+	mov	a,r4
+	orl	a,r6
+	movx	@dptr,a
+	mov	a,r5
+	orl	a,r7
+	inc	dptr
+	movx	@dptr,a
+.00154:
+;	../SCR/main.c:220: if(Check_Pin_Stat == 0 )//second rising edge
+	mov	dptr,#_Check_Pin_Stat
+	movx	a,@dptr
+	jnz	.00158
+.00211:
+;	../SCR/main.c:222: if(edge_counter == 3)
+	mov	dptr,#_edge_counter
+	movx	a,@dptr
+	mov	r7,a
+	cjne	r7,#0x03,.00212
+	sjmp	.00213
+.00212:
+	sjmp	.00158
+.00213:
+;	../SCR/main.c:224: SCR_P00_OUT |= (1 << 5) ;// for debug purpose
+	orl	_SCR_P00_OUT,#0x20
+;	../SCR/main.c:225: SCR_T2CCU_PAGE = 2;
+	mov	_SCR_T2CCU_PAGE,#0x02
+;	../SCR/main.c:226: Capture_Value_2  = (uint8)(SCR_T2CCU_CC0H << 8u);
+	mov	dptr,#_Capture_Value_2
+	clr	a
+	movx	@dptr,a
+	inc	dptr
+	movx	@dptr,a
+;	../SCR/main.c:227: Capture_Value_2 |= (uint8)SCR_T2CCU_CC0L;
+	mov	dptr,#_Capture_Value_2
+	movx	a,@dptr
+	mov	r6,a
+	inc	dptr
+	movx	a,@dptr
+	mov	r7,a
+	mov	r4,_SCR_T2CCU_CC0L
+	mov	r5,#0x00
+	mov	dptr,#_Capture_Value_2
+	mov	a,r4
+	orl	a,r6
+	movx	@dptr,a
+	mov	a,r5
+	orl	a,r7
+	inc	dptr
+	movx	@dptr,a
+.00158:
+;	../SCR/main.c:233: if(Check_Pin_Stat == 64 )//second rising edge
+	mov	dptr,#_Check_Pin_Stat
+	movx	a,@dptr
+	mov	r7,a
+	cjne	r7,#0x40,.00214
+	sjmp	.00215
+.00214:
+	sjmp	.00164
+.00215:
+;	../SCR/main.c:235: if(edge_counter == 4)
+	mov	dptr,#_edge_counter
+	movx	a,@dptr
+	mov	r7,a
+	cjne	r7,#0x04,.00216
+	sjmp	.00217
+.00216:
+	sjmp	.00164
+.00217:
+;	../SCR/main.c:238: Duty_Cycle_Calculator = 1;
+	mov	dptr,#_Duty_Cycle_Calculator
+	mov	a,#0x01
+	movx	@dptr,a
+;	../SCR/main.c:239: edge_counter = 0;
+	mov	dptr,#_edge_counter
+	clr	a
+	movx	@dptr,a
+.00164:
+;	../SCR/main.c:250: SCR_SCU_PAGE = 0;
 	mov	_SCR_SCU_PAGE,#0x00
-;	../SCR/main.c:179: SCR_IR_CON0 &= ~(1 << 3) ; // Clear bit 3
+;	../SCR/main.c:251: SCR_IR_CON0 &= ~(1 << 3) ; // Clear bit 3
 	anl	_SCR_IR_CON0,#0xF7
-.00139:
-;	../SCR/main.c:181: }
+.00165:
+;	../SCR/main.c:253: }
+	pop	psw
+	pop	ar4
+	pop	ar5
+	pop	ar6
+	pop	ar7
 	pop	dph
 	pop	dpl
 	pop	acc
 	reti
-;	eliminated unneeded mov psw,# (no regs used in bank)
-;	eliminated unneeded push/pop not_psw
 ;	eliminated unneeded push/pop b
+;------------------------------------------------------------
+;Allocation info for local variables in function 'Duty_Cycle_Calculator_Function'
+;------------------------------------------------------------
+;	../SCR/main.c:255: void Duty_Cycle_Calculator_Function(void)
+;	-----------------------------------------
+;	 function Duty_Cycle_Calculator_Function
+;	-----------------------------------------
+	.section .text.code.Duty_Cycle_Calculator_Function,"ax" ;code for function Duty_Cycle_Calculator_Function
+	.type   Duty_Cycle_Calculator_Function, @function
+_Duty_Cycle_Calculator_Function:
+	.using 0
+;	../SCR/main.c:257: Capture_Value_sum = Capture_Value_2 + Capture_Value_1;
+	mov	dptr,#_Capture_Value_1
+	movx	a,@dptr
+	mov	r6,a
+	inc	dptr
+	movx	a,@dptr
+	mov	r7,a
+	mov	dptr,#_Capture_Value_2
+	movx	a,@dptr
+	mov	r4,a
+	inc	dptr
+	movx	a,@dptr
+	mov	r5,a
+	mov	dptr,#_Capture_Value_sum
+	mov	a,r6
+	add	a,r4
+	movx	@dptr,a
+	mov	a,r7
+	addc	a,r5
+	inc	dptr
+	movx	@dptr,a
+;	../SCR/main.c:258: data =  Capture_Value_sum;
+	mov	dptr,#_Capture_Value_sum
+	movx	a,@dptr
+	mov	r6,a
+	inc	dptr
+	movx	a,@dptr
+	mov	r7,a
+	mov	dptr,#_data
+	mov	a,r6
+	movx	@dptr,a
+	mov	a,r7
+	inc	dptr
+	movx	@dptr,a
+;	../SCR/main.c:259: Duty_Cycle_Calculator = 0;
+	mov	dptr,#_Duty_Cycle_Calculator
+	clr	a
+	movx	@dptr,a
+;	../SCR/main.c:260: SCR_IO_PAGE = 0;// for debug purpose
+;	1-genFromRTrack replaced	mov	_SCR_IO_PAGE,#0x00
+	mov	_SCR_IO_PAGE,a
+;	../SCR/main.c:261: SCR_P00_OUT &= ~(1 << 3) ; // Clear bit 3
+	anl	_SCR_P00_OUT,#0xF7
+;	../SCR/main.c:262: SCR_P00_OUT &= ~(1 << 4) ; // Clear bit 4
+	anl	_SCR_P00_OUT,#0xEF
+;	../SCR/main.c:263: SCR_P00_OUT &= ~(1 << 5) ; // Clear bit 5
+	anl	_SCR_P00_OUT,#0xDF
+.00218:
+;	../SCR/main.c:264: }
+	ret
 ;--------------------------------------------------------
 ; xinit 
 ;--------------------------------------------------------
 	.section .roxdata.init,"ax";xinit_name ;area
+__xinit__Duty_Cycle_Calculator:
+	.byte	#0x00	; 0
 __xinit__edge_counter:
 	.byte	#0x00	; 0
+__xinit__Check_Pin_Stat:
+	.byte	#0x00	; 0
+__xinit__Capture_Value_1:
+	.byte #0x00, #0x00	; 0
+__xinit__Capture_Value_2:
+	.byte #0x00, #0x00	; 0
+__xinit__Capture_Value_sum:
+	.byte #0x00, #0x00	; 0
