@@ -1,6 +1,6 @@
 	; Module start
 	.compiler_version	"TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler v1.1r8 Build 22011964"
-	.compiler_invocation	"ctc -f cc8996a --dep-file=Libraries/iLLD/TC37A/Tricore/Mtu/Std/IfxMtu.d -c99 --fp-model=3cflnrSTz -D__CPU__=tc37x -D__CPU_TC37X__ --core=tc1.6.2 --fp-model=+float -D__CPU__=tc37x -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Configurations -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\Infra -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\Infra\\\\Platform -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\Infra\\\\Platform\\\\Tricore -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\Infra\\\\Platform\\\\Tricore\\\\Compilers -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\Infra\\\\Sfr -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\Infra\\\\Sfr\\\\TC37A -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\Infra\\\\Sfr\\\\TC37A\\\\_Reg -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\Infra\\\\Ssw -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\Infra\\\\Ssw\\\\TC37A -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\Infra\\\\Ssw\\\\TC37A\\\\Tricore -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\Service -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\Service\\\\CpuGeneric -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\Service\\\\CpuGeneric\\\\SysSe -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\Service\\\\CpuGeneric\\\\SysSe\\\\Bsp -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\Service\\\\CpuGeneric\\\\_Utilities -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Cpu -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Cpu\\\\Irq -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Cpu\\\\Std -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Cpu\\\\Trap -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Gtm -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Gtm\\\\Std -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Mtu -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Mtu\\\\Std -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Pms -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Pms\\\\Std -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Port -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Port\\\\Std -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Scu -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Scu\\\\Std -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Src -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Src\\\\Std -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Stm -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Stm\\\\Std -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\_Impl -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\_PinMap -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\SCR Debug (SDCC) -g2 -w544 -w557 -t4 --language=+volatile -N0 -O0 -Y0 -Z0 --compact-max-size=200 --misrac-version=2004 -o Libraries/iLLD/TC37A/Tricore/Mtu/Std/IfxMtu.src ../Libraries/iLLD/TC37A/Tricore/Mtu/Std/IfxMtu.c"
+	.compiler_invocation	"ctc -f cc12124a --dep-file=Libraries/iLLD/TC37A/Tricore/Mtu/Std/IfxMtu.d -c99 --fp-model=3cflnrSTz -D__CPU__=tc37x -D__CPU_TC37X__ --core=tc1.6.2 --fp-model=+float -D__CPU__=tc37x -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Configurations -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\Infra -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\Infra\\\\Platform -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\Infra\\\\Platform\\\\Tricore -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\Infra\\\\Platform\\\\Tricore\\\\Compilers -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\Infra\\\\Sfr -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\Infra\\\\Sfr\\\\TC37A -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\Infra\\\\Sfr\\\\TC37A\\\\_Reg -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\Infra\\\\Ssw -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\Infra\\\\Ssw\\\\TC37A -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\Infra\\\\Ssw\\\\TC37A\\\\Tricore -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\Service -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\Service\\\\CpuGeneric -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\Service\\\\CpuGeneric\\\\SysSe -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\Service\\\\CpuGeneric\\\\SysSe\\\\Bsp -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\Service\\\\CpuGeneric\\\\_Utilities -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Cpu -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Cpu\\\\Irq -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Cpu\\\\Std -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Cpu\\\\Trap -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Gtm -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Gtm\\\\Std -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Mtu -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Mtu\\\\Std -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Pms -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Pms\\\\Std -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Port -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Port\\\\Std -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Scu -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Scu\\\\Std -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Src -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Src\\\\Std -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Stm -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Stm\\\\Std -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\_Impl -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\_PinMap -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\SCR Debug (SDCC) -g2 -w544 -w557 -t4 --language=+volatile -N0 -O0 -Y0 -Z0 --compact-max-size=200 --misrac-version=2004 -o Libraries/iLLD/TC37A/Tricore/Mtu/Std/IfxMtu.src ../Libraries/iLLD/TC37A/Tricore/Mtu/Std/IfxMtu.c"
 	.compiler_name		"ctc"
 	;source	'../Libraries/iLLD/TC37A/Tricore/Mtu/Std/IfxMtu.c'
 
@@ -29991,12 +29991,12 @@ __IfxMtu_runMbistEnd_function_end:
 	.half	2
 	.byte	138,0
 	.word	0,0
-.L529:
+.L515:
 	.word	-1,.L263,0,.L486-.L263
 	.half	2
 	.byte	145,116
 	.word	0,0
-.L515:
+.L529:
 	.word	-1,.L263,0,.L486-.L263
 	.half	2
 	.byte	145,116
@@ -30014,17 +30014,6 @@ __IfxMtu_runMbistEnd_function_end:
 	.half	1
 	.byte	108
 	.word	0,0
-.L519:
-	.word	-1,.L263,.L941-.L263,.L95-.L263
-	.half	1
-	.byte	95
-	.word	.L943-.L263,.L97-.L263
-	.half	1
-	.byte	95
-	.word	.L96-.L263,.L944-.L263
-	.half	1
-	.byte	95
-	.word	0,0
 .L532:
 	.word	-1,.L263,.L958-.L263,.L106-.L263
 	.half	1
@@ -30036,12 +30025,23 @@ __IfxMtu_runMbistEnd_function_end:
 	.half	1
 	.byte	95
 	.word	0,0
-.L513:
+.L519:
+	.word	-1,.L263,.L941-.L263,.L95-.L263
+	.half	1
+	.byte	95
+	.word	.L943-.L263,.L97-.L263
+	.half	1
+	.byte	95
+	.word	.L96-.L263,.L944-.L263
+	.half	1
+	.byte	95
+	.word	0,0
+.L527:
 	.word	-1,.L263,0,.L486-.L263
 	.half	2
 	.byte	145,112
 	.word	0,0
-.L527:
+.L513:
 	.word	-1,.L263,0,.L486-.L263
 	.half	2
 	.byte	145,112
@@ -30152,14 +30152,6 @@ __IfxMtu_runMbistEnd_function_end:
 	.half	1
 	.byte	98
 	.word	0,0
-.L516:
-	.word	-1,.L263,.L94-.L263,.L93-.L263
-	.half	5
-	.byte	144,32,157,32,0
-	.word	.L945-.L263,.L946-.L263
-	.half	5
-	.byte	144,32,157,32,0
-	.word	0,0
 .L530:
 	.word	-1,.L263,.L105-.L263,.L104-.L263
 	.half	5
@@ -30168,13 +30160,13 @@ __IfxMtu_runMbistEnd_function_end:
 	.half	5
 	.byte	144,32,157,32,0
 	.word	0,0
-.L535:
-	.word	-1,.L263,.L968-.L263,.L969-.L263
-	.half	1
-	.byte	95
-	.word	.L970-.L263,.L486-.L263
-	.half	1
-	.byte	111
+.L516:
+	.word	-1,.L263,.L94-.L263,.L93-.L263
+	.half	5
+	.byte	144,32,157,32,0
+	.word	.L945-.L263,.L946-.L263
+	.half	5
+	.byte	144,32,157,32,0
 	.word	0,0
 .L509:
 	.word	-1,.L263,.L925-.L263,.L926-.L263
@@ -30183,6 +30175,14 @@ __IfxMtu_runMbistEnd_function_end:
 	.word	.L927-.L263,.L88-.L263
 	.half	1
 	.byte	98
+	.word	0,0
+.L535:
+	.word	-1,.L263,.L968-.L263,.L969-.L263
+	.half	1
+	.byte	95
+	.word	.L970-.L263,.L486-.L263
+	.half	1
+	.byte	111
 	.word	0,0
 .L522:
 	.word	-1,.L263,.L949-.L263,.L950-.L263
@@ -30337,12 +30337,12 @@ __IfxMtu_runMbistEnd_function_end:
 	.half	1
 	.byte	95
 	.word	0,0
-.L562:
+.L576:
 	.word	-1,.L265,0,.L537-.L265
 	.half	2
 	.byte	145,120
 	.word	0,0
-.L576:
+.L562:
 	.word	-1,.L265,0,.L537-.L265
 	.half	2
 	.byte	145,120
@@ -30453,14 +30453,6 @@ __IfxMtu_runMbistEnd_function_end:
 	.half	1
 	.byte	98
 	.word	0,0
-.L579:
-	.word	-1,.L265,.L137-.L265,.L136-.L265
-	.half	5
-	.byte	144,32,157,32,0
-	.word	.L1034-.L265,.L582-.L265
-	.half	5
-	.byte	144,32,157,32,0
-	.word	0,0
 .L565:
 	.word	-1,.L265,.L126-.L265,.L125-.L265
 	.half	5
@@ -30469,13 +30461,13 @@ __IfxMtu_runMbistEnd_function_end:
 	.half	5
 	.byte	144,32,157,32,0
 	.word	0,0
-.L558:
-	.word	-1,.L265,.L997-.L265,.L998-.L265
-	.half	1
-	.byte	95
-	.word	.L999-.L265,.L124-.L265
-	.half	1
-	.byte	98
+.L579:
+	.word	-1,.L265,.L137-.L265,.L136-.L265
+	.half	5
+	.byte	144,32,157,32,0
+	.word	.L1034-.L265,.L582-.L265
+	.half	5
+	.byte	144,32,157,32,0
 	.word	0,0
 .L584:
 	.word	-1,.L265,.L1040-.L265,.L1041-.L265
@@ -30484,6 +30476,14 @@ __IfxMtu_runMbistEnd_function_end:
 	.word	.L1042-.L265,.L537-.L265
 	.half	1
 	.byte	111
+	.word	0,0
+.L558:
+	.word	-1,.L265,.L997-.L265,.L998-.L265
+	.half	1
+	.byte	95
+	.word	.L999-.L265,.L124-.L265
+	.half	1
+	.byte	98
 	.word	0,0
 .L571:
 	.word	-1,.L265,.L1021-.L265,.L1022-.L265
@@ -31020,14 +31020,6 @@ __IfxMtu_runMbistEnd_function_end:
 	.half	1
 	.byte	98
 	.word	0,0
-.L631:
-	.word	-1,.L267,.L165-.L267,.L164-.L267
-	.half	5
-	.byte	144,32,157,32,0
-	.word	.L1090-.L267,.L634-.L267
-	.half	5
-	.byte	144,32,157,32,0
-	.word	0,0
 .L611:
 	.word	-1,.L267,.L155-.L267,.L154-.L267
 	.half	5
@@ -31036,13 +31028,13 @@ __IfxMtu_runMbistEnd_function_end:
 	.half	5
 	.byte	144,32,157,32,0
 	.word	0,0
-.L636:
-	.word	-1,.L267,.L1093-.L267,.L1094-.L267
-	.half	1
-	.byte	95
-	.word	.L1095-.L267,.L586-.L267
-	.half	1
-	.byte	111
+.L631:
+	.word	-1,.L267,.L165-.L267,.L164-.L267
+	.half	5
+	.byte	144,32,157,32,0
+	.word	.L1090-.L267,.L634-.L267
+	.half	5
+	.byte	144,32,157,32,0
 	.word	0,0
 .L604:
 	.word	-1,.L267,.L1063-.L267,.L1064-.L267
@@ -31051,6 +31043,14 @@ __IfxMtu_runMbistEnd_function_end:
 	.word	.L1065-.L267,.L1066-.L267
 	.half	1
 	.byte	98
+	.word	0,0
+.L636:
+	.word	-1,.L267,.L1093-.L267,.L1094-.L267
+	.half	1
+	.byte	95
+	.word	.L1095-.L267,.L586-.L267
+	.half	1
+	.byte	111
 	.word	0,0
 .L623:
 	.word	-1,.L267,.L1080-.L267,.L1081-.L267
