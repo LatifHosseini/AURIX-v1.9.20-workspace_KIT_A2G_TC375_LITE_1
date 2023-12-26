@@ -95,10 +95,9 @@ void TrigerWakeUpFromStandbyMode(void);
 //void SCR_Port_EnablePortPad(unsigned char port, unsigned char pinIndex);
 //void SCR_GPIO_EnablePortPad(unsigned int port);
 
-void SCR_IRQ_EnableInterruptNode(unsigned char node);
-void SCR_IRQ_disableInterruptNode(unsigned char node);
-void SCR_IRQ_ClearExternalInterruptFlag(unsigned char externalInterrupt);
-void SCR_EXINT_SetExternalInterruptTriggerEdgeType(unsigned char externalInterrupt_chanel, unsigned char triggerEdgeType);
+
+
+
 void SCR_ExternalInterruptChanelSelect(void);
 
 void SCR_IR_Select_External_Interrupt_Line(void);

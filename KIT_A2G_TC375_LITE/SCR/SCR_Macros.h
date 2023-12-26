@@ -113,9 +113,7 @@
 #define  SCR_IoControl_input_tristate        0x0    /**< \brief No input pull device connected, tri-state mode */
 #define  SCR_IoControl_output_pushpullGpio   0x10   /**< \brief Push pull general purpose output */
 
-#define  SCR_IO_PAGE0   0
-#define  SCR_IO_PAGE1   0
-#define  SCR_IO_PAGE2   0
+
 /*********************************************************************************************************************/
 /*-------------------------------------------------Global variables--------------------------------------------------*/
 /*********************************************************************************************************************/

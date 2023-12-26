@@ -10,17 +10,9 @@
 ;--------------------------------------------------------
 ; Public variables in this module
 ;--------------------------------------------------------
-	.globl	_SCR_EXINT_SetExternalInterruptAndTriggerEdgeType
-	.globl	_SCR_EXINT_SetExternalInterruptAndTriggerEdgeType_PARM_2
-	.globl	_SCR_EXINT_SetExternalInterruptTriggerEdgeType_PARM_2
 	.globl	_SCR_IR_Select_External_Interrupt_Line
 	.globl	_SCR_IR_Select_Edge_Mode
 	.globl	_SCR_IR_Enable_Interrupt_Node
-	.globl	_SCR_IRQ_EnableInterruptNode
-	.globl	_SCR_IRQ_disableInterruptNode
-	.globl	_SCR_IRQ_ClearExternalInterruptFlag
-	.globl	_SCR_EXINT_SetExternalInterruptTriggerEdgeType
-	.globl	_SCR_ExternalInterruptChanelSelect
 ;--------------------------------------------------------
 ; special function registers
 ;--------------------------------------------------------
@@ -234,14 +226,6 @@ _SCR_DBG_MODSUSP	=	0x00f9
 _SCR_ADCOMP_RES	=	0x00fa
 _SCR_ADCOMP_CON	=	0x00fb
 ;--------------------------------------------------------
-; uninitialized external ram data
-;--------------------------------------------------------
-	.section .xdata.i51,"aw" ;xdata_name ;area
-_SCR_EXINT_SetExternalInterruptTriggerEdgeType_PARM_2:
-	.ds.b	1
-_SCR_EXINT_SetExternalInterruptAndTriggerEdgeType_PARM_2:
-	.ds.b	1
-;--------------------------------------------------------
 ; code
 ;--------------------------------------------------------
 ;------------------------------------------------------------
@@ -316,100 +300,4 @@ _SCR_IR_Enable_Interrupt_Node:
 	orl	_SCR_IEN1,#0x08
 .00105:
 ;	../SCR/SCR_Interrupt_Config.c:112: }
-	ret
-;------------------------------------------------------------
-;Allocation info for local variables in function 'SCR_IRQ_EnableInterruptNode'
-;------------------------------------------------------------
-;node                      Allocated with name '_SCR_IRQ_EnableInterruptNode_node_65536_34'
-;------------------------------------------------------------
-;	../SCR/SCR_Interrupt_Config.c:121: void SCR_IRQ_EnableInterruptNode(unsigned char node)// Node 2 and 9
-;	-----------------------------------------
-;	 function SCR_IRQ_EnableInterruptNode
-;	-----------------------------------------
-	.section .text.code.SCR_IRQ_EnableInterruptNode,"ax" ;code for function SCR_IRQ_EnableInterruptNode
-	.type   SCR_IRQ_EnableInterruptNode, @function
-_SCR_IRQ_EnableInterruptNode:
-	.using 0
-;	../SCR/SCR_Interrupt_Config.c:132: }
-.00107:
-	ret
-;------------------------------------------------------------
-;Allocation info for local variables in function 'SCR_IRQ_disableInterruptNode'
-;------------------------------------------------------------
-;node                      Allocated with name '_SCR_IRQ_disableInterruptNode_node_65536_37'
-;------------------------------------------------------------
-;	../SCR/SCR_Interrupt_Config.c:134: void SCR_IRQ_disableInterruptNode(unsigned char node)
-;	-----------------------------------------
-;	 function SCR_IRQ_disableInterruptNode
-;	-----------------------------------------
-	.section .text.code.SCR_IRQ_disableInterruptNode,"ax" ;code for function SCR_IRQ_disableInterruptNode
-	.type   SCR_IRQ_disableInterruptNode, @function
-_SCR_IRQ_disableInterruptNode:
-	.using 0
-;	../SCR/SCR_Interrupt_Config.c:145: }
-.00109:
-	ret
-;------------------------------------------------------------
-;Allocation info for local variables in function 'SCR_IRQ_ClearExternalInterruptFlag'
-;------------------------------------------------------------
-;externalInterrupt         Allocated with name '_SCR_IRQ_ClearExternalInterruptFlag_externalInterrupt_65536_40'
-;------------------------------------------------------------
-;	../SCR/SCR_Interrupt_Config.c:147: void SCR_IRQ_ClearExternalInterruptFlag(unsigned char externalInterrupt)
-;	-----------------------------------------
-;	 function SCR_IRQ_ClearExternalInterruptFlag
-;	-----------------------------------------
-	.section .text.code.SCR_IRQ_ClearExternalInterruptFlag,"ax" ;code for function SCR_IRQ_ClearExternalInterruptFlag
-	.type   SCR_IRQ_ClearExternalInterruptFlag, @function
-_SCR_IRQ_ClearExternalInterruptFlag:
-	.using 0
-;	../SCR/SCR_Interrupt_Config.c:167: }
-.00111:
-	ret
-;------------------------------------------------------------
-;Allocation info for local variables in function 'SCR_EXINT_SetExternalInterruptTriggerEdgeType'
-;------------------------------------------------------------
-;triggerEdgeType           Allocated with name '_SCR_EXINT_SetExternalInterruptTriggerEdgeType_PARM_2'
-;externalInterrupt_chanel  Allocated with name '_SCR_EXINT_SetExternalInterruptTriggerEdgeType_externalInterrupt_chanel_65536_43'
-;------------------------------------------------------------
-;	../SCR/SCR_Interrupt_Config.c:169: void SCR_EXINT_SetExternalInterruptTriggerEdgeType(unsigned char externalInterrupt_chanel, unsigned char triggerEdgeType)
-;	-----------------------------------------
-;	 function SCR_EXINT_SetExternalInterruptTriggerEdgeType
-;	-----------------------------------------
-	.section .text.code.SCR_EXINT_SetExternalInterruptTriggerEdgeType,"ax" ;code for function SCR_EXINT_SetExternalInterruptTriggerEdgeType
-	.type   SCR_EXINT_SetExternalInterruptTriggerEdgeType, @function
-_SCR_EXINT_SetExternalInterruptTriggerEdgeType:
-	.using 0
-;	../SCR/SCR_Interrupt_Config.c:191: }
-.00113:
-	ret
-;------------------------------------------------------------
-;Allocation info for local variables in function 'SCR_ExternalInterruptChanelSelect'
-;------------------------------------------------------------
-;	../SCR/SCR_Interrupt_Config.c:193: void SCR_ExternalInterruptChanelSelect(void)
-;	-----------------------------------------
-;	 function SCR_ExternalInterruptChanelSelect
-;	-----------------------------------------
-	.section .text.code.SCR_ExternalInterruptChanelSelect,"ax" ;code for function SCR_ExternalInterruptChanelSelect
-	.type   SCR_ExternalInterruptChanelSelect, @function
-_SCR_ExternalInterruptChanelSelect:
-	.using 0
-;	../SCR/SCR_Interrupt_Config.c:203: }
-.00115:
-	ret
-;------------------------------------------------------------
-;Allocation info for local variables in function 'SCR_EXINT_SetExternalInterruptAndTriggerEdgeType'
-;------------------------------------------------------------
-;triggerEdgeType           Allocated with name '_SCR_EXINT_SetExternalInterruptAndTriggerEdgeType_PARM_2'
-;externalInterrupt_chanel  Allocated with name '_SCR_EXINT_SetExternalInterruptAndTriggerEdgeType_externalInterrupt_chanel_65536_49'
-;------------------------------------------------------------
-;	../SCR/SCR_Interrupt_Config.c:205: void SCR_EXINT_SetExternalInterruptAndTriggerEdgeType(unsigned char externalInterrupt_chanel, unsigned char triggerEdgeType)
-;	-----------------------------------------
-;	 function SCR_EXINT_SetExternalInterruptAndTriggerEdgeType
-;	-----------------------------------------
-	.section .text.code.SCR_EXINT_SetExternalInterruptAndTriggerEdgeType,"ax" ;code for function SCR_EXINT_SetExternalInterruptAndTriggerEdgeType
-	.type   SCR_EXINT_SetExternalInterruptAndTriggerEdgeType, @function
-_SCR_EXINT_SetExternalInterruptAndTriggerEdgeType:
-	.using 0
-;	../SCR/SCR_Interrupt_Config.c:218: }
-.00117:
 	ret

@@ -82,5 +82,3 @@ Cpu0_Main.o :	c:/Users/La/AURIX-v1.9.20-workspace/KIT_A2G_TC375_LITE/Libraries/I
 c:/Users/La/AURIX-v1.9.20-workspace/KIT_A2G_TC375_LITE/Libraries/Infra/Sfr/TC37A/_Reg/IfxPms_reg.h :
 Cpu0_Main.o :	c:/Users/La/AURIX-v1.9.20-workspace/KIT_A2G_TC375_LITE/Libraries/Infra/Sfr/TC37A/_Reg/IfxPms_regdef.h
 c:/Users/La/AURIX-v1.9.20-workspace/KIT_A2G_TC375_LITE/Libraries/Infra/Sfr/TC37A/_Reg/IfxPms_regdef.h :
-Cpu0_Main.o :	../PMS_Power_Down_Standby.h
-../PMS_Power_Down_Standby.h :

@@ -58,12 +58,15 @@
  volatile unsigned char edge_counter = 0;
  volatile unsigned char Check_Pin_Stat = 0;
  volatile unsigned char Read_Capture_Register = 0;
+ volatile unsigned int Capture_Value_1 = 0;
+     volatile unsigned int Capture_Value_2 = 0;
 
  /*********************************************************************************************************************/
  /*------------------------------------------------Function Prototypes------------------------------------------------*/
  /*********************************************************************************************************************/
 void delay(void);
 void Duty_Cycle_Calculator_Function(void);
+unsigned int multiply16x8(void);
 /*********************************************************************************************************************/
 /*---------------------------------------------Function Implementations----------------------------------------------*/
 /*********************************************************************************************************************/
@@ -72,10 +75,11 @@ void main()
     volatile unsigned int retunr_value = 0;
     volatile unsigned int cnt = 0;
     volatile unsigned char ADC_Stat = 0;
-    int Capture_Value_1 = 0;
-    int Capture_Value_2 = 0;
-    int Capture_Value_sum = 0;
-    long Duty_Cycle = 0;
+
+
+    volatile unsigned long Capture_Value_sum = 0;
+    volatile unsigned long temp = 0;
+    volatile unsigned char Duty_Cycle = 0;
 
 
 
@@ -108,15 +112,7 @@ void main()
 
     while(1)
     {
-        if(Duty_Cycle_Calculator == 1)// call Duty_Cycle_Calculator_Function
-        {
 
-            Capture_Value_sum = Capture_Value_2 + Capture_Value_1;
-
-            Duty_Cycle = (100 * Capture_Value_2) /Capture_Value_sum ;
-            data = Duty_Cycle;
-            Duty_Cycle_Calculator_Function();
-        }
 
         if(Read_Capture_Register == 1)
         {
@@ -133,7 +129,7 @@ void main()
 
         }
 
-
+        Duty_Cycle_Calculator_Function();
 //        SCR_T2CCU_PAGE = 2;
 //        Capture_Value_1  = (uint8)(SCR_T2CCU_CC0H << 8u);
 //        Capture_Value_1  |= (uint8)SCR_T2CCU_CC0L;
@@ -207,6 +203,8 @@ void EXINT2IS_interrupt(void) __interrupt (5){
     SCR_T2CCU_CCTCON &= ~(1 << 3) ;//bit pos 3 overflow flag
 
 }
+
+
 /***********************************************************************************************************
  *
 ************************************************************************************************************ */
@@ -279,10 +277,63 @@ void EXINT5IS_interrupt(void) __interrupt (9){
 
 void Duty_Cycle_Calculator_Function(void)
 {
-    Duty_Cycle_Calculator = 0;
-    SCR_IO_PAGE = 0;// for debug purpose
-    SCR_P00_OUT &= ~(1 << 3) ; // Clear bit 3
-    SCR_P00_OUT &= ~(1 << 4) ; // Clear bit 4
-    SCR_P00_OUT &= ~(1 << 5) ; // Clear bit 5
+    volatile unsigned long Capture_Value_sum = 0;
+    volatile unsigned long temp = 0;
+    volatile unsigned char Duty_Cycle = 0;
+    char a = 100;
+    char b = 120;
+    Capture_Value_sum = Capture_Value_2 + Capture_Value_1;
+
+   // temp = ( unsigned long)(( unsigned int)Capture_Value_1 * 100);
+}
+
+unsigned int multiply16x8(void)
+{
+    volatile unsigned int Capture_Value_sum = 0;
+    volatile unsigned int  result = 0;
+    unsigned long quotient = 0;
+    unsigned long remainder = 0;
+    int i ;
+    int bit;
+    unsigned char var = 100;
+    Capture_Value_sum = Capture_Value_2 + Capture_Value_1;
+    // Perform multiplication using 8-bit arithmetic
+        for ( i = 0; i < 8; i++) {
+            if (var & (1 << i)) {
+                result += Capture_Value_1 << i;
+            }
+        }
+// perform 32-bit division: dividend / divisor
+        //Loop for each bit in the dividend
+        for (bit = 31; bit >= 0; bit--) {
+                remainder <<= 1;  // Left shift the remainder by 1 to make room for the next bit
+                remainder |= (Capture_Value_sum >> bit) & 0x01;  // Set the LSB of remainder with the current bit of dividend
+
+                if (remainder >= result) {
+                    remainder -= result;
+                    quotient |= (1UL << bit);  // Set the corresponding bit in the quotient
+                }
+            }
+
+if(quotient > 5){
+    if(quotient< 95){
+        return 1;
+    }
+}
+else {  return 0; }
+
+
+
+//__asm
+//    MOV DPTR, #Capture_Value_sum
+//    MOVX A,@DPTR
+//    MOV B,100
+//    MUL AB
+//    MOV DPL, A     ; Store the low byte of the result in DPL
+//    MOV A, B       ; Move the high byte of the result to RSegister A
+//    MOV DPH, A     ; Store the high byte of the result in DPH
+//__endasm;
+
+
 }
 

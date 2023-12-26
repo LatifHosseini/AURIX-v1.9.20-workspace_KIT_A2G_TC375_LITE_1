@@ -1,6 +1,6 @@
 	; Module start
 	.compiler_version	"TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler v1.1r8 Build 22011964"
-	.compiler_invocation	"ctc -f cc12604a --dep-file=SCR_AURIX_TC3x.d -c99 --fp-model=3cflnrSTz -D__CPU__=tc37x -D__CPU_TC37X__ --core=tc1.6.2 --fp-model=+float -D__CPU__=tc37x -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Configurations -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\Infra -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\Infra\\\\Platform -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\Infra\\\\Platform\\\\Tricore -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\Infra\\\\Platform\\\\Tricore\\\\Compilers -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\Infra\\\\Sfr -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\Infra\\\\Sfr\\\\TC37A -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\Infra\\\\Sfr\\\\TC37A\\\\_Reg -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\Infra\\\\Ssw -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\Infra\\\\Ssw\\\\TC37A -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\Infra\\\\Ssw\\\\TC37A\\\\Tricore -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\Service -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\Service\\\\CpuGeneric -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\Service\\\\CpuGeneric\\\\SysSe -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\Service\\\\CpuGeneric\\\\SysSe\\\\Bsp -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\Service\\\\CpuGeneric\\\\_Utilities -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Cpu -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Cpu\\\\Irq -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Cpu\\\\Std -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Cpu\\\\Trap -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Gtm -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Gtm\\\\Std -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Mtu -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Mtu\\\\Std -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Pms -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Pms\\\\Std -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Port -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Port\\\\Std -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Scu -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Scu\\\\Std -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Src -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Src\\\\Std -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Stm -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Stm\\\\Std -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\_Impl -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\_PinMap -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\SCR Debug (SDCC) -g2 -w544 -w557 -t4 --language=+volatile -N0 -O0 -Y0 -Z0 --compact-max-size=200 --misrac-version=2004 -o SCR_AURIX_TC3x.src ../SCR_AURIX_TC3x.c"
+	.compiler_invocation	"ctc -f cc7376a --dep-file=SCR_AURIX_TC3x.d -c99 --fp-model=3cflnrSTz -D__CPU__=tc37x -D__CPU_TC37X__ --core=tc1.6.2 --fp-model=+float -D__CPU__=tc37x -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Configurations -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\Infra -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\Infra\\\\Platform -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\Infra\\\\Platform\\\\Tricore -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\Infra\\\\Platform\\\\Tricore\\\\Compilers -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\Infra\\\\Sfr -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\Infra\\\\Sfr\\\\TC37A -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\Infra\\\\Sfr\\\\TC37A\\\\_Reg -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\Infra\\\\Ssw -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\Infra\\\\Ssw\\\\TC37A -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\Infra\\\\Ssw\\\\TC37A\\\\Tricore -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\Service -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\Service\\\\CpuGeneric -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\Service\\\\CpuGeneric\\\\If -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\Service\\\\CpuGeneric\\\\If\\\\Ccu6If -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\Service\\\\CpuGeneric\\\\StdIf -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\Service\\\\CpuGeneric\\\\SysSe -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\Service\\\\CpuGeneric\\\\SysSe\\\\Bsp -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\Service\\\\CpuGeneric\\\\SysSe\\\\Comm -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\Service\\\\CpuGeneric\\\\SysSe\\\\General -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\Service\\\\CpuGeneric\\\\SysSe\\\\Math -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\Service\\\\CpuGeneric\\\\SysSe\\\\Time -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\Service\\\\CpuGeneric\\\\_Utilities -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Asclin -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Asclin\\\\Asc -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Asclin\\\\Lin -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Asclin\\\\Spi -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Asclin\\\\Std -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Can -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Can\\\\Can -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Can\\\\Std -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Ccu6 -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Ccu6\\\\Icu -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Ccu6\\\\PwmBc -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Ccu6\\\\PwmHl -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Ccu6\\\\Std -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Ccu6\\\\TPwm -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Ccu6\\\\Timer -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Ccu6\\\\TimerWithTrigger -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Convctrl -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Convctrl\\\\Std -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Cpu -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Cpu\\\\Irq -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Cpu\\\\Std -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Cpu\\\\Trap -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Dma -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Dma\\\\Dma -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Dma\\\\Std -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Dts -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Dts\\\\Dts -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Dts\\\\Std -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Edsadc -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Edsadc\\\\Edsadc -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Edsadc\\\\Std -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Eray -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Eray\\\\Eray -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Eray\\\\Std -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Evadc -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Evadc\\\\Adc -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Evadc\\\\Std -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Fce -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Fce\\\\Crc -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Fce\\\\Std -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Flash -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Flash\\\\Std -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Geth -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Geth\\\\Eth -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Geth\\\\Std -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Gpt12 -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Gpt12\\\\IncrEnc -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Gpt12\\\\Std -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Gtm -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Gtm\\\\Atom -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Gtm\\\\Atom\\\\Dtm_PwmHl -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Gtm\\\\Atom\\\\Pwm -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Gtm\\\\Atom\\\\PwmHl -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Gtm\\\\Atom\\\\Timer -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Gtm\\\\Pwm -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Gtm\\\\Std -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Gtm\\\\Tim -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Gtm\\\\Tim\\\\In -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Gtm\\\\Tim\\\\Timer -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Gtm\\\\Tom -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Gtm\\\\Tom\\\\Dtm_PwmHl -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Gtm\\\\Tom\\\\Pwm -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Gtm\\\\Tom\\\\PwmHl -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Gtm\\\\Tom\\\\Timer -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Gtm\\\\Trig -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Hssl -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Hssl\\\\Hssl -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Hssl\\\\Std -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\I2c -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\I2c\\\\I2c -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\I2c\\\\Std -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Iom -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Iom\\\\Driver -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Iom\\\\Iom -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Iom\\\\Std -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Msc -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Msc\\\\Msc -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Msc\\\\Std -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Mtu -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Mtu\\\\Std -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Pms -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Pms\\\\Std -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Port -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Port\\\\Io -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Port\\\\Std -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Psi5 -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Psi5\\\\Psi5 -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Psi5\\\\Std -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Psi5s -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Psi5s\\\\Psi5s -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Psi5s\\\\Std -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Qspi -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Qspi\\\\SpiMaster -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Qspi\\\\SpiSlave -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Qspi\\\\Std -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Scu -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Scu\\\\Std -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Sent -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Sent\\\\Sent -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Sent\\\\Std -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Smu -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Smu\\\\Smu -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Smu\\\\Std -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Src -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Src\\\\Std -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Stm -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Stm\\\\Std -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\Stm\\\\Timer -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\_Impl -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\_Lib -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\_Lib\\\\DataHandling -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\_Lib\\\\InternalMux -IC:\\\\Users\\\\La\\\\AURIX-v1.9.20-workspace\\\\KIT_A2G_TC375_LITE\\\\Libraries\\\\iLLD\\\\TC37A\\\\Tricore\\\\_PinMap -g2 -w544 -w557 -t4 --language=+volatile -N0 -O0 -Y0 -Z0 --compact-max-size=200 --misrac-version=2004 -o SCR_AURIX_TC3x.src ../SCR_AURIX_TC3x.c"
 	.compiler_name		"ctc"
 	;source	'../SCR_AURIX_TC3x.c'
 
@@ -11,23 +11,24 @@ $TC162
 	.sect	'.data.SCR_AURIX_TC3x.scr_xram'
 	.global	scr_xram
 scr_xram:	.type	object
-	.size	scr_xram,893
+	.size	scr_xram,384
 	.byte	2,1,3
-	.space	40
-	.byte	2,2,163
-	.space	29
-	.byte	2,2,176
-	.space	178
+	.space	253
 	.byte	34,1
 	.space	1
 	.byte	117,212,7,2,1,9,2,1
 	.byte	12,18,1,121,229,213,96,3
-	.byte	2,1,113,2,1,25,121,4
+	.byte	2,1,113,2
+	.byte	1,25,121
+	.space	1
 	.byte	233,68
 	.space	1
-	.byte	96,27,122,1,144,3,121,120
-	.byte	9,117,135,29,228,147,242,163
-	.byte	8,184
+	.byte	96,27,122
+	.space	1
+	.byte	144,1,128,120
+	.space	1
+	.byte	117,135,29,228,147,242,163,8
+	.byte	184
 	.space	1
 	.byte	2,5,135,217,244,218,242,117
 	.byte	135,255,2,1,62,228,120,255
@@ -37,104 +38,23 @@ scr_xram:	.type	object
 	.byte	232,68
 	.space	1
 	.byte	96,10,121,1,117,135,28,228
-	.byte	243,9,216,252,120,9,232,68
+	.byte	243,9,216,252
+	.byte	120
 	.space	1
-	.byte	96,12,121,1
+	.byte	232,68
+	.space	1
+	.byte	96,12,121
+	.space	1
 	.byte	144,29
 	.space	1
 	.byte	228,240,163,216,252,217,250,2
 	.byte	1,110,2,1
 	.byte	113,18,1
 	.space	1
-	.byte	18,1,255,128
+	.byte	18,1,125,128
 	.byte	254,117,213
 	.space	1
-	.byte	34,117,199,1
-	.byte	117,195
-	.space	1
-	.byte	117,194
-	.space	1
-	.byte	67,198,4,67,198,1,67,198
-	.byte	176,67,216,32,34,117,199,1
-	.byte	67,193,1,116,252,85,192,68
-	.byte	1,245,192,34,117,143,2,117
-	.byte	149
-	.space	1
-	.byte	117,157
-	.space	1
-	.byte	67,147,8,117,143,1,117,145
-	.byte	128,117,147,128,117,148,128,117
-	.byte	149,128,117,143
-	.byte	1,117,150
-	.space	1
-	.byte	34,117,241,2,116,252,85,244
-	.byte	68,2,245,244,34,117,241,1
-	.byte	116,63,85,244,68,128,245,244
-	.byte	116,252,85,245,68,3,245,245
-	.byte	116,243,85,245,68,12,245,245
-	.byte	116,207,85,245,68,48,245,245
-	.byte	34,67,209,8,34,67,211,8
-	.byte	67,219,8,34
-	.byte	144,29
-	.space	1
-	.byte	228,240,163,240,144,29,2,240
-	.byte	163,240,144,29,4,240,144,29
-	.byte	5,240,163,240,144,29,7,240
-	.byte	163,240,117,241,1,117,251,89
-	.byte	245,241,117,245,160,117,241,1
-	.byte	67,216,128,18,1,162,18,1
-	.byte	196,18,1,208,18,1,244,18
-	.byte	1,248,18,1,125,18,1,147
-	.byte	144,29,9,224,255,191,1,2
-	.byte	128,2,128,29,144,29,5,224
-	.byte	254,163,224,255,144,29,7,224
-	.byte	252,163,224,253
-	.byte	144,31
-	.space	1
-	.byte	238,44,240,239,61,163,240,18
-	.byte	3,104,144,29,12,224,255,191
-	.byte	1,2,128,2,128,12,117,199
-	.byte	2,144,29,5,229,193,240,228
-	.byte	163,240,144,29,12,224,255,191
-	.byte	2,2,128,2,128,179,144,29
-	.byte	12,228,240,117,199,2,144,29
-	.byte	7,229,193,240,228,163,240,128
-	.byte	160,34,117,143
-	.space	1
-	.byte	99,144,2,117,199,1,83,198
-	.byte	247,50,192,224,192,213,192,214
-	.byte	192,7,192,208
-	.byte	117,208
-	.space	1
-	.byte	117,143
-	.space	1
-	.byte	144,29,9,224,96,3,2,3
-	.byte	87,144,29,10,224,4,240,144
-	.byte	29,11,229,145,240,224,83,224
-	.byte	64,240,144,29,11,224,112,21
-	.byte	144,29,10,224,255,191,1,2
-	.byte	128,2,128,9,117,199,1,67
-	.byte	193,64,67,144,8,144,29,11
-	.byte	224,255,191,64,2,128,2,128
-	.byte	24,144,29,10,224,255,191,2
-	.byte	2,128,2,128,12,67,144,16
-	.byte	117,199,2,144,29,12,116,1
-	.byte	240,144,29,11,224,112,21,144
-	.byte	29,10,224,255,191,3,2,128
-	.byte	2,128,9,67,144,32,144,29
-	.byte	12,116,2,240,144,29,11,224
-	.byte	255,191,64,2,128,2,128,23
-	.byte	144,29,10,224,255,191,4,2
-	.byte	128,2,128,11,144,29,9,116
-	.byte	1,240,144,29,10,228,240,117
-	.byte	241
-	.space	1
-	.byte	83,242,247,208,208,208,7,208
-	.byte	214,208,213,208,224,50,144,29
-	.byte	9,228,240,245,143,83,144,247
-	.byte	83,144,239,83
-	.byte	144,223,34
-	.space	4
+	.byte	34,128,254,34
 	.sdecl	'.debug_info',debug
 	.sect	'.debug_info'
 .L3:
@@ -166,9 +86,9 @@ scr_xram:	.type	object
 	.byte	'uint8_t',0,2,242,1,41
 	.word	282
 .L8:
-	.byte	6,253,6
+	.byte	6,128,3
 	.word	282
-	.byte	7,252,6,0,0
+	.byte	7,255,2,0,0
 	.sdecl	'.debug_abbrev',debug
 	.sect	'.debug_abbrev'
 .L4:

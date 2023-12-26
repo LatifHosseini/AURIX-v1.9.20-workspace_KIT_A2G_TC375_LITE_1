@@ -27,10 +27,6 @@
 #include "Ifx_Types.h"
 #include "IfxCpu.h"
 #include "IfxScuWdt.h"
-#include "SCR.h"
-#include "Ifx_Types.h"
-#include "PMS_Power_Down_Standby.h"
-#include "IfxPms_reg.h"
 
 extern IfxCpu_syncEvent g_cpuSyncEvent;
 
@@ -46,10 +42,8 @@ void core1_main(void)
     /* Wait for CPU sync event */
     IfxCpu_emitEvent(&g_cpuSyncEvent);
     IfxCpu_waitEvent(&g_cpuSyncEvent, 1);
-    initP00_0();
     
     while(1)
     {
-        blinkP00_0();
     }
 }
