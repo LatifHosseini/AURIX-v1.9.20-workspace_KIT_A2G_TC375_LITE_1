@@ -1,22 +1,28 @@
-01:20:20 **** Build of configuration SCR Debug (SDCC) for project KIT_A2G_TC375_LITE ****
+19:36:52 **** Build of configuration SCR Debug (SDCC) for project KIT_A2G_TC375_LITE ****
 make --output-sync -j8 all 
-Building file: ../SCR/CCU_Capture_Mode_1_Config.c
 ../SCR/registers.h:46: warning 182: absolute address for sfr 'SCR_DAPISC' probably out of range.
+Building file: ../SCR/CCU_Capture_Mode_1_Config.c
 Invoking: SDCC Compiler
 sdcc --asm-scr -c --model-large -I"C:\Users\La\AURIX-v1.9.20-workspace\KIT_A2G_TC375_LITE\SCR" --std-sdcc99 --nooverlay --no-peep-return --opt-code-speed  "../SCR/CCU_Capture_Mode_1_Config.c" -o "SCR/CCU_Capture_Mode_1_Config.o"
 Finished building: ../SCR/CCU_Capture_Mode_1_Config.c
  
-Building file: ../SCR/IsStandbyMode.c
+Building file: ../SCR/CCU_Capture_Mode_0_Config.c
 ../SCR/registers.h:46: warning 182: absolute address for sfr 'SCR_DAPISC' probably out of range.
+Invoking: SDCC Compiler
+sdcc --asm-scr -c --model-large -I"C:\Users\La\AURIX-v1.9.20-workspace\KIT_A2G_TC375_LITE\SCR" --std-sdcc99 --nooverlay --no-peep-return --opt-code-speed  "../SCR/CCU_Capture_Mode_0_Config.c" -o "SCR/CCU_Capture_Mode_0_Config.o"
+Finished building: ../SCR/CCU_Capture_Mode_0_Config.c
+ 
+Building file: ../SCR/SCR_ADC_Init.c
+../SCR/registers.h:46: warning 182: absolute address for sfr 'SCR_DAPISC' probably out of range.
+Invoking: SDCC Compiler
+sdcc --asm-scr -c --model-large -I"C:\Users\La\AURIX-v1.9.20-workspace\KIT_A2G_TC375_LITE\SCR" --std-sdcc99 --nooverlay --no-peep-return --opt-code-speed  "../SCR/SCR_ADC_Init.c" -o "SCR/SCR_ADC_Init.o"
+Finished building: ../SCR/SCR_ADC_Init.c
+ 
+../SCR/registers.h:46: warning 182: absolute address for sfr 'SCR_DAPISC' probably out of range.
+Building file: ../SCR/IsStandbyMode.c
 Invoking: SDCC Compiler
 sdcc --asm-scr -c --model-large -I"C:\Users\La\AURIX-v1.9.20-workspace\KIT_A2G_TC375_LITE\SCR" --std-sdcc99 --nooverlay --no-peep-return --opt-code-speed  "../SCR/IsStandbyMode.c" -o "SCR/IsStandbyMode.o"
 Finished building: ../SCR/IsStandbyMode.c
- 
-Building file: ../SCR/SCR_Interrupt_Config.c
-Invoking: SDCC Compiler
-sdcc --asm-scr -c --model-large -I"C:\Users\La\AURIX-v1.9.20-workspace\KIT_A2G_TC375_LITE\SCR" --std-sdcc99 --nooverlay --no-peep-return --opt-code-speed  "../SCR/SCR_Interrupt_Config.c" -o "SCR/SCR_Interrupt_Config.o"
-../SCR/registers.h:46: warning 182: absolute address for sfr 'SCR_DAPISC' probably out of range.
-Finished building: ../SCR/SCR_Interrupt_Config.c
  
 Building file: ../SCR/SCR_RTC_Init.c
 ../SCR/SCR_RTC_Init.c:1: warning 190: ISO C forbids an empty source file
@@ -24,10 +30,11 @@ Invoking: SDCC Compiler
 sdcc --asm-scr -c --model-large -I"C:\Users\La\AURIX-v1.9.20-workspace\KIT_A2G_TC375_LITE\SCR" --std-sdcc99 --nooverlay --no-peep-return --opt-code-speed  "../SCR/SCR_RTC_Init.c" -o "SCR/SCR_RTC_Init.o"
 Finished building: ../SCR/SCR_RTC_Init.c
  
-Building file: ../SCR/SCR_ADC_Init.c
+Building file: ../SCR/SCR_Interrupt_Config.c
+../SCR/registers.h:46: warning 182: absolute address for sfr 'SCR_DAPISC' probably out of range.
 Invoking: SDCC Compiler
-sdcc --asm-scr -c --model-large -I"C:\Users\La\AURIX-v1.9.20-workspace\KIT_A2G_TC375_LITE\SCR" --std-sdcc99 --nooverlay --no-peep-return --opt-code-speed  "../SCR/SCR_ADC_Init.c" -o "SCR/SCR_ADC_Init.o"
-Finished building: ../SCR/SCR_ADC_Init.c
+sdcc --asm-scr -c --model-large -I"C:\Users\La\AURIX-v1.9.20-workspace\KIT_A2G_TC375_LITE\SCR" --std-sdcc99 --nooverlay --no-peep-return --opt-code-speed  "../SCR/SCR_Interrupt_Config.c" -o "SCR/SCR_Interrupt_Config.o"
+Finished building: ../SCR/SCR_Interrupt_Config.c
  
 ../SCR/registers.h:46: warning 182: absolute address for sfr 'SCR_DAPISC' probably out of range.
 Building file: ../SCR/CCT_Timer_Basic_Operation.c
@@ -35,17 +42,17 @@ Invoking: SDCC Compiler
 sdcc --asm-scr -c --model-large -I"C:\Users\La\AURIX-v1.9.20-workspace\KIT_A2G_TC375_LITE\SCR" --std-sdcc99 --nooverlay --no-peep-return --opt-code-speed  "../SCR/CCT_Timer_Basic_Operation.c" -o "SCR/CCT_Timer_Basic_Operation.o"
 Finished building: ../SCR/CCT_Timer_Basic_Operation.c
  
-../SCR/registers.h:46: warning 182: absolute address for sfr 'SCR_DAPISC' probably out of range.
 Building file: ../SCR/SCR_GPIO_Init.c
+../SCR/registers.h:46: warning 182: absolute address for sfr 'SCR_DAPISC' probably out of range.
 Invoking: SDCC Compiler
 sdcc --asm-scr -c --model-large -I"C:\Users\La\AURIX-v1.9.20-workspace\KIT_A2G_TC375_LITE\SCR" --std-sdcc99 --nooverlay --no-peep-return --opt-code-speed  "../SCR/SCR_GPIO_Init.c" -o "SCR/SCR_GPIO_Init.o"
 Finished building: ../SCR/SCR_GPIO_Init.c
  
 ../SCR/registers.h:46: warning 182: absolute address for sfr 'SCR_DAPISC' probably out of range.
-Building file: ../SCR/CCU_Capture_Mode_0_Config.c
+Building file: ../SCR/Timer_2_Basic_Operations.c
 Invoking: SDCC Compiler
-sdcc --asm-scr -c --model-large -I"C:\Users\La\AURIX-v1.9.20-workspace\KIT_A2G_TC375_LITE\SCR" --std-sdcc99 --nooverlay --no-peep-return --opt-code-speed  "../SCR/CCU_Capture_Mode_0_Config.c" -o "SCR/CCU_Capture_Mode_0_Config.o"
-Finished building: ../SCR/CCU_Capture_Mode_0_Config.c
+sdcc --asm-scr -c --model-large -I"C:\Users\La\AURIX-v1.9.20-workspace\KIT_A2G_TC375_LITE\SCR" --std-sdcc99 --nooverlay --no-peep-return --opt-code-speed  "../SCR/Timer_2_Basic_Operations.c" -o "SCR/Timer_2_Basic_Operations.o"
+Finished building: ../SCR/Timer_2_Basic_Operations.c
  
 ../SCR/registers.h:46: warning 182: absolute address for sfr 'SCR_DAPISC' probably out of range.
 Building file: ../SCR/Select_Interrupt_Priority.c
@@ -53,28 +60,24 @@ Invoking: SDCC Compiler
 sdcc --asm-scr -c --model-large -I"C:\Users\La\AURIX-v1.9.20-workspace\KIT_A2G_TC375_LITE\SCR" --std-sdcc99 --nooverlay --no-peep-return --opt-code-speed  "../SCR/Select_Interrupt_Priority.c" -o "SCR/Select_Interrupt_Priority.o"
 Finished building: ../SCR/Select_Interrupt_Priority.c
  
-../SCR/registers.h:46: warning 182: absolute address for sfr 'SCR_DAPISC' probably out of range.
-Building file: ../SCR/Timer_2_Basic_Operations.c
-../SCR/registers.h:46: warning 182: absolute address for sfr 'SCR_DAPISC' probably out of range.
-Invoking: SDCC Compiler
-sdcc --asm-scr -c --model-large -I"C:\Users\La\AURIX-v1.9.20-workspace\KIT_A2G_TC375_LITE\SCR" --std-sdcc99 --nooverlay --no-peep-return --opt-code-speed  "../SCR/Timer_2_Basic_Operations.c" -o "SCR/Timer_2_Basic_Operations.o"
-Finished building: ../SCR/Timer_2_Basic_Operations.c
- 
 Building file: ../SCR/TrigerWakeUpFromStandbyMode.c
 Invoking: SDCC Compiler
+../SCR/registers.h:46: warning 182: absolute address for sfr 'SCR_DAPISC' probably out of range.
 sdcc --asm-scr -c --model-large -I"C:\Users\La\AURIX-v1.9.20-workspace\KIT_A2G_TC375_LITE\SCR" --std-sdcc99 --nooverlay --no-peep-return --opt-code-speed  "../SCR/TrigerWakeUpFromStandbyMode.c" -o "SCR/TrigerWakeUpFromStandbyMode.o"
 Finished building: ../SCR/TrigerWakeUpFromStandbyMode.c
  
 ../SCR/registers.h:46: warning 182: absolute address for sfr 'SCR_DAPISC' probably out of range.
 Building file: ../SCR/main.c
+../SCR/main.c:320: warning 94: comparison is always true due to limited range of data type
 Invoking: SDCC Compiler
+../SCR/main.c:330: warning 126: unreachable code
 sdcc --asm-scr -c --model-large -I"C:\Users\La\AURIX-v1.9.20-workspace\KIT_A2G_TC375_LITE\SCR" --std-sdcc99 --nooverlay --no-peep-return --opt-code-speed  "../SCR/main.c" -o "SCR/main.o"
+../SCR/main.c:331: warning 126: unreachable code
 Finished building: ../SCR/main.c
+../SCR/main.c:332: warning 126: unreachable code
  
-../SCR/registers.h:46: warning 182: absolute address for sfr 'SCR_DAPISC' probably out of range.
-../SCR/main.c:120: warning 116: left shifting more than size of object changed to zero
-../SCR/main.c:127: warning 116: left shifting more than size of object changed to zero
-../SCR/main.c:319: warning 59: function 'multiply16x8' must return value
+../SCR/main.c:335: warning 126: unreachable code
+../SCR/main.c:337: warning 126: unreachable code
 Invoking: SDCC Linker
 i51-elf-ld -T"../SCR/scr.ld" --gc-sections -L"C:\Infineon\AURIX-Studio-1.9.20\tools\Compilers\sdcc_421/share/sdcc/lib/large" -lsdcc -lmcs51 -lint -lsdcc -llonglong -llong -lint -lfloat -Map="SCR_AURIX_TC3x.map"   ./SCR/CCT_Timer_Basic_Operation.o ./SCR/CCU_Capture_Mode_0_Config.o ./SCR/CCU_Capture_Mode_1_Config.o ./SCR/IsStandbyMode.o ./SCR/SCR_ADC_Init.o ./SCR/SCR_GPIO_Init.o ./SCR/SCR_Interrupt_Config.o ./SCR/SCR_RTC_Init.o ./SCR/Select_Interrupt_Priority.o ./SCR/Timer_2_Basic_Operations.o ./SCR/TrigerWakeUpFromStandbyMode.o ./SCR/main.o   -o  "SCR_AURIX_TC3x.elf"
 Finished building: SCR_AURIX_TC3x.elf
@@ -87,5 +90,5 @@ Finished building target: SCR_AURIX_TC3x
 cp *.c ../ && cp *.h ../
  
 
-01:20:22 Build Finished. 0 errors, 0 warnings. (took 1s.733ms)
+19:36:54 Build Finished. 0 errors, 0 warnings. (took 2s.56ms)
 

@@ -65,8 +65,8 @@
  /*------------------------------------------------Function Prototypes------------------------------------------------*/
  /*********************************************************************************************************************/
 void delay(void);
-void Duty_Cycle_Calculator_Function(void);
-unsigned int multiply16x8(void);
+unsigned char  Duty_Cycle_Calculator_Function(void);
+
 /*********************************************************************************************************************/
 /*---------------------------------------------Function Implementations----------------------------------------------*/
 /*********************************************************************************************************************/
@@ -114,20 +114,23 @@ void main()
     {
 
 
-        if(Read_Capture_Register == 1)
-        {
-            SCR_T2CCU_PAGE = 2;
-            Capture_Value_1  = (uint8)(SCR_T2CCU_CC0H << 8u);
-            Capture_Value_1  |= (uint8)SCR_T2CCU_CC0L;
-        }
-        if(Read_Capture_Register == 2)
-        {
-            Read_Capture_Register = 0;
-            SCR_T2CCU_PAGE = 2;
-            Capture_Value_2  = (uint8)(SCR_T2CCU_CC0H << 8u);
-            Capture_Value_2 |= (uint8)SCR_T2CCU_CC0L;
+//        if(Read_Capture_Register == 1)
+//        {
+//            SCR_T2CCU_PAGE = 2;
+//            Capture_Value_1  = (uint8)(SCR_T2CCU_CC0H << 8u);
+//            Capture_Value_1  |= (uint8)SCR_T2CCU_CC0L;
+//        }
+//        if(Read_Capture_Register == 2)
+//        {
+//            Read_Capture_Register = 0;
+//            SCR_T2CCU_PAGE = 2;
+//            Capture_Value_2  = (uint8)(SCR_T2CCU_CC0H << 8u);
+//            Capture_Value_2 |= (uint8)SCR_T2CCU_CC0L;
+//
+//        }
 
-        }
+        Capture_Value_2 = 0xC350;//  50000
+        Capture_Value_1 = 0x30D4; // 25% of 50000
 
         Duty_Cycle_Calculator_Function();
 //        SCR_T2CCU_PAGE = 2;
@@ -275,65 +278,64 @@ void EXINT5IS_interrupt(void) __interrupt (9){
    // SCR_IR_CON0 &= ~(1 << CLEAR_BIT_5_IN_IR_CON0) ;// clear bit 5 in IR_CON0 register
 }
 
-void Duty_Cycle_Calculator_Function(void)
+unsigned char Duty_Cycle_Calculator_Function(void)
 {
-    volatile unsigned long Capture_Value_sum = 0;
-    volatile unsigned long temp = 0;
-    volatile unsigned char Duty_Cycle = 0;
-    char a = 100;
-    char b = 120;
-    Capture_Value_sum = Capture_Value_2 + Capture_Value_1;
+    unsigned int   result = 0;
+    unsigned long  quotient = 0;
+    unsigned long  remainder = 0;
+    unsigned char  Return_Result = 0;
+    unsigned char  Multiplicand = 100;
+    unsigned int   Capture_Value_sum = 0;
+    unsigned int   i ;
+    unsigned int   bit;
+    unsigned char  bitA;
+    unsigned char  bitB;
+    unsigned char  sumBit;
+    unsigned char  carry = 0;
 
-   // temp = ( unsigned long)(( unsigned int)Capture_Value_1 * 100);
-}
 
-unsigned int multiply16x8(void)
-{
-    volatile unsigned int Capture_Value_sum = 0;
-    volatile unsigned int  result = 0;
-    unsigned long quotient = 0;
-    unsigned long remainder = 0;
-    int i ;
-    int bit;
-    unsigned char var = 100;
-    Capture_Value_sum = Capture_Value_2 + Capture_Value_1;
-    // Perform multiplication using 8-bit arithmetic
-        for ( i = 0; i < 8; i++) {
-            if (var & (1 << i)) {
-                result += Capture_Value_1 << i;
-            }
-        }
-// perform 32-bit division: dividend / divisor
-        //Loop for each bit in the dividend
-        for (bit = 31; bit >= 0; bit--) {
-                remainder <<= 1;  // Left shift the remainder by 1 to make room for the next bit
-                remainder |= (Capture_Value_sum >> bit) & 0x01;  // Set the LSB of remainder with the current bit of dividend
+//    add two 16-bit unsigned integers
+    for (int i = 0; i < 16; ++i)
+    {
+        bitA = (Capture_Value_1 >> i) & 0x01;
+        bitB = (Capture_Value_2 >> i) & 0x01;
+        // Calculate the sum bit
+        sumBit = bitA ^ bitB ^ carry;
+        // Update the carry for the next iteration
+        carry = (bitA & bitB) | ((bitA ^ bitB) & carry);
+        // Update the Capture_Value_sum
+        Capture_Value_sum |= (sumBit << i);
+    }
 
-                if (remainder >= result) {
-                    remainder -= result;
-                    quotient |= (1UL << bit);  // Set the corresponding bit in the quotient
+//  Multiplikation von 16-Bit-Integer und 8-Bit-Integer
+    for ( i = 0; i < 8; i++) {
+    // Überprüfe, ob das aktuelle Bit in b gesetzt is
+        if (Multiplicand & (1 << i)) {
+    // Addiere den Wert von a, der um die aktuelle Bit-Position nach links verschoben ist, zum Ergebnis
+            result += Capture_Value_1 << i;
                 }
             }
+// perform 32-bit division: dividend / divisor
+        //Loop for each bit in the dividend
+    for (bit = 31; bit >= 0; bit--) {
+        remainder <<= 1;  // Left shift the remainder by 1 to make room for the next bit
+        remainder |= (Capture_Value_sum >> bit) & 0x01;  // Set the LSB of remainder with the current bit of dividend
 
-if(quotient > 5){
-    if(quotient< 95){
-        return 1;
+        if (remainder >= result) {
+            remainder -= result;
+            quotient |= (1UL << bit);  // Set the corresponding bit in the quotient
+            }
     }
+
+    if(quotient > 5){
+        if(quotient< 95){
+            Return_Result = 1;
+        }
+    }
+    else {  Return_Result = 0; }
+
+    return Return_Result;
 }
-else {  return 0; }
 
 
-
-//__asm
-//    MOV DPTR, #Capture_Value_sum
-//    MOVX A,@DPTR
-//    MOV B,100
-//    MUL AB
-//    MOV DPL, A     ; Store the low byte of the result in DPL
-//    MOV A, B       ; Move the high byte of the result to RSegister A
-//    MOV DPH, A     ; Store the high byte of the result in DPH
-//__endasm;
-
-
-}
 

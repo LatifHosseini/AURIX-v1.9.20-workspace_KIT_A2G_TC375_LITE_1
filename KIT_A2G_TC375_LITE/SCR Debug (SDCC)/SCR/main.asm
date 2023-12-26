@@ -28,7 +28,6 @@
 	.globl	_Duty_Cycle_Calculator
 	.globl	_delay
 	.globl	_Duty_Cycle_Calculator_Function
-	.globl	_multiply16x8
 ;--------------------------------------------------------
 ; special function registers
 ;--------------------------------------------------------
@@ -245,39 +244,39 @@ _SCR_ADCOMP_CON	=	0x00fb
 ; internal ram data
 ;--------------------------------------------------------
 	.section .ddata.i51,"aw" ;data_name ;area
-_multiply16x8_sloc0_1_0:
+_Duty_Cycle_Calculator_Function_sloc0_1_0:
+	.ds.b	4
+_Duty_Cycle_Calculator_Function_sloc1_1_0:
 	.ds.b	4
 ;--------------------------------------------------------
 ; uninitialized external ram data
 ;--------------------------------------------------------
 	.section .xdata.i51,"aw" ;xdata_name ;area
 _data	=	0x1f00
-_main_retunr_value_65536_95:
+_main_retunr_value_65536_94:
 	.ds.b	2
-_main_cnt_65536_95:
+_main_cnt_65536_94:
 	.ds.b	2
-_main_ADC_Stat_65536_95:
+_main_ADC_Stat_65536_94:
 	.ds.b	1
-_main_Capture_Value_sum_65536_95:
+_main_Capture_Value_sum_65536_94:
 	.ds.b	4
-_main_temp_65536_95:
+_main_temp_65536_94:
 	.ds.b	4
-_main_Duty_Cycle_65536_95:
+_main_Duty_Cycle_65536_94:
 	.ds.b	1
-_Duty_Cycle_Calculator_Function_Capture_Value_sum_65536_119:
+_Duty_Cycle_Calculator_Function_result_65536_116:
+	.ds.b	2
+_Duty_Cycle_Calculator_Function_quotient_65536_116:
 	.ds.b	4
-_Duty_Cycle_Calculator_Function_temp_65536_119:
+_Duty_Cycle_Calculator_Function_remainder_65536_116:
 	.ds.b	4
-_Duty_Cycle_Calculator_Function_Duty_Cycle_65536_119:
+_Duty_Cycle_Calculator_Function_Capture_Value_sum_65536_116:
+	.ds.b	2
+_Duty_Cycle_Calculator_Function_sumBit_65536_116:
 	.ds.b	1
-_multiply16x8_Capture_Value_sum_65536_121:
-	.ds.b	2
-_multiply16x8_result_65536_121:
-	.ds.b	2
-_multiply16x8_quotient_65536_121:
-	.ds.b	4
-_multiply16x8_remainder_65536_121:
-	.ds.b	4
+_Duty_Cycle_Calculator_Function_carry_65536_116:
+	.ds.b	1
 ;--------------------------------------------------------
 ; initialized external ram data
 ;--------------------------------------------------------
@@ -309,12 +308,12 @@ _Capture_Value_2:
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'main'
 ;------------------------------------------------------------
-;retunr_value              Allocated with name '_main_retunr_value_65536_95'
-;cnt                       Allocated with name '_main_cnt_65536_95'
-;ADC_Stat                  Allocated with name '_main_ADC_Stat_65536_95'
-;Capture_Value_sum         Allocated with name '_main_Capture_Value_sum_65536_95'
-;temp                      Allocated with name '_main_temp_65536_95'
-;Duty_Cycle                Allocated with name '_main_Duty_Cycle_65536_95'
+;retunr_value              Allocated with name '_main_retunr_value_65536_94'
+;cnt                       Allocated with name '_main_cnt_65536_94'
+;ADC_Stat                  Allocated with name '_main_ADC_Stat_65536_94'
+;Capture_Value_sum         Allocated with name '_main_Capture_Value_sum_65536_94'
+;temp                      Allocated with name '_main_temp_65536_94'
+;Duty_Cycle                Allocated with name '_main_Duty_Cycle_65536_94'
 ;------------------------------------------------------------
 ;	../SCR/main.c:73: void main()
 ;	-----------------------------------------
@@ -325,21 +324,21 @@ _Capture_Value_2:
 _main:
 	.using 0
 ;	../SCR/main.c:75: volatile unsigned int retunr_value = 0;
-	mov	dptr,#_main_retunr_value_65536_95
+	mov	dptr,#_main_retunr_value_65536_94
 	clr	a
 	movx	@dptr,a
 	inc	dptr
 	movx	@dptr,a
 ;	../SCR/main.c:76: volatile unsigned int cnt = 0;
-	mov	dptr,#_main_cnt_65536_95
+	mov	dptr,#_main_cnt_65536_94
 	movx	@dptr,a
 	inc	dptr
 	movx	@dptr,a
 ;	../SCR/main.c:77: volatile unsigned char ADC_Stat = 0;
-	mov	dptr,#_main_ADC_Stat_65536_95
+	mov	dptr,#_main_ADC_Stat_65536_94
 	movx	@dptr,a
 ;	../SCR/main.c:80: volatile unsigned long Capture_Value_sum = 0;
-	mov	dptr,#_main_Capture_Value_sum_65536_95
+	mov	dptr,#_main_Capture_Value_sum_65536_94
 	movx	@dptr,a
 	inc	dptr
 	movx	@dptr,a
@@ -348,7 +347,7 @@ _main:
 	inc	dptr
 	movx	@dptr,a
 ;	../SCR/main.c:81: volatile unsigned long temp = 0;
-	mov	dptr,#_main_temp_65536_95
+	mov	dptr,#_main_temp_65536_94
 	movx	@dptr,a
 	inc	dptr
 	movx	@dptr,a
@@ -357,7 +356,7 @@ _main:
 	inc	dptr
 	movx	@dptr,a
 ;	../SCR/main.c:82: volatile unsigned char Duty_Cycle = 0;
-	mov	dptr,#_main_Duty_Cycle_65536_95
+	mov	dptr,#_main_Duty_Cycle_65536_94
 	movx	@dptr,a
 ;	../SCR/main.c:92: SCR_SCU_PAGE = 1;       //Switch to page 1
 	mov	_SCR_SCU_PAGE,#0x01
@@ -387,93 +386,34 @@ _main:
 ;	../SCR/main.c:111: SCR_CCU_Capture_Mode_0();
 	lcall	_SCR_CCU_Capture_Mode_0
 ;	../SCR/main.c:113: while(1)
-.00106:
-;	../SCR/main.c:117: if(Read_Capture_Register == 1)
-	mov	dptr,#_Read_Capture_Register
-	movx	a,@dptr
-	mov	r7,a
-	cjne	r7,#0x01,.00122
-	sjmp	.00123
-.00122:
-	sjmp	.00102
-.00123:
-;	../SCR/main.c:119: SCR_T2CCU_PAGE = 2;
-	mov	_SCR_T2CCU_PAGE,#0x02
-;	../SCR/main.c:120: Capture_Value_1  = (uint8)(SCR_T2CCU_CC0H << 8u);
-	mov	dptr,#_Capture_Value_1
-	clr	a
-	movx	@dptr,a
-	inc	dptr
-	movx	@dptr,a
-;	../SCR/main.c:121: Capture_Value_1  |= (uint8)SCR_T2CCU_CC0L;
-	mov	dptr,#_Capture_Value_1
-	movx	a,@dptr
-	mov	r6,a
-	inc	dptr
-	movx	a,@dptr
-	mov	r7,a
-	mov	r4,_SCR_T2CCU_CC0L
-	mov	r5,#0x00
-	mov	dptr,#_Capture_Value_1
-	mov	a,r4
-	orl	a,r6
-	movx	@dptr,a
-	mov	a,r5
-	orl	a,r7
-	inc	dptr
-	movx	@dptr,a
 .00102:
-;	../SCR/main.c:123: if(Read_Capture_Register == 2)
-	mov	dptr,#_Read_Capture_Register
-	movx	a,@dptr
-	mov	r7,a
-	cjne	r7,#0x02,.00124
-	sjmp	.00125
-.00124:
-	sjmp	.00104
-.00125:
-;	../SCR/main.c:125: Read_Capture_Register = 0;
-	mov	dptr,#_Read_Capture_Register
-	clr	a
-	movx	@dptr,a
-;	../SCR/main.c:126: SCR_T2CCU_PAGE = 2;
-	mov	_SCR_T2CCU_PAGE,#0x02
-;	../SCR/main.c:127: Capture_Value_2  = (uint8)(SCR_T2CCU_CC0H << 8u);
+;	../SCR/main.c:132: Capture_Value_2 = 0xC350;//  50000
 	mov	dptr,#_Capture_Value_2
+	mov	a,#0x50
 	movx	@dptr,a
+	mov	a,#0xC3
 	inc	dptr
 	movx	@dptr,a
-;	../SCR/main.c:128: Capture_Value_2 |= (uint8)SCR_T2CCU_CC0L;
-	mov	dptr,#_Capture_Value_2
-	movx	a,@dptr
-	mov	r6,a
-	inc	dptr
-	movx	a,@dptr
-	mov	r7,a
-	mov	r4,_SCR_T2CCU_CC0L
-	mov	r5,#0x00
-	mov	dptr,#_Capture_Value_2
-	mov	a,r4
-	orl	a,r6
+;	../SCR/main.c:133: Capture_Value_1 = 0x30D4; // 25% of 50000
+	mov	dptr,#_Capture_Value_1
+	mov	a,#0xD4
 	movx	@dptr,a
-	mov	a,r5
-	orl	a,r7
+	mov	a,#0x30
 	inc	dptr
 	movx	@dptr,a
-.00104:
-;	../SCR/main.c:132: Duty_Cycle_Calculator_Function();
+;	../SCR/main.c:135: Duty_Cycle_Calculator_Function();
 	lcall	_Duty_Cycle_Calculator_Function
-	sjmp	.00106
-.00108:
-;	../SCR/main.c:175: }
+	sjmp	.00102
+.00104:
+;	../SCR/main.c:178: }
 	ret
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'delay'
 ;------------------------------------------------------------
-;i                         Allocated with name '_delay_i_65536_100'
-;j                         Allocated with name '_delay_j_65536_100'
+;i                         Allocated with name '_delay_i_65536_97'
+;j                         Allocated with name '_delay_j_65536_97'
 ;------------------------------------------------------------
-;	../SCR/main.c:180: void delay(void){
+;	../SCR/main.c:183: void delay(void){
 ;	-----------------------------------------
 ;	 function delay
 ;	-----------------------------------------
@@ -481,42 +421,42 @@ _main:
 	.type   delay, @function
 _delay:
 	.using 0
-;	../SCR/main.c:184: for( i = 0; i < 1000; i++){
+;	../SCR/main.c:187: for( i = 0; i < 1000; i++){
 	mov	r6,#0x00
 	mov	r7,#0x00
-;	../SCR/main.c:185: for(j = 0; j < 1000; j++){
-.00135:
+;	../SCR/main.c:188: for(j = 0; j < 1000; j++){
+.00119:
 	mov	r4,#0xE8
 	mov	r5,#0x03
-.00130:
+.00114:
 	dec	r4
-	cjne	r4,#0xFF,.00149
+	cjne	r4,#0xFF,.00133
 	dec	r5
-.00149:
+.00133:
 	mov	a,r4
 	orl	a,r5
-	jnz	.00130
-.00150:
-;	../SCR/main.c:184: for( i = 0; i < 1000; i++){
+	jnz	.00114
+.00134:
+;	../SCR/main.c:187: for( i = 0; i < 1000; i++){
 	inc	r6
-	cjne	r6,#0x00,.00151
+	cjne	r6,#0x00,.00135
 	inc	r7
-.00151:
+.00135:
 	clr	c
 	mov	a,r6
 	subb	a,#0xE8
 	mov	a,r7
 	xrl	a,#0x80
 	subb	a,#0x83
-	jc	.00135
-.00152:
-.00133:
-;	../SCR/main.c:190: }
+	jc	.00119
+.00136:
+.00117:
+;	../SCR/main.c:193: }
 	ret
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'EXINT2IS_interrupt'
 ;------------------------------------------------------------
-;	../SCR/main.c:197: void EXINT2IS_interrupt(void) __interrupt (5){
+;	../SCR/main.c:200: void EXINT2IS_interrupt(void) __interrupt (5){
 ;	-----------------------------------------
 ;	 function EXINT2IS_interrupt
 ;	-----------------------------------------
@@ -524,16 +464,16 @@ _delay:
 	.type   EXINT2IS_interrupt, @function
 _EXINT2IS_interrupt:
 	.using 0
-;	../SCR/main.c:200: SCR_IO_PAGE = SCR_IO_PAGE0;
+;	../SCR/main.c:203: SCR_IO_PAGE = SCR_IO_PAGE0;
 	mov	_SCR_IO_PAGE,#0x00
-;	../SCR/main.c:201: SCR_P00_OUT ^= (1 << 1) ;
+;	../SCR/main.c:204: SCR_P00_OUT ^= (1 << 1) ;
 	xrl	_SCR_P00_OUT,#0x02
-;	../SCR/main.c:202: SCR_T2CCU_PAGE = 1;
+;	../SCR/main.c:205: SCR_T2CCU_PAGE = 1;
 	mov	_SCR_T2CCU_PAGE,#0x01
-;	../SCR/main.c:203: SCR_T2CCU_CCTCON &= ~(1 << 3) ;//bit pos 3 overflow flag
+;	../SCR/main.c:206: SCR_T2CCU_CCTCON &= ~(1 << 3) ;//bit pos 3 overflow flag
 	anl	_SCR_T2CCU_CCTCON,#0xF7
-.00153:
-;	../SCR/main.c:205: }
+.00137:
+;	../SCR/main.c:208: }
 	reti
 ;	eliminated unneeded mov psw,# (no regs used in bank)
 ;	eliminated unneeded push/pop not_psw
@@ -544,7 +484,7 @@ _EXINT2IS_interrupt:
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'EXINT5IS_interrupt'
 ;------------------------------------------------------------
-;	../SCR/main.c:212: void EXINT5IS_interrupt(void) __interrupt (9){
+;	../SCR/main.c:215: void EXINT5IS_interrupt(void) __interrupt (9){
 ;	-----------------------------------------
 ;	 function EXINT5IS_interrupt
 ;	-----------------------------------------
@@ -558,129 +498,129 @@ _EXINT5IS_interrupt:
 	push	ar7
 	push	psw
 	mov	psw,#0x00
-;	../SCR/main.c:214: SCR_IO_PAGE = 0;// for debug purpose
+;	../SCR/main.c:217: SCR_IO_PAGE = 0;// for debug purpose
 	mov	_SCR_IO_PAGE,#0x00
-;	../SCR/main.c:216: if(Duty_Cycle_Calculator == 0)
+;	../SCR/main.c:219: if(Duty_Cycle_Calculator == 0)
 	mov	dptr,#_Duty_Cycle_Calculator
 	movx	a,@dptr
-	jz	.00211
-	ljmp	.00172
-.00211:
-;	../SCR/main.c:218: edge_counter++;
+	jz	.00195
+	ljmp	.00156
+.00195:
+;	../SCR/main.c:221: edge_counter++;
 	mov	dptr,#_edge_counter
 	movx	a,@dptr
 	inc	a
 	movx	@dptr,a
-;	../SCR/main.c:219: Check_Pin_Stat = SCR_P00_IN;
+;	../SCR/main.c:222: Check_Pin_Stat = SCR_P00_IN;
 	mov	dptr,#_Check_Pin_Stat
 	mov	a,_SCR_P00_IN
 	movx	@dptr,a
-;	../SCR/main.c:220: Check_Pin_Stat = Check_Pin_Stat & 0x40; //  01000000
+;	../SCR/main.c:223: Check_Pin_Stat = Check_Pin_Stat & 0x40; //  01000000
 	movx	a,@dptr
 	anl	acc,#0x40
 	movx	@dptr,a
-;	../SCR/main.c:223: if(Check_Pin_Stat == 0 )//first falling edge
+;	../SCR/main.c:226: if(Check_Pin_Stat == 0 )//first falling edge
 	mov	dptr,#_Check_Pin_Stat
 	movx	a,@dptr
-	jnz	.00158
-.00212:
-;	../SCR/main.c:225: if(edge_counter == 1)
+	jnz	.00142
+.00196:
+;	../SCR/main.c:228: if(edge_counter == 1)
 	mov	dptr,#_edge_counter
 	movx	a,@dptr
 	mov	r7,a
-	cjne	r7,#0x01,.00213
-	sjmp	.00214
-.00213:
-	sjmp	.00158
-.00214:
-;	../SCR/main.c:227: SCR_T2CCU_PAGE = 1;
+	cjne	r7,#0x01,.00197
+	sjmp	.00198
+.00197:
+	sjmp	.00142
+.00198:
+;	../SCR/main.c:230: SCR_T2CCU_PAGE = 1;
 	mov	_SCR_T2CCU_PAGE,#0x01
-;	../SCR/main.c:228: SCR_T2CCU_CCTBSEL|= (1 << 6) ;//trigger a overflow to reset the CCT timer, bit position 6
+;	../SCR/main.c:231: SCR_T2CCU_CCTBSEL|= (1 << 6) ;//trigger a overflow to reset the CCT timer, bit position 6
 	orl	_SCR_T2CCU_CCTBSEL,#0x40
-;	../SCR/main.c:229: SCR_P00_OUT |= (1 << 3) ;// for debug purpose
+;	../SCR/main.c:232: SCR_P00_OUT |= (1 << 3) ;// for debug purpose
 	orl	_SCR_P00_OUT,#0x08
-.00158:
-;	../SCR/main.c:234: if(Check_Pin_Stat == 64 )// first rising edge
+.00142:
+;	../SCR/main.c:237: if(Check_Pin_Stat == 64 )// first rising edge
 	mov	dptr,#_Check_Pin_Stat
 	movx	a,@dptr
 	mov	r7,a
-	cjne	r7,#0x40,.00215
-	sjmp	.00216
-.00215:
-	sjmp	.00162
-.00216:
-;	../SCR/main.c:236: if(edge_counter == 2)
+	cjne	r7,#0x40,.00199
+	sjmp	.00200
+.00199:
+	sjmp	.00146
+.00200:
+;	../SCR/main.c:239: if(edge_counter == 2)
 	mov	dptr,#_edge_counter
 	movx	a,@dptr
 	mov	r7,a
-	cjne	r7,#0x02,.00217
-	sjmp	.00218
-.00217:
-	sjmp	.00162
-.00218:
-;	../SCR/main.c:238: SCR_P00_OUT |= (1 << 4) ;// for debug purpose
+	cjne	r7,#0x02,.00201
+	sjmp	.00202
+.00201:
+	sjmp	.00146
+.00202:
+;	../SCR/main.c:241: SCR_P00_OUT |= (1 << 4) ;// for debug purpose
 	orl	_SCR_P00_OUT,#0x10
-;	../SCR/main.c:239: SCR_T2CCU_PAGE = 2;
+;	../SCR/main.c:242: SCR_T2CCU_PAGE = 2;
 	mov	_SCR_T2CCU_PAGE,#0x02
-;	../SCR/main.c:241: Read_Capture_Register = 1;
+;	../SCR/main.c:244: Read_Capture_Register = 1;
 	mov	dptr,#_Read_Capture_Register
 	mov	a,#0x01
 	movx	@dptr,a
-.00162:
-;	../SCR/main.c:246: if(Check_Pin_Stat == 0 )//second falling edge
+.00146:
+;	../SCR/main.c:249: if(Check_Pin_Stat == 0 )//second falling edge
 	mov	dptr,#_Check_Pin_Stat
 	movx	a,@dptr
-	jnz	.00166
-.00219:
-;	../SCR/main.c:248: if(edge_counter == 3)
+	jnz	.00150
+.00203:
+;	../SCR/main.c:251: if(edge_counter == 3)
 	mov	dptr,#_edge_counter
 	movx	a,@dptr
 	mov	r7,a
-	cjne	r7,#0x03,.00220
-	sjmp	.00221
-.00220:
-	sjmp	.00166
-.00221:
-;	../SCR/main.c:250: SCR_P00_OUT |= (1 << 5) ;// for debug purpose
+	cjne	r7,#0x03,.00204
+	sjmp	.00205
+.00204:
+	sjmp	.00150
+.00205:
+;	../SCR/main.c:253: SCR_P00_OUT |= (1 << 5) ;// for debug purpose
 	orl	_SCR_P00_OUT,#0x20
-;	../SCR/main.c:251: Read_Capture_Register = 2;
+;	../SCR/main.c:254: Read_Capture_Register = 2;
 	mov	dptr,#_Read_Capture_Register
 	mov	a,#0x02
 	movx	@dptr,a
-.00166:
-;	../SCR/main.c:256: if(Check_Pin_Stat == 64 )//second rising edge
+.00150:
+;	../SCR/main.c:259: if(Check_Pin_Stat == 64 )//second rising edge
 	mov	dptr,#_Check_Pin_Stat
 	movx	a,@dptr
 	mov	r7,a
-	cjne	r7,#0x40,.00222
-	sjmp	.00223
-.00222:
-	sjmp	.00172
-.00223:
-;	../SCR/main.c:258: if(edge_counter == 4)
+	cjne	r7,#0x40,.00206
+	sjmp	.00207
+.00206:
+	sjmp	.00156
+.00207:
+;	../SCR/main.c:261: if(edge_counter == 4)
 	mov	dptr,#_edge_counter
 	movx	a,@dptr
 	mov	r7,a
-	cjne	r7,#0x04,.00224
-	sjmp	.00225
-.00224:
-	sjmp	.00172
-.00225:
-;	../SCR/main.c:261: Duty_Cycle_Calculator = 1;
+	cjne	r7,#0x04,.00208
+	sjmp	.00209
+.00208:
+	sjmp	.00156
+.00209:
+;	../SCR/main.c:264: Duty_Cycle_Calculator = 1;
 	mov	dptr,#_Duty_Cycle_Calculator
 	mov	a,#0x01
 	movx	@dptr,a
-;	../SCR/main.c:262: edge_counter = 0;
+;	../SCR/main.c:265: edge_counter = 0;
 	mov	dptr,#_edge_counter
 	clr	a
 	movx	@dptr,a
-.00172:
-;	../SCR/main.c:273: SCR_SCU_PAGE = 0;
+.00156:
+;	../SCR/main.c:276: SCR_SCU_PAGE = 0;
 	mov	_SCR_SCU_PAGE,#0x00
-;	../SCR/main.c:274: SCR_IR_CON0 &= ~(1 << 3) ; // Clear bit 3
+;	../SCR/main.c:277: SCR_IR_CON0 &= ~(1 << 3) ; // Clear bit 3
 	anl	_SCR_IR_CON0,#0xF7
-.00173:
-;	../SCR/main.c:276: }
+.00157:
+;	../SCR/main.c:279: }
 	pop	psw
 	pop	ar7
 	pop	dph
@@ -691,13 +631,23 @@ _EXINT5IS_interrupt:
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'Duty_Cycle_Calculator_Function'
 ;------------------------------------------------------------
-;Capture_Value_sum         Allocated with name '_Duty_Cycle_Calculator_Function_Capture_Value_sum_65536_119'
-;temp                      Allocated with name '_Duty_Cycle_Calculator_Function_temp_65536_119'
-;Duty_Cycle                Allocated with name '_Duty_Cycle_Calculator_Function_Duty_Cycle_65536_119'
-;a                         Allocated with name '_Duty_Cycle_Calculator_Function_a_65536_119'
-;b                         Allocated with name '_Duty_Cycle_Calculator_Function_b_65536_119'
+;sloc0                     Allocated with name '_Duty_Cycle_Calculator_Function_sloc0_1_0'
+;sloc1                     Allocated with name '_Duty_Cycle_Calculator_Function_sloc1_1_0'
+;result                    Allocated with name '_Duty_Cycle_Calculator_Function_result_65536_116'
+;quotient                  Allocated with name '_Duty_Cycle_Calculator_Function_quotient_65536_116'
+;remainder                 Allocated with name '_Duty_Cycle_Calculator_Function_remainder_65536_116'
+;Return_Result             Allocated with name '_Duty_Cycle_Calculator_Function_Return_Result_65536_116'
+;Multiplicand              Allocated with name '_Duty_Cycle_Calculator_Function_Multiplicand_65536_116'
+;Capture_Value_sum         Allocated with name '_Duty_Cycle_Calculator_Function_Capture_Value_sum_65536_116'
+;i                         Allocated with name '_Duty_Cycle_Calculator_Function_i_65536_116'
+;bit                       Allocated with name '_Duty_Cycle_Calculator_Function_bit_65536_116'
+;bitA                      Allocated with name '_Duty_Cycle_Calculator_Function_bitA_65536_116'
+;bitB                      Allocated with name '_Duty_Cycle_Calculator_Function_bitB_65536_116'
+;sumBit                    Allocated with name '_Duty_Cycle_Calculator_Function_sumBit_65536_116'
+;carry                     Allocated with name '_Duty_Cycle_Calculator_Function_carry_65536_116'
+;i                         Allocated with name '_Duty_Cycle_Calculator_Function_i_131072_117'
 ;------------------------------------------------------------
-;	../SCR/main.c:278: void Duty_Cycle_Calculator_Function(void)
+;	../SCR/main.c:281: unsigned char Duty_Cycle_Calculator_Function(void)
 ;	-----------------------------------------
 ;	 function Duty_Cycle_Calculator_Function
 ;	-----------------------------------------
@@ -705,18 +655,14 @@ _EXINT5IS_interrupt:
 	.type   Duty_Cycle_Calculator_Function, @function
 _Duty_Cycle_Calculator_Function:
 	.using 0
-;	../SCR/main.c:280: volatile unsigned long Capture_Value_sum = 0;
-	mov	dptr,#_Duty_Cycle_Calculator_Function_Capture_Value_sum_65536_119
+;	../SCR/main.c:283: unsigned int   result = 0;
+	mov	dptr,#_Duty_Cycle_Calculator_Function_result_65536_116
 	clr	a
 	movx	@dptr,a
 	inc	dptr
 	movx	@dptr,a
-	inc	dptr
-	movx	@dptr,a
-	inc	dptr
-	movx	@dptr,a
-;	../SCR/main.c:281: volatile unsigned long temp = 0;
-	mov	dptr,#_Duty_Cycle_Calculator_Function_temp_65536_119
+;	../SCR/main.c:284: unsigned long  quotient = 0;
+	mov	dptr,#_Duty_Cycle_Calculator_Function_quotient_65536_116
 	movx	@dptr,a
 	inc	dptr
 	movx	@dptr,a
@@ -724,75 +670,8 @@ _Duty_Cycle_Calculator_Function:
 	movx	@dptr,a
 	inc	dptr
 	movx	@dptr,a
-;	../SCR/main.c:282: volatile unsigned char Duty_Cycle = 0;
-	mov	dptr,#_Duty_Cycle_Calculator_Function_Duty_Cycle_65536_119
-	movx	@dptr,a
-;	../SCR/main.c:285: Capture_Value_sum = Capture_Value_2 + Capture_Value_1;
-	mov	dptr,#_Capture_Value_1
-	movx	a,@dptr
-	mov	r6,a
-	inc	dptr
-	movx	a,@dptr
-	mov	r7,a
-	mov	dptr,#_Capture_Value_2
-	movx	a,@dptr
-	mov	r4,a
-	inc	dptr
-	movx	a,@dptr
-	mov	r5,a
-	mov	a,r6
-	add	a,r4
-	mov	r6,a
-	mov	a,r7
-	addc	a,r5
-	mov	r7,a
-	mov	dptr,#_Duty_Cycle_Calculator_Function_Capture_Value_sum_65536_119
-	mov	a,r6
-	movx	@dptr,a
-	mov	a,r7
-	inc	dptr
-	movx	@dptr,a
-	clr	a
-	inc	dptr
-	movx	@dptr,a
-	inc	dptr
-	movx	@dptr,a
-.00226:
-;	../SCR/main.c:288: }
-	ret
-;------------------------------------------------------------
-;Allocation info for local variables in function 'multiply16x8'
-;------------------------------------------------------------
-;sloc0                     Allocated with name '_multiply16x8_sloc0_1_0'
-;Capture_Value_sum         Allocated with name '_multiply16x8_Capture_Value_sum_65536_121'
-;result                    Allocated with name '_multiply16x8_result_65536_121'
-;quotient                  Allocated with name '_multiply16x8_quotient_65536_121'
-;remainder                 Allocated with name '_multiply16x8_remainder_65536_121'
-;i                         Allocated with name '_multiply16x8_i_65536_121'
-;bit                       Allocated with name '_multiply16x8_bit_65536_121'
-;var                       Allocated with name '_multiply16x8_var_65536_121'
-;------------------------------------------------------------
-;	../SCR/main.c:290: unsigned int multiply16x8(void)
-;	-----------------------------------------
-;	 function multiply16x8
-;	-----------------------------------------
-	.section .text.code.multiply16x8,"ax" ;code for function multiply16x8
-	.type   multiply16x8, @function
-_multiply16x8:
-	.using 0
-;	../SCR/main.c:292: volatile unsigned int Capture_Value_sum = 0;
-	mov	dptr,#_multiply16x8_Capture_Value_sum_65536_121
-	clr	a
-	movx	@dptr,a
-	inc	dptr
-	movx	@dptr,a
-;	../SCR/main.c:293: volatile unsigned int  result = 0;
-	mov	dptr,#_multiply16x8_result_65536_121
-	movx	@dptr,a
-	inc	dptr
-	movx	@dptr,a
-;	../SCR/main.c:294: unsigned long quotient = 0;
-	mov	dptr,#_multiply16x8_quotient_65536_121
+;	../SCR/main.c:285: unsigned long  remainder = 0;
+	mov	dptr,#_Duty_Cycle_Calculator_Function_remainder_65536_116
 	movx	@dptr,a
 	inc	dptr
 	movx	@dptr,a
@@ -800,86 +679,167 @@ _multiply16x8:
 	movx	@dptr,a
 	inc	dptr
 	movx	@dptr,a
-;	../SCR/main.c:295: unsigned long remainder = 0;
-	mov	dptr,#_multiply16x8_remainder_65536_121
+;	../SCR/main.c:288: unsigned int   Capture_Value_sum = 0;
+	mov	dptr,#_Duty_Cycle_Calculator_Function_Capture_Value_sum_65536_116
 	movx	@dptr,a
 	inc	dptr
 	movx	@dptr,a
-	inc	dptr
+;	../SCR/main.c:294: unsigned char  carry = 0;
+	mov	dptr,#_Duty_Cycle_Calculator_Function_carry_65536_116
 	movx	@dptr,a
-	inc	dptr
-	movx	@dptr,a
-;	../SCR/main.c:299: Capture_Value_sum = Capture_Value_2 + Capture_Value_1;
-	mov	dptr,#_Capture_Value_1
-	movx	a,@dptr
-	mov	r6,a
-	inc	dptr
-	movx	a,@dptr
-	mov	r7,a
-	mov	dptr,#_Capture_Value_2
-	movx	a,@dptr
-	mov	r4,a
-	inc	dptr
-	movx	a,@dptr
-	mov	r5,a
-	mov	dptr,#_multiply16x8_Capture_Value_sum_65536_121
-	mov	a,r6
-	add	a,r4
-	movx	@dptr,a
-	mov	a,r7
-	addc	a,r5
-	inc	dptr
-	movx	@dptr,a
-;	../SCR/main.c:301: for ( i = 0; i < 8; i++) {
+;	../SCR/main.c:298: for (int i = 0; i < 16; ++i)
 	mov	r6,#0x00
 	mov	r7,#0x00
-.00239:
-;	../SCR/main.c:302: if (var & (1 << i)) {
+.00223:
+	clr	c
+	mov	a,r6
+	subb	a,#0x10
+	mov	a,r7
+	xrl	a,#0x80
+	subb	a,#0x80
+	jnc	.00210
+.00261:
+;	../SCR/main.c:300: bitA = (Capture_Value_1 >> i) & 0x01;
+	mov	dptr,#_Capture_Value_1
+	movx	a,@dptr
+	mov	r4,a
+	inc	dptr
+	movx	a,@dptr
+	mov	r5,a
+	mov	b,r6
+	inc	b
+	sjmp	.00263
+.00262:
+	clr	c
+	mov	a,r5
+	rrc	a
+	mov	r5,a
+	mov	a,r4
+	rrc	a
+	mov	r4,a
+.00263:
+	djnz	b,.00262
+	anl	ar4,#0x01
+;	../SCR/main.c:301: bitB = (Capture_Value_2 >> i) & 0x01;
+	mov	dptr,#_Capture_Value_2
+	movx	a,@dptr
+	mov	r3,a
+	inc	dptr
+	movx	a,@dptr
+	mov	r5,a
+	mov	b,r6
+	inc	b
+	sjmp	.00265
+.00264:
+	clr	c
+	mov	a,r5
+	rrc	a
+	mov	r5,a
+	mov	a,r3
+	rrc	a
+	mov	r3,a
+.00265:
+	djnz	b,.00264
+	anl	ar3,#0x01
+;	../SCR/main.c:303: sumBit = bitA ^ bitB ^ carry;
+	mov	a,r3
+	xrl	a,r4
+	mov	r5,a
+	mov	dptr,#_Duty_Cycle_Calculator_Function_carry_65536_116
+	movx	a,@dptr
+	mov	r2,a
+	mov	dptr,#_Duty_Cycle_Calculator_Function_sumBit_65536_116
+	xrl	a,r5
+	movx	@dptr,a
+;	../SCR/main.c:305: carry = (bitA & bitB) | ((bitA ^ bitB) & carry);
+	mov	a,r3
+	anl	ar4,a
+	mov	a,r2
+	anl	a,r5
+	mov	dptr,#_Duty_Cycle_Calculator_Function_carry_65536_116
+	orl	a,r4
+	movx	@dptr,a
+;	../SCR/main.c:307: Capture_Value_sum |= (sumBit << i);
+	mov	dptr,#_Duty_Cycle_Calculator_Function_sumBit_65536_116
+	movx	a,@dptr
+	mov	r5,a
+	mov	r4,#0x00
+	mov	b,r6
+	inc	b
+	sjmp	.00267
+.00266:
+	mov	a,r5
+	add	a,r5
+	mov	r5,a
+	mov	a,r4
+	rlc	a
+	mov	r4,a
+.00267:
+	djnz	b,.00266
+	mov	dptr,#_Duty_Cycle_Calculator_Function_Capture_Value_sum_65536_116
+	movx	a,@dptr
+	orl	a,r5
+	movx	@dptr,a
+	inc	dptr
+	movx	a,@dptr
+	orl	a,r4
+	movx	@dptr,a
+;	../SCR/main.c:298: for (int i = 0; i < 16; ++i)
+	inc	r6
+	cjne	r6,#0x00,.00268
+	inc	r7
+.00268:
+	ljmp	.00223
+.00210:
+;	../SCR/main.c:311: for ( i = 0; i < 8; i++) {
+	mov	r6,#0x00
+	mov	r7,#0x00
+.00225:
+;	../SCR/main.c:313: if (Multiplicand & (1 << i)) {
 	mov	b,r6
 	inc	b
 	mov	r4,#0x01
 	mov	r5,#0x00
-	sjmp	.00280
-.00279:
+	sjmp	.00270
+.00269:
 	mov	a,r4
 	add	a,r4
 	mov	r4,a
 	mov	a,r5
 	rlc	a
 	mov	r5,a
-.00280:
-	djnz	b,.00279
+.00270:
+	djnz	b,.00269
 	mov	a,r4
 	anl	a,#0x64
-	jz	.00240
-.00281:
-;	../SCR/main.c:303: result += Capture_Value_1 << i;
+	jz	.00226
+.00271:
+;	../SCR/main.c:315: result += Capture_Value_1 << i;
 	mov	dptr,#_Capture_Value_1
 	movx	a,@dptr
 	mov	r4,a
 	inc	dptr
 	movx	a,@dptr
 	mov	r5,a
-	mov	ar3,r6
-	mov	b,r3
+	mov	b,r6
 	inc	b
-	sjmp	.00283
-.00282:
+	sjmp	.00273
+.00272:
 	mov	a,r4
 	add	a,r4
 	mov	r4,a
 	mov	a,r5
 	rlc	a
 	mov	r5,a
-.00283:
-	djnz	b,.00282
-	mov	dptr,#_multiply16x8_result_65536_121
+.00273:
+	djnz	b,.00272
+	mov	dptr,#_Duty_Cycle_Calculator_Function_result_65536_116
 	movx	a,@dptr
 	mov	r2,a
 	inc	dptr
 	movx	a,@dptr
 	mov	r3,a
-	mov	dptr,#_multiply16x8_result_65536_121
+	mov	dptr,#_Duty_Cycle_Calculator_Function_result_65536_116
 	mov	a,r4
 	add	a,r2
 	movx	@dptr,a
@@ -887,26 +847,25 @@ _multiply16x8:
 	addc	a,r3
 	inc	dptr
 	movx	@dptr,a
-.00240:
-;	../SCR/main.c:301: for ( i = 0; i < 8; i++) {
+.00226:
+;	../SCR/main.c:311: for ( i = 0; i < 8; i++) {
 	inc	r6
-	cjne	r6,#0x00,.00284
+	cjne	r6,#0x00,.00274
 	inc	r7
-.00284:
+.00274:
 	clr	c
 	mov	a,r6
 	subb	a,#0x08
 	mov	a,r7
-	xrl	a,#0x80
-	subb	a,#0x80
-	jc	.00239
-.00285:
-;	../SCR/main.c:308: for (bit = 31; bit >= 0; bit--) {
+	subb	a,#0x00
+	jc	.00225
+.00275:
+;	../SCR/main.c:320: for (bit = 31; bit >= 0; bit--) {
 	mov	r6,#0x1F
 	mov	r7,#0x00
-.00241:
-;	../SCR/main.c:309: remainder <<= 1;  // Left shift the remainder by 1 to make room for the next bit
-	mov	dptr,#_multiply16x8_remainder_65536_121
+.00227:
+;	../SCR/main.c:321: remainder <<= 1;  // Left shift the remainder by 1 to make room for the next bit
+	mov	dptr,#_Duty_Cycle_Calculator_Function_remainder_65536_116
 	movx	a,@dptr
 	mov	r2,a
 	inc	dptr
@@ -930,7 +889,7 @@ _multiply16x8:
 	mov	a,r5
 	rlc	a
 	mov	r5,a
-	mov	dptr,#_multiply16x8_remainder_65536_121
+	mov	dptr,#_Duty_Cycle_Calculator_Function_remainder_65536_116
 	mov	a,r2
 	movx	@dptr,a
 	mov	a,r3
@@ -942,8 +901,8 @@ _multiply16x8:
 	mov	a,r5
 	inc	dptr
 	movx	@dptr,a
-;	../SCR/main.c:310: remainder |= (Capture_Value_sum >> bit) & 0x01;  // Set the LSB of remainder with the current bit of dividend
-	mov	dptr,#_multiply16x8_Capture_Value_sum_65536_121
+;	../SCR/main.c:322: remainder |= (Capture_Value_sum >> bit) & 0x01;  // Set the LSB of remainder with the current bit of dividend
+	mov	dptr,#_Duty_Cycle_Calculator_Function_Capture_Value_sum_65536_116
 	movx	a,@dptr
 	mov	r4,a
 	inc	dptr
@@ -951,8 +910,8 @@ _multiply16x8:
 	mov	r5,a
 	mov	b,r6
 	inc	b
-	sjmp	.00287
-.00286:
+	sjmp	.00277
+.00276:
 	clr	c
 	mov	a,r5
 	rrc	a
@@ -960,11 +919,11 @@ _multiply16x8:
 	mov	a,r4
 	rrc	a
 	mov	r4,a
-.00287:
-	djnz	b,.00286
+.00277:
+	djnz	b,.00276
 	anl	ar4,#0x01
 	mov	r5,#0x00
-	mov	dptr,#_multiply16x8_remainder_65536_121
+	mov	dptr,#_Duty_Cycle_Calculator_Function_remainder_65536_116
 	movx	a,@dptr
 	mov	r0,a
 	inc	dptr
@@ -980,7 +939,7 @@ _multiply16x8:
 	push	ar7
 	mov	r6,#0x00
 	mov	r7,#0x00
-	mov	dptr,#_multiply16x8_remainder_65536_121
+	mov	dptr,#_Duty_Cycle_Calculator_Function_remainder_65536_116
 	mov	a,r4
 	orl	a,r0
 	movx	@dptr,a
@@ -996,67 +955,63 @@ _multiply16x8:
 	orl	a,r3
 	inc	dptr
 	movx	@dptr,a
-;	../SCR/main.c:312: if (remainder >= result) {
-	mov	dptr,#_multiply16x8_remainder_65536_121
+;	../SCR/main.c:324: if (remainder >= result) {
+	mov	dptr,#_Duty_Cycle_Calculator_Function_remainder_65536_116
 	movx	a,@dptr
-	mov	_multiply16x8_sloc0_1_0,a
+	mov	_Duty_Cycle_Calculator_Function_sloc0_1_0,a
 	inc	dptr
 	movx	a,@dptr
-	mov	(_multiply16x8_sloc0_1_0 + 1),a
+	mov	(_Duty_Cycle_Calculator_Function_sloc0_1_0 + 1),a
 	inc	dptr
 	movx	a,@dptr
-	mov	(_multiply16x8_sloc0_1_0 + 2),a
+	mov	(_Duty_Cycle_Calculator_Function_sloc0_1_0 + 2),a
 	inc	dptr
 	movx	a,@dptr
-	mov	(_multiply16x8_sloc0_1_0 + 3),a
-	mov	dptr,#_multiply16x8_result_65536_121
+	mov	(_Duty_Cycle_Calculator_Function_sloc0_1_0 + 3),a
+	mov	dptr,#_Duty_Cycle_Calculator_Function_result_65536_116
 	movx	a,@dptr
 	mov	r6,a
 	inc	dptr
 	movx	a,@dptr
 	mov	r7,a
-	mov	r5,#0x00
-	mov	r4,#0x00
+	mov	_Duty_Cycle_Calculator_Function_sloc1_1_0,r6
+	mov	(_Duty_Cycle_Calculator_Function_sloc1_1_0 + 1),r7
+;	1-genFromRTrack replaced	mov	(_Duty_Cycle_Calculator_Function_sloc1_1_0 + 2),#0x00
+	mov	(_Duty_Cycle_Calculator_Function_sloc1_1_0 + 2),r5
+;	1-genFromRTrack replaced	mov	(_Duty_Cycle_Calculator_Function_sloc1_1_0 + 3),#0x00
+	mov	(_Duty_Cycle_Calculator_Function_sloc1_1_0 + 3),r5
 	clr	c
-	mov	a,_multiply16x8_sloc0_1_0
-	subb	a,r6
-	mov	a,(_multiply16x8_sloc0_1_0 + 1)
-	subb	a,r7
-	mov	a,(_multiply16x8_sloc0_1_0 + 2)
-	subb	a,r5
-	mov	a,(_multiply16x8_sloc0_1_0 + 3)
-	subb	a,r4
+	mov	a,_Duty_Cycle_Calculator_Function_sloc0_1_0
+	subb	a,_Duty_Cycle_Calculator_Function_sloc1_1_0
+	mov	a,(_Duty_Cycle_Calculator_Function_sloc0_1_0 + 1)
+	subb	a,(_Duty_Cycle_Calculator_Function_sloc1_1_0 + 1)
+	mov	a,(_Duty_Cycle_Calculator_Function_sloc0_1_0 + 2)
+	subb	a,(_Duty_Cycle_Calculator_Function_sloc1_1_0 + 2)
+	mov	a,(_Duty_Cycle_Calculator_Function_sloc0_1_0 + 3)
+	subb	a,(_Duty_Cycle_Calculator_Function_sloc1_1_0 + 3)
 	pop	ar7
 	pop	ar6
-	jc	.00242
-.00288:
-;	../SCR/main.c:313: remainder -= result;
-	mov	dptr,#_multiply16x8_result_65536_121
-	movx	a,@dptr
-	mov	r4,a
-	inc	dptr
-	movx	a,@dptr
-	mov	r5,a
-	mov	r3,#0x00
-	mov	r2,#0x00
-	mov	dptr,#_multiply16x8_remainder_65536_121
-	mov	a,_multiply16x8_sloc0_1_0
+	jc	.00228
+.00278:
+;	../SCR/main.c:325: remainder -= result;
+	mov	dptr,#_Duty_Cycle_Calculator_Function_remainder_65536_116
+	mov	a,_Duty_Cycle_Calculator_Function_sloc0_1_0
 	clr	c
-	subb	a,r4
+	subb	a,_Duty_Cycle_Calculator_Function_sloc1_1_0
 	movx	@dptr,a
-	mov	a,(_multiply16x8_sloc0_1_0 + 1)
-	subb	a,r5
+	mov	a,(_Duty_Cycle_Calculator_Function_sloc0_1_0 + 1)
+	subb	a,(_Duty_Cycle_Calculator_Function_sloc1_1_0 + 1)
 	inc	dptr
 	movx	@dptr,a
-	mov	a,(_multiply16x8_sloc0_1_0 + 2)
-	subb	a,r3
+	mov	a,(_Duty_Cycle_Calculator_Function_sloc0_1_0 + 2)
+	subb	a,(_Duty_Cycle_Calculator_Function_sloc1_1_0 + 2)
 	inc	dptr
 	movx	@dptr,a
-	mov	a,(_multiply16x8_sloc0_1_0 + 3)
-	subb	a,r2
+	mov	a,(_Duty_Cycle_Calculator_Function_sloc0_1_0 + 3)
+	subb	a,(_Duty_Cycle_Calculator_Function_sloc1_1_0 + 3)
 	inc	dptr
 	movx	@dptr,a
-;	../SCR/main.c:314: quotient |= (1UL << bit);  // Set the corresponding bit in the quotient
+;	../SCR/main.c:326: quotient |= (1UL << bit);  // Set the corresponding bit in the quotient
 	mov	ar5,r6
 	mov	b,r5
 	inc	b
@@ -1064,8 +1019,8 @@ _multiply16x8:
 	mov	r4,#0x00
 	mov	r3,#0x00
 	mov	r2,#0x00
-	sjmp	.00290
-.00289:
+	sjmp	.00280
+.00279:
 	mov	a,r5
 	add	a,r5
 	mov	r5,a
@@ -1078,9 +1033,9 @@ _multiply16x8:
 	mov	a,r2
 	rlc	a
 	mov	r2,a
-.00290:
-	djnz	b,.00289
-	mov	dptr,#_multiply16x8_quotient_65536_121
+.00280:
+	djnz	b,.00279
+	mov	dptr,#_Duty_Cycle_Calculator_Function_quotient_65536_116
 	movx	a,@dptr
 	orl	a,r5
 	movx	@dptr,a
@@ -1096,59 +1051,15 @@ _multiply16x8:
 	movx	a,@dptr
 	orl	a,r2
 	movx	@dptr,a
-.00242:
-;	../SCR/main.c:308: for (bit = 31; bit >= 0; bit--) {
+.00228:
+;	../SCR/main.c:320: for (bit = 31; bit >= 0; bit--) {
 	dec	r6
-	cjne	r6,#0xFF,.00291
+	cjne	r6,#0xFF,.00281
 	dec	r7
-.00291:
-	mov	a,r7
-	jb	acc.7,.00292
-	ljmp	.00241
-.00292:
-;	../SCR/main.c:318: if(quotient > 5){
-	mov	dptr,#_multiply16x8_quotient_65536_121
-	movx	a,@dptr
-	mov	r4,a
-	inc	dptr
-	movx	a,@dptr
-	mov	r5,a
-	inc	dptr
-	movx	a,@dptr
-	mov	r6,a
-	inc	dptr
-	movx	a,@dptr
-	mov	r7,a
-	clr	c
-	mov	a,#0x05
-	subb	a,r4
-	clr	a
-	subb	a,r5
-	clr	a
-	subb	a,r6
-	clr	a
-	subb	a,r7
-	jnc	.00237
-.00293:
-;	../SCR/main.c:319: if(quotient< 95){
-	clr	c
-	mov	a,r4
-	subb	a,#0x5F
-	mov	a,r5
-	subb	a,#0x00
-	mov	a,r6
-	subb	a,#0x00
-	mov	a,r7
-	subb	a,#0x00
-	jnc	.00243
-.00294:
-;	../SCR/main.c:320: return 1;
-	mov	dptr,#0x0001
-	sjmp	.00243
-.00237:
-;	../SCR/main.c:323: else {  return 0; }
-	mov	dptr,#0x0000
-.00243:
+.00281:
+	ljmp	.00227
+;	../SCR/main.c:337: return Return_Result;
+.00229:
 ;	../SCR/main.c:338: }
 	ret
 ;--------------------------------------------------------
