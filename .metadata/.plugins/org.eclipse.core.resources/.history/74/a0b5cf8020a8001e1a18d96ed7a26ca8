@@ -135,8 +135,8 @@ void delay(void){
 }
 
 
-/*  ISR Node 8*/
-void EXINT8IS_interrupt(void) __interrupt (8){
+/*  ISR Node 2*/
+void EXINT5IS_interrupt(void) __interrupt (5){
 
 
     SCR_IO_PAGE = SCR_IO_PAGE0;

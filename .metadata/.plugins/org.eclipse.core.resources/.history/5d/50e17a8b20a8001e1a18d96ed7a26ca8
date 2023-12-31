@@ -135,7 +135,7 @@ void delay(void){
 }
 
 
-/*  ISR Node 8*/
+/*  ISR Node 2*/
 void EXINT8IS_interrupt(void) __interrupt (8){
 
 
