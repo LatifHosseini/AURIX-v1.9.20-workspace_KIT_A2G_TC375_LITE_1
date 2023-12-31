@@ -29,6 +29,9 @@
 #include "IfxScuWdt.h"
 #include "SCR.h"
 
+ #define RW_FLAG   (*(volatile uint32 *)0xF0241F00)
+uint32 goloba_var;
+
 IFX_ALIGN(4) IfxCpu_syncEvent g_cpuSyncEvent = 0;
 
 void core0_main(void)
@@ -60,7 +63,16 @@ void core0_main(void)
     IfxScr_init(1);
     IfxScuWdt_setSafetyEndinit(IfxScuWdt_getCpuWatchdogPassword());
     
+    IfxScuWdt_clearSafetyEndinit(IfxScuWdt_getCpuWatchdogPassword());
+        while (P33_PCSR.B.LCK);
+        P33_PCSR.U = 0xFEFF;
+        while (P34_PCSR.B.LCK);
+        P34_PCSR.U = 0x0002;
+        IfxScuWdt_setSafetyEndinit(IfxScuWdt_getCpuWatchdogPassword());
+
     while(1)
     {
+
+        goloba_var = RW_FLAG ;
     }
 }

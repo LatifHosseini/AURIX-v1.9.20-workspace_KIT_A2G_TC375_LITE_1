@@ -47,10 +47,10 @@
  //   #define MEM_SEGMENT_SHARED_DATA         0x1F00
 
 // #define Scr_Shared_Data  (*(volatile SCR_SHARED_DATA_TYPE*) 0x1F00)
-// __xdata __at(0x1F00) SCR_SHARED_DATA_TYPE Scr_Shared_Data ;
+// __xdata __at(0x1F00)  uint16 Data ;
 
 
- __xdata __at(0x1F00) unsigned int  data ;
+
  /*********************************************************************************************************************/
  /*-------------------------------------------------Global variables--------------------------------------------------*/
  /*********************************************************************************************************************/
@@ -58,14 +58,13 @@
  volatile unsigned char edge_counter = 0;
  volatile unsigned char Check_Pin_Stat = 0;
  volatile unsigned char Read_Capture_Register = 0;
- volatile unsigned int Capture_Value_1 = 0;
-     volatile unsigned int Capture_Value_2 = 0;
+
 
  /*********************************************************************************************************************/
  /*------------------------------------------------Function Prototypes------------------------------------------------*/
  /*********************************************************************************************************************/
 void delay(void);
-unsigned char  Duty_Cycle_Calculator_Function(void);
+
 
 /*********************************************************************************************************************/
 /*---------------------------------------------Function Implementations----------------------------------------------*/
@@ -114,64 +113,7 @@ void main()
     {
 
 
-//        if(Read_Capture_Register == 1)
-//        {
-//            SCR_T2CCU_PAGE = 2;
-//            Capture_Value_1  = (uint8)(SCR_T2CCU_CC0H << 8u);
-//            Capture_Value_1  |= (uint8)SCR_T2CCU_CC0L;
-//        }
-//        if(Read_Capture_Register == 2)
-//        {
-//            Read_Capture_Register = 0;
-//            SCR_T2CCU_PAGE = 2;
-//            Capture_Value_2  = (uint8)(SCR_T2CCU_CC0H << 8u);
-//            Capture_Value_2 |= (uint8)SCR_T2CCU_CC0L;
-//
-//        }
-
-        Capture_Value_2 = 0xC350;//  50000
-        Capture_Value_1 = 0x30D4; // 25% of 50000
-
         Duty_Cycle_Calculator_Function();
-//        SCR_T2CCU_PAGE = 2;
-//        Capture_Value_1  = (uint8)(SCR_T2CCU_CC0H << 8u);
-//        Capture_Value_1  |= (uint8)SCR_T2CCU_CC0L;
-//        data = result;
-//        SCR_IO_PAGE = SCR_IO_PAGE0;
-//            SCR_P00_OUT ^= (1 << 3) ;
-//            delay();
-
-
-//        SCR_IO_PAGE = SCR_IO_PAGE0;
-//        Check_Pin_Stat = SCR_P00_IN;
-//        Check_Pin_Stat = Check_Pin_Stat & 0x40; //  01000000
-//        if(Check_Pin_Stat == 64 ){
-//            SCR_P00_OUT |= (1 << 3) ;}
-//        if(Check_Pin_Stat == 0 ){
-//            SCR_P00_OUT &= ~(1 << 3) ;}
-
-
-
-
-
-//        SCR_IO_PAGE = SCR_IO_PAGE0;
-//        if ( RissingEdge == 1){ SCR_P00_OUT |= (1 << 2) ;}
-//        else if(FellingEdge == 1){  SCR_P00_OUT &= ~(1 << 2) ;  }
-//        else{}
-////
-////        SCR_SCU_PAGE = 0;       //Switch to page 0
-////                SCR_SCRINTEXCHG = 0xA0;
-////                delay();
-////                SCR_SCRINTEXCHG = 0xB0;
-//////                               delay();
-//        SCR_P00_OUT |= (1 << 2) ;
-//        SCR_P00_OUT |= (1 << 3) ;
-//        SCR_P00_OUT |= (1 << 4) ;
-//        delay();
-//        SCR_P00_OUT &= ~(1 << 2) ; // Clear bit 2
-//        SCR_P00_OUT &= ~(1 << 3) ; // Clear bit 3
-//        SCR_P00_OUT &= ~(1 << 4) ; // Clear bit 4
-//        delay();
 
 
     }
@@ -192,150 +134,24 @@ void delay(void){
 
 }
 
-/***********************************************************************************************************
- *
-************************************************************************************************************ */
 
 /*  ISR Node 2*/
 void EXINT2IS_interrupt(void) __interrupt (5){
 
 
-        SCR_IO_PAGE = SCR_IO_PAGE0;
-        SCR_P00_OUT ^= (1 << 1) ;
+    SCR_IO_PAGE = SCR_IO_PAGE0;
+    SCR_P00_OUT ^= (1 << 1) ;
     SCR_T2CCU_PAGE = 1;
     SCR_T2CCU_CCTCON &= ~(1 << 3) ;//bit pos 3 overflow flag
 
 }
 
-
-/***********************************************************************************************************
- *
-************************************************************************************************************ */
 /* ISR Node 9*/
 void EXINT5IS_interrupt(void) __interrupt (9){
 
-    SCR_IO_PAGE = 0;// for debug purpose
-
-    if(Duty_Cycle_Calculator == 0)
-    {
-        edge_counter++;
-        Check_Pin_Stat = SCR_P00_IN;
-        Check_Pin_Stat = Check_Pin_Stat & 0x40; //  01000000
-
-/***************************************************************************************************/
-        if(Check_Pin_Stat == 0 )//first falling edge
-           {
-            if(edge_counter == 1)
-            {
-                SCR_T2CCU_PAGE = 1;
-                SCR_T2CCU_CCTBSEL|= (1 << 6) ;//trigger a overflow to reset the CCT timer, bit position 6
-                SCR_P00_OUT |= (1 << 3) ;// for debug purpose
-            }
-
-           }
-/*************************************************************************************************/
-        if(Check_Pin_Stat == 64 )// first rising edge
-            {
-                if(edge_counter == 2)
-                {
-                    SCR_P00_OUT |= (1 << 4) ;// for debug purpose
-                    SCR_T2CCU_PAGE = 2;
-                    //read Capture register
-                    Read_Capture_Register = 1;
-                }
-
-            }
-/*************************************************************************************************/
-        if(Check_Pin_Stat == 0 )//second falling edge
-            {
-                if(edge_counter == 3)
-                {
-                    SCR_P00_OUT |= (1 << 5) ;// for debug purpose
-                    Read_Capture_Register = 2;
-                }
-
-            }
-/******************************************************************************************************/
-        if(Check_Pin_Stat == 64 )//second rising edge
-                    {
-                        if(edge_counter == 4)
-                        {
-
-                            Duty_Cycle_Calculator = 1;
-                            edge_counter = 0;
-                        }
-
-                    }
-
-    }
-
-
-/*************************************    clear pending bit  ***********************************/
-
-//SCU_PAGE=0
-    SCR_SCU_PAGE = 0;
-    SCR_IR_CON0 &= ~(1 << 3) ; // Clear bit 3
-   // SCR_IR_CON0 &= ~(1 << CLEAR_BIT_5_IN_IR_CON0) ;// clear bit 5 in IR_CON0 register
+    //SCU_PAGE=0
+        SCR_SCU_PAGE = 0;
+        SCR_IR_CON0 &= ~(1 << 3) ; // Clear bit 3
+       // SCR_IR_CON0 &= ~(1 << CLEAR_BIT_5_IN_IR_CON0) ;// clear bit 5 in IR_CON0 register
 }
-
-unsigned char Duty_Cycle_Calculator_Function(void)
-{
-    unsigned int   result = 0;
-    unsigned long  quotient = 0;
-    unsigned long  remainder = 0;
-    unsigned char  Return_Result = 0;
-    unsigned char  Multiplicand = 100;
-    unsigned int   Capture_Value_sum = 0;
-    unsigned int   i ;
-    unsigned int   bit;
-    unsigned char  bitA;
-    unsigned char  bitB;
-    unsigned char  sumBit;
-    unsigned char  carry = 0;
-
-
-//    add two 16-bit unsigned integers
-    for (int i = 0; i < 16; ++i)
-    {
-        bitA = (Capture_Value_1 >> i) & 0x01;
-        bitB = (Capture_Value_2 >> i) & 0x01;
-        // Calculate the sum bit
-        sumBit = bitA ^ bitB ^ carry;
-        // Update the carry for the next iteration
-        carry = (bitA & bitB) | ((bitA ^ bitB) & carry);
-        // Update the Capture_Value_sum
-        Capture_Value_sum |= (sumBit << i);
-    }
-
-//  Multiplikation von 16-Bit-Integer und 8-Bit-Integer
-    for ( i = 0; i < 8; i++) {
-    // Überprüfe, ob das aktuelle Bit in b gesetzt is
-        if (Multiplicand & (1 << i)) {
-    // Addiere den Wert von a, der um die aktuelle Bit-Position nach links verschoben ist, zum Ergebnis
-            result += Capture_Value_1 << i;
-                }
-            }
-// perform 32-bit division: dividend / divisor
-        //Loop for each bit in the dividend
-    for (bit = 31; bit >= 0; bit--) {
-        remainder <<= 1;  // Left shift the remainder by 1 to make room for the next bit
-        remainder |= (Capture_Value_sum >> bit) & 0x01;  // Set the LSB of remainder with the current bit of dividend
-
-        if (remainder >= result) {
-            remainder -= result;
-            quotient |= (1UL << bit);  // Set the corresponding bit in the quotient
-            }
-    }
-
-    if(quotient > 5){
-        if(quotient< 95){
-            Return_Result = 1;
-        }
-    }
-    else {  Return_Result = 0; }
-
-    return Return_Result;
-}
-
-
 

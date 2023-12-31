@@ -7,6 +7,7 @@ C_SRCS += \
 ../SCR/CCT_Timer_Basic_Operation.c \
 ../SCR/CCU_Capture_Mode_0_Config.c \
 ../SCR/CCU_Capture_Mode_1_Config.c \
+../SCR/Duty_Cycle_Calculations.c \
 ../SCR/IsStandbyMode.c \
 ../SCR/SCR_ADC_Init.c \
 ../SCR/SCR_GPIO_Init.c \
@@ -21,6 +22,7 @@ OBJS += \
 ./SCR/CCT_Timer_Basic_Operation.o \
 ./SCR/CCU_Capture_Mode_0_Config.o \
 ./SCR/CCU_Capture_Mode_1_Config.o \
+./SCR/Duty_Cycle_Calculations.o \
 ./SCR/IsStandbyMode.o \
 ./SCR/SCR_ADC_Init.o \
 ./SCR/SCR_GPIO_Init.o \
@@ -44,7 +46,7 @@ SCR/%.o: ../SCR/%.c SCR/subdir.mk
 clean: clean-SCR
 
 clean-SCR:
-	-$(RM) ./SCR/CCT_Timer_Basic_Operation.o ./SCR/CCU_Capture_Mode_0_Config.o ./SCR/CCU_Capture_Mode_1_Config.o ./SCR/IsStandbyMode.o ./SCR/SCR_ADC_Init.o ./SCR/SCR_GPIO_Init.o ./SCR/SCR_Interrupt_Config.o ./SCR/SCR_RTC_Init.o ./SCR/Select_Interrupt_Priority.o ./SCR/Timer_2_Basic_Operations.o ./SCR/TrigerWakeUpFromStandbyMode.o ./SCR/main.o
+	-$(RM) ./SCR/CCT_Timer_Basic_Operation.o ./SCR/CCU_Capture_Mode_0_Config.o ./SCR/CCU_Capture_Mode_1_Config.o ./SCR/Duty_Cycle_Calculations.o ./SCR/IsStandbyMode.o ./SCR/SCR_ADC_Init.o ./SCR/SCR_GPIO_Init.o ./SCR/SCR_Interrupt_Config.o ./SCR/SCR_RTC_Init.o ./SCR/Select_Interrupt_Priority.o ./SCR/Timer_2_Basic_Operations.o ./SCR/TrigerWakeUpFromStandbyMode.o ./SCR/main.o
 
 .PHONY: clean-SCR
 

@@ -62,20 +62,19 @@
 void gpio_init(void){
 
     /* IO module configurations*/
-       SCR_IO_PAGE = SCR_IO_PAGE2;        //Switch to page 2
+       SCR_IO_PAGE = SCR_IO_PAGE2; //Switch to page 2
        SCR_P00_PDISC = EnablePortPad;
        SCR_P01_PDISC = EnablePortPad;
        SCR_P00_PDR6 |= 0x08;    /* Set TTL input selection P00.6 */
-//---------------------- OUTPUT PINS -------------------------------------------------
-       SCR_IO_PAGE = SCR_IO_PAGE1;        //Switch to page 1
+//---------------------- OUTPUT PINS ----------------------------------------------------
+       SCR_IO_PAGE = SCR_IO_PAGE1;//Switch to page 1
        SCR_P00_IOCR1 = PUSH_PULL_GENERAL_PURPOSE_OUTPUT;
        SCR_P00_IOCR3 = PUSH_PULL_GENERAL_PURPOSE_OUTPUT;
        SCR_P00_IOCR4 = PUSH_PULL_GENERAL_PURPOSE_OUTPUT;
        SCR_P00_IOCR5 = PUSH_PULL_GENERAL_PURPOSE_OUTPUT;
+       SCR_P00_IOCR7 = PUSH_PULL_GENERAL_PURPOSE_OUTPUT;
 
 //------------------     INPUT PINS ------------------------------------------------------
        SCR_IO_PAGE = SCR_IO_PAGE1;  // Switch to Page 1
-       SCR_P00_IOCR6 = GENERAL_PURPOSE_INPUT;    // Configure P00.2 as Input
-
-
+       SCR_P00_IOCR6 = GENERAL_PURPOSE_INPUT; // Configure P00.6 as Input for external interrupt
 }

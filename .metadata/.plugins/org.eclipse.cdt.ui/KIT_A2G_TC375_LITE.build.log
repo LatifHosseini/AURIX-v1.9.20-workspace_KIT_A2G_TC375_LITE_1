@@ -1,94 +1,59 @@
-19:36:52 **** Build of configuration SCR Debug (SDCC) for project KIT_A2G_TC375_LITE ****
+19:20:47 **** Incremental Build of configuration TriCore Debug (TASKING) for project KIT_A2G_TC375_LITE ****
 make --output-sync -j8 all 
-../SCR/registers.h:46: warning 182: absolute address for sfr 'SCR_DAPISC' probably out of range.
-Building file: ../SCR/CCU_Capture_Mode_1_Config.c
-Invoking: SDCC Compiler
-sdcc --asm-scr -c --model-large -I"C:\Users\La\AURIX-v1.9.20-workspace\KIT_A2G_TC375_LITE\SCR" --std-sdcc99 --nooverlay --no-peep-return --opt-code-speed  "../SCR/CCU_Capture_Mode_1_Config.c" -o "SCR/CCU_Capture_Mode_1_Config.o"
-Finished building: ../SCR/CCU_Capture_Mode_1_Config.c
+Building file: SCR.src
+Invoking: TASKING Assembler
+astc -Og -Os --no-warnings= --error-limit=42 -o  "SCR.o" "SCR.src"
+Finished building: SCR.src
  
-Building file: ../SCR/CCU_Capture_Mode_0_Config.c
-../SCR/registers.h:46: warning 182: absolute address for sfr 'SCR_DAPISC' probably out of range.
-Invoking: SDCC Compiler
-sdcc --asm-scr -c --model-large -I"C:\Users\La\AURIX-v1.9.20-workspace\KIT_A2G_TC375_LITE\SCR" --std-sdcc99 --nooverlay --no-peep-return --opt-code-speed  "../SCR/CCU_Capture_Mode_0_Config.c" -o "SCR/CCU_Capture_Mode_0_Config.o"
-Finished building: ../SCR/CCU_Capture_Mode_0_Config.c
+TASKING VX-toolset for AURIX Development Studio (non-commercial): assembler v1.1r8 Build 22011964
+Building file: ../SCR_AURIX_TC3x.c
+Invoking: TASKING C/C++ Compiler
+cctc -cs --dep-file="SCR_AURIX_TC3x.d" --misrac-version=2004 -D__CPU__=tc37x "-fC:/Users/La/AURIX-v1.9.20-workspace/KIT_A2G_TC375_LITE/TriCore Debug (TASKING)/TASKING_C_C___Compiler-Include_paths__-I_.opt" --iso=99 --c++14 --language=+volatile --exceptions --anachronisms --fp-model=3 -O0 --tradeoff=4 --compact-max-size=200 -g -Wc-w544 -Wc-w557 -Ctc37x -Y0 -N0 -Z0 -o "SCR_AURIX_TC3x.src" "../SCR_AURIX_TC3x.c" && \
+if [ -f "SCR_AURIX_TC3x.d" ]; then sed.exe -r  -e 's/\\/\//g' -e 's/\/\//\//g' -e 's/"//g' -e 's/([a-zA-Z]:\/)/\L\1/g' -e 's/\d32:/@TARGET_DELIMITER@/g; s/\\\d32/@ESCAPED_SPACE@/g; s/\d32/\\\d32/g; s/@ESCAPED_SPACE@/\\\d32/g; s/@TARGET_DELIMITER@/\d32:/g' "SCR_AURIX_TC3x.d" > "SCR_AURIX_TC3x.d_sed" && cp "SCR_AURIX_TC3x.d_sed" "SCR_AURIX_TC3x.d" && rm -f "SCR_AURIX_TC3x.d_sed" 2>/dev/null; else echo 'No dependency file to process';fi
+Finished building: ../SCR_AURIX_TC3x.c
+TASKING VX-toolset for AURIX Development Studio (non-commercial): control program v1.1r8 Build 22011964
+ctc W504: ["..\SCR_AURIX_TC3x.h" 45/9] macro "LABEL_scr_xram__00101" redefined
  
-Building file: ../SCR/SCR_ADC_Init.c
-../SCR/registers.h:46: warning 182: absolute address for sfr 'SCR_DAPISC' probably out of range.
-Invoking: SDCC Compiler
-sdcc --asm-scr -c --model-large -I"C:\Users\La\AURIX-v1.9.20-workspace\KIT_A2G_TC375_LITE\SCR" --std-sdcc99 --nooverlay --no-peep-return --opt-code-speed  "../SCR/SCR_ADC_Init.c" -o "SCR/SCR_ADC_Init.o"
-Finished building: ../SCR/SCR_ADC_Init.c
+ctc I801: ["..\SCR_AURIX_TC3x.h" 44/9] previous definition of macro "LABEL_scr_xram__00101"
+ctc W504: ["..\SCR_AURIX_TC3x.h" 46/9] macro "LABEL_scr_xram__00101" redefined
+ctc I801: ["..\SCR_AURIX_TC3x.h" 45/9] previous definition of macro "LABEL_scr_xram__00101"
+ctc W504: ["..\SCR_AURIX_TC3x.h" 54/9] macro "LABEL_scr_xram__00102" redefined
+ctc I801: ["..\SCR_AURIX_TC3x.h" 18/9] previous definition of macro "LABEL_scr_xram__00102"
+ctc W504: ["..\SCR_AURIX_TC3x.h" 57/9] macro "LABEL_scr_xram__00114" redefined
+ctc I801: ["..\SCR_AURIX_TC3x.h" 21/9] previous definition of macro "LABEL_scr_xram__00114"
+ctc W504: ["..\SCR_AURIX_TC3x.h" 61/9] macro "LABEL_scr_xram__00133" redefined
+ctc I801: ["..\SCR_AURIX_TC3x.h" 22/9] previous definition of macro "LABEL_scr_xram__00133"
+ctc W504: ["..\SCR_AURIX_TC3x.h" 63/9] macro "LABEL_scr_xram__00134" redefined
+ctc I801: ["..\SCR_AURIX_TC3x.h" 23/9] previous definition of macro "LABEL_scr_xram__00134"
+ctc W504: ["..\SCR_AURIX_TC3x.h" 79/9] macro "LABEL_scr_xram__00101" redefined
+ctc I801: ["..\SCR_AURIX_TC3x.h" 46/9] previous definition of macro "LABEL_scr_xram__00101"
+ctc W504: ["..\SCR_AURIX_TC3x.h" 80/9] macro "LABEL_scr_xram__00101" redefined
+ctc I801: ["..\SCR_AURIX_TC3x.h" 79/9] previous definition of macro "LABEL_scr_xram__00101"
+ctc W504: ["..\SCR_AURIX_TC3x.h" 81/9] macro "LABEL_scr_xram__00103" redefined
+ctc I801: ["..\SCR_AURIX_TC3x.h" 56/9] previous definition of macro "LABEL_scr_xram__00103"
+ctc W504: ["..\SCR_AURIX_TC3x.h" 83/9] macro "LABEL_scr_xram__00101" redefined
+ctc I801: ["..\SCR_AURIX_TC3x.h" 80/9] previous definition of macro "LABEL_scr_xram__00101"
+0 errors, 10 warnings
+Building file: SCR_AURIX_TC3x.src
+Invoking: TASKING Assembler
+astc -Og -Os --no-warnings= --error-limit=42 -o  "SCR_AURIX_TC3x.o" "SCR_AURIX_TC3x.src"
+Finished building: SCR_AURIX_TC3x.src
  
-../SCR/registers.h:46: warning 182: absolute address for sfr 'SCR_DAPISC' probably out of range.
-Building file: ../SCR/IsStandbyMode.c
-Invoking: SDCC Compiler
-sdcc --asm-scr -c --model-large -I"C:\Users\La\AURIX-v1.9.20-workspace\KIT_A2G_TC375_LITE\SCR" --std-sdcc99 --nooverlay --no-peep-return --opt-code-speed  "../SCR/IsStandbyMode.c" -o "SCR/IsStandbyMode.o"
-Finished building: ../SCR/IsStandbyMode.c
+TASKING VX-toolset for AURIX Development Studio (non-commercial): assembler v1.1r8 Build 22011964
+Building target: KIT_A2G_TC375_LITE.elf
+Invoking: TASKING Linker
+cctc --lsl-file="../Lcf_Tasking_Tricore_Tc.lsl" -Wl-Oc -Wl-OL -Wl-Ot -Wl-Ox -Wl-Oy -Wl--map-file="KIT_A2G_TC375_LITE.map" -Wl-mc -Wl-mf -Wl-mi -Wl-mk -Wl-ml -Wl-mm -Wl-md -Wl-mr -Wl-mu --no-warnings= -Wl--error-limit=42 --fp-model=3 -lrt --lsl-core=vtc --exceptions --strict --anachronisms --force-c++ -Ctc37x -o"KIT_A2G_TC375_LITE.elf" -Wl-o"KIT_A2G_TC375_LITE.hex:IHEX"  ./Libraries/iLLD/TC37A/Tricore/_PinMap/IfxAsclin_PinMap.o ./Libraries/iLLD/TC37A/Tricore/_PinMap/IfxCan_PinMap.o ./Libraries/iLLD/TC37A/Tricore/_PinMap/IfxCcu6_PinMap.o ./Libraries/iLLD/TC37A/Tricore/_PinMap/IfxDmu_PinMap.o ./Libraries/iLLD/TC37A/Tricore/_PinMap/IfxEdsadc_PinMap.o ./Libraries/iLLD/TC37A/Tricore/_PinMap/IfxEray_PinMap.o ./Libraries/iLLD/TC37A/Tricore/_PinMap/IfxEvadc_PinMap.o ./Libraries/iLLD/TC37A/Tricore/_PinMap/IfxGeth_PinMap.o ./Libraries/iLLD/TC37A/Tricore/_PinMap/IfxGpt12_PinMap.o ./Libraries/iLLD/TC37A/Tricore/_PinMap/IfxGtm_PinMap.o ./Libraries/iLLD/TC37A/Tricore/_PinMap/IfxI2c_PinMap.o ./Libraries/iLLD/TC37A/Tricore/_PinMap/IfxMsc_PinMap.o ./Libraries/iLLD/TC37A/Tricore/_PinMap/IfxPms_PinMap.o ./Libraries/iLLD/TC37A/Tricore/_PinMap/IfxPort_PinMap.o ./Libraries/iLLD/TC37A/Tricore/_PinMap/IfxPsi5_PinMap.o ./Libraries/iLLD/TC37A/Tricore/_PinMap/IfxPsi5s_PinMap.o ./Libraries/iLLD/TC37A/Tricore/_PinMap/IfxQspi_PinMap.o ./Libraries/iLLD/TC37A/Tricore/_PinMap/IfxScu_PinMap.o ./Libraries/iLLD/TC37A/Tricore/_PinMap/IfxSent_PinMap.o ./Libraries/iLLD/TC37A/Tricore/_PinMap/IfxSmu_PinMap.o  ./Libraries/iLLD/TC37A/Tricore/_Impl/IfxAsclin_cfg.o ./Libraries/iLLD/TC37A/Tricore/_Impl/IfxCan_cfg.o ./Libraries/iLLD/TC37A/Tricore/_Impl/IfxCcu6_cfg.o ./Libraries/iLLD/TC37A/Tricore/_Impl/IfxCpu_cfg.o ./Libraries/iLLD/TC37A/Tricore/_Impl/IfxDma_cfg.o ./Libraries/iLLD/TC37A/Tricore/_Impl/IfxEray_cfg.o ./Libraries/iLLD/TC37A/Tricore/_Impl/IfxEvadc_cfg.o ./Libraries/iLLD/TC37A/Tricore/_Impl/IfxFlash_cfg.o ./Libraries/iLLD/TC37A/Tricore/_Impl/IfxGeth_cfg.o ./Libraries/iLLD/TC37A/Tricore/_Impl/IfxGtm_cfg.o ./Libraries/iLLD/TC37A/Tricore/_Impl/IfxHssl_cfg.o ./Libraries/iLLD/TC37A/Tricore/_Impl/IfxI2c_cfg.o ./Libraries/iLLD/TC37A/Tricore/_Impl/IfxMsc_cfg.o ./Libraries/iLLD/TC37A/Tricore/_Impl/IfxMtu_cfg.o ./Libraries/iLLD/TC37A/Tricore/_Impl/IfxPort_cfg.o ./Libraries/iLLD/TC37A/Tricore/_Impl/IfxPsi5_cfg.o ./Libraries/iLLD/TC37A/Tricore/_Impl/IfxQspi_cfg.o ./Libraries/iLLD/TC37A/Tricore/_Impl/IfxScu_cfg.o ./Libraries/iLLD/TC37A/Tricore/_Impl/IfxSent_cfg.o ./Libraries/iLLD/TC37A/Tricore/_Impl/IfxSmu_cfg.o ./Libraries/iLLD/TC37A/Tricore/_Impl/IfxSrc_cfg.o ./Libraries/iLLD/TC37A/Tricore/_Impl/IfxStm_cfg.o  ./Libraries/iLLD/TC37A/Tricore/Src/Std/IfxSrc.o  ./Libraries/iLLD/TC37A/Tricore/Scu/Std/IfxScuCcu.o ./Libraries/iLLD/TC37A/Tricore/Scu/Std/IfxScuEru.o ./Libraries/iLLD/TC37A/Tricore/Scu/Std/IfxScuLbist.o ./Libraries/iLLD/TC37A/Tricore/Scu/Std/IfxScuRcu.o ./Libraries/iLLD/TC37A/Tricore/Scu/Std/IfxScuWdt.o  ./Libraries/iLLD/TC37A/Tricore/Port/Std/IfxPort.o  ./Libraries/iLLD/TC37A/Tricore/Pms/Std/IfxPmsEvr.o ./Libraries/iLLD/TC37A/Tricore/Pms/Std/IfxPmsPm.o  ./Libraries/iLLD/TC37A/Tricore/Mtu/Std/IfxMtu.o  ./Libraries/iLLD/TC37A/Tricore/Gtm/Std/IfxGtm.o ./Libraries/iLLD/TC37A/Tricore/Gtm/Std/IfxGtm_Atom.o ./Libraries/iLLD/TC37A/Tricore/Gtm/Std/IfxGtm_Cmu.o ./Libraries/iLLD/TC37A/Tricore/Gtm/Std/IfxGtm_Dpll.o ./Libraries/iLLD/TC37A/Tricore/Gtm/Std/IfxGtm_Dtm.o ./Libraries/iLLD/TC37A/Tricore/Gtm/Std/IfxGtm_Psm.o ./Libraries/iLLD/TC37A/Tricore/Gtm/Std/IfxGtm_Spe.o ./Libraries/iLLD/TC37A/Tricore/Gtm/Std/IfxGtm_Tbu.o ./Libraries/iLLD/TC37A/Tricore/Gtm/Std/IfxGtm_Tim.o ./Libraries/iLLD/TC37A/Tricore/Gtm/Std/IfxGtm_Tom.o  ./Libraries/iLLD/TC37A/Tricore/Cpu/Trap/IfxCpu_Trap.o  ./Libraries/iLLD/TC37A/Tricore/Cpu/Std/IfxCpu.o  ./Libraries/iLLD/TC37A/Tricore/Cpu/Irq/IfxCpu_Irq.o  ./Libraries/Infra/Ssw/TC37A/Tricore/Ifx_Ssw_Infra.o ./Libraries/Infra/Ssw/TC37A/Tricore/Ifx_Ssw_Tc0.o ./Libraries/Infra/Ssw/TC37A/Tricore/Ifx_Ssw_Tc1.o ./Libraries/Infra/Ssw/TC37A/Tricore/Ifx_Ssw_Tc2.o  ./Libraries/Infra/Platform/Tricore/Compilers/CompilerDcc.o ./Libraries/Infra/Platform/Tricore/Compilers/CompilerGcc.o ./Libraries/Infra/Platform/Tricore/Compilers/CompilerGhs.o ./Libraries/Infra/Platform/Tricore/Compilers/CompilerGnuc.o ./Libraries/Infra/Platform/Tricore/Compilers/CompilerTasking.o  ./Configurations/Debug/sync_on_halt.o  ./Configurations/Ifx_Cfg_Ssw.o ./Configurations/Ifx_Cfg_SswBmhd.o  ./Cpu0_Main.o ./Cpu1_Main.o ./Cpu2_Main.o ./SCR.o ./SCR_AURIX_TC3x.o 
+Finished building target: KIT_A2G_TC375_LITE.elf
  
-Building file: ../SCR/SCR_RTC_Init.c
-../SCR/SCR_RTC_Init.c:1: warning 190: ISO C forbids an empty source file
-Invoking: SDCC Compiler
-sdcc --asm-scr -c --model-large -I"C:\Users\La\AURIX-v1.9.20-workspace\KIT_A2G_TC375_LITE\SCR" --std-sdcc99 --nooverlay --no-peep-return --opt-code-speed  "../SCR/SCR_RTC_Init.c" -o "SCR/SCR_RTC_Init.o"
-Finished building: ../SCR/SCR_RTC_Init.c
+TASKING VX-toolset for AURIX Development Studio (non-commercial): control program v1.1r8 Build 22011964
+Invoking: Print Size
+elfsize  "KIT_A2G_TC375_LITE.elf"
+Total sizes:
+ROM: 0x3cb6 (15542) = code: 0x24cc (9420) + romdata: 0x17ea (6122)
+RAM: 0x9982 (39298) = data + bss
+Finished building: KIT_A2G_TC375_LITE.siz
  
-Building file: ../SCR/SCR_Interrupt_Config.c
-../SCR/registers.h:46: warning 182: absolute address for sfr 'SCR_DAPISC' probably out of range.
-Invoking: SDCC Compiler
-sdcc --asm-scr -c --model-large -I"C:\Users\La\AURIX-v1.9.20-workspace\KIT_A2G_TC375_LITE\SCR" --std-sdcc99 --nooverlay --no-peep-return --opt-code-speed  "../SCR/SCR_Interrupt_Config.c" -o "SCR/SCR_Interrupt_Config.o"
-Finished building: ../SCR/SCR_Interrupt_Config.c
- 
-../SCR/registers.h:46: warning 182: absolute address for sfr 'SCR_DAPISC' probably out of range.
-Building file: ../SCR/CCT_Timer_Basic_Operation.c
-Invoking: SDCC Compiler
-sdcc --asm-scr -c --model-large -I"C:\Users\La\AURIX-v1.9.20-workspace\KIT_A2G_TC375_LITE\SCR" --std-sdcc99 --nooverlay --no-peep-return --opt-code-speed  "../SCR/CCT_Timer_Basic_Operation.c" -o "SCR/CCT_Timer_Basic_Operation.o"
-Finished building: ../SCR/CCT_Timer_Basic_Operation.c
- 
-Building file: ../SCR/SCR_GPIO_Init.c
-../SCR/registers.h:46: warning 182: absolute address for sfr 'SCR_DAPISC' probably out of range.
-Invoking: SDCC Compiler
-sdcc --asm-scr -c --model-large -I"C:\Users\La\AURIX-v1.9.20-workspace\KIT_A2G_TC375_LITE\SCR" --std-sdcc99 --nooverlay --no-peep-return --opt-code-speed  "../SCR/SCR_GPIO_Init.c" -o "SCR/SCR_GPIO_Init.o"
-Finished building: ../SCR/SCR_GPIO_Init.c
- 
-../SCR/registers.h:46: warning 182: absolute address for sfr 'SCR_DAPISC' probably out of range.
-Building file: ../SCR/Timer_2_Basic_Operations.c
-Invoking: SDCC Compiler
-sdcc --asm-scr -c --model-large -I"C:\Users\La\AURIX-v1.9.20-workspace\KIT_A2G_TC375_LITE\SCR" --std-sdcc99 --nooverlay --no-peep-return --opt-code-speed  "../SCR/Timer_2_Basic_Operations.c" -o "SCR/Timer_2_Basic_Operations.o"
-Finished building: ../SCR/Timer_2_Basic_Operations.c
- 
-../SCR/registers.h:46: warning 182: absolute address for sfr 'SCR_DAPISC' probably out of range.
-Building file: ../SCR/Select_Interrupt_Priority.c
-Invoking: SDCC Compiler
-sdcc --asm-scr -c --model-large -I"C:\Users\La\AURIX-v1.9.20-workspace\KIT_A2G_TC375_LITE\SCR" --std-sdcc99 --nooverlay --no-peep-return --opt-code-speed  "../SCR/Select_Interrupt_Priority.c" -o "SCR/Select_Interrupt_Priority.o"
-Finished building: ../SCR/Select_Interrupt_Priority.c
- 
-Building file: ../SCR/TrigerWakeUpFromStandbyMode.c
-Invoking: SDCC Compiler
-../SCR/registers.h:46: warning 182: absolute address for sfr 'SCR_DAPISC' probably out of range.
-sdcc --asm-scr -c --model-large -I"C:\Users\La\AURIX-v1.9.20-workspace\KIT_A2G_TC375_LITE\SCR" --std-sdcc99 --nooverlay --no-peep-return --opt-code-speed  "../SCR/TrigerWakeUpFromStandbyMode.c" -o "SCR/TrigerWakeUpFromStandbyMode.o"
-Finished building: ../SCR/TrigerWakeUpFromStandbyMode.c
- 
-../SCR/registers.h:46: warning 182: absolute address for sfr 'SCR_DAPISC' probably out of range.
-Building file: ../SCR/main.c
-../SCR/main.c:320: warning 94: comparison is always true due to limited range of data type
-Invoking: SDCC Compiler
-../SCR/main.c:330: warning 126: unreachable code
-sdcc --asm-scr -c --model-large -I"C:\Users\La\AURIX-v1.9.20-workspace\KIT_A2G_TC375_LITE\SCR" --std-sdcc99 --nooverlay --no-peep-return --opt-code-speed  "../SCR/main.c" -o "SCR/main.o"
-../SCR/main.c:331: warning 126: unreachable code
-Finished building: ../SCR/main.c
-../SCR/main.c:332: warning 126: unreachable code
- 
-../SCR/main.c:335: warning 126: unreachable code
-../SCR/main.c:337: warning 126: unreachable code
-Invoking: SDCC Linker
-i51-elf-ld -T"../SCR/scr.ld" --gc-sections -L"C:\Infineon\AURIX-Studio-1.9.20\tools\Compilers\sdcc_421/share/sdcc/lib/large" -lsdcc -lmcs51 -lint -lsdcc -llonglong -llong -lint -lfloat -Map="SCR_AURIX_TC3x.map"   ./SCR/CCT_Timer_Basic_Operation.o ./SCR/CCU_Capture_Mode_0_Config.o ./SCR/CCU_Capture_Mode_1_Config.o ./SCR/IsStandbyMode.o ./SCR/SCR_ADC_Init.o ./SCR/SCR_GPIO_Init.o ./SCR/SCR_Interrupt_Config.o ./SCR/SCR_RTC_Init.o ./SCR/Select_Interrupt_Priority.o ./SCR/Timer_2_Basic_Operations.o ./SCR/TrigerWakeUpFromStandbyMode.o ./SCR/main.o   -o  "SCR_AURIX_TC3x.elf"
-Finished building: SCR_AURIX_TC3x.elf
- 
-Building target: SCR_AURIX_TC3x
-Invoking: SDCC Object copy CArray
-i51-elf-objcopy -O carray --osize 1 --otyp uint8_t --odef "SCR_AURIX_TC3x".h --comments --hinc --xtern --olbl scr_xram --closegaps --hstdint  SCR_AURIX_TC3x.elf  "SCR_AURIX_TC3x".c
-Finished building target: SCR_AURIX_TC3x
- 
-cp *.c ../ && cp *.h ../
- 
+TASKING VX-toolset for AURIX Development Studio (non-commercial): ELF size v1.1r8 Build 22011964
 
-19:36:54 Build Finished. 0 errors, 0 warnings. (took 2s.56ms)
+19:20:50 Build Finished. 0 errors, 10 warnings. (took 2s.552ms)
 

@@ -25,6 +25,7 @@
  * IN THE SOFTWARE.
  *********************************************************************************************************************/
 
+
 #ifndef SCR_HEADER_FILES_H_
 #define SCR_HEADER_FILES_H_
 
@@ -95,7 +96,7 @@ void TrigerWakeUpFromStandbyMode(void);
 //void SCR_Port_EnablePortPad(unsigned char port, unsigned char pinIndex);
 //void SCR_GPIO_EnablePortPad(unsigned int port);
 
-
+void Duty_Cycle_Calculator_Function(void);
 
 
 void SCR_ExternalInterruptChanelSelect(void);
@@ -110,6 +111,6 @@ void SCR_CCT_Timer_Basic_Operation(void);
 void SCR_CCU_Capture_Mode_0(void);
 void SCR_CCU_Capture_Mode_1_Config(void);
 
-
+void delay(void);
 
 #endif /* SCR_HEADER_FILES_H_ */
