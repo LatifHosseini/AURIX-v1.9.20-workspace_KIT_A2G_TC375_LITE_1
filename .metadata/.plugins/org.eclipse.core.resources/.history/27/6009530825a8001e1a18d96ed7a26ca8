@@ -70,13 +70,15 @@ void Duty_Cycle_Calculator_Function(void)
     Capture_Value_2 = 0xEFFF;
     add_two_16_bit_unint();
     multiply_16bit_by_8bit();
-    if( multiplication_16bit_by_8bit_Result >281000) {
+    if( multiplication_16bit_by_8bit_Result >281000)
+    {
         SCR_P00_OUT  ^= (1 << 7) ;
         delay();
     }
       Data =  multiplication_16bit_by_8bit_Result;
-      delay();
-      Data =  (multiplication_16bit_by_8bit_Result >> 16 );
+        delay();
+        Data =  (multiplication_16bit_by_8bit_Result >> 16 );
+
 }
 /**********************************************************************************************************/
 void multiply_16bit_by_8bit(void)

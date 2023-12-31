@@ -75,8 +75,8 @@ void Duty_Cycle_Calculator_Function(void)
         delay();
     }
       Data =  multiplication_16bit_by_8bit_Result;
-      delay();
-      Data =  (multiplication_16bit_by_8bit_Result >> 16 );
+        delay();
+        Data =  (multiplication_16bit_by_8bit_Result >> 16 );
 }
 /**********************************************************************************************************/
 void multiply_16bit_by_8bit(void)
