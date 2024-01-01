@@ -51,7 +51,7 @@ unsigned int Capture_Value_sum;
 unsigned int duty_cycle = 0;
 
 unsigned long  mul_result_1;
-    unsigned long mul_result_2;
+unsigned long mul_result_2;
 /*********************************************************************************************************************/
 /*--------------------------------------------Private Variables/Constants--------------------------------------------*/
 /*********************************************************************************************************************/
@@ -87,8 +87,6 @@ void multiply_16bit_by_8bit(void)
     unsigned int multiplicand = 0xFFFF;
     unsigned char multiplier = 100;
     unsigned char result = 0;
-    unsigned long B = 0xFFFF;
-    unsigned char G ;
 
     unsigned int test;
         // Iterate through each bit of num2
@@ -101,12 +99,6 @@ void multiply_16bit_by_8bit(void)
             // Left shift num1
             result <<= 1;
         }
-
-         test = multiplicand/2;
-
-         mul_result_1 = test *100;
-         mul_result_2 = test *100;
-         G = mul_result_2 / B ;
 
         multiplication_16bit_by_8bit_Result =  result;
     }
