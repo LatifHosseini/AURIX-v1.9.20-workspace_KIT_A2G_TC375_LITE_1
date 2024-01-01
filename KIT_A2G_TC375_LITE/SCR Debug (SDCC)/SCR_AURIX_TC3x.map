@@ -134,14 +134,14 @@ Discarded input sections
 Memory Configuration
 
 Name             Origin             Length             Used               Free               Attributes
-text             0x00000000         0x00001c00         0x00000469         0x00001797         xr
+text             0x00000000         0x00001c00         0x0000043e         0x000017c2         xr
 bit              0x00000000         0x00000080         0x00000000         0x00000080         rw !x
 data             0x00000000         0x00000100         0x00000008         0x000000f8         rw !x
 pdata            0x00000000         0x00000100         0x00000000         0x00000100         rw !x
-xdata            0x00001c00         0x00000400         0x0000012f         0x000002d1         rw !x
+xdata            0x00001c00         0x00000400         0x00000136         0x000002ca         rw !x
 edata            0x00000000         0x00000000         0x00000000         0x00000000         rw !x
 eeprom           0x00000000         0x00000000         0x00000000         0x00000000         rw !x
-*default*        0x00000000         0xffffffff         0x00001d2f         0xffffe2d0
+*default*        0x00000000         0xffffffff         0x00001d36         0xffffe2c9
 
 Linker script and memory map
 
@@ -259,10 +259,8 @@ Linker script and memory map
 .isr04
  *(.isr04)
 
-.isr05          memory region -> text
-                0x0000002b        0x3
+.isr05
  *(.isr05)
- .isr05         0x0000002b        0x3 ./SCR/main.o
 
 .isr06
  *(.isr06)
@@ -270,8 +268,10 @@ Linker script and memory map
 .isr07
  *(.isr07)
 
-.isr08
+.isr08          memory region -> text
+                0x00000043        0x3
  *(.isr08)
+ .isr08         0x00000043        0x3 ./SCR/main.o
 
 .isr09          memory region -> text
                 0x0000004b        0x3
@@ -301,7 +301,7 @@ Linker script and memory map
                 0x00000101        0x2 SHORT 0x100 ADDR (.gsinit)
 
 .text           memory region -> text
-                0x00000103      0x35c
+                0x00000103      0x331
  *(.init)
  *(.text.gsinit0)
  .text.gsinit0  0x00000103        0x6 C:\Infineon\AURIX-Studio-1.9.20\tools\Compilers\sdcc_421/share/sdcc/lib/large\libmcs51.a(crtstart.rel)
@@ -338,55 +338,55 @@ Linker script and memory map
                 0x00000193        0xf ./SCR/CCU_Capture_Mode_0_Config.o
                 0x00000193                _SCR_CCU_Capture_Mode_0
  .text.code.Duty_Cycle_Calculator_Function
-                0x000001a2       0x6a ./SCR/Duty_Cycle_Calculations.o
+                0x000001a2       0x56 ./SCR/Duty_Cycle_Calculations.o
                 0x000001a2                _Duty_Cycle_Calculator_Function
  .text.code.multiply_16bit_by_8bit
-                0x0000020c       0xa9 ./SCR/Duty_Cycle_Calculations.o
-                0x0000020c                _multiply_16bit_by_8bit
+                0x000001f8       0x92 ./SCR/Duty_Cycle_Calculations.o
+                0x000001f8                _multiply_16bit_by_8bit
  .text.code.add_two_16_bit_unint
-                0x000002b5       0xbf ./SCR/Duty_Cycle_Calculations.o
-                0x000002b5                _add_two_16_bit_unint
+                0x0000028a       0xbf ./SCR/Duty_Cycle_Calculations.o
+                0x0000028a                _add_two_16_bit_unint
  .text.code.gpio_init
-                0x00000374       0x25 ./SCR/SCR_GPIO_Init.o
-                0x00000374                _gpio_init
+                0x00000349       0x25 ./SCR/SCR_GPIO_Init.o
+                0x00000349                _gpio_init
  .text.code.SCR_IR_Select_External_Interrupt_Line
-                0x00000399        0xc ./SCR/SCR_Interrupt_Config.o
-                0x00000399                _SCR_IR_Select_External_Interrupt_Line
+                0x0000036e        0xc ./SCR/SCR_Interrupt_Config.o
+                0x0000036e                _SCR_IR_Select_External_Interrupt_Line
  .text.code.SCR_IR_Select_Edge_Mode
-                0x000003a5       0x24 ./SCR/SCR_Interrupt_Config.o
-                0x000003a5                _SCR_IR_Select_Edge_Mode
+                0x0000037a       0x24 ./SCR/SCR_Interrupt_Config.o
+                0x0000037a                _SCR_IR_Select_Edge_Mode
  .text.code.SCR_IR_Enable_Interrupt_Node
-                0x000003c9        0x4 ./SCR/SCR_Interrupt_Config.o
-                0x000003c9                _SCR_IR_Enable_Interrupt_Node
+                0x0000039e        0x4 ./SCR/SCR_Interrupt_Config.o
+                0x0000039e                _SCR_IR_Enable_Interrupt_Node
  .text.code.SCR_Select_Interrupt_Priority
-                0x000003cd        0x7 ./SCR/Select_Interrupt_Priority.o
-                0x000003cd                _SCR_Select_Interrupt_Priority
+                0x000003a2        0x7 ./SCR/Select_Interrupt_Priority.o
+                0x000003a2                _SCR_Select_Interrupt_Priority
  .text.code.main
-                0x000003d4       0x55 ./SCR/main.o
-                0x000003d4                _main
+                0x000003a9       0x55 ./SCR/main.o
+                0x000003a9                _main
  .text.code.delay
-                0x00000429       0x22 ./SCR/main.o
-                0x00000429                _delay
- .text.code.EXINT2IS_interrupt
-                0x0000044b        0xd ./SCR/main.o
-                0x0000044b                _EXINT2IS_interrupt
- .text.code.EXINT5IS_interrupt
-                0x00000458        0x7 ./SCR/main.o
-                0x00000458                _EXINT5IS_interrupt
+                0x000003fe       0x22 ./SCR/main.o
+                0x000003fe                _delay
+ .text.code.EXINT8IS_interrupt
+                0x00000420        0xd ./SCR/main.o
+                0x00000420                _EXINT8IS_interrupt
+ .text.code.EXINT9IS_interrupt
+                0x0000042d        0x7 ./SCR/main.o
+                0x0000042d                _EXINT9IS_interrupt
  *(.fini)
-                0x0000045f                _etext = .
+                0x00000434                _etext = .
 
 .roxdata        memory region -> text
-                0x0000045f        0xa
-                0x0000045f                __roxdata_start = .
+                0x00000434        0xa
+                0x00000434                __roxdata_start = .
  *(.roxdata.*)
- .roxdata.init  0x0000045f        0x6 ./SCR/Duty_Cycle_Calculations.o
- .roxdata.init  0x00000465        0x4 ./SCR/main.o
-                0x00000469                __roxdata_end = .
+ .roxdata.init  0x00000434        0x6 ./SCR/Duty_Cycle_Calculations.o
+ .roxdata.init  0x0000043a        0x4 ./SCR/main.o
+                0x0000043e                __roxdata_end = .
                 0x00000008                regsize = DEFINED (__RB3__)?0x20:DEFINED (__RB2__)?0x18:DEFINED (__RB1__)?0x10:0x8
 
 .reg            memory region -> data
-                0x00000000        0x8 load address 0x0000045f
+                0x00000000        0x8 load address 0x00000434
                 0x00000000                PROVIDE (__reg_start, .)
  *(.regbank)
                 0x00000008                . = regsize
@@ -444,33 +444,35 @@ Linker script and memory map
                 0x00001c01                PROVIDE (__xstack_start, .)
 
 .xdata          memory region -> xdata
-                0x00001d00       0x2f
+                0x00001d00       0x36
                 0x00001d00                __xdatac_start = .
  *(.xdata.i51*)
- .xdata.i51     0x00001d00       0x17 ./SCR/Duty_Cycle_Calculations.o
+ .xdata.i51     0x00001d00       0x1e ./SCR/Duty_Cycle_Calculations.o
                 0x00001d00                _multiplication_16bit_by_8bit_Result
                 0x00001d04                _Capture_Value_sum
- .xdata.i51     0x00001d17        0xe ./SCR/main.o
+                0x00001d06                _mul_result_1
+                0x00001d0a                _mul_result_2
+ .xdata.i51     0x00001d1e        0xe ./SCR/main.o
  *(.xdata.abs*)
-                0x00001d25                __xdatac_end = .
-                0x00001d25                __xdatai_start = .
+                0x00001d2c                __xdatac_end = .
+                0x00001d2c                __xdatai_start = .
  *(.xdata.init*)
- .xdata.init    0x00001d25        0x6 ./SCR/Duty_Cycle_Calculations.o
-                0x00001d25                _Capture_Value_1
-                0x00001d27                _Capture_Value_2
-                0x00001d29                _duty_cycle
- .xdata.init    0x00001d2b        0x4 ./SCR/main.o
-                0x00001d2b                _Duty_Cycle_Calculator
-                0x00001d2c                _edge_counter
-                0x00001d2d                _Check_Pin_Stat
-                0x00001d2e                _Read_Capture_Register
-                0x00001d2f                __xdatai_end = .
+ .xdata.init    0x00001d2c        0x6 ./SCR/Duty_Cycle_Calculations.o
+                0x00001d2c                _Capture_Value_1
+                0x00001d2e                _Capture_Value_2
+                0x00001d30                _duty_cycle
+ .xdata.init    0x00001d32        0x4 ./SCR/main.o
+                0x00001d32                _Duty_Cycle_Calculator
+                0x00001d33                _edge_counter
+                0x00001d34                _Check_Pin_Stat
+                0x00001d35                _Read_Capture_Register
+                0x00001d36                __xdatai_end = .
 
 .ixdata         memory region -> xdata
-                0x00001d2f        0x0
-                0x00001d2f                PROVIDE (__ixdata_start, .)
+                0x00001d36        0x0
+                0x00001d36                PROVIDE (__ixdata_start, .)
  *(.xbss*)
-                0x00001d2f                PROVIDE (__ixdata_end, .)
+                0x00001d36                PROVIDE (__ixdata_end, .)
 
 .edata          memory region -> edata
                 0x00000000        0x0
@@ -480,10 +482,10 @@ Linker script and memory map
                 0x00001c01                s_PSEG = __pdata_start
                 0x00000000                l_PSEG = (__pdata_end - __pdata_start)
                 0x00001d00                s_XSEG = __xdatac_start
-                0x00000025                l_XSEG = (__xdatac_end - __xdatac_start)
-                0x00001d25                s_XISEG = __xdatai_start
+                0x0000002c                l_XSEG = (__xdatac_end - __xdatac_start)
+                0x00001d2c                s_XISEG = __xdatai_start
                 0x0000000a                l_XISEG = (__xdatai_end - __xdatai_start)
-                0x0000045f                s_XINIT = __roxdata_start
+                0x00000434                s_XINIT = __roxdata_start
                 0x0000000a                l_XINIT = (__roxdata_end - __roxdata_start)
                 0x00000001                _. = ASSERT ((__stack_start < 0xf0), Stack Iram above limit 0xF0)
                 0x00000001                _. = ASSERT ((__ddata_end < 0x80), Direct Iram Data above Limit 0x80)

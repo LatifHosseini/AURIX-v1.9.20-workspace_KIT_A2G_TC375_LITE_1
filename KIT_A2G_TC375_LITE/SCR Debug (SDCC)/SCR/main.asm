@@ -10,8 +10,8 @@
 ;--------------------------------------------------------
 ; Public variables in this module
 ;--------------------------------------------------------
-	.globl	_EXINT5IS_interrupt
-	.globl	_EXINT2IS_interrupt
+	.globl	_EXINT9IS_interrupt
+	.globl	_EXINT8IS_interrupt
 	.globl	_main
 	.globl	_SCR_CCU_Capture_Mode_0
 	.globl	_SCR_CCT_Timer_Basic_Operation
@@ -269,12 +269,12 @@ _Read_Capture_Register:
 ;--------------------------------------------------------
 ; interrupt vector
 ;--------------------------------------------------------
-	.globl _EXINT2IS_interrupt 
-	.section .isr05, "ax"
-	ljmp	_EXINT2IS_interrupt
-	.globl _EXINT5IS_interrupt 
+	.globl _EXINT8IS_interrupt 
+	.section .isr08, "ax"
+	ljmp	_EXINT8IS_interrupt
+	.globl _EXINT9IS_interrupt 
 	.section .isr09, "ax"
-	ljmp	_EXINT5IS_interrupt
+	ljmp	_EXINT9IS_interrupt
 ;--------------------------------------------------------
 ; code
 ;--------------------------------------------------------
@@ -413,15 +413,15 @@ _delay:
 ;	../SCR/main.c:135: }
 	ret
 ;------------------------------------------------------------
-;Allocation info for local variables in function 'EXINT2IS_interrupt'
+;Allocation info for local variables in function 'EXINT8IS_interrupt'
 ;------------------------------------------------------------
-;	../SCR/main.c:139: void EXINT2IS_interrupt(void) __interrupt (5){
+;	../SCR/main.c:139: void EXINT8IS_interrupt(void) __interrupt (8){
 ;	-----------------------------------------
-;	 function EXINT2IS_interrupt
+;	 function EXINT8IS_interrupt
 ;	-----------------------------------------
-	.section .text.code.EXINT2IS_interrupt,"ax" ;code for function EXINT2IS_interrupt
-	.type   EXINT2IS_interrupt, @function
-_EXINT2IS_interrupt:
+	.section .text.code.EXINT8IS_interrupt,"ax" ;code for function EXINT8IS_interrupt
+	.type   EXINT8IS_interrupt, @function
+_EXINT8IS_interrupt:
 	.using 0
 ;	../SCR/main.c:142: SCR_IO_PAGE = SCR_IO_PAGE0;
 	mov	_SCR_IO_PAGE,#0x00
@@ -441,15 +441,15 @@ _EXINT2IS_interrupt:
 ;	eliminated unneeded push/pop b
 ;	eliminated unneeded push/pop acc
 ;------------------------------------------------------------
-;Allocation info for local variables in function 'EXINT5IS_interrupt'
+;Allocation info for local variables in function 'EXINT9IS_interrupt'
 ;------------------------------------------------------------
-;	../SCR/main.c:150: void EXINT5IS_interrupt(void) __interrupt (9){
+;	../SCR/main.c:150: void EXINT9IS_interrupt(void) __interrupt (9){
 ;	-----------------------------------------
-;	 function EXINT5IS_interrupt
+;	 function EXINT9IS_interrupt
 ;	-----------------------------------------
-	.section .text.code.EXINT5IS_interrupt,"ax" ;code for function EXINT5IS_interrupt
-	.type   EXINT5IS_interrupt, @function
-_EXINT5IS_interrupt:
+	.section .text.code.EXINT9IS_interrupt,"ax" ;code for function EXINT9IS_interrupt
+	.type   EXINT9IS_interrupt, @function
+_EXINT9IS_interrupt:
 	.using 0
 ;	../SCR/main.c:153: SCR_SCU_PAGE = 0;
 	mov	_SCR_SCU_PAGE,#0x00

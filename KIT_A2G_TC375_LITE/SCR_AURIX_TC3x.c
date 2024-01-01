@@ -3,8 +3,8 @@
 
 /* The IHX representation */
 
-uint8_t scr_xram[1129] = { 
-/* csection: .reset output_size=1 section_size=43 full_size=1129 array_size=1129 vma=0 lma=0*/
+uint8_t scr_xram[1082] = { 
+/* csection: .reset output_size=1 section_size=67 full_size=1082 array_size=1082 vma=0 lma=0*/
 /* _resetvec [0]: */
     0x02,
     0x01,
@@ -51,43 +51,43 @@ uint8_t scr_xram[1129] = {
     0x00,
     0x00,
     0x00,
-/* csection: .isr05 output_size=1 section_size=32 full_size=1129 array_size=1129 vma=2b lma=2b*/
+    0x00,
+    0x00,
+    0x00,
+    0x00,
+    0x00,
+    0x00,
+    0x00,
+    0x00,
+    0x00,
+    0x00,
+    0x00,
+    0x00,
+    0x00,
+    0x00,
+    0x00,
+    0x00,
+    0x00,
+    0x00,
+    0x00,
+    0x00,
+    0x00,
+    0x00,
+    0x00,
+    0x00,
+/* csection: .isr08 output_size=1 section_size=8 full_size=1082 array_size=1082 vma=43 lma=43*/
     0x02,
     0x04,
-    0x4B,
+    0x1C,
     0x00,
     0x00,
     0x00,
     0x00,
     0x00,
-    0x00,
-    0x00,
-    0x00,
-    0x00,
-    0x00,
-    0x00,
-    0x00,
-    0x00,
-    0x00,
-    0x00,
-    0x00,
-    0x00,
-    0x00,
-    0x00,
-    0x00,
-    0x00,
-    0x00,
-    0x00,
-    0x00,
-    0x00,
-    0x00,
-    0x00,
-    0x00,
-    0x00,
-/* csection: .isr09 output_size=1 section_size=181 full_size=1129 array_size=1129 vma=4b lma=4b*/
+/* csection: .isr09 output_size=1 section_size=181 full_size=1082 array_size=1082 vma=4b lma=4b*/
     0x02,
     0x04,
-    0x58,
+    0x29,
     0x00,
     0x00,
     0x00,
@@ -266,12 +266,12 @@ uint8_t scr_xram[1129] = {
     0x00,
     0x00,
     0x00,
-/* csection: .gsinit output_size=1 section_size=3 full_size=1129 array_size=1129 vma=100 lma=100*/
+/* csection: .gsinit output_size=1 section_size=3 full_size=1082 array_size=1082 vma=100 lma=100*/
 /* __init_table [256]: */
     0x22,
     0x01,
     0x00,
-/* csection: .text output_size=1 section_size=860 full_size=1129 array_size=1129 vma=103 lma=103*/
+/* csection: .text output_size=1 section_size=813 full_size=1082 array_size=1082 vma=103 lma=103*/
 /* __sdcc_gsinit_startup [259]: */
     0x75,
     0xD4,
@@ -312,9 +312,9 @@ uint8_t scr_xram[1129] = {
     0x01,
     0x90,
     0x04,
-    0x5F,
+    0x30,
     0x78,
-    0x25,
+    0x2A,
     0x75,
     0x87,
     0x1D,
@@ -374,7 +374,7 @@ uint8_t scr_xram[1129] = {
     0xFC,
 /* L00006 [344]: */
     0x78,
-    0x25,
+    0x2A,
     0xE8,
     0x44,
     0x00,
@@ -407,7 +407,7 @@ uint8_t scr_xram[1129] = {
     0x00,
     0x12,
     0x03,
-    0xD4,
+    0xA5,
     0x80,
     0xFE,
 /* __sdcc_external_startup [377]: */
@@ -460,7 +460,7 @@ uint8_t scr_xram[1129] = {
 /* _Duty_Cycle_Calculator_Function [418]: */
     0x90,
     0x1D,
-    0x25,
+    0x2A,
     0x74,
     0xFF,
     0xF0,
@@ -470,7 +470,7 @@ uint8_t scr_xram[1129] = {
     0xF0,
     0x90,
     0x1D,
-    0x27,
+    0x2C,
     0x74,
     0xFF,
     0xF0,
@@ -480,7 +480,7 @@ uint8_t scr_xram[1129] = {
     0xF0,
     0x12,
     0x02,
-    0xB5,
+    0x86,
     0x12,
     0x02,
     0x0C,
@@ -517,12 +517,12 @@ uint8_t scr_xram[1129] = {
     0x90,
     0x80,
     0x12,
-    0x04,
-    0x29,
+    0x03,
+    0xFA,
 /* .00102 [478]: */
     0x90,
     0x1D,
-    0x00,
+    0x06,
     0xE0,
     0xFC,
     0xA3,
@@ -541,11 +541,11 @@ uint8_t scr_xram[1129] = {
     0xA3,
     0xF0,
     0x12,
-    0x04,
-    0x29,
+    0x03,
+    0xFA,
     0x90,
     0x1D,
-    0x00,
+    0x06,
     0xE0,
     0xFC,
     0xA3,
@@ -570,26 +570,20 @@ uint8_t scr_xram[1129] = {
 /* _multiply_16bit_by_8bit [524]: */
     0x90,
     0x1D,
-    0x06,
+    0x0E,
     0x74,
     0x64,
     0xF0,
     0x90,
     0x1D,
-    0x07,
+    0x0F,
     0xE4,
-    0xF0,
-    0xA3,
-    0xF0,
-    0xA3,
-    0xF0,
-    0xA3,
     0xF0,
     0x7E,
     0x00,
     0x7F,
     0x00,
-/* .00114 [545]: */
+/* .00114 [539]: */
     0xC3,
     0xEE,
     0x94,
@@ -600,11 +594,11 @@ uint8_t scr_xram[1129] = {
     0x94,
     0x80,
     0x50,
-    0x6C,
-/* .00131 [556]: */
+    0x31,
+/* .00131 [550]: */
     0x90,
     0x1D,
-    0x06,
+    0x0E,
     0xE0,
     0xFD,
     0x53,
@@ -620,135 +614,94 @@ uint8_t scr_xram[1129] = {
     0x02,
     0x80,
     0x02,
-/* .00132 [574]: */
+/* .00132 [568]: */
     0x80,
-    0x22,
-/* .00133 [576]: */
-    0x90,
-    0x1D,
     0x07,
-    0xE0,
-    0xFA,
-    0xA3,
-    0xE0,
-    0xFB,
-    0xA3,
-    0xE0,
-    0xFC,
-    0xA3,
-    0xE0,
-    0xFD,
+/* .00133 [570]: */
     0x90,
     0x1D,
-    0x07,
-    0x74,
+    0x0F,
+    0xE0,
+    0x24,
     0xFF,
-    0x2A,
     0xF0,
-    0x74,
-    0xFF,
-    0x3B,
-    0xA3,
-    0xF0,
-    0xE4,
-    0x3C,
-    0xA3,
-    0xF0,
-    0xE4,
-    0x3D,
-    0xA3,
-    0xF0,
-/* .00111 [610]: */
+/* .00111 [577]: */
     0x90,
     0x1D,
-    0x06,
+    0x0E,
     0xE0,
     0xC3,
     0x13,
     0xF0,
     0x90,
     0x1D,
-    0x07,
+    0x0F,
     0xE0,
-    0xFA,
-    0xA3,
-    0xE0,
-    0xFB,
-    0xA3,
-    0xE0,
-    0xFC,
-    0xA3,
+    0x25,
     0xE0,
     0xFD,
-    0xEA,
-    0x2A,
-    0xFA,
-    0xEB,
-    0x33,
-    0xFB,
-    0xEC,
-    0x33,
-    0xFC,
-    0xED,
-    0x33,
-    0xFD,
-    0x90,
-    0x1D,
-    0x07,
-    0xEA,
-    0xF0,
-    0xEB,
-    0xA3,
-    0xF0,
-    0xEC,
-    0xA3,
-    0xF0,
-    0xED,
-    0xA3,
     0xF0,
     0x0E,
     0xBE,
     0x00,
-    0x8C,
+    0xC7,
     0x0F,
-/* .00134 [662]: */
+/* .00134 [597]: */
     0x80,
-    0x89,
-/* .00112 [664]: */
+    0xC4,
+/* .00112 [599]: */
     0x90,
     0x1D,
-    0x07,
-    0xE0,
-    0xFC,
+    0x06,
+    0x74,
+    0x9C,
+    0xF0,
+    0x74,
+    0xFF,
     0xA3,
-    0xE0,
-    0xFD,
+    0xF0,
+    0xE4,
     0xA3,
-    0xE0,
-    0xFE,
+    0xF0,
     0xA3,
+    0xF0,
+    0x90,
+    0x1D,
+    0x0A,
+    0x74,
+    0x9C,
+    0xF0,
+    0x74,
+    0xFF,
+    0xA3,
+    0xF0,
+    0xE4,
+    0xA3,
+    0xF0,
+    0xA3,
+    0xF0,
+    0x90,
+    0x1D,
+    0x0F,
     0xE0,
     0xFF,
     0x90,
     0x1D,
     0x00,
-    0xEC,
     0xF0,
-    0xED,
+    0xE4,
     0xA3,
     0xF0,
-    0xEE,
     0xA3,
     0xF0,
-    0xEF,
     0xA3,
     0xF0,
-/* .00116 [692]: */
+/* .00116 [645]: */
     0x22,
-/* _add_two_16_bit_unint [693]: */
+/* _add_two_16_bit_unint [646]: */
     0x90,
     0x1D,
-    0x25,
+    0x2A,
     0xE0,
     0xFE,
     0xA3,
@@ -756,7 +709,7 @@ uint8_t scr_xram[1129] = {
     0xFF,
     0x90,
     0x1D,
-    0x27,
+    0x2C,
     0xE0,
     0xFC,
     0xA3,
@@ -764,12 +717,12 @@ uint8_t scr_xram[1129] = {
     0xFD,
     0x90,
     0x1D,
-    0x13,
+    0x18,
     0xE4,
     0xF0,
     0x90,
     0x1D,
-    0x14,
+    0x19,
     0xF0,
     0xA3,
     0xF0,
@@ -777,7 +730,7 @@ uint8_t scr_xram[1129] = {
     0x00,
     0x7B,
     0x00,
-/* .00165 [724]: */
+/* .00165 [677]: */
     0xC3,
     0xEA,
     0x94,
@@ -791,8 +744,8 @@ uint8_t scr_xram[1129] = {
     0x03,
     0x02,
     0x03,
-    0x63,
-/* .00178 [738]: */
+    0x34,
+/* .00178 [691]: */
     0x8A,
     0xDA,
     0x05,
@@ -803,7 +756,7 @@ uint8_t scr_xram[1129] = {
     0x07,
     0x80,
     0x07,
-/* .00179 [748]: */
+/* .00179 [701]: */
     0xC3,
     0xE9,
     0x13,
@@ -811,7 +764,7 @@ uint8_t scr_xram[1129] = {
     0xE8,
     0x13,
     0xF8,
-/* .00180 [755]: */
+/* .00180 [708]: */
     0xD5,
     0xDA,
     0xF6,
@@ -832,7 +785,7 @@ uint8_t scr_xram[1129] = {
     0x05,
     0x80,
     0x07,
-/* .00181 [775]: */
+/* .00181 [728]: */
     0xC3,
     0xEF,
     0x13,
@@ -840,7 +793,7 @@ uint8_t scr_xram[1129] = {
     0xE9,
     0x13,
     0xF9,
-/* .00182 [782]: */
+/* .00182 [735]: */
     0xD5,
     0xDA,
     0xF6,
@@ -852,12 +805,12 @@ uint8_t scr_xram[1129] = {
     0xFF,
     0x90,
     0x1D,
-    0x13,
+    0x18,
     0xE0,
     0xFE,
     0x90,
     0x1D,
-    0x16,
+    0x1B,
     0x6F,
     0xF0,
     0xE9,
@@ -867,12 +820,12 @@ uint8_t scr_xram[1129] = {
     0x5F,
     0x90,
     0x1D,
-    0x13,
+    0x18,
     0x48,
     0xF0,
     0x90,
     0x1D,
-    0x16,
+    0x1B,
     0xE0,
     0xFF,
     0x7E,
@@ -883,20 +836,20 @@ uint8_t scr_xram[1129] = {
     0xDA,
     0x80,
     0x06,
-/* .00183 [824]: */
+/* .00183 [777]: */
     0xEF,
     0x2F,
     0xFF,
     0xEE,
     0x33,
     0xFE,
-/* .00184 [830]: */
+/* .00184 [783]: */
     0xD5,
     0xDA,
     0xF7,
     0x90,
     0x1D,
-    0x14,
+    0x19,
     0xE0,
     0xF8,
     0xA3,
@@ -910,7 +863,7 @@ uint8_t scr_xram[1129] = {
     0x06,
     0x90,
     0x1D,
-    0x14,
+    0x19,
     0xEF,
     0xF0,
     0xEE,
@@ -921,18 +874,18 @@ uint8_t scr_xram[1129] = {
     0x00,
     0x01,
     0x0B,
-/* .00185 [860]: */
+/* .00185 [813]: */
     0xD0,
     0x07,
     0xD0,
     0x06,
     0x02,
     0x02,
-    0xD4,
-/* .00163 [867]: */
+    0xA5,
+/* .00163 [820]: */
     0x90,
     0x1D,
-    0x14,
+    0x19,
     0xE0,
     0xFE,
     0xA3,
@@ -946,9 +899,9 @@ uint8_t scr_xram[1129] = {
     0xEF,
     0xA3,
     0xF0,
-/* .00167 [883]: */
+/* .00167 [836]: */
     0x22,
-/* _gpio_init [884]: */
+/* _gpio_init [837]: */
     0x75,
     0x8F,
     0x02,
@@ -985,9 +938,9 @@ uint8_t scr_xram[1129] = {
     0x75,
     0x96,
     0x00,
-/* .00101 [920]: */
+/* .00101 [873]: */
     0x22,
-/* _SCR_IR_Select_External_Interrupt_Line [921]: */
+/* _SCR_IR_Select_External_Interrupt_Line [874]: */
     0x75,
     0xF1,
     0x02,
@@ -999,9 +952,9 @@ uint8_t scr_xram[1129] = {
     0x02,
     0xF5,
     0xF4,
-/* .00101 [932]: */
+/* .00101 [885]: */
     0x22,
-/* _SCR_IR_Select_Edge_Mode [933]: */
+/* _SCR_IR_Select_Edge_Mode [886]: */
     0x75,
     0xF1,
     0x01,
@@ -1037,48 +990,34 @@ uint8_t scr_xram[1129] = {
     0x30,
     0xF5,
     0xF5,
-/* .00103 [968]: */
+/* .00103 [921]: */
     0x22,
-/* _SCR_IR_Enable_Interrupt_Node [969]: */
+/* _SCR_IR_Enable_Interrupt_Node [922]: */
     0x43,
     0xD1,
     0x08,
-/* .00105 [972]: */
+/* .00105 [925]: */
     0x22,
-/* _SCR_Select_Interrupt_Priority [973]: */
+/* _SCR_Select_Interrupt_Priority [926]: */
     0x43,
     0xD3,
     0x08,
     0x43,
     0xDB,
     0x08,
-/* .00101 [979]: */
+/* .00101 [932]: */
     0x22,
-/* _main [980]: */
+/* _main [933]: */
     0x90,
     0x1D,
-    0x17,
+    0x1C,
     0xE4,
     0xF0,
     0xA3,
     0xF0,
     0x90,
     0x1D,
-    0x19,
-    0xF0,
-    0xA3,
-    0xF0,
-    0x90,
-    0x1D,
-    0x1B,
-    0xF0,
-    0x90,
-    0x1D,
-    0x1C,
-    0xF0,
-    0xA3,
-    0xF0,
-    0xA3,
+    0x1E,
     0xF0,
     0xA3,
     0xF0,
@@ -1086,6 +1025,10 @@ uint8_t scr_xram[1129] = {
     0x1D,
     0x20,
     0xF0,
+    0x90,
+    0x1D,
+    0x21,
+    0xF0,
     0xA3,
     0xF0,
     0xA3,
@@ -1094,7 +1037,17 @@ uint8_t scr_xram[1129] = {
     0xF0,
     0x90,
     0x1D,
-    0x24,
+    0x25,
+    0xF0,
+    0xA3,
+    0xF0,
+    0xA3,
+    0xF0,
+    0xA3,
+    0xF0,
+    0x90,
+    0x1D,
+    0x29,
     0xF0,
     0x75,
     0xF1,
@@ -1115,61 +1068,61 @@ uint8_t scr_xram[1129] = {
     0x80,
     0x12,
     0x03,
-    0x74,
+    0x45,
     0x12,
     0x03,
-    0x99,
+    0x6A,
     0x12,
     0x03,
-    0xA5,
+    0x76,
     0x12,
     0x03,
-    0xC9,
+    0x9A,
     0x12,
     0x03,
-    0xCD,
+    0x9E,
     0x12,
     0x01,
     0x7D,
     0x12,
     0x01,
     0x93,
-/* .00102 [1059]: */
+/* .00102 [1012]: */
     0x12,
     0x01,
     0xA2,
     0x80,
     0xFB,
-/* .00104 [1064]: */
+/* .00104 [1017]: */
     0x22,
-/* _delay [1065]: */
+/* _delay [1018]: */
     0x7E,
     0x00,
     0x7F,
     0x00,
-/* .00119 [1069]: */
+/* .00119 [1022]: */
     0x7C,
     0xE8,
     0x7D,
     0x03,
-/* .00114 [1073]: */
+/* .00114 [1026]: */
     0x1C,
     0xBC,
     0xFF,
     0x01,
     0x1D,
-/* .00133 [1078]: */
+/* .00133 [1031]: */
     0xEC,
     0x4D,
     0x70,
     0xF7,
-/* .00134 [1082]: */
+/* .00134 [1035]: */
     0x0E,
     0xBE,
     0x00,
     0x01,
     0x0F,
-/* .00135 [1087]: */
+/* .00135 [1040]: */
     0xC3,
     0xEE,
     0x94,
@@ -1181,10 +1134,10 @@ uint8_t scr_xram[1129] = {
     0x83,
     0x40,
     0xE3,
-/* .00117 [1098]: */
-/* .00136 [1098]: */
+/* .00117 [1051]: */
+/* .00136 [1051]: */
     0x22,
-/* _EXINT2IS_interrupt [1099]: */
+/* _EXINT8IS_interrupt [1052]: */
     0x75,
     0x8F,
     0x00,
@@ -1197,36 +1150,36 @@ uint8_t scr_xram[1129] = {
     0x53,
     0xC6,
     0xF7,
-/* .00137 [1111]: */
+/* .00137 [1064]: */
     0x32,
-/* _EXINT5IS_interrupt [1112]: */
+/* _EXINT9IS_interrupt [1065]: */
     0x75,
     0xF1,
     0x00,
     0x53,
     0xF2,
     0xF7,
-/* .00139 [1118]: */
+/* .00139 [1071]: */
     0x32,
-/* csection: .roxdata output_size=1 section_size=10 full_size=1129 array_size=1129 vma=45f lma=45f*/
-/* s_XINIT [1119]: */
-/* __roxdata_start [1119]: */
-/* _etext [1119]: */
-/* __xinit__Capture_Value_1 [1119]: */
+/* csection: .roxdata output_size=1 section_size=10 full_size=1082 array_size=1082 vma=430 lma=430*/
+/* s_XINIT [1072]: */
+/* __roxdata_start [1072]: */
+/* _etext [1072]: */
+/* __xinit__Capture_Value_1 [1072]: */
     0x00,
     0x00,
-/* __xinit__Capture_Value_2 [1121]: */
+/* __xinit__Capture_Value_2 [1074]: */
     0x00,
     0x00,
-/* __xinit__duty_cycle [1123]: */
+/* __xinit__duty_cycle [1076]: */
     0x00,
     0x00,
-/* __xinit__Duty_Cycle_Calculator [1125]: */
+/* __xinit__Duty_Cycle_Calculator [1078]: */
     0x00,
-/* __xinit__edge_counter [1126]: */
+/* __xinit__edge_counter [1079]: */
     0x00,
-/* __xinit__Check_Pin_Stat [1127]: */
+/* __xinit__Check_Pin_Stat [1080]: */
     0x00,
-/* __xinit__Read_Capture_Register [1128]: */
+/* __xinit__Read_Capture_Register [1081]: */
     0x00
 };
