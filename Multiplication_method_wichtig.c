@@ -11,3 +11,4 @@ x * 12 == x * 8 + x * 4 == (x << 3) + (x << 2)
 To divide a number by a non-power of two, I'm not aware of any easy way, 
 unless you want to implement some low-level logic, use other binary operations 
 and use some form of iteration.
+

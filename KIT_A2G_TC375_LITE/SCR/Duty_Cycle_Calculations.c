@@ -50,8 +50,6 @@ uint32_t  multiplication_16bit_by_8bit_Result;
 unsigned int Capture_Value_sum;
 unsigned int duty_cycle = 0;
 
-unsigned long  mul_result_1;
-unsigned long mul_result_2;
 /*********************************************************************************************************************/
 /*--------------------------------------------Private Variables/Constants--------------------------------------------*/
 /*********************************************************************************************************************/
@@ -72,33 +70,55 @@ void Duty_Cycle_Calculator_Function(void)
     Capture_Value_1 = 0x0FFF;
     Capture_Value_2 = 0xEFFF;
     add_two_16_bit_unint();
-    multiply_16bit_by_8bit();
+   multiply_16bit_by_8bit();
+
     if( multiplication_16bit_by_8bit_Result >281000) {
         SCR_P00_OUT  ^= (1 << 7) ;
         delay();
     }
-    //  Data = mul_result_1;
+     // Data = multiplication_16bit_by_8bit_Result;
       delay();
-      Data =  (mul_result_1 >> 16);
+      Data =  (multiplication_16bit_by_8bit_Result >> 16);
 }
 /**********************************************************************************************************/
 void multiply_16bit_by_8bit(void)
 {
-    unsigned int multiplicand = 0xFFFF;
+    unsigned long multiplicand = 0x0FFF ;
     unsigned char multiplier = 100;
-    unsigned char result = 0;
-
-    unsigned int test;
-        // Iterate through each bit of num2
-        for (int i = 0; i < 8; i++) {
-            // If the current bit of num2 is 1, add num1 to the result
-            if ((multiplier & 1) == 1){
-                result += multiplicand; }
-            // Right shift num2
-            multiplier >>= 1;
-            // Left shift num1
-            result <<= 1;
+    unsigned long result = 0;
+    for (int i = 0; i < 8; i++) {
+            if (multiplier & (1 << i)) {
+                // Check for overflow before adding
+                if (result + (multiplicand << i) < result) {
+                    // Overflow occurred, handle as needed
+                }
+                result += multiplicand << i;
+            }
         }
+
+
+
+
+
+
+
+//        // Iterate through each bit of multiplier
+//        for (int i = 0; i < 8; i++) {
+//            // If the current bit of multiplier is 1, add multiplicand to the result
+//            if ((multiplier & 1) == 1){
+//                result = result + multiplicand ;
+//            }
+//            // Right shift multiplier
+//            multiplier >>= 1;
+//            //left shift multiplicand
+//            result <<= 1;
+//
+//        }
+
+
+
+
+
 
         multiplication_16bit_by_8bit_Result =  result;
     }
@@ -141,3 +161,5 @@ void Measure_PWM_duty_cycle(void)
           }
       Capture_Value_sum = result;
   }
+
+
