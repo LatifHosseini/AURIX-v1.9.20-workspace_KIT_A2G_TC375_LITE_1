@@ -1,0 +1,6 @@
+# Ignoriere das Verzeichnis ".metadata"
+.metadata/
+SCR Debug (SDCC)/
+TriCore Debug (TASKING)/
+Configurations/
+
