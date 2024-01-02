@@ -69,16 +69,37 @@ void Duty_Cycle_Calculator_Function(void)
     __xdata __at(0x1F00)  unsigned int Data ;
     Capture_Value_1 = 0x0FFF;
     Capture_Value_2 = 0xEFFF;
-    add_two_16_bit_unint();
-   multiply_16bit_by_8bit();
+ //   add_two_16_bit_unint();
+ //  multiply_16bit_by_8bit();
 
+    Measure_PWM_duty_cycle();
     if( multiplication_16bit_by_8bit_Result >281000) {
         SCR_P00_OUT  ^= (1 << 7) ;
         delay();
     }
-     // Data = multiplication_16bit_by_8bit_Result;
+      Data = duty_cycle;
       delay();
-      Data =  (multiplication_16bit_by_8bit_Result >> 16);
+
+}
+
+/****************************************************************************************************************************************
+ * *************************************************************************************************************************************/
+void Measure_PWM_duty_cycle(void)
+{
+    uint32_t dividend = 0x63F9C;
+    uint16_t divisor = 0x0FFF;
+    uint32_t quotient = 0;
+    uint32_t remainder = 0;
+        for (int bit = 31; bit >= 0; bit--) {
+            remainder <<= 1;
+            remainder |= (dividend >> bit) & 0x01;
+            if (remainder >= divisor) {
+                remainder -= divisor;
+                quotient |= (1UL << bit);
+            }
+        }
+
+        duty_cycle = quotient;
 }
 /**********************************************************************************************************/
 void multiply_16bit_by_8bit(void)
@@ -96,52 +117,10 @@ void multiply_16bit_by_8bit(void)
             }
         }
 
-
-
-
-
-
-
-//        // Iterate through each bit of multiplier
-//        for (int i = 0; i < 8; i++) {
-//            // If the current bit of multiplier is 1, add multiplicand to the result
-//            if ((multiplier & 1) == 1){
-//                result = result + multiplicand ;
-//            }
-//            // Right shift multiplier
-//            multiplier >>= 1;
-//            //left shift multiplicand
-//            result <<= 1;
-//
-//        }
-
-
-
-
-
-
         multiplication_16bit_by_8bit_Result =  result;
     }
 
-/****************************************************************************************************************************************
- * *************************************************************************************************************************************/
-void Measure_PWM_duty_cycle(void)
-{
-    uint32_t dividend = multiplication_16bit_by_8bit_Result;
-    uint16_t divisor = Capture_Value_sum;
-    uint32_t quotient = 0;
-    uint32_t remainder = 0;
-        for (int bit = 31; bit >= 0; bit--) {
-            remainder <<= 1;
-            remainder |= (dividend >> bit) & 0x01;
-            if (remainder >= divisor) {
-                remainder -= divisor;
-                quotient |= (1UL << bit);
-            }
-        }
 
-        duty_cycle = quotient;
-}
 /***********************************************************************************************************/
   void add_two_16_bit_unint(void)// test was success
   {

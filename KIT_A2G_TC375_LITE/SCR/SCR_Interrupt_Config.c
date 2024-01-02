@@ -82,7 +82,8 @@ void SCR_IR_Select_External_Interrupt_Line(void)
 {
     // Select External Interrupt Line,  SCU_PAGE=2
     SCR_SCU_PAGE = 2;
-    SCR_MODPISEL2 = (unsigned char)(SCR_MODPISEL2 & ~(0x03 << 0)) | (0x02 );
+    SCR_MODPISEL2 = (unsigned char)(SCR_MODPISEL2 & ~(0x03 << 0)) | (0x02 );// P0.6 for interrupt node 9
+    SCR_MODPISEL1 = (unsigned char)(SCR_MODPISEL1 & ~(0x03 << 6)) | (0x40 );// P0.6 for interrupt node 8
 }
 
 void SCR_IR_Select_Edge_Mode(void)
@@ -92,8 +93,11 @@ void SCR_IR_Select_Edge_Mode(void)
     // Node 9 -> EXICON1.EXINT5 == 01  for Falling edge bit position  2 - 3
 
   //  SCR_IR_EXICON0  = (unsigned char)(SCR_IR_EXICON0 & 0xF3);
-    // select edge mode for node 9 rising edge
+    // select edge mode for node 9 10 rising  and falling,  bit pos 6-7
     SCR_IR_EXICON0 = (unsigned char)(SCR_IR_EXICON0 & ~(0x03 << 6)) | (0x80);
+    // select edge mode for node 8, = 01 rissing   bit pos 4-5
+    SCR_IR_EXICON0 = (unsigned char)(SCR_IR_EXICON0 & ~(0x03 << 4)) | (0x10);
+
    //EXICON0.EXINT2  == 01 for Riseing edge  bit position 6 - 7   00000000
 
 //// Disable the following external interrupt in to node 9
@@ -107,7 +111,7 @@ void SCR_IR_Select_Edge_Mode(void)
 void SCR_IR_Enable_Interrupt_Node(void)
 {
 // PAGE: X
-   // SCR_IEN1 |= (1 << 2) ;//node 9 enable IEN1.EX2  Bit posiotion 2
+    SCR_IEN1 |= (1 << 2) ;//node 8 enable IEN1.EX2  Bit posiotion 2
     SCR_IEN1 |= (1 << 3) ; //node 9
 }
 
