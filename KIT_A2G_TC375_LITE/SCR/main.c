@@ -38,19 +38,13 @@
 #define     SCR_IO_PAGE0    0
 #define     SCR_IO_PAGE1    1
 #define     SCR_IO_PAGE2    2
-#define     CLEAR_BIT_5_IN_IR_CON0         5
-#define     CLEAR_BIT_3_IN_T01_TCON        3
+#define     CLEAR_BIT_5_IN_IR_CON0          5
+#define     CLEAR_BIT_3_IN_T01_TCON         3
 #define     CLEAR_BIT_2_IN_IR_CON0          2
 
-
-
- //   #define MEM_SEGMENT_SHARED_DATA         0x1F00
-
+//   #define MEM_SEGMENT_SHARED_DATA         0x1F00
 // #define Scr_Shared_Data  (*(volatile SCR_SHARED_DATA_TYPE*) 0x1F00)
 // __xdata __at(0x1F00)  uint16 Data ;
-
-
-
  /*********************************************************************************************************************/
  /*-------------------------------------------------Global variables--------------------------------------------------*/
  /*********************************************************************************************************************/
@@ -59,13 +53,12 @@
  volatile unsigned char Check_Pin_Stat = 0;
  volatile unsigned char Read_Capture_Register = 0;
 
-
+ volatile unsigned char rising_edge = 0;
+ volatile unsigned char falling_edge = 0;
  /*********************************************************************************************************************/
  /*------------------------------------------------Function Prototypes------------------------------------------------*/
  /*********************************************************************************************************************/
 void delay(void);
-
-
 /*********************************************************************************************************************/
 /*---------------------------------------------Function Implementations----------------------------------------------*/
 /*********************************************************************************************************************/
@@ -74,84 +67,117 @@ void main()
     volatile unsigned int retunr_value = 0;
     volatile unsigned int cnt = 0;
     volatile unsigned char ADC_Stat = 0;
-
-
     volatile unsigned long Capture_Value_sum = 0;
     volatile unsigned long temp = 0;
     volatile unsigned char Duty_Cycle = 0;
-
-
-
-
-  //  M.Data_2 = 14;
-
-
-
     /* SCU module configurations*/
-        SCR_SCU_PAGE = 1;       //Switch to page 1
-        SCR_SCU_PMCON1 = 0x59;  //OCDS, T2CCU0, RTC and WCAN enabled
-
-        SCR_SCU_PAGE = 0;       //Switch to page 0
-        SCR_SCRINTEXCHG = 0xA0;
-        SCR_SCU_PAGE = 1;       //Switch to page 0
-        // Enable global interrupt RMAP: X, PAGE: X
-        SCR_IEN0 |= (1 << 7) ; // enable global interrupt Set bit 7
-
-        gpio_init();
-        SCR_IR_Select_External_Interrupt_Line();
-        SCR_IR_Select_Edge_Mode();
-        SCR_IR_Enable_Interrupt_Node();
-        SCR_Select_Interrupt_Priority();
-
-     //   SCR_Timer_2_Basic_Operations();
-
-        SCR_CCT_Timer_Basic_Operation();
-//        SCR_CCU_Capture_Mode_1_Config();
-        SCR_CCU_Capture_Mode_0();
-
+    SCR_SCU_PAGE = 1;       //Switch to page 1
+    SCR_SCU_PMCON1 = 0x59;  //OCDS, T2CCU0, RTC and WCAN enabled
+    SCR_SCU_PAGE = 0;       //Switch to page 0
+    SCR_SCRINTEXCHG = 0xA0;
+    SCR_SCU_PAGE = 1;       //Switch to page 0
+    // Enable global interrupt RMAP: X, PAGE: X
+    SCR_IEN0 |= (1 << 7) ; // enable global interrupt Set bit 7
+    gpio_init();
+    SCR_IR_Select_External_Interrupt_Line();
+    SCR_IR_Select_Edge_Mode();
+    SCR_IR_Enable_Interrupt_Node();
+    SCR_Select_Interrupt_Priority();
+     //SCR_Timer_2_Basic_Operations();
+    SCR_CCT_Timer_Basic_Operation();
+    // SCR_CCU_Capture_Mode_1_Config();
+    SCR_CCU_Capture_Mode_0();
     while(1)
     {
 
+        SCR_IO_PAGE = SCR_IO_PAGE0;
+        if(rising_edge == 1){ SCR_P00_OUT |= (1 << 3) ; }// reset ddt
 
-        Duty_Cycle_Calculator_Function();
+         if(falling_edge == 1){ SCR_P00_OUT |= (1 << 5) ; }//falling Capture on time
+
+         if(falling_edge == 2) {SCR_P00_OUT |= (1 << 4) ;  }// capture sume time rising
+
+         if(falling_edge == 3) // FALLING
+         {
+             falling_edge = 0;
+             rising_edge =0;
+             SCR_P00_OUT &= ~ (1 << 3);
+             SCR_P00_OUT &= ~ (1 << 5);
+             SCR_P00_OUT &= ~ (1 << 4);
+             }
 
 
+
+
+      //  Reset_CCT_Timer();
+//        SCR_IO_PAGE = 0;
+//        SCR_P00_OUT ^= (1 << 4) ;
+//        clear_pending_bit_Node_8_9();
+//        read_pending_bit_node_8();
+//        delay();
+
+//
+//        SCR_P00_OUT ^= (1 << 3) ;
+//
+//        clear_pending_bit_Node_8_9();
+//        read_pending_bit_node_9();
+//        CCT_Read_PWM_OnTime();
+//
+//        SCR_P00_OUT ^= (1 << 5) ;
+//
+//        clear_pending_bit_Node_8_9();
+//        read_pending_bit_node_8();
+//        CCT_Read_PWM_OffTime();
+    //    SCR_P00_OUT ^= (1 << 4) ;
+     //   Duty_Cycle_Calculator_Function();
     }
 }
 
 /*****************************************************************************************
  *
  *****************************************************************************************/
-void delay(void){
-
+void delay(void)
+{
     int i = 0;
     int j = 0;
     for( i = 0; i < 1000; i++){
         for(j = 0; j < 1000; j++){
-
         }
     }
-
 }
-
-
+/*  ISR Node 5  CCT timer */
+void EXINT5IS_interrupt(void) __interrupt (5){
+//    SCR_IO_PAGE = SCR_IO_PAGE0;
+//    SCR_P00_OUT ^= (1 << 3) ;
+//    SCR_T2CCU_PAGE = 1;
+//    SCR_T2CCU_CCTCON &= ~(1 << 3) ;//bit pos 3 overflow flag
+}
+/***************************************************************************************/
 /*  ISR Node 8*/
 void EXINT8IS_interrupt(void) __interrupt (8){
 
+    rising_edge++;
 
-    SCR_IO_PAGE = SCR_IO_PAGE0;
-    SCR_P00_OUT ^= (1 << 1) ;
-    SCR_T2CCU_PAGE = 1;
-    SCR_T2CCU_CCTCON &= ~(1 << 3) ;//bit pos 3 overflow flag
+/***************************************************************************************/
+    SCR_SCU_PAGE = 0;
+    SCR_IR_CON0 &= ~(1 << 2);// Node 8 bit pos 2
 
 }
-
+/***************************************************************************************/
 /* ISR Node 9*/
 void EXINT9IS_interrupt(void) __interrupt (9){
 
+   if( rising_edge >= 1){falling_edge++;}
+
+
+
+/***************************************************************************************/
     //SCU_PAGE=0
         SCR_SCU_PAGE = 0;
-        SCR_IR_CON0 &= ~(1 << 3) ; // Clear bit 3
-       // SCR_IR_CON0 &= ~(1 << CLEAR_BIT_5_IN_IR_CON0) ;// clear bit 5 in IR_CON0 register
+    SCR_IR_CON0 &= ~(1 << 3);// Node 9 bit pos 3
 }
+/*********************************************************************************************************************************/
 
+/*********************************************************************************************************************************/
+
+/*********************************************************************************************************************************/

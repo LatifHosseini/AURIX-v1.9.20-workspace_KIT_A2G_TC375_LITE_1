@@ -93,7 +93,7 @@ void SCR_IR_Select_Edge_Mode(void)
     // Node 9 -> EXICON1.EXINT5 == 01  for Falling edge bit position  2 - 3
 
   //  SCR_IR_EXICON0  = (unsigned char)(SCR_IR_EXICON0 & 0xF3);
-    // select edge mode for node 9 10 rising  and falling,  bit pos 6-7
+    // select edge mode for Node 9 -> EXICON1.EXINT5 == 01 rising  and falling,  bit pos 6-7
     SCR_IR_EXICON0 = (unsigned char)(SCR_IR_EXICON0 & ~(0x03 << 6)) | (0x80);
     // select edge mode for node 8, = 01 rissing   bit pos 4-5
     SCR_IR_EXICON0 = (unsigned char)(SCR_IR_EXICON0 & ~(0x03 << 4)) | (0x10);

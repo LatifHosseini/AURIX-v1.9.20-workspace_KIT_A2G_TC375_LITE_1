@@ -38,10 +38,6 @@
 #include <stdio.h>
 #include <stdint.h>
 /*********************************************************************************************************************/
-/*------------------------------------------------------Macros-------------------------------------------------------*/
-/*********************************************************************************************************************/
-
-/*********************************************************************************************************************/
 /*-------------------------------------------------Global variables--------------------------------------------------*/
 /*********************************************************************************************************************/
 unsigned int Capture_Value_1 = 0;
@@ -49,10 +45,6 @@ unsigned int Capture_Value_2 = 0;
 uint32_t  multiplication_16bit_by_8bit_Result;
 unsigned int Capture_Value_sum;
 unsigned int duty_cycle = 0;
-
-/*********************************************************************************************************************/
-/*--------------------------------------------Private Variables/Constants--------------------------------------------*/
-/*********************************************************************************************************************/
 
 /*********************************************************************************************************************/
 /*------------------------------------------------Function Prototypes------------------------------------------------*/
@@ -71,7 +63,6 @@ void Duty_Cycle_Calculator_Function(void)
     Capture_Value_2 = 0xEFFF;
  //   add_two_16_bit_unint();
  //  multiply_16bit_by_8bit();
-
     Measure_PWM_duty_cycle();
     if( multiplication_16bit_by_8bit_Result >281000) {
         SCR_P00_OUT  ^= (1 << 7) ;
@@ -79,9 +70,7 @@ void Duty_Cycle_Calculator_Function(void)
     }
       Data = duty_cycle;
       delay();
-
 }
-
 /****************************************************************************************************************************************
  * *************************************************************************************************************************************/
 void Measure_PWM_duty_cycle(void)
@@ -98,7 +87,6 @@ void Measure_PWM_duty_cycle(void)
                 quotient |= (1UL << bit);
             }
         }
-
         duty_cycle = quotient;
 }
 /**********************************************************************************************************/
@@ -108,19 +96,16 @@ void multiply_16bit_by_8bit(void)
     unsigned char multiplier = 100;
     unsigned long result = 0;
     for (int i = 0; i < 8; i++) {
-            if (multiplier & (1 << i)) {
-                // Check for overflow before adding
-                if (result + (multiplicand << i) < result) {
-                    // Overflow occurred, handle as needed
-                }
-                result += multiplicand << i;
+        if (multiplier & (1 << i)) {
+            // Check for overflow before adding
+            if (result + (multiplicand << i) < result) {
+                // Overflow occurred, handle as needed
             }
+            result += multiplicand << i;
         }
-
-        multiplication_16bit_by_8bit_Result =  result;
     }
-
-
+        multiplication_16bit_by_8bit_Result =  result;
+}
 /***********************************************************************************************************/
   void add_two_16_bit_unint(void)// test was success
   {
@@ -129,16 +114,29 @@ void multiply_16bit_by_8bit(void)
       uint8_t carry = 0;
       uint16_t result = 0;
       for (int i = 0; i < 16; ++i) {
-              uint8_t bitA = (a >> i) & 0x01;
-              uint8_t bitB = (b >> i) & 0x01;
-              // Calculate the sum bit
-              uint8_t sumBit = bitA ^ bitB ^ carry;
-              // Update the carry for the next iteration
-              carry = (bitA & bitB) | ((bitA ^ bitB) & carry);
-              // Update the result
-              result |= (sumBit << i);
+          uint8_t bitA = (a >> i) & 0x01;
+          uint8_t bitB = (b >> i) & 0x01;
+          // Calculate the sum bit
+          uint8_t sumBit = bitA ^ bitB ^ carry;
+          // Update the carry for the next iteration
+          carry = (bitA & bitB) | ((bitA ^ bitB) & carry);
+          // Update the result
+          result |= (sumBit << i);
           }
       Capture_Value_sum = result;
   }
-
-
+/***********************************************************************************************************/
+  void CCT_Read_PWM_OnTime(void)
+  {
+      SCR_T2CCU_PAGE=2;
+      Capture_Value_1 = (uint8)(SCR_T2CCU_CC0H << 8u);
+      Capture_Value_1 |= (uint8)SCR_T2CCU_CC0L;
+  }
+/***********************************************************************************************************/
+  void CCT_Read_PWM_OffTime(void)
+    {
+        SCR_T2CCU_PAGE=2;
+        Capture_Value_2 = (uint8)(SCR_T2CCU_CC0H << 8u);
+        Capture_Value_2 |= (uint8)SCR_T2CCU_CC0L;
+    }
+/***********************************************************************************************************/

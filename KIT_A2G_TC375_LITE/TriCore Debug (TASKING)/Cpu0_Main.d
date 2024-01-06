@@ -82,3 +82,19 @@ Cpu0_Main.o :	c:/Users/La/AURIX-v1.9.20-workspace/KIT_A2G_TC375_LITE/Libraries/I
 c:/Users/La/AURIX-v1.9.20-workspace/KIT_A2G_TC375_LITE/Libraries/Infra/Sfr/TC37A/_Reg/IfxPms_reg.h :
 Cpu0_Main.o :	c:/Users/La/AURIX-v1.9.20-workspace/KIT_A2G_TC375_LITE/Libraries/Infra/Sfr/TC37A/_Reg/IfxPms_regdef.h
 c:/Users/La/AURIX-v1.9.20-workspace/KIT_A2G_TC375_LITE/Libraries/Infra/Sfr/TC37A/_Reg/IfxPms_regdef.h :
+Cpu0_Main.o :	../GTM_TOM_PWM.h
+../GTM_TOM_PWM.h :
+Cpu0_Main.o :	c:/Users/La/AURIX-v1.9.20-workspace/KIT_A2G_TC375_LITE/Libraries/Service/CpuGeneric/SysSe/Bsp/Bsp.h
+c:/Users/La/AURIX-v1.9.20-workspace/KIT_A2G_TC375_LITE/Libraries/Service/CpuGeneric/SysSe/Bsp/Bsp.h :
+Cpu0_Main.o :	c:/Users/La/AURIX-v1.9.20-workspace/KIT_A2G_TC375_LITE/Libraries/iLLD/TC37A/Tricore/Src/Std/IfxSrc.h
+c:/Users/La/AURIX-v1.9.20-workspace/KIT_A2G_TC375_LITE/Libraries/iLLD/TC37A/Tricore/Src/Std/IfxSrc.h :
+Cpu0_Main.o :	c:/Users/La/AURIX-v1.9.20-workspace/KIT_A2G_TC375_LITE/Libraries/iLLD/TC37A/Tricore/_Impl/IfxSrc_cfg.h
+c:/Users/La/AURIX-v1.9.20-workspace/KIT_A2G_TC375_LITE/Libraries/iLLD/TC37A/Tricore/_Impl/IfxSrc_cfg.h :
+Cpu0_Main.o :	c:/Users/La/AURIX-v1.9.20-workspace/KIT_A2G_TC375_LITE/Libraries/iLLD/TC37A/Tricore/Stm/Std/IfxStm.h
+c:/Users/La/AURIX-v1.9.20-workspace/KIT_A2G_TC375_LITE/Libraries/iLLD/TC37A/Tricore/Stm/Std/IfxStm.h :
+Cpu0_Main.o :	c:/Users/La/AURIX-v1.9.20-workspace/KIT_A2G_TC375_LITE/Libraries/iLLD/TC37A/Tricore/_Impl/IfxStm_cfg.h
+c:/Users/La/AURIX-v1.9.20-workspace/KIT_A2G_TC375_LITE/Libraries/iLLD/TC37A/Tricore/_Impl/IfxStm_cfg.h :
+Cpu0_Main.o :	c:/Users/La/AURIX-v1.9.20-workspace/KIT_A2G_TC375_LITE/Libraries/Infra/Sfr/TC37A/_Reg/IfxCbs_reg.h
+c:/Users/La/AURIX-v1.9.20-workspace/KIT_A2G_TC375_LITE/Libraries/Infra/Sfr/TC37A/_Reg/IfxCbs_reg.h :
+Cpu0_Main.o :	c:/Users/La/AURIX-v1.9.20-workspace/KIT_A2G_TC375_LITE/Libraries/Infra/Sfr/TC37A/_Reg/IfxCbs_regdef.h
+c:/Users/La/AURIX-v1.9.20-workspace/KIT_A2G_TC375_LITE/Libraries/Infra/Sfr/TC37A/_Reg/IfxCbs_regdef.h :

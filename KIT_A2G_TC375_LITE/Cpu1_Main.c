@@ -27,6 +27,7 @@
 #include "Ifx_Types.h"
 #include "IfxCpu.h"
 #include "IfxScuWdt.h"
+#include "Blinky_LED.h"
 
 extern IfxCpu_syncEvent g_cpuSyncEvent;
 
@@ -42,8 +43,9 @@ void core1_main(void)
     /* Wait for CPU sync event */
     IfxCpu_emitEvent(&g_cpuSyncEvent);
     IfxCpu_waitEvent(&g_cpuSyncEvent, 1);
-    
+    initLED();  /* Initialize the LED port pin      */
     while(1)
     {
+        blinkLED(); /* Make the LED blink           */
     }
 }

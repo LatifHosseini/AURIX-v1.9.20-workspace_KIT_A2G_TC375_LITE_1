@@ -28,8 +28,14 @@
 #include "IfxCpu.h"
 #include "IfxScuWdt.h"
 #include "SCR.h"
+#include "GTM_TOM_PWM.h"
+#include "Bsp.h"
 
- #define RW_FLAG   (*(volatile uint32 *)0xF0241F00)
+/*********************************************************************************************************************/
+/*------------------------------------------------------Macros-------------------------------------------------------*/
+/*********************************************************************************************************************/
+#define WAIT_TIME   10              /* Number of milliseconds to wait between each duty cycle change                */
+#define RW_FLAG   (*(volatile uint32 *)0xF0241F00)
 uint32 goloba_var;
 
 IFX_ALIGN(4) IfxCpu_syncEvent g_cpuSyncEvent = 0;
@@ -69,10 +75,17 @@ void core0_main(void)
         while (P34_PCSR.B.LCK);
         P34_PCSR.U = 0x0002;
         IfxScuWdt_setSafetyEndinit(IfxScuWdt_getCpuWatchdogPassword());
+		
+	/* Initialize a time variable */
+    Ifx_TickTime ticksFor10ms = IfxStm_getTicksFromMilliseconds(BSP_DEFAULT_TIMER, WAIT_TIME);
+
+    /* Initialize GTM TOM module */
+    initGtmTomPwm();	
 
     while(1)
     {
-
+		//fadeLED();                  /* Change the intensity of the LED  */
+       // waitTime(ticksFor10ms);     /* Delay of 10ms                    */
         goloba_var = RW_FLAG ;
     }
 }

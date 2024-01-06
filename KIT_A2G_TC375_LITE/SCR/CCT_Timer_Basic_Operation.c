@@ -56,15 +56,22 @@ void SCR_CCT_Timer_Basic_Operation(void)
 {
     //T2CCU_PAGE=1
     SCR_T2CCU_PAGE = 1;
-    SCR_T2CCU_CCTRELH = 0x00;
-    SCR_T2CCU_CCTRELL = 0x00;
+    SCR_T2CCU_CCTRELH = 0x00;// CCT Reload  H register
+    SCR_T2CCU_CCTRELL = 0x00;// CCT Reload  L register
 //    SCR_T2CCU_CCTBSEL |= (1 << 7) ; //bit pos 7 casc CCT with T2
-    SCR_T2CCU_CCTCON  |= (1 << 2) ;   //bit pos   2   enable CCT interrupt
+    SCR_T2CCU_CCTCON  |= (1 << 2) ;   //bit pos 2 enable CCT overflow interrupt
     SCR_T2CCU_CCTCON  |= (1 << 0) ;//bit pos 0 active CCT
     //T2CCU_PAGE=1
-    SCR_T2CCU_CCTCON = (SCR_T2CCU_CCTCON & (unsigned char)(~(0xF0 << 4))) | (0xB0);
-    SCR_IEN0 |= (1 << 5) ; //IEN0.ET2  -> interupt node 5;  bit pos 5  // PAGE: X
+    SCR_T2CCU_CCTCON = (SCR_T2CCU_CCTCON & (unsigned char)(~(0xF0 << 4))) | (0xB0); // CCT prescalee bit pos 4 - 7  and B = fPCLK / 2048
+    SCR_IEN0 |= (1 << 5) ; //IEN0.ET2  -> interrupt node 5;  bit pos 5  // PAGE: X
 
     //T2CCU_PAGE=1
 
 }
+void CCT_Timer_Trigger_SW_Overflow(void)
+{
+    SCR_T2CCU_PAGE = 1;
+    SCR_T2CCU_CCTBSEL |= (1 << 6) ;//bit pos 6
+   // T2CCU_CCTBSEL.CCTTOV
+}
+

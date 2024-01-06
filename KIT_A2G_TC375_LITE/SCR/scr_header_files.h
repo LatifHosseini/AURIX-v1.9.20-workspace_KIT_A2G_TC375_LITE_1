@@ -98,7 +98,7 @@ void TrigerWakeUpFromStandbyMode(void);
 
 void Duty_Cycle_Calculator_Function(void);
 
-
+void clear_pending_bit_Node_8_9(void);
 void SCR_ExternalInterruptChanelSelect(void);
 
 void SCR_IR_Select_External_Interrupt_Line(void);
@@ -110,6 +110,13 @@ void SCR_Timer_2_Basic_Operations(void);
 void SCR_CCT_Timer_Basic_Operation(void);
 void SCR_CCU_Capture_Mode_0(void);
 void SCR_CCU_Capture_Mode_1_Config(void);
+
+
+void CCT_Read_PWM_OnTime(void);
+void CCT_Read_PWM_OffTime(void);
+void Reset_CCT_Timer(void);
+void read_pending_bit_node_8(void);
+void read_pending_bit_node_9(void);
 
 void delay(void);
 

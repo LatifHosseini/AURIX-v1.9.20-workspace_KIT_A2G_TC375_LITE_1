@@ -10,6 +10,7 @@
 ;--------------------------------------------------------
 ; Public variables in this module
 ;--------------------------------------------------------
+	.globl	_CCT_Timer_Trigger_SW_Overflow
 	.globl	_SCR_CCT_Timer_Basic_Operation
 ;--------------------------------------------------------
 ; special function registers
@@ -239,18 +240,36 @@ _SCR_CCT_Timer_Basic_Operation:
 	.using 0
 ;	../SCR/CCT_Timer_Basic_Operation.c:58: SCR_T2CCU_PAGE = 1;
 	mov	_SCR_T2CCU_PAGE,#0x01
-;	../SCR/CCT_Timer_Basic_Operation.c:59: SCR_T2CCU_CCTRELH = 0x00;
+;	../SCR/CCT_Timer_Basic_Operation.c:59: SCR_T2CCU_CCTRELH = 0x00;// CCT Reload  H register
 	mov	_SCR_T2CCU_CCTRELH,#0x00
-;	../SCR/CCT_Timer_Basic_Operation.c:60: SCR_T2CCU_CCTRELL = 0x00;
+;	../SCR/CCT_Timer_Basic_Operation.c:60: SCR_T2CCU_CCTRELL = 0x00;// CCT Reload  L register
 	mov	_SCR_T2CCU_CCTRELL,#0x00
-;	../SCR/CCT_Timer_Basic_Operation.c:62: SCR_T2CCU_CCTCON  |= (1 << 2) ;   //bit pos   2   enable CCT interrupt
+;	../SCR/CCT_Timer_Basic_Operation.c:62: SCR_T2CCU_CCTCON  |= (1 << 2) ;   //bit pos 2 enable CCT overflow interrupt
 	orl	_SCR_T2CCU_CCTCON,#0x04
 ;	../SCR/CCT_Timer_Basic_Operation.c:63: SCR_T2CCU_CCTCON  |= (1 << 0) ;//bit pos 0 active CCT
 	orl	_SCR_T2CCU_CCTCON,#0x01
-;	../SCR/CCT_Timer_Basic_Operation.c:65: SCR_T2CCU_CCTCON = (SCR_T2CCU_CCTCON & (unsigned char)(~(0xF0 << 4))) | (0xB0);
+;	../SCR/CCT_Timer_Basic_Operation.c:65: SCR_T2CCU_CCTCON = (SCR_T2CCU_CCTCON & (unsigned char)(~(0xF0 << 4))) | (0xB0); // CCT prescalee bit pos 4 - 7  and B = fPCLK / 2048
 	orl	_SCR_T2CCU_CCTCON,#0xB0
-;	../SCR/CCT_Timer_Basic_Operation.c:66: SCR_IEN0 |= (1 << 5) ; //IEN0.ET2  -> interupt node 5;  bit pos 5  // PAGE: X
+;	../SCR/CCT_Timer_Basic_Operation.c:66: SCR_IEN0 |= (1 << 5) ; //IEN0.ET2  -> interrupt node 5;  bit pos 5  // PAGE: X
 	orl	_SCR_IEN0,#0x20
 .00101:
 ;	../SCR/CCT_Timer_Basic_Operation.c:70: }
+	ret
+;------------------------------------------------------------
+;Allocation info for local variables in function 'CCT_Timer_Trigger_SW_Overflow'
+;------------------------------------------------------------
+;	../SCR/CCT_Timer_Basic_Operation.c:71: void CCT_Timer_Trigger_SW_Overflow(void)
+;	-----------------------------------------
+;	 function CCT_Timer_Trigger_SW_Overflow
+;	-----------------------------------------
+	.section .text.code.CCT_Timer_Trigger_SW_Overflow,"ax" ;code for function CCT_Timer_Trigger_SW_Overflow
+	.type   CCT_Timer_Trigger_SW_Overflow, @function
+_CCT_Timer_Trigger_SW_Overflow:
+	.using 0
+;	../SCR/CCT_Timer_Basic_Operation.c:73: SCR_T2CCU_PAGE = 1;
+	mov	_SCR_T2CCU_PAGE,#0x01
+;	../SCR/CCT_Timer_Basic_Operation.c:74: SCR_T2CCU_CCTBSEL |= (1 << 6) ;//bit pos 6
+	orl	_SCR_T2CCU_CCTBSEL,#0x40
+.00103:
+;	../SCR/CCT_Timer_Basic_Operation.c:76: }
 	ret

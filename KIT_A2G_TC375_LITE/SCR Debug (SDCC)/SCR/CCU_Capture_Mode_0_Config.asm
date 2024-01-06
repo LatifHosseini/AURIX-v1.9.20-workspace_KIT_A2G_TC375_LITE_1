@@ -239,7 +239,7 @@ _SCR_CCU_Capture_Mode_0:
 	.using 0
 ;	../SCR/CCU_Capture_Mode_0_Config.c:57: SCR_T2CCU_PAGE = 1;
 	mov	_SCR_T2CCU_PAGE,#0x01
-;	../SCR/CCU_Capture_Mode_0_Config.c:58: SCR_T2CCU_CCTBSEL |= (1 << 0) ; // //CCT as Time Bse Timer Bit pos 0 for capture chanel 0
+;	../SCR/CCU_Capture_Mode_0_Config.c:58: SCR_T2CCU_CCTBSEL |= (1 << 0) ; // //CCT as Time Base Timer Bit pos 0 for capture channel 0
 	orl	_SCR_T2CCU_CCTBSEL,#0x01
 ;	../SCR/CCU_Capture_Mode_0_Config.c:60: SCR_T2CCU_CCEN = (SCR_T2CCU_CCEN & (unsigned char)(~(0x03 << 0))) | (0x01);
 	mov	a,#0xFC

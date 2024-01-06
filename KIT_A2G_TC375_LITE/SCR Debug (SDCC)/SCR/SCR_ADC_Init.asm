@@ -236,13 +236,13 @@ _SCR_ADCOMP_CON	=	0x00fb
 ; uninitialized external ram data
 ;--------------------------------------------------------
 	.section .xdata.i51,"aw" ;xdata_name ;area
-_SCR_ADC_SelectChannel_channel_65536_38:
+_SCR_ADC_SelectChannel_channel_65536_44:
 	.ds.b	1
-_SCR_ADC_IsResultValid_return_char_65536_43:
+_SCR_ADC_IsResultValid_return_char_65536_49:
 	.ds.b	1
-_SCR_ADC_GetResult_return_result_65536_46:
+_SCR_ADC_GetResult_return_result_65536_52:
 	.ds.b	1
-_SCR_ADC_StartNewConversionGetResult_Result_65536_48:
+_SCR_ADC_StartNewConversionGetResult_Result_65536_54:
 	.ds.b	1
 ;--------------------------------------------------------
 ; code
@@ -360,7 +360,7 @@ _SCR_ADC_isReadyForNewConversion:
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'SCR_ADC_SelectChannel'
 ;------------------------------------------------------------
-;channel                   Allocated with name '_SCR_ADC_SelectChannel_channel_65536_38'
+;channel                   Allocated with name '_SCR_ADC_SelectChannel_channel_65536_44'
 ;------------------------------------------------------------
 ;	../SCR/SCR_ADC_Init.c:96: void SCR_ADC_SelectChannel(SCR_ADC_Chanel_Select channel){
 ;	-----------------------------------------
@@ -371,7 +371,7 @@ _SCR_ADC_isReadyForNewConversion:
 _SCR_ADC_SelectChannel:
 	.using 0
 	mov	a,dpl
-	mov	dptr,#_SCR_ADC_SelectChannel_channel_65536_38
+	mov	dptr,#_SCR_ADC_SelectChannel_channel_65536_44
 	movx	@dptr,a
 ;	../SCR/SCR_ADC_Init.c:97: SCR_SCU_PAGE = 0;
 	mov	_SCR_SCU_PAGE,#0x00
@@ -406,7 +406,7 @@ _SCR_ADC_StartNewConversion:
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'SCR_ADC_IsResultValid'
 ;------------------------------------------------------------
-;return_char               Allocated with name '_SCR_ADC_IsResultValid_return_char_65536_43'
+;return_char               Allocated with name '_SCR_ADC_IsResultValid_return_char_65536_49'
 ;------------------------------------------------------------
 ;	../SCR/SCR_ADC_Init.c:105: unsigned char SCR_ADC_IsResultValid(void)
 ;	-----------------------------------------
@@ -417,7 +417,7 @@ _SCR_ADC_StartNewConversion:
 _SCR_ADC_IsResultValid:
 	.using 0
 ;	../SCR/SCR_ADC_Init.c:107: unsigned char return_char = ADCNORESULTORINVALID;
-	mov	dptr,#_SCR_ADC_IsResultValid_return_char_65536_43
+	mov	dptr,#_SCR_ADC_IsResultValid_return_char_65536_49
 	clr	a
 	movx	@dptr,a
 ;	../SCR/SCR_ADC_Init.c:109: SCR_SCU_PAGE = 0;
@@ -434,12 +434,12 @@ _SCR_ADC_IsResultValid:
 	sjmp	.00136
 .00144:
 ;	../SCR/SCR_ADC_Init.c:112: return_char = ADCRESULTVALID;
-	mov	dptr,#_SCR_ADC_IsResultValid_return_char_65536_43
+	mov	dptr,#_SCR_ADC_IsResultValid_return_char_65536_49
 	mov	a,#0x01
 	movx	@dptr,a
 .00136:
 ;	../SCR/SCR_ADC_Init.c:114: return return_char;
-	mov	dptr,#_SCR_ADC_IsResultValid_return_char_65536_43
+	mov	dptr,#_SCR_ADC_IsResultValid_return_char_65536_49
 	movx	a,@dptr
 ;	../SCR/SCR_ADC_Init.c:115: }
 	mov	dpl,a
@@ -448,7 +448,7 @@ _SCR_ADC_IsResultValid:
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'SCR_ADC_GetResult'
 ;------------------------------------------------------------
-;return_result             Allocated with name '_SCR_ADC_GetResult_return_result_65536_46'
+;return_result             Allocated with name '_SCR_ADC_GetResult_return_result_65536_52'
 ;------------------------------------------------------------
 ;	../SCR/SCR_ADC_Init.c:117: unsigned char SCR_ADC_GetResult(void){
 ;	-----------------------------------------
@@ -461,7 +461,7 @@ _SCR_ADC_GetResult:
 ;	../SCR/SCR_ADC_Init.c:120: SCR_SCU_PAGE = 0;
 	mov	_SCR_SCU_PAGE,#0x00
 ;	../SCR/SCR_ADC_Init.c:121: return_result = SCR_ADCOMP_RES;
-	mov	dptr,#_SCR_ADC_GetResult_return_result_65536_46
+	mov	dptr,#_SCR_ADC_GetResult_return_result_65536_52
 	mov	a,_SCR_ADCOMP_RES
 	movx	@dptr,a
 ;	../SCR/SCR_ADC_Init.c:122: return return_result;
@@ -473,8 +473,8 @@ _SCR_ADC_GetResult:
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'SCR_ADC_StartNewConversionGetResult'
 ;------------------------------------------------------------
-;Result                    Allocated with name '_SCR_ADC_StartNewConversionGetResult_Result_65536_48'
-;ADC_Timeout               Allocated with name '_SCR_ADC_StartNewConversionGetResult_ADC_Timeout_65536_48'
+;Result                    Allocated with name '_SCR_ADC_StartNewConversionGetResult_Result_65536_54'
+;ADC_Timeout               Allocated with name '_SCR_ADC_StartNewConversionGetResult_ADC_Timeout_65536_54'
 ;------------------------------------------------------------
 ;	../SCR/SCR_ADC_Init.c:124: unsigned char SCR_ADC_StartNewConversionGetResult(void){
 ;	-----------------------------------------
@@ -485,7 +485,7 @@ _SCR_ADC_GetResult:
 _SCR_ADC_StartNewConversionGetResult:
 	.using 0
 ;	../SCR/SCR_ADC_Init.c:126: unsigned char Result=0;
-	mov	dptr,#_SCR_ADC_StartNewConversionGetResult_Result_65536_48
+	mov	dptr,#_SCR_ADC_StartNewConversionGetResult_Result_65536_54
 	clr	a
 	movx	@dptr,a
 ;	../SCR/SCR_ADC_Init.c:128: SCR_ADC_StartNewConversion();
@@ -509,14 +509,14 @@ _SCR_ADC_StartNewConversionGetResult:
 	lcall	_SCR_ADC_GetResult
 	mov	a,dpl
 	pop	ar7
-	mov	dptr,#_SCR_ADC_StartNewConversionGetResult_Result_65536_48
+	mov	dptr,#_SCR_ADC_StartNewConversionGetResult_Result_65536_54
 	movx	@dptr,a
 ;	../SCR/SCR_ADC_Init.c:133: ADC_Timeout++;
 	inc	r7
 	sjmp	.00148
 .00150:
 ;	../SCR/SCR_ADC_Init.c:135: return Result;
-	mov	dptr,#_SCR_ADC_StartNewConversionGetResult_Result_65536_48
+	mov	dptr,#_SCR_ADC_StartNewConversionGetResult_Result_65536_54
 	movx	a,@dptr
 ;	../SCR/SCR_ADC_Init.c:136: }
 	mov	dpl,a

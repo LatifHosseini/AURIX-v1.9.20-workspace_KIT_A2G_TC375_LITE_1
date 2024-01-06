@@ -241,18 +241,23 @@ _SCR_IR_Select_External_Interrupt_Line:
 	.using 0
 ;	../SCR/SCR_Interrupt_Config.c:84: SCR_SCU_PAGE = 2;
 	mov	_SCR_SCU_PAGE,#0x02
-;	../SCR/SCR_Interrupt_Config.c:85: SCR_MODPISEL2 = (unsigned char)(SCR_MODPISEL2 & ~(0x03 << 0)) | (0x02 );
+;	../SCR/SCR_Interrupt_Config.c:85: SCR_MODPISEL2 = (unsigned char)(SCR_MODPISEL2 & ~(0x03 << 0)) | (0x02 );// P0.6 for interrupt node 9
 	mov	a,#0xFC
 	anl	a,_SCR_MODPISEL2
 	orl	a,#0x02
 	mov	_SCR_MODPISEL2,a
+;	../SCR/SCR_Interrupt_Config.c:86: SCR_MODPISEL1 = (unsigned char)(SCR_MODPISEL1 & ~(0x03 << 6)) | (0x40 );// P0.6 for interrupt node 8
+	mov	a,#0x3F
+	anl	a,_SCR_MODPISEL1
+	orl	a,#0x40
+	mov	_SCR_MODPISEL1,a
 .00101:
-;	../SCR/SCR_Interrupt_Config.c:86: }
+;	../SCR/SCR_Interrupt_Config.c:87: }
 	ret
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'SCR_IR_Select_Edge_Mode'
 ;------------------------------------------------------------
-;	../SCR/SCR_Interrupt_Config.c:88: void SCR_IR_Select_Edge_Mode(void)
+;	../SCR/SCR_Interrupt_Config.c:89: void SCR_IR_Select_Edge_Mode(void)
 ;	-----------------------------------------
 ;	 function SCR_IR_Select_Edge_Mode
 ;	-----------------------------------------
@@ -260,35 +265,40 @@ _SCR_IR_Select_External_Interrupt_Line:
 	.type   SCR_IR_Select_Edge_Mode, @function
 _SCR_IR_Select_Edge_Mode:
 	.using 0
-;	../SCR/SCR_Interrupt_Config.c:91: SCR_SCU_PAGE = 1;
+;	../SCR/SCR_Interrupt_Config.c:92: SCR_SCU_PAGE = 1;
 	mov	_SCR_SCU_PAGE,#0x01
-;	../SCR/SCR_Interrupt_Config.c:96: SCR_IR_EXICON0 = (unsigned char)(SCR_IR_EXICON0 & ~(0x03 << 6)) | (0x80);
+;	../SCR/SCR_Interrupt_Config.c:97: SCR_IR_EXICON0 = (unsigned char)(SCR_IR_EXICON0 & ~(0x03 << 6)) | (0x80);
 	mov	a,#0x3F
 	anl	a,_SCR_IR_EXICON0
 	orl	a,#0x80
 	mov	_SCR_IR_EXICON0,a
-;	../SCR/SCR_Interrupt_Config.c:100: SCR_IR_EXICON1 = (unsigned char)(SCR_IR_EXICON1 & ~(0x03 << 0)) | (0x03);
+;	../SCR/SCR_Interrupt_Config.c:99: SCR_IR_EXICON0 = (unsigned char)(SCR_IR_EXICON0 & ~(0x03 << 4)) | (0x10);
+	mov	a,#0xCF
+	anl	a,_SCR_IR_EXICON0
+	orl	a,#0x10
+	mov	_SCR_IR_EXICON0,a
+;	../SCR/SCR_Interrupt_Config.c:104: SCR_IR_EXICON1 = (unsigned char)(SCR_IR_EXICON1 & ~(0x03 << 0)) | (0x03);
 	mov	a,#0xFC
 	anl	a,_SCR_IR_EXICON1
 	orl	a,#0x03
 	mov	_SCR_IR_EXICON1,a
-;	../SCR/SCR_Interrupt_Config.c:101: SCR_IR_EXICON1 = (unsigned char)(SCR_IR_EXICON1 & ~(0x03 << 2)) | (0x0C);
+;	../SCR/SCR_Interrupt_Config.c:105: SCR_IR_EXICON1 = (unsigned char)(SCR_IR_EXICON1 & ~(0x03 << 2)) | (0x0C);
 	mov	a,#0xF3
 	anl	a,_SCR_IR_EXICON1
 	orl	a,#0x0C
 	mov	_SCR_IR_EXICON1,a
-;	../SCR/SCR_Interrupt_Config.c:102: SCR_IR_EXICON1 = (unsigned char)(SCR_IR_EXICON1 & ~(0x03 << 4)) | (0x30);
+;	../SCR/SCR_Interrupt_Config.c:106: SCR_IR_EXICON1 = (unsigned char)(SCR_IR_EXICON1 & ~(0x03 << 4)) | (0x30);
 	mov	a,#0xCF
 	anl	a,_SCR_IR_EXICON1
 	orl	a,#0x30
 	mov	_SCR_IR_EXICON1,a
 .00103:
-;	../SCR/SCR_Interrupt_Config.c:105: }
+;	../SCR/SCR_Interrupt_Config.c:109: }
 	ret
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'SCR_IR_Enable_Interrupt_Node'
 ;------------------------------------------------------------
-;	../SCR/SCR_Interrupt_Config.c:107: void SCR_IR_Enable_Interrupt_Node(void)
+;	../SCR/SCR_Interrupt_Config.c:111: void SCR_IR_Enable_Interrupt_Node(void)
 ;	-----------------------------------------
 ;	 function SCR_IR_Enable_Interrupt_Node
 ;	-----------------------------------------
@@ -296,8 +306,10 @@ _SCR_IR_Select_Edge_Mode:
 	.type   SCR_IR_Enable_Interrupt_Node, @function
 _SCR_IR_Enable_Interrupt_Node:
 	.using 0
-;	../SCR/SCR_Interrupt_Config.c:111: SCR_IEN1 |= (1 << 3) ; //node 9
+;	../SCR/SCR_Interrupt_Config.c:114: SCR_IEN1 |= (1 << 2) ;//node 8 enable IEN1.EX2  Bit posiotion 2
+	orl	_SCR_IEN1,#0x04
+;	../SCR/SCR_Interrupt_Config.c:115: SCR_IEN1 |= (1 << 3) ; //node 9
 	orl	_SCR_IEN1,#0x08
 .00105:
-;	../SCR/SCR_Interrupt_Config.c:112: }
+;	../SCR/SCR_Interrupt_Config.c:116: }
 	ret
