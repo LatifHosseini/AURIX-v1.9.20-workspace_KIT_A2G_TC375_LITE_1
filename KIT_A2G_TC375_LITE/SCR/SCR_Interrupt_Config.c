@@ -111,7 +111,7 @@ void SCR_IR_Select_Edge_Mode(void)
 void SCR_IR_Enable_Interrupt_Node(void)
 {
 // PAGE: X
-  //  SCR_IEN1 |= (1 << 2) ;//node 8 enable IEN1.EX2  Bit posiotion 2
+    SCR_IEN1 |= (1 << 2) ;//node 8 enable IEN1.EX2  Bit posiotion 2
     SCR_IEN1 |= (1 << 3) ; //node 9
 }
 

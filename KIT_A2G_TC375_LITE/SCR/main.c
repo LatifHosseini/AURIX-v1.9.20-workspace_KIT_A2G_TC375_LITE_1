@@ -53,8 +53,9 @@
 
  volatile unsigned char Start_PWM_Duty_Dycle_Calculating  = 0;
  volatile unsigned char Check_Pin_Stat = 0;
- volatile unsigned char Rising_Edge = 0;
- volatile unsigned char Falling_Edge = 0;
+ volatile unsigned char Edge_Detection = 0;
+
+ volatile unsigned char rising_edge = 0;
  /*********************************************************************************************************************/
  /*------------------------------------------------Function Prototypes------------------------------------------------*/
  /*********************************************************************************************************************/
@@ -92,21 +93,21 @@ void main()
         if(Start_PWM_Duty_Dycle_Calculating == 0)
         {
             SCR_IO_PAGE = SCR_IO_PAGE0;
-                if(Rising_Edge == 1) { SCR_P00_OUT |= (1 << 3) ; Falling_Edge = 0; Reset_CCT_Timer(); }// reset cct
+                if(Edge_Detection == 1) { SCR_P00_OUT |= (1 << 3) ; Falling_Edge = 0; Reset_CCT_Timer(); }// reset cct
 
-                if(Falling_Edge == 1){
-                    if(Rising_Edge == 1){
-                        SCR_P00_OUT |= (1 << 5) ; CCT_Read_PWM_OnTime();}//falling Capture on time
+                if(Edge_Detection == 2){
+
+                        SCR_P00_OUT |= (1 << 5) ; CCT_Read_PWM_OnTime(); //falling Capture on time
                     }
 
 
-                if(Rising_Edge == 2) {
-                    if(Falling_Edge == 1){
-                        SCR_P00_OUT |= (1 << 4) ;  CCT_Read_PWM_OffTime();  }// capture sume time rising EDGE
+                if(Edge_Detection == 3) {
+
+                        SCR_P00_OUT |= (1 << 4) ;  CCT_Read_PWM_OffTime();  // capture sume time rising EDGE
                     }
 
 
-                if(Falling_Edge == 2) // FALLING
+                if(Edge_Detection == 4) // FALLING
                      {
                         Rising_Edge = 0;
                         Falling_Edge = 0;
@@ -141,6 +142,8 @@ void delay(void)
         }
     }
 }
+/***************************************************************************************/
+/***************************************************************************************/
 /*  ISR Node 5  CCT timer */
 void EXINT5IS_interrupt(void) __interrupt (5){
 //    SCR_IO_PAGE = SCR_IO_PAGE0;
@@ -148,20 +151,30 @@ void EXINT5IS_interrupt(void) __interrupt (5){
 //    SCR_T2CCU_PAGE = 1;
 //    SCR_T2CCU_CCTCON &= ~(1 << 3) ;//bit pos 3 overflow flag
 }
+/***************************************************************************************/
+/***************************************************************************************/
+/*  ISR Node 8*/
+void EXINT8IS_interrupt(void) __interrupt (8){
 
+    rising_edge++;
+
+
+    SCR_SCU_PAGE = 0;
+    SCR_IR_CON0 &= ~(1 << 2);// Node 8 bit pos 2
+
+}
+/***************************************************************************************/
+/***************************************************************************************/
 /* ISR Node 9*/
 void EXINT9IS_interrupt(void) __interrupt (9){
-
-    SCR_IO_PAGE = 0;// for debug purpose
-    Check_Pin_Stat = (unsigned char) SCR_P00_IN;
-    Check_Pin_Stat = (unsigned char) (Check_Pin_Stat &  Bitmaske_pin_6 ) ; //  01000000 pin 6
-    if(Check_Pin_Stat == 64 )// rising edge
-        {Rising_Edge++;}
-   // if(Check_Pin_Stat == 0 )// falling edge
-    else  {Falling_Edge++;}
+// man weis nicht ob dies variable bei steigen oder fallende um 1 erhöht wird, hier kommt die priority ovn diesem 2 Node im spiel.
+    if(rising_edge >= 1){Edge_Detection++; }
 
 
-/*****achtung wenn 2 node für  **********************************************************************************/
+/***********************************************************************************************************************************************************************************
+ * achtung!! wenn 1 eterneal interrupt, der mit 2 node verbunden ist, und ein von diesem node für steigen und fallend flanken konfiguriert ist,
+ *  wird der zählvariable im diesem node, die bei jede flanke ausgeführt wird, um 1 erhöht
+ *  *************************************************************************************************************************************************************************/
     //SCU_PAGE=0
         SCR_SCU_PAGE = 0;
     SCR_IR_CON0 &= ~(1 << 3);// Node 9 bit pos 3
