@@ -237,9 +237,9 @@ _SCR_ADCOMP_CON	=	0x00fb
 	.type   SCR_Select_Interrupt_Priority, @function
 _SCR_Select_Interrupt_Priority:
 	.using 0
-;	../SCR/Select_Interrupt_Priority.c:57: SCR_IPH1 |= (1 << 3) ; // Set bit 3
+;	../SCR/Select_Interrupt_Priority.c:57: SCR_IPH1 |= (1 << 3) ; // Interrupt Priority for Node 9
 	orl	_SCR_IPH1,#0x08
-;	../SCR/Select_Interrupt_Priority.c:58: SCR_IP1  |= (1 << 3) ; // Set bit 3
+;	../SCR/Select_Interrupt_Priority.c:58: SCR_IP1  |= (1 << 3) ; // Interrupt Priority for Node 9
 	orl	_SCR_IP1,#0x08
 .00101:
 ;	../SCR/Select_Interrupt_Priority.c:59: }

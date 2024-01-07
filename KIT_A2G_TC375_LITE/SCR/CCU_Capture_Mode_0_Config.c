@@ -55,10 +55,11 @@
 void SCR_CCU_Capture_Mode_0(void)
 {
     SCR_T2CCU_PAGE = 1;
-    SCR_T2CCU_CCTBSEL |= (1 << 0) ; // //CCT as Time Base Timer Bit pos 0 for capture channel 0
-    //Capture with External both edge . Bit pos 0-1 for capture chanel 0
+    SCR_T2CCU_CCTBSEL |= (1 << 0) ; // //CCT as Time Base Timer Bit position 0 for capture channel 0
+    //Capture with External both edge . Bit position 0-1 for capture channel 0
+    //T2CCU_CCEN.CCMx = 01 // Capture with External both edge. Bit position 0-1 for capture channel 0
     SCR_T2CCU_CCEN = (SCR_T2CCU_CCEN & (unsigned char)(~(0x03 << 0))) | (0x01);
-    //T2CCU_CCEN.CCMx = 11 // Capture with SW Triger Bit pos 0-1 for capture chanel 0
+    //T2CCU_CCEN.CCMx = 11 // Capture with SW Trigger Bit position 0-1 for capture channel 0
 
 }
 

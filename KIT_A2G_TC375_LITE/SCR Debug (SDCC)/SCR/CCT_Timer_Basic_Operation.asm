@@ -248,8 +248,8 @@ _SCR_CCT_Timer_Basic_Operation:
 	orl	_SCR_T2CCU_CCTCON,#0x04
 ;	../SCR/CCT_Timer_Basic_Operation.c:63: SCR_T2CCU_CCTCON  |= (1 << 0) ;//bit pos 0 active CCT
 	orl	_SCR_T2CCU_CCTCON,#0x01
-;	../SCR/CCT_Timer_Basic_Operation.c:65: SCR_T2CCU_CCTCON = (SCR_T2CCU_CCTCON & (unsigned char)(~(0xF0 << 4))) | (0xB0); // CCT prescalee bit pos 4 - 7  and B = fPCLK / 2048
-	orl	_SCR_T2CCU_CCTCON,#0xB0
+;	../SCR/CCT_Timer_Basic_Operation.c:65: SCR_T2CCU_CCTCON = (SCR_T2CCU_CCTCON & (unsigned char)(~(0xF0 << 4))) | (0x60); // CCT prescalee bit pos 4 - 7  and B = fPCLK / 2048
+	orl	_SCR_T2CCU_CCTCON,#0x60
 ;	../SCR/CCT_Timer_Basic_Operation.c:66: SCR_IEN0 |= (1 << 5) ; //IEN0.ET2  -> interrupt node 5;  bit pos 5  // PAGE: X
 	orl	_SCR_IEN0,#0x20
 .00101:

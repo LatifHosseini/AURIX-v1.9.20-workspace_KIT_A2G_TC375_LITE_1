@@ -238,7 +238,15 @@ _SCR_ADCOMP_CON	=	0x00fb
 ; internal ram data
 ;--------------------------------------------------------
 	.section .ddata.i51,"aw" ;data_name ;area
+_Measure_PWM_duty_cycle_sloc0_1_0:
+	.ds.b	2
+_Measure_PWM_duty_cycle_sloc1_1_0:
+	.ds.b	4
+_Measure_PWM_duty_cycle_sloc2_1_0:
+	.ds.b	4
 _multiply_16bit_by_8bit_sloc0_1_0:
+	.ds.b	4
+_multiply_16bit_by_8bit_sloc1_1_0:
 	.ds.b	4
 ;--------------------------------------------------------
 ; uninitialized external ram data
@@ -248,19 +256,19 @@ _multiplication_16bit_by_8bit_Result:
 	.ds.b	4
 _Capture_Value_sum:
 	.ds.b	2
-_Duty_Cycle_Calculator_Function_Data_65536_104	=	0x1f00
-_Measure_PWM_duty_cycle_quotient_65536_107:
+_Measure_PWM_duty_cycle_quotient_65536_106:
 	.ds.b	4
-_Measure_PWM_duty_cycle_remainder_65536_107:
+_Measure_PWM_duty_cycle_remainder_65536_106:
 	.ds.b	4
-_multiply_16bit_by_8bit_result_65536_112:
+_multiply_16bit_by_8bit_result_65536_111:
 	.ds.b	4
-_add_two_16_bit_unint_carry_65536_118:
+_add_two_16_bit_unint_carry_65536_117:
 	.ds.b	1
-_add_two_16_bit_unint_result_65536_118:
+_add_two_16_bit_unint_result_65536_117:
 	.ds.b	2
-_add_two_16_bit_unint_sumBit_196608_120:
+_add_two_16_bit_unint_sumBit_196608_119:
 	.ds.b	1
+_CCT_Read_PWM_OffTime_Data_65536_123	=	0x1f00
 ;--------------------------------------------------------
 ; initialized external ram data
 ;--------------------------------------------------------
@@ -277,8 +285,6 @@ _duty_cycle:
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'Duty_Cycle_Calculator_Function'
 ;------------------------------------------------------------
-;Data                      Allocated with name '_Duty_Cycle_Calculator_Function_Data_65536_104'
-;------------------------------------------------------------
 ;	../SCR/Duty_Cycle_Calculations.c:59: void Duty_Cycle_Calculator_Function(void)
 ;	-----------------------------------------
 ;	 function Duty_Cycle_Calculator_Function
@@ -287,79 +293,28 @@ _duty_cycle:
 	.type   Duty_Cycle_Calculator_Function, @function
 _Duty_Cycle_Calculator_Function:
 	.using 0
-;	../SCR/Duty_Cycle_Calculations.c:62: Capture_Value_1 = 0x0FFF;
-	mov	dptr,#_Capture_Value_1
-	mov	a,#0xFF
-	movx	@dptr,a
-	mov	a,#0x0F
-	inc	dptr
-	movx	@dptr,a
-;	../SCR/Duty_Cycle_Calculations.c:63: Capture_Value_2 = 0xEFFF;
-	mov	dptr,#_Capture_Value_2
-	mov	a,#0xFF
-	movx	@dptr,a
-	mov	a,#0xEF
-	inc	dptr
-	movx	@dptr,a
-;	../SCR/Duty_Cycle_Calculations.c:66: Measure_PWM_duty_cycle();
+;	../SCR/Duty_Cycle_Calculations.c:63: multiply_16bit_by_8bit();
+	lcall	_multiply_16bit_by_8bit
+;	../SCR/Duty_Cycle_Calculations.c:64: Measure_PWM_duty_cycle();
 	lcall	_Measure_PWM_duty_cycle
-;	../SCR/Duty_Cycle_Calculations.c:67: if( multiplication_16bit_by_8bit_Result >281000) {
-	mov	dptr,#_multiplication_16bit_by_8bit_Result
-	movx	a,@dptr
-	mov	r4,a
-	inc	dptr
-	movx	a,@dptr
-	mov	r5,a
-	inc	dptr
-	movx	a,@dptr
-	mov	r6,a
-	inc	dptr
-	movx	a,@dptr
-	mov	r7,a
-	clr	c
-	mov	a,#0xA8
-	subb	a,r4
-	mov	a,#0x49
-	subb	a,r5
-	mov	a,#0x04
-	subb	a,r6
-	clr	a
-	subb	a,r7
-	jnc	.00102
-.00109:
-;	../SCR/Duty_Cycle_Calculations.c:68: SCR_P00_OUT  ^= (1 << 7) ;
-	xrl	_SCR_P00_OUT,#0x80
-;	../SCR/Duty_Cycle_Calculations.c:69: delay();
+;	../SCR/Duty_Cycle_Calculations.c:71: delay();
 	lcall	_delay
-.00102:
-;	../SCR/Duty_Cycle_Calculations.c:71: Data = duty_cycle;
-	mov	dptr,#_duty_cycle
-	movx	a,@dptr
-	mov	r6,a
-	inc	dptr
-	movx	a,@dptr
-	mov	r7,a
-	mov	dptr,#_Duty_Cycle_Calculator_Function_Data_65536_104
-	mov	a,r6
-	movx	@dptr,a
-	mov	a,r7
-	inc	dptr
-	movx	@dptr,a
-;	../SCR/Duty_Cycle_Calculations.c:72: delay();
-	lcall	_delay
-.00103:
-;	../SCR/Duty_Cycle_Calculations.c:73: }
+.00101:
+;	../SCR/Duty_Cycle_Calculations.c:72: }
 	ret
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'Measure_PWM_duty_cycle'
 ;------------------------------------------------------------
-;dividend                  Allocated with name '_Measure_PWM_duty_cycle_dividend_65536_107'
-;divisor                   Allocated with name '_Measure_PWM_duty_cycle_divisor_65536_107'
-;quotient                  Allocated with name '_Measure_PWM_duty_cycle_quotient_65536_107'
-;remainder                 Allocated with name '_Measure_PWM_duty_cycle_remainder_65536_107'
-;bit                       Allocated with name '_Measure_PWM_duty_cycle_bit_131072_108'
+;sloc0                     Allocated with name '_Measure_PWM_duty_cycle_sloc0_1_0'
+;sloc1                     Allocated with name '_Measure_PWM_duty_cycle_sloc1_1_0'
+;sloc2                     Allocated with name '_Measure_PWM_duty_cycle_sloc2_1_0'
+;dividend                  Allocated with name '_Measure_PWM_duty_cycle_dividend_65536_106'
+;divisor                   Allocated with name '_Measure_PWM_duty_cycle_divisor_65536_106'
+;quotient                  Allocated with name '_Measure_PWM_duty_cycle_quotient_65536_106'
+;remainder                 Allocated with name '_Measure_PWM_duty_cycle_remainder_65536_106'
+;bit                       Allocated with name '_Measure_PWM_duty_cycle_bit_131072_107'
 ;------------------------------------------------------------
-;	../SCR/Duty_Cycle_Calculations.c:76: void Measure_PWM_duty_cycle(void)
+;	../SCR/Duty_Cycle_Calculations.c:75: void Measure_PWM_duty_cycle(void)
 ;	-----------------------------------------
 ;	 function Measure_PWM_duty_cycle
 ;	-----------------------------------------
@@ -367,8 +322,30 @@ _Duty_Cycle_Calculator_Function:
 	.type   Measure_PWM_duty_cycle, @function
 _Measure_PWM_duty_cycle:
 	.using 0
+;	../SCR/Duty_Cycle_Calculations.c:78: uint32_t dividend = multiplication_16bit_by_8bit_Result;
+	mov	dptr,#_multiplication_16bit_by_8bit_Result
+	movx	a,@dptr
+	mov	_Measure_PWM_duty_cycle_sloc1_1_0,a
+	inc	dptr
+	movx	a,@dptr
+	mov	(_Measure_PWM_duty_cycle_sloc1_1_0 + 1),a
+	inc	dptr
+	movx	a,@dptr
+	mov	(_Measure_PWM_duty_cycle_sloc1_1_0 + 2),a
+	inc	dptr
+	movx	a,@dptr
+	mov	(_Measure_PWM_duty_cycle_sloc1_1_0 + 3),a
+;	../SCR/Duty_Cycle_Calculations.c:79: uint16_t divisor = Capture_Value_2;
+	mov	dptr,#_Capture_Value_2
+	movx	a,@dptr
+	mov	r2,a
+	inc	dptr
+	movx	a,@dptr
+	mov	r3,a
+	mov	_Measure_PWM_duty_cycle_sloc0_1_0,r2
+	mov	(_Measure_PWM_duty_cycle_sloc0_1_0 + 1),r3
 ;	../SCR/Duty_Cycle_Calculations.c:80: uint32_t quotient = 0;
-	mov	dptr,#_Measure_PWM_duty_cycle_quotient_65536_107
+	mov	dptr,#_Measure_PWM_duty_cycle_quotient_65536_106
 	clr	a
 	movx	@dptr,a
 	inc	dptr
@@ -378,7 +355,7 @@ _Measure_PWM_duty_cycle:
 	inc	dptr
 	movx	@dptr,a
 ;	../SCR/Duty_Cycle_Calculations.c:81: uint32_t remainder = 0;
-	mov	dptr,#_Measure_PWM_duty_cycle_remainder_65536_107
+	mov	dptr,#_Measure_PWM_duty_cycle_remainder_65536_106
 	movx	@dptr,a
 	inc	dptr
 	movx	@dptr,a
@@ -387,15 +364,15 @@ _Measure_PWM_duty_cycle:
 	inc	dptr
 	movx	@dptr,a
 ;	../SCR/Duty_Cycle_Calculations.c:82: for (int bit = 31; bit >= 0; bit--) {
-	mov	r6,#0x1F
-	mov	r7,#0x00
-.00114:
-	mov	a,r7
-	jnb	acc.7,.00131
-	ljmp	.00112
-.00131:
+	mov	r0,#0x1F
+	mov	r1,#0x00
+.00107:
+	mov	a,r1
+	jnb	acc.7,.00124
+	ljmp	.00105
+.00124:
 ;	../SCR/Duty_Cycle_Calculations.c:83: remainder <<= 1;
-	mov	dptr,#_Measure_PWM_duty_cycle_remainder_65536_107
+	mov	dptr,#_Measure_PWM_duty_cycle_remainder_65536_106
 	movx	a,@dptr
 	mov	r2,a
 	inc	dptr
@@ -403,71 +380,63 @@ _Measure_PWM_duty_cycle:
 	mov	r3,a
 	inc	dptr
 	movx	a,@dptr
-	mov	r4,a
+	mov	r6,a
 	inc	dptr
 	movx	a,@dptr
-	mov	r5,a
+	mov	r7,a
 	mov	a,r2
 	add	a,r2
 	mov	r2,a
 	mov	a,r3
 	rlc	a
 	mov	r3,a
-	mov	a,r4
+	mov	a,r6
 	rlc	a
-	mov	r4,a
-	mov	a,r5
+	mov	r6,a
+	mov	a,r7
 	rlc	a
-	mov	r5,a
-	mov	dptr,#_Measure_PWM_duty_cycle_remainder_65536_107
+	mov	r7,a
+	mov	dptr,#_Measure_PWM_duty_cycle_remainder_65536_106
 	mov	a,r2
 	movx	@dptr,a
 	mov	a,r3
 	inc	dptr
 	movx	@dptr,a
-	mov	a,r4
+	mov	a,r6
 	inc	dptr
 	movx	@dptr,a
-	mov	a,r5
+	mov	a,r7
 	inc	dptr
 	movx	@dptr,a
 ;	../SCR/Duty_Cycle_Calculations.c:84: remainder |= (dividend >> bit) & 0x01;
-	mov	b,r6
+	mov	b,r0
 	inc	b
-	mov	r2,#0x9C
-	mov	r3,#0x3F
-	mov	r4,#0x06
-	mov	r5,#0x00
-	sjmp	.00133
-.00132:
+	mov	r4,_Measure_PWM_duty_cycle_sloc1_1_0
+	mov	r5,(_Measure_PWM_duty_cycle_sloc1_1_0 + 1)
+	mov	r6,(_Measure_PWM_duty_cycle_sloc1_1_0 + 2)
+	mov	r7,(_Measure_PWM_duty_cycle_sloc1_1_0 + 3)
+	sjmp	.00126
+.00125:
 	clr	c
+	mov	a,r7
+	rrc	a
+	mov	r7,a
+	mov	a,r6
+	rrc	a
+	mov	r6,a
 	mov	a,r5
 	rrc	a
 	mov	r5,a
 	mov	a,r4
 	rrc	a
 	mov	r4,a
-	mov	a,r3
-	rrc	a
-	mov	r3,a
-	mov	a,r2
-	rrc	a
-	mov	r2,a
-.00133:
-	djnz	b,.00132
-	anl	ar2,#0x01
-	mov	r3,#0x00
-	mov	r4,#0x00
+.00126:
+	djnz	b,.00125
+	anl	ar4,#0x01
 	mov	r5,#0x00
-	mov	dptr,#_Measure_PWM_duty_cycle_remainder_65536_107
-	movx	a,@dptr
-	orl	a,r2
-	movx	@dptr,a
-	inc	dptr
-	movx	a,@dptr
-	orl	a,r3
-	movx	@dptr,a
-	inc	dptr
+	mov	r6,#0x00
+	mov	r7,#0x00
+	mov	dptr,#_Measure_PWM_duty_cycle_remainder_65536_106
 	movx	a,@dptr
 	orl	a,r4
 	movx	@dptr,a
@@ -475,80 +444,93 @@ _Measure_PWM_duty_cycle:
 	movx	a,@dptr
 	orl	a,r5
 	movx	@dptr,a
+	inc	dptr
+	movx	a,@dptr
+	orl	a,r6
+	movx	@dptr,a
+	inc	dptr
+	movx	a,@dptr
+	orl	a,r7
+	movx	@dptr,a
 ;	../SCR/Duty_Cycle_Calculations.c:85: if (remainder >= divisor) {
-	mov	dptr,#_Measure_PWM_duty_cycle_remainder_65536_107
-	movx	a,@dptr
-	mov	r2,a
-	inc	dptr
-	movx	a,@dptr
-	mov	r3,a
-	inc	dptr
+	mov	dptr,#_Measure_PWM_duty_cycle_remainder_65536_106
 	movx	a,@dptr
 	mov	r4,a
 	inc	dptr
 	movx	a,@dptr
 	mov	r5,a
+	inc	dptr
+	movx	a,@dptr
+	mov	r6,a
+	inc	dptr
+	movx	a,@dptr
+	mov	r7,a
+	mov	_Measure_PWM_duty_cycle_sloc2_1_0,_Measure_PWM_duty_cycle_sloc0_1_0
+	mov	(_Measure_PWM_duty_cycle_sloc2_1_0 + 1),(_Measure_PWM_duty_cycle_sloc0_1_0 + 1)
+	mov	(_Measure_PWM_duty_cycle_sloc2_1_0 + 2),#0x00
+	mov	(_Measure_PWM_duty_cycle_sloc2_1_0 + 3),#0x00
 	clr	c
-	mov	a,r2
-	subb	a,#0xFF
-	mov	a,r3
-	subb	a,#0x0F
 	mov	a,r4
-	subb	a,#0x00
+	subb	a,_Measure_PWM_duty_cycle_sloc2_1_0
 	mov	a,r5
-	subb	a,#0x00
-	jc	.00115
-.00134:
+	subb	a,(_Measure_PWM_duty_cycle_sloc2_1_0 + 1)
+	mov	a,r6
+	subb	a,(_Measure_PWM_duty_cycle_sloc2_1_0 + 2)
+	mov	a,r7
+	subb	a,(_Measure_PWM_duty_cycle_sloc2_1_0 + 3)
+	jc	.00108
+.00127:
 ;	../SCR/Duty_Cycle_Calculations.c:86: remainder -= divisor;
-	mov	a,r2
-	add	a,#0x01
-	mov	r2,a
-	mov	a,r3
-	addc	a,#0xF0
-	mov	r3,a
+	mov	dptr,#_Measure_PWM_duty_cycle_remainder_65536_106
 	mov	a,r4
-	addc	a,#0xFF
-	mov	r4,a
-	mov	a,r5
-	addc	a,#0xFF
-	mov	r5,a
-	mov	dptr,#_Measure_PWM_duty_cycle_remainder_65536_107
-	mov	a,r2
-	movx	@dptr,a
-	mov	a,r3
-	inc	dptr
-	movx	@dptr,a
-	mov	a,r4
-	inc	dptr
+	clr	c
+	subb	a,_Measure_PWM_duty_cycle_sloc2_1_0
 	movx	@dptr,a
 	mov	a,r5
+	subb	a,(_Measure_PWM_duty_cycle_sloc2_1_0 + 1)
+	inc	dptr
+	movx	@dptr,a
+	mov	a,r6
+	subb	a,(_Measure_PWM_duty_cycle_sloc2_1_0 + 2)
+	inc	dptr
+	movx	@dptr,a
+	mov	a,r7
+	subb	a,(_Measure_PWM_duty_cycle_sloc2_1_0 + 3)
 	inc	dptr
 	movx	@dptr,a
 ;	../SCR/Duty_Cycle_Calculations.c:87: quotient |= (1UL << bit);
-	mov	ar5,r6
-	mov	b,r5
+	mov	ar7,r0
+	mov	b,r7
 	inc	b
-	mov	r5,#0x01
+	mov	r7,#0x01
+	mov	r6,#0x00
+	mov	r5,#0x00
 	mov	r4,#0x00
-	mov	r3,#0x00
-	mov	r2,#0x00
-	sjmp	.00136
-.00135:
+	sjmp	.00129
+.00128:
+	mov	a,r7
+	add	a,r7
+	mov	r7,a
+	mov	a,r6
+	rlc	a
+	mov	r6,a
 	mov	a,r5
-	add	a,r5
+	rlc	a
 	mov	r5,a
 	mov	a,r4
 	rlc	a
 	mov	r4,a
-	mov	a,r3
-	rlc	a
-	mov	r3,a
-	mov	a,r2
-	rlc	a
-	mov	r2,a
-.00136:
-	djnz	b,.00135
-	mov	dptr,#_Measure_PWM_duty_cycle_quotient_65536_107
+.00129:
+	djnz	b,.00128
+	mov	dptr,#_Measure_PWM_duty_cycle_quotient_65536_106
+	movx	a,@dptr
+	orl	a,r7
+	movx	@dptr,a
+	inc	dptr
+	movx	a,@dptr
+	orl	a,r6
+	movx	@dptr,a
+	inc	dptr
 	movx	a,@dptr
 	orl	a,r5
 	movx	@dptr,a
@@ -556,24 +538,16 @@ _Measure_PWM_duty_cycle:
 	movx	a,@dptr
 	orl	a,r4
 	movx	@dptr,a
-	inc	dptr
-	movx	a,@dptr
-	orl	a,r3
-	movx	@dptr,a
-	inc	dptr
-	movx	a,@dptr
-	orl	a,r2
-	movx	@dptr,a
-.00115:
+.00108:
 ;	../SCR/Duty_Cycle_Calculations.c:82: for (int bit = 31; bit >= 0; bit--) {
-	dec	r6
-	cjne	r6,#0xFF,.00137
-	dec	r7
-.00137:
-	ljmp	.00114
-.00112:
+	dec	r0
+	cjne	r0,#0xFF,.00130
+	dec	r1
+.00130:
+	ljmp	.00107
+.00105:
 ;	../SCR/Duty_Cycle_Calculations.c:90: duty_cycle = quotient;
-	mov	dptr,#_Measure_PWM_duty_cycle_quotient_65536_107
+	mov	dptr,#_Measure_PWM_duty_cycle_quotient_65536_106
 	movx	a,@dptr
 	mov	r4,a
 	inc	dptr
@@ -591,17 +565,18 @@ _Measure_PWM_duty_cycle:
 	mov	a,r5
 	inc	dptr
 	movx	@dptr,a
-.00116:
+.00109:
 ;	../SCR/Duty_Cycle_Calculations.c:91: }
 	ret
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'multiply_16bit_by_8bit'
 ;------------------------------------------------------------
 ;sloc0                     Allocated with name '_multiply_16bit_by_8bit_sloc0_1_0'
-;multiplicand              Allocated with name '_multiply_16bit_by_8bit_multiplicand_65536_112'
-;multiplier                Allocated with name '_multiply_16bit_by_8bit_multiplier_65536_112'
-;result                    Allocated with name '_multiply_16bit_by_8bit_result_65536_112'
-;i                         Allocated with name '_multiply_16bit_by_8bit_i_131072_113'
+;sloc1                     Allocated with name '_multiply_16bit_by_8bit_sloc1_1_0'
+;multiplicand              Allocated with name '_multiply_16bit_by_8bit_multiplicand_65536_111'
+;multiplier                Allocated with name '_multiply_16bit_by_8bit_multiplier_65536_111'
+;result                    Allocated with name '_multiply_16bit_by_8bit_result_65536_111'
+;i                         Allocated with name '_multiply_16bit_by_8bit_i_131072_112'
 ;------------------------------------------------------------
 ;	../SCR/Duty_Cycle_Calculations.c:93: void multiply_16bit_by_8bit(void)
 ;	-----------------------------------------
@@ -611,8 +586,19 @@ _Measure_PWM_duty_cycle:
 	.type   multiply_16bit_by_8bit, @function
 _multiply_16bit_by_8bit:
 	.using 0
+;	../SCR/Duty_Cycle_Calculations.c:95: unsigned long multiplicand =  Capture_Value_1 ;
+	mov	dptr,#_Capture_Value_1
+	movx	a,@dptr
+	mov	r6,a
+	inc	dptr
+	movx	a,@dptr
+	mov	r7,a
+	mov	_multiply_16bit_by_8bit_sloc0_1_0,r6
+	mov	(_multiply_16bit_by_8bit_sloc0_1_0 + 1),r7
+	mov	(_multiply_16bit_by_8bit_sloc0_1_0 + 2),#0x00
+	mov	(_multiply_16bit_by_8bit_sloc0_1_0 + 3),#0x00
 ;	../SCR/Duty_Cycle_Calculations.c:97: unsigned long result = 0;
-	mov	dptr,#_multiply_16bit_by_8bit_result_65536_112
+	mov	dptr,#_multiply_16bit_by_8bit_result_65536_111
 	clr	a
 	movx	@dptr,a
 	inc	dptr
@@ -622,98 +608,98 @@ _multiply_16bit_by_8bit:
 	inc	dptr
 	movx	@dptr,a
 ;	../SCR/Duty_Cycle_Calculations.c:98: for (int i = 0; i < 8; i++) {
-	mov	r6,#0x00
-	mov	r7,#0x00
-.00142:
+	mov	r2,#0x00
+	mov	r3,#0x00
+.00135:
 	clr	c
-	mov	a,r6
+	mov	a,r2
 	subb	a,#0x08
-	mov	a,r7
+	mov	a,r3
 	xrl	a,#0x80
 	subb	a,#0x80
-	jnc	.00140
-.00159:
+	jnc	.00133
+.00152:
 ;	../SCR/Duty_Cycle_Calculations.c:99: if (multiplier & (1 << i)) {
-	mov	b,r6
+	mov	b,r2
 	inc	b
-	mov	r4,#0x01
-	mov	r5,#0x00
-	sjmp	.00161
-.00160:
-	mov	a,r4
-	add	a,r4
-	mov	r4,a
-	mov	a,r5
-	rlc	a
-	mov	r5,a
-.00161:
-	djnz	b,.00160
-	mov	a,r4
-	anl	a,#0x64
-	jz	.00143
-.00162:
-;	../SCR/Duty_Cycle_Calculations.c:104: result += multiplicand << i;
-	mov	ar5,r6
-	mov	b,r5
-	inc	b
-	mov	_multiply_16bit_by_8bit_sloc0_1_0,#0xFF
-	mov	(_multiply_16bit_by_8bit_sloc0_1_0 + 1),#0x0F
-	mov	(_multiply_16bit_by_8bit_sloc0_1_0 + 2),#0x00
-	mov	(_multiply_16bit_by_8bit_sloc0_1_0 + 3),#0x00
-	sjmp	.00164
-.00163:
-	mov	a,_multiply_16bit_by_8bit_sloc0_1_0
-	add	a,_multiply_16bit_by_8bit_sloc0_1_0
-	mov	_multiply_16bit_by_8bit_sloc0_1_0,a
-	mov	a,(_multiply_16bit_by_8bit_sloc0_1_0 + 1)
-	rlc	a
-	mov	(_multiply_16bit_by_8bit_sloc0_1_0 + 1),a
-	mov	a,(_multiply_16bit_by_8bit_sloc0_1_0 + 2)
-	rlc	a
-	mov	(_multiply_16bit_by_8bit_sloc0_1_0 + 2),a
-	mov	a,(_multiply_16bit_by_8bit_sloc0_1_0 + 3)
-	rlc	a
-	mov	(_multiply_16bit_by_8bit_sloc0_1_0 + 3),a
-.00164:
-	djnz	b,.00163
-	mov	dptr,#_multiply_16bit_by_8bit_result_65536_112
-	movx	a,@dptr
-	mov	r0,a
-	inc	dptr
-	movx	a,@dptr
-	mov	r1,a
-	inc	dptr
-	movx	a,@dptr
-	mov	r4,a
-	inc	dptr
-	movx	a,@dptr
-	mov	r5,a
-	mov	dptr,#_multiply_16bit_by_8bit_result_65536_112
-	mov	a,_multiply_16bit_by_8bit_sloc0_1_0
+	mov	r0,#0x01
+	mov	r1,#0x00
+	sjmp	.00154
+.00153:
+	mov	a,r0
 	add	a,r0
-	movx	@dptr,a
-	mov	a,(_multiply_16bit_by_8bit_sloc0_1_0 + 1)
-	addc	a,r1
+	mov	r0,a
+	mov	a,r1
+	rlc	a
+	mov	r1,a
+.00154:
+	djnz	b,.00153
+	mov	a,r0
+	anl	a,#0x64
+	jz	.00136
+.00155:
+;	../SCR/Duty_Cycle_Calculations.c:104: result += multiplicand << i;
+	mov	ar1,r2
+	mov	b,r1
+	inc	b
+	mov	_multiply_16bit_by_8bit_sloc1_1_0,_multiply_16bit_by_8bit_sloc0_1_0
+	mov	(_multiply_16bit_by_8bit_sloc1_1_0 + 1),(_multiply_16bit_by_8bit_sloc0_1_0 + 1)
+	mov	(_multiply_16bit_by_8bit_sloc1_1_0 + 2),(_multiply_16bit_by_8bit_sloc0_1_0 + 2)
+	mov	(_multiply_16bit_by_8bit_sloc1_1_0 + 3),(_multiply_16bit_by_8bit_sloc0_1_0 + 3)
+	sjmp	.00157
+.00156:
+	mov	a,_multiply_16bit_by_8bit_sloc1_1_0
+	add	a,_multiply_16bit_by_8bit_sloc1_1_0
+	mov	_multiply_16bit_by_8bit_sloc1_1_0,a
+	mov	a,(_multiply_16bit_by_8bit_sloc1_1_0 + 1)
+	rlc	a
+	mov	(_multiply_16bit_by_8bit_sloc1_1_0 + 1),a
+	mov	a,(_multiply_16bit_by_8bit_sloc1_1_0 + 2)
+	rlc	a
+	mov	(_multiply_16bit_by_8bit_sloc1_1_0 + 2),a
+	mov	a,(_multiply_16bit_by_8bit_sloc1_1_0 + 3)
+	rlc	a
+	mov	(_multiply_16bit_by_8bit_sloc1_1_0 + 3),a
+.00157:
+	djnz	b,.00156
+	mov	dptr,#_multiply_16bit_by_8bit_result_65536_111
+	movx	a,@dptr
+	mov	r4,a
 	inc	dptr
-	movx	@dptr,a
-	mov	a,(_multiply_16bit_by_8bit_sloc0_1_0 + 2)
-	addc	a,r4
+	movx	a,@dptr
+	mov	r5,a
 	inc	dptr
+	movx	a,@dptr
+	mov	r6,a
+	inc	dptr
+	movx	a,@dptr
+	mov	r7,a
+	mov	dptr,#_multiply_16bit_by_8bit_result_65536_111
+	mov	a,_multiply_16bit_by_8bit_sloc1_1_0
+	add	a,r4
 	movx	@dptr,a
-	mov	a,(_multiply_16bit_by_8bit_sloc0_1_0 + 3)
+	mov	a,(_multiply_16bit_by_8bit_sloc1_1_0 + 1)
 	addc	a,r5
 	inc	dptr
 	movx	@dptr,a
-.00143:
+	mov	a,(_multiply_16bit_by_8bit_sloc1_1_0 + 2)
+	addc	a,r6
+	inc	dptr
+	movx	@dptr,a
+	mov	a,(_multiply_16bit_by_8bit_sloc1_1_0 + 3)
+	addc	a,r7
+	inc	dptr
+	movx	@dptr,a
+.00136:
 ;	../SCR/Duty_Cycle_Calculations.c:98: for (int i = 0; i < 8; i++) {
-	inc	r6
-	cjne	r6,#0x00,.00142
-	inc	r7
-.00165:
-	sjmp	.00142
-.00140:
+	inc	r2
+	cjne	r2,#0x00,.00135
+	inc	r3
+.00158:
+	sjmp	.00135
+.00133:
 ;	../SCR/Duty_Cycle_Calculations.c:107: multiplication_16bit_by_8bit_Result =  result;
-	mov	dptr,#_multiply_16bit_by_8bit_result_65536_112
+	mov	dptr,#_multiply_16bit_by_8bit_result_65536_111
 	movx	a,@dptr
 	mov	r4,a
 	inc	dptr
@@ -737,20 +723,20 @@ _multiply_16bit_by_8bit:
 	mov	a,r7
 	inc	dptr
 	movx	@dptr,a
-.00144:
+.00137:
 ;	../SCR/Duty_Cycle_Calculations.c:108: }
 	ret
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'add_two_16_bit_unint'
 ;------------------------------------------------------------
-;a                         Allocated with name '_add_two_16_bit_unint_a_65536_118'
-;b                         Allocated with name '_add_two_16_bit_unint_b_65536_118'
-;carry                     Allocated with name '_add_two_16_bit_unint_carry_65536_118'
-;result                    Allocated with name '_add_two_16_bit_unint_result_65536_118'
-;i                         Allocated with name '_add_two_16_bit_unint_i_131072_119'
-;bitA                      Allocated with name '_add_two_16_bit_unint_bitA_196608_120'
-;bitB                      Allocated with name '_add_two_16_bit_unint_bitB_196608_120'
-;sumBit                    Allocated with name '_add_two_16_bit_unint_sumBit_196608_120'
+;a                         Allocated with name '_add_two_16_bit_unint_a_65536_117'
+;b                         Allocated with name '_add_two_16_bit_unint_b_65536_117'
+;carry                     Allocated with name '_add_two_16_bit_unint_carry_65536_117'
+;result                    Allocated with name '_add_two_16_bit_unint_result_65536_117'
+;i                         Allocated with name '_add_two_16_bit_unint_i_131072_118'
+;bitA                      Allocated with name '_add_two_16_bit_unint_bitA_196608_119'
+;bitB                      Allocated with name '_add_two_16_bit_unint_bitB_196608_119'
+;sumBit                    Allocated with name '_add_two_16_bit_unint_sumBit_196608_119'
 ;------------------------------------------------------------
 ;	../SCR/Duty_Cycle_Calculations.c:110: void add_two_16_bit_unint(void)// test was success
 ;	-----------------------------------------
@@ -775,34 +761,34 @@ _add_two_16_bit_unint:
 	movx	a,@dptr
 	mov	r5,a
 ;	../SCR/Duty_Cycle_Calculations.c:114: uint8_t carry = 0;
-	mov	dptr,#_add_two_16_bit_unint_carry_65536_118
+	mov	dptr,#_add_two_16_bit_unint_carry_65536_117
 	clr	a
 	movx	@dptr,a
 ;	../SCR/Duty_Cycle_Calculations.c:115: uint16_t result = 0;
-	mov	dptr,#_add_two_16_bit_unint_result_65536_118
+	mov	dptr,#_add_two_16_bit_unint_result_65536_117
 	movx	@dptr,a
 	inc	dptr
 	movx	@dptr,a
 ;	../SCR/Duty_Cycle_Calculations.c:116: for (int i = 0; i < 16; ++i) {
 	mov	r2,#0x00
 	mov	r3,#0x00
-.00168:
+.00161:
 	clr	c
 	mov	a,r2
 	subb	a,#0x10
 	mov	a,r3
 	xrl	a,#0x80
 	subb	a,#0x80
-	jc	.00181
-	ljmp	.00166
-.00181:
+	jc	.00174
+	ljmp	.00159
+.00174:
 ;	../SCR/Duty_Cycle_Calculations.c:117: uint8_t bitA = (a >> i) & 0x01;
 	mov	b,r2
 	inc	b
 	mov	r0,ar6
 	mov	r1,ar7
-	sjmp	.00183
-.00182:
+	sjmp	.00176
+.00175:
 	clr	c
 	mov	a,r1
 	rrc	a
@@ -810,8 +796,8 @@ _add_two_16_bit_unint:
 	mov	a,r0
 	rrc	a
 	mov	r0,a
-.00183:
-	djnz	b,.00182
+.00176:
+	djnz	b,.00175
 	anl	ar0,#0x01
 ;	../SCR/Duty_Cycle_Calculations.c:118: uint8_t bitB = (b >> i) & 0x01;
 	push	ar6
@@ -820,8 +806,8 @@ _add_two_16_bit_unint:
 	inc	b
 	mov	r1,ar4
 	mov	r7,ar5
-	sjmp	.00185
-.00184:
+	sjmp	.00178
+.00177:
 	clr	c
 	mov	a,r7
 	rrc	a
@@ -829,17 +815,17 @@ _add_two_16_bit_unint:
 	mov	a,r1
 	rrc	a
 	mov	r1,a
-.00185:
-	djnz	b,.00184
+.00178:
+	djnz	b,.00177
 	anl	ar1,#0x01
 ;	../SCR/Duty_Cycle_Calculations.c:120: uint8_t sumBit = bitA ^ bitB ^ carry;
 	mov	a,r1
 	xrl	a,r0
 	mov	r7,a
-	mov	dptr,#_add_two_16_bit_unint_carry_65536_118
+	mov	dptr,#_add_two_16_bit_unint_carry_65536_117
 	movx	a,@dptr
 	mov	r6,a
-	mov	dptr,#_add_two_16_bit_unint_sumBit_196608_120
+	mov	dptr,#_add_two_16_bit_unint_sumBit_196608_119
 	xrl	a,r7
 	movx	@dptr,a
 ;	../SCR/Duty_Cycle_Calculations.c:122: carry = (bitA & bitB) | ((bitA ^ bitB) & carry);
@@ -847,27 +833,27 @@ _add_two_16_bit_unint:
 	anl	ar0,a
 	mov	a,r6
 	anl	a,r7
-	mov	dptr,#_add_two_16_bit_unint_carry_65536_118
+	mov	dptr,#_add_two_16_bit_unint_carry_65536_117
 	orl	a,r0
 	movx	@dptr,a
 ;	../SCR/Duty_Cycle_Calculations.c:124: result |= (sumBit << i);
-	mov	dptr,#_add_two_16_bit_unint_sumBit_196608_120
+	mov	dptr,#_add_two_16_bit_unint_sumBit_196608_119
 	movx	a,@dptr
 	mov	r7,a
 	mov	r6,#0x00
 	mov	b,r2
 	inc	b
-	sjmp	.00187
-.00186:
+	sjmp	.00180
+.00179:
 	mov	a,r7
 	add	a,r7
 	mov	r7,a
 	mov	a,r6
 	rlc	a
 	mov	r6,a
-.00187:
-	djnz	b,.00186
-	mov	dptr,#_add_two_16_bit_unint_result_65536_118
+.00180:
+	djnz	b,.00179
+	mov	dptr,#_add_two_16_bit_unint_result_65536_117
 	movx	a,@dptr
 	mov	r0,a
 	inc	dptr
@@ -877,7 +863,7 @@ _add_two_16_bit_unint:
 	orl	ar7,a
 	mov	a,r1
 	orl	ar6,a
-	mov	dptr,#_add_two_16_bit_unint_result_65536_118
+	mov	dptr,#_add_two_16_bit_unint_result_65536_117
 	mov	a,r7
 	movx	@dptr,a
 	mov	a,r6
@@ -885,15 +871,15 @@ _add_two_16_bit_unint:
 	movx	@dptr,a
 ;	../SCR/Duty_Cycle_Calculations.c:116: for (int i = 0; i < 16; ++i) {
 	inc	r2
-	cjne	r2,#0x00,.00188
+	cjne	r2,#0x00,.00181
 	inc	r3
-.00188:
+.00181:
 	pop	ar7
 	pop	ar6
-	ljmp	.00168
-.00166:
+	ljmp	.00161
+.00159:
 ;	../SCR/Duty_Cycle_Calculations.c:126: Capture_Value_sum = result;
-	mov	dptr,#_add_two_16_bit_unint_result_65536_118
+	mov	dptr,#_add_two_16_bit_unint_result_65536_117
 	movx	a,@dptr
 	mov	r6,a
 	inc	dptr
@@ -905,7 +891,7 @@ _add_two_16_bit_unint:
 	mov	a,r7
 	inc	dptr
 	movx	@dptr,a
-.00170:
+.00163:
 ;	../SCR/Duty_Cycle_Calculations.c:127: }
 	ret
 ;------------------------------------------------------------
@@ -928,13 +914,15 @@ _CCT_Read_PWM_OnTime:
 	clr	a
 	inc	dptr
 	movx	@dptr,a
-.00189:
-;	../SCR/Duty_Cycle_Calculations.c:134: }
+.00182:
+;	../SCR/Duty_Cycle_Calculations.c:135: }
 	ret
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'CCT_Read_PWM_OffTime'
 ;------------------------------------------------------------
-;	../SCR/Duty_Cycle_Calculations.c:136: void CCT_Read_PWM_OffTime(void)
+;Data                      Allocated with name '_CCT_Read_PWM_OffTime_Data_65536_123'
+;------------------------------------------------------------
+;	../SCR/Duty_Cycle_Calculations.c:137: void CCT_Read_PWM_OffTime(void)
 ;	-----------------------------------------
 ;	 function CCT_Read_PWM_OffTime
 ;	-----------------------------------------
@@ -942,17 +930,26 @@ _CCT_Read_PWM_OnTime:
 	.type   CCT_Read_PWM_OffTime, @function
 _CCT_Read_PWM_OffTime:
 	.using 0
-;	../SCR/Duty_Cycle_Calculations.c:138: SCR_T2CCU_PAGE=2;
+;	../SCR/Duty_Cycle_Calculations.c:140: SCR_T2CCU_PAGE=2;
 	mov	_SCR_T2CCU_PAGE,#0x02
-;	../SCR/Duty_Cycle_Calculations.c:140: Capture_Value_2 |= (uint8)SCR_T2CCU_CC0L;
+;	../SCR/Duty_Cycle_Calculations.c:142: Capture_Value_2 |= (uint8)SCR_T2CCU_CC0L;
+	mov	r6,_SCR_T2CCU_CC0L
+	mov	r7,#0x00
 	mov	dptr,#_Capture_Value_2
-	mov	a,_SCR_T2CCU_CC0L
+	mov	a,r6
 	movx	@dptr,a
-	clr	a
+	mov	a,r7
 	inc	dptr
 	movx	@dptr,a
-.00191:
-;	../SCR/Duty_Cycle_Calculations.c:141: }
+;	../SCR/Duty_Cycle_Calculations.c:143: Data =  Capture_Value_2;
+	mov	dptr,#_CCT_Read_PWM_OffTime_Data_65536_123
+	mov	a,r6
+	movx	@dptr,a
+	mov	a,r7
+	inc	dptr
+	movx	@dptr,a
+.00184:
+;	../SCR/Duty_Cycle_Calculations.c:144: }
 	ret
 ;--------------------------------------------------------
 ; xinit 

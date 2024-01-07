@@ -62,7 +62,7 @@ void SCR_CCT_Timer_Basic_Operation(void)
     SCR_T2CCU_CCTCON  |= (1 << 2) ;   //bit pos 2 enable CCT overflow interrupt
     SCR_T2CCU_CCTCON  |= (1 << 0) ;//bit pos 0 active CCT
     //T2CCU_PAGE=1
-    SCR_T2CCU_CCTCON = (SCR_T2CCU_CCTCON & (unsigned char)(~(0xF0 << 4))) | (0xB0); // CCT prescalee bit pos 4 - 7  and B = fPCLK / 2048
+    SCR_T2CCU_CCTCON = (SCR_T2CCU_CCTCON & (unsigned char)(~(0xF0 << 4))) | (0x60); // CCT prescalee bit pos 4 - 7  and B = fPCLK / 2048
     SCR_IEN0 |= (1 << 5) ; //IEN0.ET2  -> interrupt node 5;  bit pos 5  // PAGE: X
 
     //T2CCU_PAGE=1

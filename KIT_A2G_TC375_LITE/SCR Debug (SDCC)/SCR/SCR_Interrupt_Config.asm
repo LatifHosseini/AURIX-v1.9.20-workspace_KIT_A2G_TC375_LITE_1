@@ -306,8 +306,6 @@ _SCR_IR_Select_Edge_Mode:
 	.type   SCR_IR_Enable_Interrupt_Node, @function
 _SCR_IR_Enable_Interrupt_Node:
 	.using 0
-;	../SCR/SCR_Interrupt_Config.c:114: SCR_IEN1 |= (1 << 2) ;//node 8 enable IEN1.EX2  Bit posiotion 2
-	orl	_SCR_IEN1,#0x04
 ;	../SCR/SCR_Interrupt_Config.c:115: SCR_IEN1 |= (1 << 3) ; //node 9
 	orl	_SCR_IEN1,#0x08
 .00105:

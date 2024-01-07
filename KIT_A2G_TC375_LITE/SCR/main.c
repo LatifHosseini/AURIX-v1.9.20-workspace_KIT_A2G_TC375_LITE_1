@@ -41,6 +41,7 @@
 #define     CLEAR_BIT_5_IN_IR_CON0          5
 #define     CLEAR_BIT_3_IN_T01_TCON         3
 #define     CLEAR_BIT_2_IN_IR_CON0          2
+#define     Bitmaske_pin_6                  0x40
 
 //   #define MEM_SEGMENT_SHARED_DATA         0x1F00
 // #define Scr_Shared_Data  (*(volatile SCR_SHARED_DATA_TYPE*) 0x1F00)
@@ -48,13 +49,12 @@
  /*********************************************************************************************************************/
  /*-------------------------------------------------Global variables--------------------------------------------------*/
  /*********************************************************************************************************************/
- volatile unsigned char Duty_Cycle_Calculator = 0;
- volatile unsigned char edge_counter = 0;
- volatile unsigned char Check_Pin_Stat = 0;
- volatile unsigned char Read_Capture_Register = 0;
 
- volatile unsigned char rising_edge = 0;
- volatile unsigned char falling_edge = 0;
+
+ volatile unsigned char Start_PWM_Duty_Dycle_Calculating  = 0;
+ volatile unsigned char Check_Pin_Stat = 0;
+ volatile unsigned char Rising_Edge = 0;
+ volatile unsigned char Falling_Edge = 0;
  /*********************************************************************************************************************/
  /*------------------------------------------------Function Prototypes------------------------------------------------*/
  /*********************************************************************************************************************/
@@ -64,8 +64,7 @@ void delay(void);
 /*********************************************************************************************************************/
 void main()
 {
-    volatile unsigned int retunr_value = 0;
-    volatile unsigned int cnt = 0;
+
     volatile unsigned char ADC_Stat = 0;
     volatile unsigned long Capture_Value_sum = 0;
     volatile unsigned long temp = 0;
@@ -90,46 +89,43 @@ void main()
     while(1)
     {
 
-        SCR_IO_PAGE = SCR_IO_PAGE0;
-        if(rising_edge == 1){ SCR_P00_OUT |= (1 << 3) ; }// reset ddt
+        if(Start_PWM_Duty_Dycle_Calculating == 0)
+        {
+            SCR_IO_PAGE = SCR_IO_PAGE0;
+                if(Rising_Edge == 1) { SCR_P00_OUT |= (1 << 3) ; Falling_Edge = 0; Reset_CCT_Timer(); }// reset cct
 
-         if(falling_edge == 1){ SCR_P00_OUT |= (1 << 5) ; }//falling Capture on time
-
-         if(falling_edge == 2) {SCR_P00_OUT |= (1 << 4) ;  }// capture sume time rising
-
-         if(falling_edge == 3) // FALLING
-         {
-             falling_edge = 0;
-             rising_edge =0;
-             SCR_P00_OUT &= ~ (1 << 3);
-             SCR_P00_OUT &= ~ (1 << 5);
-             SCR_P00_OUT &= ~ (1 << 4);
-             }
+                if(Falling_Edge == 1){
+                    if(Rising_Edge == 1){
+                        SCR_P00_OUT |= (1 << 5) ; CCT_Read_PWM_OnTime();}//falling Capture on time
+                    }
 
 
+                if(Rising_Edge == 2) {
+                    if(Falling_Edge == 1){
+                        SCR_P00_OUT |= (1 << 4) ;  CCT_Read_PWM_OffTime();  }// capture sume time rising EDGE
+                    }
 
 
-      //  Reset_CCT_Timer();
-//        SCR_IO_PAGE = 0;
-//        SCR_P00_OUT ^= (1 << 4) ;
-//        clear_pending_bit_Node_8_9();
-//        read_pending_bit_node_8();
-//        delay();
+                if(Falling_Edge == 2) // FALLING
+                     {
+                        Rising_Edge = 0;
+                        Falling_Edge = 0;
+                         SCR_P00_OUT &= ~ (1 << 3);
+                         SCR_P00_OUT &= ~ (1 << 5);
+                         SCR_P00_OUT &= ~ (1 << 4);
 
-//
-//        SCR_P00_OUT ^= (1 << 3) ;
-//
-//        clear_pending_bit_Node_8_9();
-//        read_pending_bit_node_9();
-//        CCT_Read_PWM_OnTime();
-//
-//        SCR_P00_OUT ^= (1 << 5) ;
-//
-//        clear_pending_bit_Node_8_9();
-//        read_pending_bit_node_8();
-//        CCT_Read_PWM_OffTime();
-    //    SCR_P00_OUT ^= (1 << 4) ;
-     //   Duty_Cycle_Calculator_Function();
+                       //  Duty_Cycle_Calculator_Function();
+
+                         }
+        }
+
+
+
+
+
+
+
+     //
     }
 }
 
@@ -152,26 +148,20 @@ void EXINT5IS_interrupt(void) __interrupt (5){
 //    SCR_T2CCU_PAGE = 1;
 //    SCR_T2CCU_CCTCON &= ~(1 << 3) ;//bit pos 3 overflow flag
 }
-/***************************************************************************************/
-/*  ISR Node 8*/
-void EXINT8IS_interrupt(void) __interrupt (8){
 
-    rising_edge++;
-
-/***************************************************************************************/
-    SCR_SCU_PAGE = 0;
-    SCR_IR_CON0 &= ~(1 << 2);// Node 8 bit pos 2
-
-}
-/***************************************************************************************/
 /* ISR Node 9*/
 void EXINT9IS_interrupt(void) __interrupt (9){
 
-   if( rising_edge >= 1){falling_edge++;}
+    SCR_IO_PAGE = 0;// for debug purpose
+    Check_Pin_Stat = (unsigned char) SCR_P00_IN;
+    Check_Pin_Stat = (unsigned char) (Check_Pin_Stat &  Bitmaske_pin_6 ) ; //  01000000 pin 6
+    if(Check_Pin_Stat == 64 )// rising edge
+        {Rising_Edge++;}
+   // if(Check_Pin_Stat == 0 )// falling edge
+    else  {Falling_Edge++;}
 
 
-
-/***************************************************************************************/
+/*****achtung wenn 2 node für  **********************************************************************************/
     //SCU_PAGE=0
         SCR_SCU_PAGE = 0;
     SCR_IR_CON0 &= ~(1 << 3);// Node 9 bit pos 3

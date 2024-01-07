@@ -4,6 +4,6 @@ Connected to device... [TRICORE] DAS JDS AURIX LITE KIT V2.0 (TC375)
  ::Warning: The given program file is trying to write on reserved memory addresses, which will be skipped.
 ::Erasing Flash memory .......... (Pass)
 ::Programming Flash memory .......... (Pass)
-Overall time: 1721 ms
+Overall time: 1719 ms
 AURIXFlasher Exit Status: Pass
 Flashing was successfull

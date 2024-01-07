@@ -58,25 +58,25 @@ void Measure_PWM_duty_cycle(void);
 /*********************************************************************************************************************/
 void Duty_Cycle_Calculator_Function(void)
 {
-    __xdata __at(0x1F00)  unsigned int Data ;
-    Capture_Value_1 = 0x0FFF;
-    Capture_Value_2 = 0xEFFF;
+
  //   add_two_16_bit_unint();
- //  multiply_16bit_by_8bit();
+    multiply_16bit_by_8bit();
     Measure_PWM_duty_cycle();
-    if( multiplication_16bit_by_8bit_Result >281000) {
-        SCR_P00_OUT  ^= (1 << 7) ;
-        delay();
-    }
-      Data = duty_cycle;
+
+//    if( duty_cycle >5) {
+//        SCR_P00_OUT  ^= (1 << 7) ;
+//        delay();
+//    }
+    //  Data = duty_cycle;
       delay();
 }
 /****************************************************************************************************************************************
  * *************************************************************************************************************************************/
 void Measure_PWM_duty_cycle(void)
 {
-    uint32_t dividend = 0x63F9C;
-    uint16_t divisor = 0x0FFF;
+    // dividend 32/divisor 8 = quotient 4
+    uint32_t dividend = multiplication_16bit_by_8bit_Result;
+    uint16_t divisor = Capture_Value_2;
     uint32_t quotient = 0;
     uint32_t remainder = 0;
         for (int bit = 31; bit >= 0; bit--) {
@@ -92,7 +92,7 @@ void Measure_PWM_duty_cycle(void)
 /**********************************************************************************************************/
 void multiply_16bit_by_8bit(void)
 {
-    unsigned long multiplicand = 0x0FFF ;
+    unsigned long multiplicand =  Capture_Value_1 ;
     unsigned char multiplier = 100;
     unsigned long result = 0;
     for (int i = 0; i < 8; i++) {
@@ -131,12 +131,15 @@ void multiply_16bit_by_8bit(void)
       SCR_T2CCU_PAGE=2;
       Capture_Value_1 = (uint8)(SCR_T2CCU_CC0H << 8u);
       Capture_Value_1 |= (uint8)SCR_T2CCU_CC0L;
+
   }
 /***********************************************************************************************************/
   void CCT_Read_PWM_OffTime(void)
     {
+      __xdata __at(0x1F00)  unsigned int Data ;
         SCR_T2CCU_PAGE=2;
         Capture_Value_2 = (uint8)(SCR_T2CCU_CC0H << 8u);
         Capture_Value_2 |= (uint8)SCR_T2CCU_CC0L;
+        Data =  Capture_Value_2;
     }
 /***********************************************************************************************************/

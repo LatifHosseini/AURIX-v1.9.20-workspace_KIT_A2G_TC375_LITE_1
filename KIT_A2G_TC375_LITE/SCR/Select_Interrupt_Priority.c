@@ -54,6 +54,6 @@
 /*********************************************************************************************************************/
 void SCR_Select_Interrupt_Priority(void)
 {
-    SCR_IPH1 |= (1 << 3) ; // Set bit 3
-    SCR_IP1  |= (1 << 3) ; // Set bit 3
+    SCR_IPH1 |= (1 << 3) ; // Interrupt Priority for Node 9
+    SCR_IP1  |= (1 << 3) ; // Interrupt Priority for Node 9
 }
