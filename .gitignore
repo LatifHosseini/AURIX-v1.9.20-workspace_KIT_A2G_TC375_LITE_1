@@ -3,4 +3,6 @@
 SCR Debug (SDCC)/
 TriCore Debug (TASKING)/
 Configurations/
-
+.ads/
+.settings/
+TriCore Release (GCC)/
