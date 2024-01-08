@@ -56,9 +56,9 @@ void Measure_PWM_duty_cycle(void);
 /*********************************************************************************************************************/
 /*---------------------------------------------Function Implementations----------------------------------------------*/
 /*********************************************************************************************************************/
-void Duty_Cycle_Calculator_Function(void)
+unsigned char Duty_Cycle_Calculator_Function(void)
 {
-
+    __xdata __at(0x1F00)  unsigned int Data ;
  //   add_two_16_bit_unint();
     multiply_16bit_by_8bit();
     Measure_PWM_duty_cycle();
@@ -67,8 +67,9 @@ void Duty_Cycle_Calculator_Function(void)
 //        SCR_P00_OUT  ^= (1 << 7) ;
 //        delay();
 //    }
-    //  Data = duty_cycle;
-      delay();
+     Data = duty_cycle;
+  //    delay();
+    return 1;
 }
 /****************************************************************************************************************************************
  * *************************************************************************************************************************************/
@@ -128,6 +129,7 @@ void multiply_16bit_by_8bit(void)
 /***********************************************************************************************************/
   void CCT_Read_PWM_OnTime(void)
   {
+
       SCR_T2CCU_PAGE=2;
       Capture_Value_1 = (uint8)(SCR_T2CCU_CC0H << 8u);
       Capture_Value_1 |= (uint8)SCR_T2CCU_CC0L;
@@ -136,10 +138,10 @@ void multiply_16bit_by_8bit(void)
 /***********************************************************************************************************/
   void CCT_Read_PWM_OffTime(void)
     {
-      __xdata __at(0x1F00)  unsigned int Data ;
+
         SCR_T2CCU_PAGE=2;
         Capture_Value_2 = (uint8)(SCR_T2CCU_CC0H << 8u);
         Capture_Value_2 |= (uint8)SCR_T2CCU_CC0L;
-        Data =  Capture_Value_2;
+
     }
 /***********************************************************************************************************/

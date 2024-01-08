@@ -68,8 +68,12 @@ void main()
 
     volatile unsigned char ADC_Stat = 0;
     volatile unsigned long Capture_Value_sum = 0;
-    volatile unsigned long temp = 0;
+    volatile unsigned long retun_val = 0;
     volatile unsigned char Duty_Cycle = 0;
+    volatile unsigned char step_count_1 = 0;
+    volatile unsigned char step_count_2 = 0;
+    volatile unsigned char step_count_3 = 0;
+    volatile unsigned char step_count_4 = 0;
     /* SCU module configurations*/
     SCR_SCU_PAGE = 1;       //Switch to page 1
     SCR_SCU_PMCON1 = 0x59;  //OCDS, T2CCU0, RTC and WCAN enabled
@@ -90,35 +94,43 @@ void main()
     while(1)
     {
 
-        if(Start_PWM_Duty_Dycle_Calculating == 0)
-        {
-            SCR_IO_PAGE = SCR_IO_PAGE0;
-                if(Edge_Detection == 1) { SCR_P00_OUT |= (1 << 3) ; Falling_Edge = 0; Reset_CCT_Timer(); }// reset cct
-
-                if(Edge_Detection == 2){
-
-                        SCR_P00_OUT |= (1 << 5) ; CCT_Read_PWM_OnTime(); //falling Capture on time
-                    }
-
-
-                if(Edge_Detection == 3) {
-
-                        SCR_P00_OUT |= (1 << 4) ;  CCT_Read_PWM_OffTime();  // capture sume time rising EDGE
-                    }
-
-
-                if(Edge_Detection == 4) // FALLING
-                     {
-                        Rising_Edge = 0;
-                        Falling_Edge = 0;
-                         SCR_P00_OUT &= ~ (1 << 3);
-                         SCR_P00_OUT &= ~ (1 << 5);
-                         SCR_P00_OUT &= ~ (1 << 4);
-
-                       //  Duty_Cycle_Calculator_Function();
-
-                         }
-        }
+//        if(Start_PWM_Duty_Dycle_Calculating == 0)
+//        {
+//            SCR_IO_PAGE = SCR_IO_PAGE0;
+//                if(Edge_Detection == 1) {
+//                    if(step_count_1 == 0){
+//                        step_count_1 = 1;
+//                        SCR_P00_OUT |= (1 << 3) ;
+//                        Reset_CCT_Timer(); }// rising reset cct
+//                    }
+//                if(Edge_Detection == 2){
+//                    if(step_count_1 == 1){
+//                        SCR_T2CCU_PAGE = 2;
+//                        SCR_T2CCU_CC0L = 0xA0;
+//                        step_count_1 = 2;
+//                        SCR_P00_OUT |= (1 << 5) ;
+//                        CCT_Read_PWM_OnTime(); //falling Capture on time
+//                    }}
+//                if(Edge_Detection == 3) {
+//                    if(step_count_1 == 2){
+//                        SCR_T2CCU_PAGE  = 2;
+//                        SCR_T2CCU_CC0L = 0xA0;
+//                        step_count_1 = 3;
+//                        SCR_P00_OUT |= (1 << 4) ;
+//                        CCT_Read_PWM_OffTime();  // capture sume time rising EDGE
+//                    }}
+//                if(Edge_Detection == 4) // FALLING
+//                     {
+//                    if(step_count_1 == 3){
+//                            step_count_1 = 0;
+//                         SCR_P00_OUT &= ~ (1 << 3);
+//                         SCR_P00_OUT &= ~ (1 << 5);
+//                         SCR_P00_OUT &= ~ (1 << 4);
+//                         retun_val = 0;
+//                         retun_val = Duty_Cycle_Calculator_Function();
+//                             if(retun_val == 1) {Edge_Detection = 0;}
+//                         }}
+//        }
 
 
 
@@ -156,7 +168,7 @@ void EXINT5IS_interrupt(void) __interrupt (5){
 /*  ISR Node 8*/
 void EXINT8IS_interrupt(void) __interrupt (8){
 
-    rising_edge++;
+//    rising_edge++;
 
 
     SCR_SCU_PAGE = 0;
@@ -168,7 +180,7 @@ void EXINT8IS_interrupt(void) __interrupt (8){
 /* ISR Node 9*/
 void EXINT9IS_interrupt(void) __interrupt (9){
 // man weis nicht ob dies variable bei steigen oder fallende um 1 erhöht wird, hier kommt die priority ovn diesem 2 Node im spiel.
-    if(rising_edge >= 1){Edge_Detection++; }
+  //  if(rising_edge >= 1){Edge_Detection++; }
 
 
 /***********************************************************************************************************************************************************************************

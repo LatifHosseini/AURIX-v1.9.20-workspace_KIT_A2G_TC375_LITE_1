@@ -237,10 +237,14 @@ _SCR_ADCOMP_CON	=	0x00fb
 	.type   SCR_Select_Interrupt_Priority, @function
 _SCR_Select_Interrupt_Priority:
 	.using 0
-;	../SCR/Select_Interrupt_Priority.c:57: SCR_IPH1 |= (1 << 3) ; // Interrupt Priority for Node 9
-	orl	_SCR_IPH1,#0x08
-;	../SCR/Select_Interrupt_Priority.c:58: SCR_IP1  |= (1 << 3) ; // Interrupt Priority for Node 9
-	orl	_SCR_IP1,#0x08
+;	../SCR/Select_Interrupt_Priority.c:57: SCR_IPH1 |= (1 << 2) ; // Interrupt Priority for Node 8 high
+	orl	_SCR_IPH1,#0x04
+;	../SCR/Select_Interrupt_Priority.c:58: SCR_IP1  |= (1 << 2) ; // Interrupt Priority for Node 8
+	orl	_SCR_IP1,#0x04
+;	../SCR/Select_Interrupt_Priority.c:60: SCR_IPH1  &= ~(1 << 3) ; // Interrupt Priority for Node 9 Low
+	anl	_SCR_IPH1,#0xF7
+;	../SCR/Select_Interrupt_Priority.c:61: SCR_IP1   &= ~(1 << 3) ; // Interrupt Priority for Node 9
+	anl	_SCR_IP1,#0xF7
 .00101:
-;	../SCR/Select_Interrupt_Priority.c:59: }
+;	../SCR/Select_Interrupt_Priority.c:62: }
 	ret

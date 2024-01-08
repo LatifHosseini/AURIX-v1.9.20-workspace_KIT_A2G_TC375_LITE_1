@@ -11869,3 +11869,522 @@ C Model Exception: C Model Status [Element Duty_Cycle_Calculations.c does not ex
 
 !ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 16:22:16.698
 !MESSAGE Include paths were discovered in 102 milliseconds.
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-01-07 19:05:28.341
+!MESSAGE Indexed 'KIT_A2G_TC375_LITE' (15 sources, 15 headers) in 0,161 sec: 716 declarations; 686 references; 0 unresolved inclusions; 210 syntax errors; 213 unresolved names (13 %)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 19:05:29.260
+!MESSAGE Boosting configuration SCR Debug (SDCC) of project KIT_A2G_TC375_LITE boosted in 175 milliseconds. (full boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 19:05:29.294
+!MESSAGE Include paths were discovered in 32 milliseconds.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 19:07:51.656
+!MESSAGE Boosting configuration SCR Debug (SDCC) of project KIT_A2G_TC375_LITE boosted in 116 milliseconds. (full boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 19:07:51.690
+!MESSAGE Include paths were discovered in 32 milliseconds.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 19:08:00.097
+!MESSAGE Project index is not complete, and cannot be used for boosting.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 19:08:00.098
+!MESSAGE Boosting configuration SCR Debug (SDCC) of project KIT_A2G_TC375_LITE boosted in 0 milliseconds. (full boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 19:08:00.099
+!MESSAGE Project index is not complete, and cannot be used for boosting.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 19:08:00.100
+!MESSAGE Boosting configuration TriCore Debug (TASKING) of project KIT_A2G_TC375_LITE boosted in 0 milliseconds. (full boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 19:08:00.295
+!MESSAGE Include paths were discovered in 194 milliseconds.
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-01-07 19:08:30.108
+!MESSAGE Indexed 'KIT_A2G_TC375_LITE' (90 sources, 496 headers) in 30,8 sec: 133.656 declarations; 123.552 references; 12 unresolved inclusions; 866 syntax errors; 5.294 unresolved names (2 %)
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-01-07 19:08:57.453
+!MESSAGE Indexed 'KIT_A2G_TC375_LITE' (15 sources, 15 headers) in 0,146 sec: 716 declarations; 687 references; 0 unresolved inclusions; 210 syntax errors; 210 unresolved names (13 %)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 19:08:58.046
+!MESSAGE Boosting configuration SCR Debug (SDCC) of project KIT_A2G_TC375_LITE boosted in 133 milliseconds. (full boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 19:08:58.075
+!MESSAGE Include paths were discovered in 27 milliseconds.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 19:09:04.072
+!MESSAGE Project index is not complete, and cannot be used for boosting.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 19:09:04.072
+!MESSAGE Boosting configuration SCR Debug (SDCC) of project KIT_A2G_TC375_LITE boosted in 0 milliseconds. (full boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 19:09:04.073
+!MESSAGE Project index is not complete, and cannot be used for boosting.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 19:09:04.073
+!MESSAGE Boosting configuration TriCore Debug (TASKING) of project KIT_A2G_TC375_LITE boosted in 0 milliseconds. (full boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 19:09:04.174
+!MESSAGE Include paths were discovered in 99 milliseconds.
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-01-07 19:09:31.262
+!MESSAGE Indexed 'KIT_A2G_TC375_LITE' (90 sources, 511 headers) in 28 sec: 133.916 declarations; 123.644 references; 12 unresolved inclusions; 1.377 syntax errors; 5.148 unresolved names (2 %)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 19:10:08.374
+!MESSAGE Boosting configuration SCR Debug (SDCC) of project KIT_A2G_TC375_LITE boosted in 448 milliseconds. (incremental boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 19:10:10.345
+!MESSAGE Boosting configuration TriCore Debug (TASKING) of project KIT_A2G_TC375_LITE boosted in 1968 milliseconds. (incremental boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 19:10:10.415
+!MESSAGE Include paths were discovered in 68 milliseconds.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 19:11:45.342
+!MESSAGE Boosting configuration SCR Debug (SDCC) of project KIT_A2G_TC375_LITE boosted in 339 milliseconds. (incremental boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 19:11:47.314
+!MESSAGE Boosting configuration TriCore Debug (TASKING) of project KIT_A2G_TC375_LITE boosted in 1971 milliseconds. (incremental boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 19:11:47.406
+!MESSAGE Include paths were discovered in 91 milliseconds.
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-01-07 19:12:07.214
+!MESSAGE Indexed 'KIT_A2G_TC375_LITE' (15 sources, 15 headers) in 0,129 sec: 716 declarations; 688 references; 0 unresolved inclusions; 210 syntax errors; 210 unresolved names (13 %)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 19:12:07.779
+!MESSAGE Boosting configuration SCR Debug (SDCC) of project KIT_A2G_TC375_LITE boosted in 101 milliseconds. (full boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 19:12:07.825
+!MESSAGE Include paths were discovered in 44 milliseconds.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 19:12:44.196
+!MESSAGE Project index is not complete, and cannot be used for boosting.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 19:12:44.197
+!MESSAGE Boosting configuration SCR Debug (SDCC) of project KIT_A2G_TC375_LITE boosted in 0 milliseconds. (full boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 19:12:44.198
+!MESSAGE Project index is not complete, and cannot be used for boosting.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 19:12:44.198
+!MESSAGE Boosting configuration TriCore Debug (TASKING) of project KIT_A2G_TC375_LITE boosted in 0 milliseconds. (full boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 19:12:44.328
+!MESSAGE Include paths were discovered in 128 milliseconds.
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-01-07 19:13:11.508
+!MESSAGE Indexed 'KIT_A2G_TC375_LITE' (89 sources, 508 headers) in 28,4 sec: 133.914 declarations; 123.643 references; 12 unresolved inclusions; 1.377 syntax errors; 5.148 unresolved names (2 %)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 19:13:15.082
+!MESSAGE Boosting configuration SCR Debug (SDCC) of project KIT_A2G_TC375_LITE boosted in 402 milliseconds. (incremental boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 19:13:17.047
+!MESSAGE Boosting configuration TriCore Debug (TASKING) of project KIT_A2G_TC375_LITE boosted in 1962 milliseconds. (incremental boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 19:13:17.129
+!MESSAGE Include paths were discovered in 80 milliseconds.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 19:13:23.177
+!MESSAGE Project index is not complete, and cannot be used for boosting.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 19:13:23.178
+!MESSAGE Boosting configuration SCR Debug (SDCC) of project KIT_A2G_TC375_LITE boosted in 0 milliseconds. (incremental boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 19:13:23.178
+!MESSAGE Project index is not complete, and cannot be used for boosting.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 19:13:23.179
+!MESSAGE Boosting configuration TriCore Debug (TASKING) of project KIT_A2G_TC375_LITE boosted in 0 milliseconds. (incremental boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 19:13:23.251
+!MESSAGE Include paths were discovered in 72 milliseconds.
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-01-07 19:18:30.334
+!MESSAGE Indexed 'KIT_A2G_TC375_LITE' (15 sources, 15 headers) in 0,107 sec: 716 declarations; 687 references; 0 unresolved inclusions; 210 syntax errors; 210 unresolved names (13 %)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 19:18:31.073
+!MESSAGE Boosting configuration SCR Debug (SDCC) of project KIT_A2G_TC375_LITE boosted in 141 milliseconds. (full boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 19:18:31.103
+!MESSAGE Include paths were discovered in 29 milliseconds.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 19:18:37.617
+!MESSAGE Project index is not complete, and cannot be used for boosting.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 19:18:37.618
+!MESSAGE Boosting configuration SCR Debug (SDCC) of project KIT_A2G_TC375_LITE boosted in 0 milliseconds. (full boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 19:18:37.619
+!MESSAGE Project index is not complete, and cannot be used for boosting.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 19:18:37.620
+!MESSAGE Boosting configuration TriCore Debug (TASKING) of project KIT_A2G_TC375_LITE boosted in 1 milliseconds. (full boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 19:18:37.727
+!MESSAGE Include paths were discovered in 106 milliseconds.
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-01-07 19:19:04.716
+!MESSAGE Indexed 'KIT_A2G_TC375_LITE' (89 sources, 507 headers) in 28 sec: 133.948 declarations; 121.698 references; 12 unresolved inclusions; 2.491 syntax errors; 6.013 unresolved names (2,3 %)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 19:19:09.157
+!MESSAGE Boosting configuration SCR Debug (SDCC) of project KIT_A2G_TC375_LITE boosted in 444 milliseconds. (incremental boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 19:19:10.639
+!MESSAGE Boosting configuration TriCore Debug (TASKING) of project KIT_A2G_TC375_LITE boosted in 1479 milliseconds. (incremental boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 19:19:10.740
+!MESSAGE Include paths were discovered in 100 milliseconds.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 19:19:27.942
+!MESSAGE Boosting configuration SCR Debug (SDCC) of project KIT_A2G_TC375_LITE boosted in 297 milliseconds. (incremental boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 19:19:29.357
+!MESSAGE Boosting configuration TriCore Debug (TASKING) of project KIT_A2G_TC375_LITE boosted in 1414 milliseconds. (incremental boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 19:19:29.444
+!MESSAGE Include paths were discovered in 86 milliseconds.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 19:19:35.521
+!MESSAGE Project index is not complete, and cannot be used for boosting.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 19:19:35.522
+!MESSAGE Boosting configuration SCR Debug (SDCC) of project KIT_A2G_TC375_LITE boosted in 0 milliseconds. (incremental boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 19:19:35.523
+!MESSAGE Project index is not complete, and cannot be used for boosting.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 19:19:35.523
+!MESSAGE Boosting configuration TriCore Debug (TASKING) of project KIT_A2G_TC375_LITE boosted in 0 milliseconds. (incremental boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 19:19:35.592
+!MESSAGE Include paths were discovered in 68 milliseconds.
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-01-07 20:40:18.026
+!MESSAGE Indexed 'KIT_A2G_TC375_LITE' (15 sources, 15 headers) in 0,444 sec: 716 declarations; 687 references; 0 unresolved inclusions; 210 syntax errors; 210 unresolved names (13 %)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 20:40:19.452
+!MESSAGE Boosting configuration SCR Debug (SDCC) of project KIT_A2G_TC375_LITE boosted in 136 milliseconds. (full boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 20:40:19.493
+!MESSAGE Include paths were discovered in 39 milliseconds.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 20:40:29.184
+!MESSAGE Project index is not complete, and cannot be used for boosting.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 20:40:29.185
+!MESSAGE Boosting configuration SCR Debug (SDCC) of project KIT_A2G_TC375_LITE boosted in 0 milliseconds. (full boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 20:40:29.185
+!MESSAGE Project index is not complete, and cannot be used for boosting.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 20:40:29.186
+!MESSAGE Boosting configuration TriCore Debug (TASKING) of project KIT_A2G_TC375_LITE boosted in 0 milliseconds. (full boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 20:40:29.274
+!MESSAGE Include paths were discovered in 87 milliseconds.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 20:40:58.750
+!MESSAGE Project index is not complete, and cannot be used for boosting.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 20:40:58.751
+!MESSAGE Boosting configuration SCR Debug (SDCC) of project KIT_A2G_TC375_LITE boosted in 0 milliseconds. (incremental boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 20:40:58.753
+!MESSAGE Project index is not complete, and cannot be used for boosting.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 20:40:58.754
+!MESSAGE Boosting configuration TriCore Debug (TASKING) of project KIT_A2G_TC375_LITE boosted in 2 milliseconds. (incremental boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 20:40:58.855
+!MESSAGE Include paths were discovered in 98 milliseconds.
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-01-07 20:41:03.242
+!MESSAGE Indexed 'KIT_A2G_TC375_LITE' (90 sources, 487 headers) in 31,8 sec: 132.991 declarations; 121.113 references; 12 unresolved inclusions; 1.983 syntax errors; 5.963 unresolved names (2,3 %)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 20:41:11.482
+!MESSAGE Boosting configuration SCR Debug (SDCC) of project KIT_A2G_TC375_LITE boosted in 285 milliseconds. (incremental boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 20:41:12.890
+!MESSAGE Boosting configuration TriCore Debug (TASKING) of project KIT_A2G_TC375_LITE boosted in 1407 milliseconds. (incremental boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 20:41:12.967
+!MESSAGE Include paths were discovered in 76 milliseconds.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 20:41:19.101
+!MESSAGE Project index is not complete, and cannot be used for boosting.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 20:41:19.102
+!MESSAGE Boosting configuration SCR Debug (SDCC) of project KIT_A2G_TC375_LITE boosted in 0 milliseconds. (incremental boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 20:41:19.102
+!MESSAGE Project index is not complete, and cannot be used for boosting.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 20:41:19.103
+!MESSAGE Boosting configuration TriCore Debug (TASKING) of project KIT_A2G_TC375_LITE boosted in 0 milliseconds. (incremental boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 20:41:19.175
+!MESSAGE Include paths were discovered in 71 milliseconds.
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-01-07 20:48:58.617
+!MESSAGE Indexed 'KIT_A2G_TC375_LITE' (15 sources, 15 headers) in 0,116 sec: 716 declarations; 690 references; 0 unresolved inclusions; 210 syntax errors; 210 unresolved names (13 %)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 20:48:59.387
+!MESSAGE Boosting configuration SCR Debug (SDCC) of project KIT_A2G_TC375_LITE boosted in 166 milliseconds. (full boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 20:48:59.414
+!MESSAGE Include paths were discovered in 26 milliseconds.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 20:49:17.220
+!MESSAGE Boosting configuration SCR Debug (SDCC) of project KIT_A2G_TC375_LITE boosted in 132 milliseconds. (full boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 20:49:17.251
+!MESSAGE Include paths were discovered in 30 milliseconds.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 20:54:53.412
+!MESSAGE Boosting configuration SCR Debug (SDCC) of project KIT_A2G_TC375_LITE boosted in 97 milliseconds. (full boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 20:54:53.440
+!MESSAGE Include paths were discovered in 27 milliseconds.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 20:55:39.874
+!MESSAGE Boosting configuration SCR Debug (SDCC) of project KIT_A2G_TC375_LITE boosted in 107 milliseconds. (full boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 20:55:39.901
+!MESSAGE Include paths were discovered in 26 milliseconds.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 20:55:46.049
+!MESSAGE Project index is not complete, and cannot be used for boosting.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 20:55:46.049
+!MESSAGE Boosting configuration SCR Debug (SDCC) of project KIT_A2G_TC375_LITE boosted in 0 milliseconds. (full boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 20:55:46.050
+!MESSAGE Project index is not complete, and cannot be used for boosting.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 20:55:46.051
+!MESSAGE Boosting configuration TriCore Debug (TASKING) of project KIT_A2G_TC375_LITE boosted in 0 milliseconds. (full boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 20:55:46.184
+!MESSAGE Include paths were discovered in 132 milliseconds.
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-01-07 20:56:13.472
+!MESSAGE Indexed 'KIT_A2G_TC375_LITE' (90 sources, 495 headers) in 28,4 sec: 133.653 declarations; 121.519 references; 12 unresolved inclusions; 1.989 syntax errors; 6.171 unresolved names (2,4 %)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 20:56:16.107
+!MESSAGE Boosting configuration SCR Debug (SDCC) of project KIT_A2G_TC375_LITE boosted in 363 milliseconds. (incremental boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 20:56:17.610
+!MESSAGE Boosting configuration TriCore Debug (TASKING) of project KIT_A2G_TC375_LITE boosted in 1501 milliseconds. (incremental boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 20:56:17.687
+!MESSAGE Include paths were discovered in 74 milliseconds.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 20:56:23.719
+!MESSAGE Project index is not complete, and cannot be used for boosting.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 20:56:23.720
+!MESSAGE Boosting configuration SCR Debug (SDCC) of project KIT_A2G_TC375_LITE boosted in 0 milliseconds. (incremental boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 20:56:23.721
+!MESSAGE Project index is not complete, and cannot be used for boosting.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 20:56:23.721
+!MESSAGE Boosting configuration TriCore Debug (TASKING) of project KIT_A2G_TC375_LITE boosted in 0 milliseconds. (incremental boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 20:56:23.802
+!MESSAGE Include paths were discovered in 80 milliseconds.
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-01-07 20:59:31.699
+!MESSAGE Indexed 'KIT_A2G_TC375_LITE' (15 sources, 15 headers) in 0,126 sec: 720 declarations; 698 references; 0 unresolved inclusions; 210 syntax errors; 210 unresolved names (13 %)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 20:59:32.422
+!MESSAGE Boosting configuration SCR Debug (SDCC) of project KIT_A2G_TC375_LITE boosted in 128 milliseconds. (full boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 20:59:32.451
+!MESSAGE Include paths were discovered in 28 milliseconds.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 20:59:38.245
+!MESSAGE Project index is not complete, and cannot be used for boosting.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 20:59:38.245
+!MESSAGE Boosting configuration SCR Debug (SDCC) of project KIT_A2G_TC375_LITE boosted in 0 milliseconds. (full boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 20:59:38.246
+!MESSAGE Project index is not complete, and cannot be used for boosting.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 20:59:38.246
+!MESSAGE Boosting configuration TriCore Debug (TASKING) of project KIT_A2G_TC375_LITE boosted in 0 milliseconds. (full boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 20:59:38.349
+!MESSAGE Include paths were discovered in 101 milliseconds.
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-01-07 21:00:10.910
+!MESSAGE Indexed 'KIT_A2G_TC375_LITE' (89 sources, 506 headers) in 33,6 sec: 133.948 declarations; 121.698 references; 12 unresolved inclusions; 2.491 syntax errors; 6.013 unresolved names (2,3 %)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 21:00:13.324
+!MESSAGE Boosting configuration SCR Debug (SDCC) of project KIT_A2G_TC375_LITE boosted in 362 milliseconds. (incremental boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 21:00:14.871
+!MESSAGE Boosting configuration TriCore Debug (TASKING) of project KIT_A2G_TC375_LITE boosted in 1544 milliseconds. (incremental boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 21:00:14.949
+!MESSAGE Include paths were discovered in 76 milliseconds.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 21:00:25.910
+!MESSAGE Boosting configuration SCR Debug (SDCC) of project KIT_A2G_TC375_LITE boosted in 280 milliseconds. (incremental boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 21:00:27.319
+!MESSAGE Boosting configuration TriCore Debug (TASKING) of project KIT_A2G_TC375_LITE boosted in 1408 milliseconds. (incremental boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 21:00:27.406
+!MESSAGE Include paths were discovered in 85 milliseconds.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 21:00:33.381
+!MESSAGE Project index is not complete, and cannot be used for boosting.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 21:00:33.382
+!MESSAGE Boosting configuration SCR Debug (SDCC) of project KIT_A2G_TC375_LITE boosted in 0 milliseconds. (incremental boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 21:00:33.382
+!MESSAGE Project index is not complete, and cannot be used for boosting.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 21:00:33.383
+!MESSAGE Boosting configuration TriCore Debug (TASKING) of project KIT_A2G_TC375_LITE boosted in 0 milliseconds. (incremental boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 21:00:33.458
+!MESSAGE Include paths were discovered in 74 milliseconds.
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-01-07 21:23:17.771
+!MESSAGE Indexed 'KIT_A2G_TC375_LITE' (15 sources, 15 headers) in 0,104 sec: 720 declarations; 702 references; 0 unresolved inclusions; 210 syntax errors; 210 unresolved names (13 %)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 21:23:18.497
+!MESSAGE Boosting configuration SCR Debug (SDCC) of project KIT_A2G_TC375_LITE boosted in 128 milliseconds. (full boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 21:23:18.527
+!MESSAGE Include paths were discovered in 29 milliseconds.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 21:26:05.261
+!MESSAGE Boosting configuration SCR Debug (SDCC) of project KIT_A2G_TC375_LITE boosted in 97 milliseconds. (full boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 21:26:05.287
+!MESSAGE Include paths were discovered in 25 milliseconds.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 21:30:52.687
+!MESSAGE Boosting configuration SCR Debug (SDCC) of project KIT_A2G_TC375_LITE boosted in 130 milliseconds. (full boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 21:30:52.757
+!MESSAGE Include paths were discovered in 68 milliseconds.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 21:30:58.825
+!MESSAGE Project index is not complete, and cannot be used for boosting.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 21:30:58.826
+!MESSAGE Boosting configuration SCR Debug (SDCC) of project KIT_A2G_TC375_LITE boosted in 0 milliseconds. (full boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 21:30:58.826
+!MESSAGE Project index is not complete, and cannot be used for boosting.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 21:30:58.827
+!MESSAGE Boosting configuration TriCore Debug (TASKING) of project KIT_A2G_TC375_LITE boosted in 0 milliseconds. (full boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 21:30:59.083
+!MESSAGE Include paths were discovered in 256 milliseconds.
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-01-07 21:31:26.432
+!MESSAGE Indexed 'KIT_A2G_TC375_LITE' (90 sources, 494 headers) in 28,6 sec: 133.653 declarations; 121.523 references; 12 unresolved inclusions; 1.989 syntax errors; 6.171 unresolved names (2,4 %)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 21:31:29.695
+!MESSAGE Boosting configuration SCR Debug (SDCC) of project KIT_A2G_TC375_LITE boosted in 415 milliseconds. (incremental boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 21:31:31.260
+!MESSAGE Boosting configuration TriCore Debug (TASKING) of project KIT_A2G_TC375_LITE boosted in 1561 milliseconds. (incremental boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 21:31:31.347
+!MESSAGE Include paths were discovered in 85 milliseconds.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 21:31:53.742
+!MESSAGE Boosting configuration SCR Debug (SDCC) of project KIT_A2G_TC375_LITE boosted in 285 milliseconds. (incremental boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 21:31:55.143
+!MESSAGE Boosting configuration TriCore Debug (TASKING) of project KIT_A2G_TC375_LITE boosted in 1399 milliseconds. (incremental boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 21:31:55.222
+!MESSAGE Include paths were discovered in 77 milliseconds.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 21:32:01.381
+!MESSAGE Project index is not complete, and cannot be used for boosting.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 21:32:01.381
+!MESSAGE Boosting configuration SCR Debug (SDCC) of project KIT_A2G_TC375_LITE boosted in 0 milliseconds. (incremental boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 21:32:01.382
+!MESSAGE Project index is not complete, and cannot be used for boosting.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 21:32:01.382
+!MESSAGE Boosting configuration TriCore Debug (TASKING) of project KIT_A2G_TC375_LITE boosted in 0 milliseconds. (incremental boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-07 21:32:01.458
+!MESSAGE Include paths were discovered in 74 milliseconds.
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-01-08 14:03:18.116
+!MESSAGE Indexed 'KIT_A2G_TC375_LITE' (15 sources, 15 headers) in 0,567 sec: 720 declarations; 702 references; 0 unresolved inclusions; 210 syntax errors; 210 unresolved names (13 %)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-08 14:03:19.275
+!MESSAGE Boosting configuration SCR Debug (SDCC) of project KIT_A2G_TC375_LITE boosted in 294 milliseconds. (full boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-08 14:03:19.316
+!MESSAGE Include paths were discovered in 40 milliseconds.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-08 14:03:34.023
+!MESSAGE Project index is not complete, and cannot be used for boosting.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-08 14:03:34.024
+!MESSAGE Boosting configuration SCR Debug (SDCC) of project KIT_A2G_TC375_LITE boosted in 0 milliseconds. (full boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-08 14:03:34.025
+!MESSAGE Project index is not complete, and cannot be used for boosting.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-08 14:03:34.026
+!MESSAGE Boosting configuration TriCore Debug (TASKING) of project KIT_A2G_TC375_LITE boosted in 0 milliseconds. (full boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-08 14:03:34.183
+!MESSAGE Include paths were discovered in 155 milliseconds.
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-01-08 14:04:05.514
+!MESSAGE Indexed 'KIT_A2G_TC375_LITE' (89 sources, 485 headers) in 29,7 sec: 132.989 declarations; 121.110 references; 12 unresolved inclusions; 1.983 syntax errors; 5.963 unresolved names (2,3 %)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-08 14:04:05.620
+!MESSAGE Project index is not complete, and cannot be used for boosting.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-08 14:04:05.621
+!MESSAGE Boosting configuration SCR Debug (SDCC) of project KIT_A2G_TC375_LITE boosted in 1 milliseconds. (incremental boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-08 14:04:05.622
+!MESSAGE Project index is not complete, and cannot be used for boosting.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-08 14:04:05.622
+!MESSAGE Boosting configuration TriCore Debug (TASKING) of project KIT_A2G_TC375_LITE boosted in 0 milliseconds. (incremental boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2024-01-08 14:04:05.691
+!MESSAGE Include paths were discovered in 68 milliseconds.
+
+!ENTRY org.eclipse.cdt.ui 4 0 2024-01-08 14:14:18.860
+!MESSAGE Error in CDT UI during reconcile
+!STACK 1
+C Model Exception: C Model Status [Element main.c does not exist.]
+	at org.eclipse.cdt.internal.core.model.CElement.newNotPresentException(CElement.java:485)
+	at org.eclipse.cdt.internal.core.model.TranslationUnit.makeConsistent(TranslationUnit.java:583)
+	at org.eclipse.cdt.internal.core.model.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:65)
+	at org.eclipse.cdt.internal.core.model.CModelOperation.execute(CModelOperation.java:346)
+	at org.eclipse.cdt.internal.core.model.CModelOperation.run(CModelOperation.java:613)
+	at org.eclipse.cdt.internal.core.model.CModelOperation.runOperation(CModelOperation.java:641)
+	at org.eclipse.cdt.internal.core.model.WorkingCopy.reconcile(WorkingCopy.java:365)
+	at org.eclipse.cdt.internal.ui.text.CReconcilingStrategy.reconcile(CReconcilingStrategy.java:79)
+	at org.eclipse.cdt.internal.ui.text.CReconcilingStrategy.reconcile(CReconcilingStrategy.java:64)
+	at org.eclipse.cdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:89)
+	at org.eclipse.cdt.internal.ui.text.CCompositeReconcilingStrategy.reconcile(CCompositeReconcilingStrategy.java:90)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:78)
+	at org.eclipse.cdt.internal.ui.text.CReconciler.process(CReconciler.java:346)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:207)
+!SUBENTRY 1 org.eclipse.cdt.core 4 969 2024-01-08 14:14:18.861
+!MESSAGE Element main.c does not exist.

@@ -96,8 +96,8 @@ void TrigerWakeUpFromStandbyMode(void);
 //void SCR_Port_EnablePortPad(unsigned char port, unsigned char pinIndex);
 //void SCR_GPIO_EnablePortPad(unsigned int port);
 
-void Duty_Cycle_Calculator_Function(void);
 
+unsigned char Duty_Cycle_Calculator_Function(void);
 void clear_pending_bit_Node_8_9(void);
 void SCR_ExternalInterruptChanelSelect(void);
 
